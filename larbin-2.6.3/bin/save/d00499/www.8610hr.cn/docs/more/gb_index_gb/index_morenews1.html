@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+<script type="text/javascript" src="../../../js/mxl.tab.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns02" onload="loading()">
+<!--包含头部文件 -->
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+				<div class="more_list">
+					<h1 class="more_title">首页广播</h1>
+					
+						<ul>
+					 						<li><a href="http://www.8610hr.cn/docs/jgsz/2014-11-25/1416895418278.html"><font color=#FF0000><b>2014人才服务公益行·留学归国人员（冬季）专场招聘会邀请函</b></font></a><span>[2014-11-25]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/zxdt/2014-11-17/1416189536693.html"><font color=#FF0000><b>关于举办“创新•管理•绩效——海创企业人力资源管理沙龙”的通知</b></font></a><span>[2014-11-17]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/jgsz/2014-10-11/1413005061816.html"><font color=#0088FF>关于开展第十四批（2014年第三批）北京市留学人员创办企业开办费资助资金申报工作的通知</font></a><span>[2014-10-30]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/zxdt/2014-09-24/1411538397961.html">北京市海外高层次人才聘用单位服务专员制度的通知</a><span>[2014-10-30]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/jgsz/2014-10-11/1413005061816.html"><font color=#0088FF>关于开展第十四批（2014年第三批）北京市留学人员创办企业开办费资助资金申报工作的通知</font></a><span>[2014-10-11]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/zxdt/2014-09-26/1411698661407.html"><font color=#0088FF>第十三批（2014年第二批）留学人员创办企业开办费资助资金通过评审人员名单公布</font></a><span>[2014-09-28]</span></li>
+					 						<li><a href="/docs/gb/2014-09-03/1409719629576.html"><font color=#0088FF>关于举办“企业项目管理实战”专修班的通知</font></a><span>[2014-09-03]</span></li>
+					 						<li><a href="/docs/gb/2014-07-21/1405921927034.html"><font color=#0088FF>关于开展海创企业与新三板上市主题沙龙的通知</font></a><span>[2014-07-21]</span></li>
+					 						<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html"><font color=#0088FF>“海外赤子北京行活动”启动 </font></a><span>[2014-06-10]</span></li>
+					 						<li><a href="http://8610hr.cn/topics/2014sygjhwrcyjgg/"><font color=#0088FF>北京市属医院引进海外高层次人才公告 </font></a><span>[2014-06-10]</span></li>
+					 						<li><a href="/docs/gb/2014-04-22/1398131150620.html">关于举办《北京海创企业高管能力提升工程之二——项目管理专修班》的通知</a><span>[2014-04-22]</span></li>
+					 						<li><a href="/docs/gb/2014-04-21/1398067474065.html"><font color=#0088FF>举办创业与知识产权主题沙龙的通知</font></a><span>[2014-04-21]</span></li>
+					 						<li><a href="/docs/gb/2014-04-18/1397798691269.html">2014年国家公派访问学者（含博士后）项目录取结果公布</a><span>[2014-04-18]</span></li>
+					 						<li><a href="/docs/gb/2014-03-26/1395808324916.html">北京海外学人中心关于2014年北京市留学人员创办企业开办费资助资金申报工作的通知</a><span>[2014-03-26]</span></li>
+					 						<li><a href="/docs/gb/2014-03-26/1395805661311.html">关于开展第十二批（2014年第一批）北京市留学人员创办企业开办费资助资金申报工作的通知</a><span>[2014-03-26]</span></li>
+					 						<li><a href="/docs/gb/2014-03-25/1395724948107.html"> 2014年北京海外高层次人才协会活动计划</a><span>[2014-03-25]</span></li>
+					 						<li><a href="/docs/gb/2013-11-29/1385692994151.html">首届“北京海外高层次人才创业企业招聘会”</a><span>[2013-11-29]</span></li>
+					 						<li><a href="/docs/gb/2013-11-18/1384744541481.html">北京海外学人中心长期失去联系超过5年的流动人员人事档案名单公示</a><span>[2013-11-18]</span></li>
+					 						<li><a href="/docs/gb/2013-11-13/1384327415767.html">关于做好2014年国家留学基金资助出国留学人员选拔工作的通知</a><span>[2013-11-13]</span></li>
+					 						<li><a href="http://www.8610hr.cn/docs/zxdt/2013-10-24/1382599363573.html">关于开展第十批海外高层次人才申报工作的通知</a><span>[2013-10-24]</span></li>
+					 					</ul>
+					<div class="turn_page"> <DIV class=page align=center>
+<form id="pages" name="pages" method="post" action="">
+共108条， 列出第1到第20条 
+<!--<A href="">首页</A>|
+<A href="">上页</A>|
+<A href="<A href="index_morenews2.html">下页</A>|">下页</A>|
+<A href="<A href="index_morenews6.html">末页</A>|">末页</A>
+-->
+
+
+<A href="index_morenews2.html">下页</A>|
+<A href="index_morenews6.html">末页</A>|
+<!--gotopages-->
+第<SPAN class=fred>1</SPAN>/<SPAN class=fred>6</SPAN>页 &nbsp;转到<INPUT class=auto_edit maxLength=3 size=3 name=pageno>
+<INPUT class=button onclick=gopage() type=button value=Go> 
+<!--gotopages-->
+</form>
+</DIV>
+
+<script language="javascript" type="text/javascript">
+function gopage(){
+  var p = pages.pageno.value;
+  var all = 6;
+  if(isDigit(p)){
+    if(p>=all) p=all;
+    if(p<=1) p=1;
+  }
+  else{
+  	 p=1;
+  }
+  pages.action="index_morenews"+p+".html";
+  pages.submit();
+}
+function isDigit(num) {
+	var string="1234567890";
+	var j = 0;
+	
+	
+	for(var i=0; i<num.length;i++){
+	
+	  if(string.indexOf(num.charAt(i))==-1){
+	  return false;
+	}
+	}
+	return true;
+}
+</script>
+
+
+ </div>
+					
+				</div>
+			</div>
+			<div class="wrap_side">
+				<!--包含广而告之 -->
+								<!-- 广而告之 -->
+				<div id="notice" class="news_normal_style2">
+					<h2>广而告之</h2>
+					<ul>
+						<!--index_gegz--><li><a href="http://www.8610hr.cn//docs/gb/2013-11-18/1384744541481.html" target="_blank">北京海外学人中心长期失去...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/gb/2013-11-13/1384327415767.html" target="_blank">关于做好2014年国家留学基...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/zxdt/2013-10-24/1382599363573.html" target="_blank">关于开展第十批海外高层次...</a></li>
+ <li><a href="/docs/gegz/2013-08-09/1376034625445.html" target="_blank">2013海外赤子北京行 火热报...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/zxdt/2013-07-12/1373605801157.html" target="_blank">第九批（2013年第一批）留...</a></li>
+ <li><a href="/docs/gegz/2013-05-07/1367907312620.html" target="_blank">中科院中自留创园“中小企...</a></li>
+ <li><a href="/docs/gegz/2013-04-22/1366609010806.html" target="_blank">关于举办卓越领导力提升体...</a></li>
+ <!--index_gegz-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/gegz_index_gegz/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+				<!--包含媒体聚焦 -->
+								<!-- 广而告之 -->
+				<div id="media" class="news_normal_style2">
+					<h2>媒体聚焦</h2>
+					<ul>
+						<!--index_mtjj--><li><a href="/docs/mtjj/2014-09-24/1411540434063.html" target="_blank">朝阳区开展“凤凰计划”海...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188932742.html" target="_blank">我为北京减排养棵树</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188838252.html" target="_blank">2013“北京海外人才创业林...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188647973.html" target="_blank">2013“北京海外人才创业林...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188464494.html" target="_blank">“北京海外人才创业林”认...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188402059.html" target="_blank">“北京海外人才创业林”又...</a></li>
+ <!--index_mtjj-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/mtjj_index_mtjj/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+				<!--包含中心动态 -->
+								<!-- 中心动态 -->
+				<div id="center_trends" class="news_normal_style3">
+					<h2>中心动态</h2>
+					<ul>
+						<!--index_zxdt--><li><a href="/docs/zxdt/2014-12-16/1418699884624.html" target="_blank">“全英中国创业发展协会北...</a></li>
+ <li><a href="/docs/zxdt/2014-12-02/1417504342065.html" target="_blank">北京海外高层次人才协会第...</a></li>
+ <li><a href="/docs/zxdt/2014-12-02/1417489258299.html" target="_blank">关于做好2015年国家留学基...</a></li>
+ <li><a href="/docs/zxdt/2014-11-27/1417071239060.html" target="_blank">“走进海聚”之四——北京...</a></li>
+ <li><a href="/docs/zxdt/2014-11-27/1417069739324.html" target="_blank">北京海创企业人力资源管理...</a></li>
+ <li><a href="/docs/zxdt/2014-11-24/1416814624918.html" target="_blank">北京海外学人中心分中心赴...</a></li>
+ <!--index_zxdt-->
+					
+					<li class="more"><a href="/docs/more/zxdt_index_zxdt/index_morenews1.html" target="_blank">&gt;&gt;more
+					</a></li>
+					</ul>
+				</div>
+
+				<!--包含专家观点 -->
+								<!-- 专家观点 -->
+				<div id="hot_topic" class="news_normal_style2">
+					<h2>热门话题</h2>
+					<ul>
+						<!--index_zjgd--><li><a href="/docs/rmht/2014-03-21/1395368527971.html" target="_blank">国家外专局局长张建国：加...</a></li>
+ <li><a href="/docs/rmht/2014-03-20/1395282273750.html" target="_blank">王辉耀：中国高校人才流动...</a></li>
+ <li><a href="/docs/rmht/2014-03-18/1395109410088.html" target="_blank">叶飞帆代表：不形成人才多...</a></li>
+ <li><a href="/docs/rmht/2014-03-14/1394763814149.html" target="_blank">“千人计划”专家施一公：...</a></li>
+ <li><a href="/docs/rmht/2014-03-11/1394504079933.html" target="_blank">宁桂玲代表：国际化人才培...</a></li>
+ <li><a href="/docs/rmht/2014-03-10/1394419725425.html" target="_blank">中国教育学会副会长朱永新...</a></li>
+ <li><a href="/docs/rmht/2014-03-07/1394158932129.html" target="_blank">刘利民：弘扬核心价值 培养...</a></li>
+ <!--index_zjgd-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/rmht_index_zjgd/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

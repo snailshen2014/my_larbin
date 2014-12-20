@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">郑茂林：助力中国信用社会建设</h1>
+                	<div class="show_content_info">2014/12/05   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林，男，1955年生，祖籍河南，长于新疆。现任北京国政通科技有限公司首席科学家和CTO。1978年-1982年就读于新疆大学数学系，获学士学位;1986年北京大学计算机系研究生毕业，并获中国科学院应用数学研究所硕士学位;1987年-1992年就读于美国罗格斯新泽西州立大学，获博士学位;1992年-1994年获加拿大政府自然科学与工程研究委员会的NSERC 博士后研究基金，在蒙特利尔商学院(HEC)进行博士后研究。回国前，其在美国FICO(费埃哲)公司任职多年，负责决策优化、信用评分模型技术的研究和开发。由其发明的大规模决策优化算法获美国专利，每年为FICO公司带来数千万美元的收入。其研究工作领域涉及决策分析、信用评分模型技术、大规模数学规划、数据挖掘、算法、软件，前后发表研究论文40余篇。2009年9月，回国加盟北京国政通科技有限公司，并任首席科学家和CTO。加盟后，迅速组建了研发团队，研究开发了具有自主知识产权的、可以与国际著名的FICO信用评分模型技术相媲美的信用评分模型技术，填补了国内信用评分模型技术领域的空白。其主持研发的银行卡防交易欺诈技术获北京市海淀区2011年重大技术研发项目立项。2011年3月，入选北京&ldquo;海聚工程&rdquo;，被聘为北京市特聘专家。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　回到阔别二十多年的北京，看到祖国的巨大变化，郑茂林深信自己的所学应该可以为祖国做点力所能及的贡献。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">致力于信用保护和风险管理</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　对于生活在社会主义市场经济中的每一个公民，信用是一种建立在信任基础上的能力，不用立即付款就可获取资金、物资、服务的能力。接受信任的一方在其应允的时间期限内为所获得的资金、物资、服务付款，而上述时间期限也必须同时被授予信任的一方认可。没有信用，就没有秩序，市场经济就不能健康发展。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林对记者说，完善的社会信用体系是信用发挥作用的前提，它保证授信人和受信人之间遵循一定的规则达成交易，保证经济运行的公平和效率。一个较完善的社会信用体系是一个和谐社会的必要条件。郑茂林介绍说：信用评分模型技术是消费信贷管理中先进的技术手段，是银行、运营商、个人消费信贷公司、水电服务公司、保险公司等涉及消费信用的企业实体最核心的信用风险管理技术之一，广泛应用于信用卡生命周期管理、汽车贷款管理、住房贷款管理、个人贷款管理、其他消费信贷等领域，在市场营销、信贷审批、风险管理、账户管理、客户关系管理等各个方面发挥着十分重要的作用。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　目前世界上最著名且使用最广泛的信用评分模型应该是美国FICO公司提供的信用评分FICO Score模型。人们可以想象FICO Score模型就是一个计算公式，当为该公式提供一组个人信息后，可以计算出一个分数(介于300和850之间)，用来评估(预测)个人的信用表现和未来还款的能力。FICO Score 是依据FICO(费埃哲)公司的独家评分模型技术、个人征信样本数据创建的。FICO独有的评分模型技术其核心由一组特别业务限制、目标函数和算法组成，尤其是算法部分只有极少数人理解和知晓。信用评分技术极大地促进了信用审批和信用风险管理的自动化。在美国，从填写信用卡申请到审批通过一般只要几分钟时间，这主要得益于FICO Score。在国内，信用卡的审批基本上还是靠人工进行，审批周期漫长。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　还有一家相关企业非常著名，这就是益百利。益百利(Experian)是一家具有世界影响力的资信调查公司，其服务主要是企业资信调查，同时在消费者个人信用调查方面也影响巨大。在此基础上，益百利向世界各地的客户提供数据和分析工具，帮助企业管理信贷风险、防止欺诈行为、确定营销目标、实现自动化决策，同时它也提供个人信用报告和信用评分(FICO Score)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　国政通的愿景就是成为中国的&ldquo;益百利+费埃哲&rdquo;。国政通整合了多个权威数据源，面向金融、运营商等各行业以及企事业单位与个人提供诚信信息服务。于是，国政通力邀郑茂林，一起做大国政通的事业，助力中国信用环境的建设。看到祖国的需要，郑茂林满怀激情，愿意将自己的经验和学识投入到中国的信用建设事业中，为这片养育过自己的土地做点应有的贡献。于是，2009年9月，郑茂林加盟国政通。随着郑茂林的加盟，国政通开始了信用评分模型技术和信用卡防交易欺诈技术的研究和开发。在短短3年里，他建立了研发团队，开发的具有自主知识产权的信用评分模型技术可以和FICO信用评分模型技术媲美，填补了中国信用评分模型技术领域的空白。国政通自主研发的数据分析建模工具DSS包含多个评分模型，其独有的森林区分度模型实现了一键式建模&mdash;&mdash;一个业务人员，不需要深厚数学功底，凭着对业务的理解，就可以创建一个满足业务需要的评分卡。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">在银行卡防欺诈上做出贡献</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　伴随着借记卡、信用卡普及而来的是欺诈损失的增加。发达国家是这样，中国也同样避免不了。发卡银行和持卡人的损失风险主要来自两个方面：银行卡的交易欺诈和逾期未偿信贷。中国银行业协会发布的《2011年中国信用卡产业发展蓝皮书》显示，随着信用卡规模大幅增长，截至2011年末，信用卡未偿信贷余额8129.6亿元，同比增长81%;逾期半年未偿信贷总额为110.31亿元，同比增长43.5%。2011年，信用卡欺诈损失1.48亿元，较上年增长25.78%，欺诈类型中排名前五位的是伪卡、虚假申请、失窃卡、互联网欺诈和未达卡。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林主持研发的银行卡防交易欺诈技术获北京市海淀区2011年重大技术研发项目立项。国政通的银行卡防交易欺诈技术和平台的核心是对每一笔银行卡交易实时计算出其欺诈或恶意透支的概率。如果所算概率达到或超过一个预先设定的阈值，则视该笔交易为欺诈，提出预警或停止该交易，从而预防风险的发生，而不是亡羊补牢。国政通银行卡防交易欺诈平台目前正在银行实例测试阶段，反馈良好，不久的将来会投入生产运行。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　据悉，国政通已经提供诚信信息服务多年，有一个坚实的基础，其业务模式也已被市场认可。国政通需要继续做的就是把自己做大做强，在数据整合和决策分析以及信用评分技术上不断取得突破，以创造更大的社会价值和经济价值。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林告诉记者，北京国政通科技有限公司(以下简称&ldquo;国政通&rdquo;)于2001年成立，是中国领先的诚信信息服务提供商，具备全国固定网和移动网电信增值服务运营资质。国政通的综合业务平台整合了众多第三方权威数据源，为金融、电信、政府机构、互联网等领域提供身份信息保护和防欺诈等诚信业务，包括身份信息认证、电子身份标识、防欺诈、决策分析等，与工商、税务、教育等政府部门以及各大银行、运营商、保险公司、物流公司等商业机构展开了全面的业务合作，共同开拓电子诚信信息服务市场。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">不断进取的人生</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林在新疆长大，新疆的大漠绿洲、雪山白云赋予了他开朗的个性和进取的精神。1978年，郑茂林考上了新疆大学数学系，成绩优异。大学毕业后，他为了提升自己的数学能力和眼界，考取了北京大学，1986年在北京大学计算机系研究生毕业，并获中国科学院应用数学研究所硕士学位。然后，1987年，张茂林远渡重洋出国留学，就读于美国罗格斯新泽西州立大学，获得博士学位。1992年-1994年，郑茂林获得加拿大政府自然科学与工程研究委员会的NSERC 博士后研究基金，在蒙特利尔商学院(HEC)进行博士后研究，取得了丰硕的成果。郑茂林告诉记者，他研究工作领域涉及决策分析、信用评分模型技术、大规模数学规划、数据挖掘、算法、软件，前后发表研究论文40余篇。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林在美国FICO(费爱哲)公司任职多年，负责决策优化，信用评分模型技术的研究和开发。由其发明的大规模决策优化算法获美国专利，每年为FICO公司带来数千万美元的收入。国政通通过国际猎头找到了郑茂林，邀请他加盟，一起做大国政通的事业，助力中国信用环境的建设。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　看到祖国的需要，郑茂林热血沸腾，愿意将自己的经验能力和创新激情投入中国的信用建设事业。于是，2009年9月，郑茂林加盟国政通。短短3年里，他建立了研发团队，开发了具有自主知识产权的信用评分模型技术，可以和FICO信用评分模型技术媲美，填补了中国信用评分模型技术领域的空白。此外，郑茂林主持研发的银行卡防交易欺诈技术获北京市海淀区2011年重大技术研发项目立项。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　记者相信，郑茂林和他的同仁们的努力，会帮助加快中国信用体系建设的步伐，会帮助中国创造更大的经济奇迹!</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　记者手记：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　郑茂林很洒脱，有一种梁朝伟式的内敛与帅气。这种气质来源于他的自信，以及从新疆到北京到美国到加拿大再到北京这求学、从业几十年来历练出的一种成熟。当他在美国最优秀的公司证明了自己的时候，他也要在中国验证自己的技术和理想&mdash;&mdash;推进中国的信用建设。他以快乐的原则教育自己的孩子，让孩子们在快乐的环境中成长，使学习读书成为一件快乐的事。同时，他认为，只要坚持这个原则，中华民族的创新力就会在不久的将来喷薄而出。郑茂林本人也是快乐的，他在快乐、洒脱地实践自己的理想。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　咖啡馆是一种西方文化的承载体，但人性是共通的，咖啡馆那种现代的情调，使人们不分中外，都变得更加绅士和OPEN。于是，就在北京金源购物中心的咖啡馆里，他谈到了过去，谈到了现在，谈到了他的生活和事业&hellip;&hellip;在这里，记者零距离感触着一个海外归来游子的拳拳之心&hellip;&hellip;期待，因为郑茂林博士和国政通的作为，中国信用社会的发展将会更快、更大&hellip;&hellip;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：赵艳华</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

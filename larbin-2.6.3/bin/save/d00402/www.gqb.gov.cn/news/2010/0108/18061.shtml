@@ -1,0 +1,443 @@
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 1.5}
+.14v {
+	FONT-SIZE: 14px}
+
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="docdist" content="北京">
+<meta name="doclang" content="中文">
+<meta name="sitename" content="国务院侨务办公室">
+<meta name="docdate" content="2010-01-08">
+<LINK href="/node2/node3/index.css" rel=stylesheet>
+<title>全国侨办系统先进单位名单</title>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center"> 
+  <!-- Start Open Web Analytics Tracker -->
+<!-- End Open Web Analytics Code -->
+
+<script language="javascript">
+<!--
+function hidden(){
+   document.searchform.searchword.value="";
+   } 
+function setSearchword()
+{
+	select2 = "", searchword2 = "";
+	//get select
+	select2 = document.searchform.select.value;
+	//get word
+	searchword2 = document.searchform.searchword.value;
+	if(searchword2 == "请输入关键词")
+	{
+		searchword2 = "";
+	}
+
+	if(searchword2 != "")
+	{
+		 if(select2 == "1")
+		{
+			searchword2= "标题=" + searchword2;
+		}
+		else
+		{
+			searchword2 = "正文=" + searchword2;
+		}
+	}
+	document.searchform.searchword.value=searchword2;
+}
+//-->
+</script>
+
+<div align="center">
+<table width="778" height="24" border="0" cellpadding="0" cellspacing="0" bgcolor="#E4E4E4">
+    <tr> 
+ <td width="146" style="FONT-SIZE: 12px">&nbsp;&nbsp;<SCRIPT language=JavaScript>
+<!---
+	today=new Date();
+	function initArray()
+	{
+		this.length=initArray.arguments.length
+		for(var i=0;i<this.length;i++)
+		this[i+1]=initArray.arguments[i]
+	}
+	var d=new initArray("<font color=#FFC8C9>星期日","<font color=#000000>星期一","<font color=#000000>星期二","<font color=#000000>星期三","<font color=#000000>星期四","<font color=#000000>星期五","<font color=#FFC8C9>星期六"); 
+	document.write(" <font color=#000000>",today.getYear(),"<font color=#000000>年" ,"<font color=#000000>",today.getMonth()+1,"<font color=#000000>月","<font color=#000000>",today.getDate(),"<font color=#000000>日</FONT> ",d[today.getDay()+1]," "); 
+//-->
+</SCRIPT> </td>
+      <td align="left" width="284">
+<table width="280" height="24" border="0" cellpadding="0" cellspacing="0">
+  <form name=aa method=post action=http://mail.gqb.gov.cn/index.php target="_self">
+    <tr><input type=hidden name=F_lang value=> 
+        <input type=hidden name=F_tm value=1151047206> 
+              <td width="55" align="right" style="FONT-SIZE: 12px"> <font color="#656565">邮 
+                箱</font>&nbsp;</td>
+      <td width="76" style="FONT-SIZE: 9px"> <input type=text name=F_email value="用户名" size=8 maxlength=20 onFocus="this.value=''" style="COLOR: #656565;">
+      <td width="70" align="left"><input type=password name=F_password value="用户密码" size=8 onFocus="this.value=''" style="FONT-SIZE:12px;COLOR: #656565;"> </td>
+	  <td align="left"><input name=action type=image id=action2 src="/image08/emaillogin.gif" width="50" height="24">
+
+    </tr><input type=hidden name=F_domain value=gqb.gov.cn> <input type=hidden name=F_tpl value="">
+  </FORM>
+</table></td>
+<td width="222"><table width="210" height="24" border="0" align="left" cellpadding="0" cellspacing="0">
+  <form method="post" action="http://search.chinanews.com/was40/search?channelid=28663" name="searchform" onSubmit="javascript:setSearchword();">
+    <tr> 
+      <td width="68" align="left" style="FONT-SIZE: 12px">
+	  <select  name=selectact size=1 style="COLOR: #656565;">
+                <option value="1" selected>标 题</option>
+                <option value="2">全 文</option>
+              </select>
+	  </td>
+      <td style="FONT-SIZE: 9px"><input name="searchword" value="关键字" size="10" style="COLOR: #656565;"> 
+      </td>
+	  <td style="FONT-SIZE: 12px"><input name="submit" type="image" src="/image08/search.gif" width="46" height="24">
+
+    </tr> 
+         </FORM>
+</table></td>
+      <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+      <td width="40" style="FONT-SIZE: 12px"><a href="http://big5.gqb.gov.cn:89/" target="_blank"><font color="#656565">繁体版</font></a></td>
+	  <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+	  <td width="54" style="FONT-SIZE: 12px"><span  onclick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.gqb.gov.cn');"  style="CURSOR: hand"><font color="#656565">设为主页</font></a></span></td>
+ </tr>
+ </table>
+  <table width="778" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td><img src="/image08/zw_logo.jpg" width="476" height="105"></td>
+      <td><img src="/image08/zw_logo2.jpg" width="302" height="105"></td>
+    </tr>
+  </table>
+  <table width="778" height="34" border=0 cellPadding=0 cellSpacing=0 background="/image08/daohang_bg.gif" style="FONT-SIZE: 12px">
+      <TR> 
+        <TD>&nbsp;</td> 
+                  <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/index.shtml" target="_blank">首　　页</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/gzdt/index.shtml" target="_blank">工作动态</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/sqxx/index.shtml" target="_blank">地方侨务</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zwgk/index.shtml" target="_blank">信息公开</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hwqq/index.shtml" target="_blank">海外乡情</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hjzx/index.shtml" target="_blank">华教资讯</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/qwlt/index.shtml" target="_blank">侨务论坛</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zrft/index.shtml" target="_blank">主任访谈</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/ddfp/index.shtml" target="_blank">定点扶贫</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zt/index.shtml" target="_blank">专　题</a></TD>
+                <td>&nbsp;</TD>
+      </TR>
+  </TABLE>
+</div>
+  <table width="778" border="0" cellpadding="0" cellspacing="0" background="/node2/node3/pic/ggybian.jpg">
+ <tr> 
+ <td align="center" valign="top"> 
+ <div align="center"> 
+ <center>
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td  valign="top" width="100%" style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 22px; LETTER-SPACING: normal" 
+ > <p align="center"> <br>
+                    <br>
+                  <div align="center"><strong><font color="#01458A"> <span style="FONT-SIZE: 16px"> 
+                    全国侨办系统先进单位名单 </span></font></strong><font color="#000000"></font><font color="#01458A"><span style="FONT-SIZE: 16px"> 
+                    </span></font></div>
+                  <hr align="center"> <div align="center"> <font color="#808080"> 
+                    【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='20px';"><font color="#808080">放大字体</font></a>】【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='12px';"><font color="#808080">缩小字体</font></a>】&nbsp;2010年01月08日 <br></font>  
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                     
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <meta name="ContentStart">
+                  <p align="left" class=old>
+				  <div align="left" id="Zoom"><font color="#000000"> <p align=center>(110个)</p>
+<p>　　<strong>北京市</strong> </p>
+<p>　　北京市侨办</p>
+<p>　　北京市东城区侨办</p>
+<p>　　北京市西城区侨办</p>
+<p>　　北京市朝阳区侨办</p>
+<p>　　北京市海淀区侨办</p>
+<p>　　<strong>上海市</strong></p>
+<p>　　上海市侨办</p>
+<p>　　上海市徐汇区侨办</p>
+<p>　　上海市杨浦区侨办</p>
+<p>　　上海市黄浦区侨办</p>
+<p>　　上海市松江区侨办</p>
+<p>　　<strong>天津市</strong></p>
+<p>　　天津市侨办</p>
+<p>　　天津市和平区侨办</p>
+<p>　　天津市南开区侨办</p>
+<p>　　<strong>重庆市</strong></p>
+<p>　　重庆市沙坪坝区侨办</p>
+<p>　　<strong>河北省</strong></p>
+<p>　　河北省石家庄市侨办</p>
+<p>　　河北省保定市侨办</p>
+<p>　　河北省廊坊市大厂回族自治县侨办</p>
+<p>　　<strong>山西省</strong></p>
+<p>　　山西省大同市侨办</p>
+<p>　　山西省忻州市侨办</p>
+<p>　　<strong>内蒙古自治区</strong></p>
+<p>　　内蒙古自治区锡林郭勒盟侨办</p>
+<p>　　<strong>辽宁省</strong></p>
+<p>　　辽宁省大连市侨办</p>
+<p>　　辽宁省鞍山市侨办</p>
+<p>　　辽宁省铁岭市侨办</p>
+<p>　　辽宁省盘锦市侨办</p>
+<p>　　<strong>吉林省</strong></p>
+<p>　　吉林省长春市侨办</p>
+<p>　　吉林省侨办侨政处</p>
+<p>　　吉林省吉林市侨办</p>
+<p>　　吉林省长白朝鲜族自治县侨办</p>
+<p>　　<strong>黑龙江省</strong></p>
+<p>　　黑龙江省哈尔滨市侨办</p>
+<p>　　黑龙江省齐齐哈尔市侨办</p>
+<p>　　黑龙江省佳木斯市侨办</p>
+<p>　　黑龙江省鹤岗市侨办</p>
+<p>　　<strong>江苏省</strong></p>
+<p>　　江苏省侨办</p>
+<p>　　江苏省南京市侨办</p>
+<p>　　江苏省苏州市侨办</p>
+<p>　　江苏省无锡市侨办</p>
+<p>　　江苏省常州市侨办</p>
+<p>　　江苏省镇江市侨办</p>
+<p>　　江苏省淮安市外侨办</p>
+<p>　　江苏省南京市江宁区侨办</p>
+<p>　　<strong>浙江省</strong></p>
+<p>　　浙江省侨办</p>
+<p>　　浙江省宁波市侨办</p>
+<p>　　浙江省瑞安市侨办</p>
+<p>　　浙江省青田县侨办</p>
+<p>　　<strong>安徽省</strong></p>
+<p>　　安徽省侨办</p>
+<p>　　安徽省淮北市侨办</p>
+<p>　　安徽省芜湖市侨办</p>
+<p>　　安徽省安庆市侨办</p>
+<p>　　<strong>福建省</strong></p>
+<p>　　福建省侨办</p>
+<p>　　福建省福州市侨办</p>
+<p>　　福建省厦门市侨办</p>
+<p>　　福建省泉州市侨办</p>
+<p>　　福建省龙岩市侨办</p>
+<p>　　福建省莆田市秀屿区侨办</p>
+<p>　　福建省三明市明溪县侨办</p>
+<p>　　<strong>江西省</strong></p>
+<p>　　江西省南昌市侨办</p>
+<p>　　江西省赣州市侨办</p>
+<p>　　江西省宜春市侨办</p>
+<p>　　<strong>山东省</strong></p>
+<p>　　山东省侨办</p>
+<p>　　山东省济南市侨办</p>
+<p>　　山东省潍坊市侨办</p>
+<p>　　山东省泰安市侨办</p>
+<p>　　山东省青岛市侨办国外与港澳工作处</p>
+<p>　　<strong>河南省</strong></p>
+<p>　　河南省侨办</p>
+<p>　　河南省郑州市外侨局</p>
+<p>　　河南省洛阳市侨办</p>
+<p>　　河南省濮阳市侨办</p>
+<p>　　河南省平顶山市外侨局</p>
+<p>　　<strong>湖北省</strong></p>
+<p>　　湖北省侨办</p>
+<p>　　湖北省黄石市外侨局</p>
+<p>　　湖北省天门市外侨局</p>
+<p>　　湖北省汉川市外侨局</p>
+<p>　　<strong>湖南省</strong></p>
+<p>　　湖南省娄底市旅游外侨局</p>
+<p>　　湖南省新邵县侨办</p>
+<p>　　湖南省衡阳县侨办</p>
+<p>　　<strong>广东省</strong></p>
+<p>　　广东省侨办</p>
+<p>　　广东省汕头市外侨局</p>
+<p>　　广东省梅州市外侨局</p>
+<p>　　广东省广州市萝岗区侨办</p>
+<p>　　广东省深圳市宝安区侨办</p>
+<p>　　广东省吴川市侨务局</p>
+<p>　　广东省东莞市清溪镇社会事务办公室</p>
+<p>　　广东省广州市花都区花东镇(花都华侨农场)侨办</p>
+<p>　　<strong>广西壮族自治区</strong></p>
+<p>　　广西壮族自治区侨办</p>
+<p>　　广西壮族自治区南宁市侨办</p>
+<p>　　广西壮族自治区桂林市侨办</p>
+<p>　　广西壮族自治区玉林容县侨办</p>
+<p>　　<strong>海南省</strong></p>
+<p>　　海南省儋州市侨办</p>
+<p>　　海南省文昌市侨办</p>
+<p>　　海南省兴隆华侨农场侨办</p>
+<p>　　海南省国营乐光农场侨办</p>
+<p>　　<strong>四川省</strong></p>
+<p>　　四川省侨办</p>
+<p>　　四川省成都市侨办</p>
+<p>　　四川省眉山市侨办</p>
+<p>　　四川省阿坝藏族羌族自治州侨办</p>
+<p>　　四川省凉山彝族自治州侨办</p>
+<p>　　<strong>贵州省</strong></p>
+<p>　　贵州省黔东南苗族侗族自治州侨办</p>
+<p>　　<strong>云南省</strong></p>
+<p>　　云南省侨办</p>
+<p>　　云南省大理白族自治州侨办</p>
+<p>　　云南省昆明市五华区侨办</p>
+<p>　　<strong>陕西省</strong></p>
+<p>　　陕西省西安市侨办秘书侨政处</p>
+<p>　　<strong>甘肃省</strong></p>
+<p>　　甘肃省外侨办侨务工作处</p>
+<p>　　甘肃省临夏回族自治州侨办</p>
+<p>　　<strong>宁夏回族自治区</strong></p>
+<p>　　宁夏回族自治区石嘴山市侨办</p>
+<p>　　<strong>青海省</strong></p>
+<p>　　青海省侨办侨务管理处</p>
+<p>　　<strong>新疆维吾尔自治区</strong></p>
+<p>　　新疆维吾尔自治区外侨办</p>
+<p>　　新疆维吾尔自治区阿克苏地区侨办</p>
+<p>　　<strong>新疆生产建设兵团</strong></p>
+<p>　　新疆生产建设兵团农八师侨办</p>
+<p>　　<strong>暨南大学</strong></p>
+<p>　　暨南大学华文学院</p>
+<p>　　<strong>华侨大学</strong></p>
+<p>　　华侨大学学生处 </p><br>
+                    </font></div></p><meta name="ContentEnd"></td>
+              </tr>
+            </table>
+            <center>
+              <br>
+              <table width="600" border="0" cellspacing="0" cellpadding="0" style="LINE-HEIGHT: 1.6">
+                <tr> 
+                  <td><b><span style="FONT-SIZE: 14px"></span></b> </td>
+                </tr>
+              </table>
+              <br>
+            </center>
+
+ </center>
+        </div>
+ </td>
+ </tr>
+ </table>
+ 
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<LINK href="/image08/index.css" rel=stylesheet><base target="_blank">
+<title>国务院侨务办公室</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body bgcolor="#D4E8F1" leftmargin="0" topmargin="0">
+<table width="778" height="42" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="35" background="/image08/2008_zwdi.jpg"> 
+      <div align="center"> 
+        <table width="88%" height="16" border=0 cellPadding=0 cellSpacing=0 style="FONT-SIZE: 12px">
+          <TBODY>
+            <TR valign="bottom"> 
+              <TD width="10%" align=middle><a href="/index.shtml" target="_blank"><font color="#0167CC">首　　页</font></a></TD>
+              <TD width="10%" align=middle> <A href="/gzdt/index.shtml" target="_blank"><font color="#0167CC">工作动态</font></a></TD>
+              <TD width="10%" align=middle> <A href="/sqxx/index.shtml" target="_blank"><font color="#0167CC">地方侨务</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">信息公开</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">海外乡情</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hjzx/index.shtml" target="_blank"><font color="#0167CC">华教资讯</font></a></TD>
+              <TD width="10%" align=middle> <A href="/qwlt/index.shtml" target="_blank"><font color="#0167CC">侨务论坛</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zrft/index.shtml" target="_blank"><font color="#0167CC">主任访谈</font></a></TD>
+              <TD width="10%" align=middle> <A href="/ddfp/index.shtml" target="_blank"><font color="#0167CC">定点扶贫</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zt/index.shtml" target="_blank"><font color="#0167CC">专　题</font></a></TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      </div></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0"  style="LINE-HEIGHT: 1.6">
+  <tr> 
+    <td align="center">地址：<font color="#000000">北京市西城区阜外大街35号　邮编：100037　电话：86-10-68327530</font> 
+      <font color="#000000"><br>
+      国务院侨务办公室2004版权所有　中国侨网技术支持 </font><font color="#0099CC"><br>
+      <a href="http://www.miibeian.gov.cn"><font color="#000000">[京ICP备05072101号]</font></a></font></td>
+  </tr>
+</table>
+</body>
+</html>
+
+</div>
+</body>
+</html>

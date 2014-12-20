@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/web/images/main.css" />
+<title>北京市人民政府侨务办公室</title>
+</head>
+<style>
+.ttext{ float:right; height:100px; padding:8px 18px 0 0; width:62px; text-align:center; line-height:15px; color:#777}
+.slogo1{ display:block; width:62px; height:70px; margin:8px 17px 0 0; background:url(/web/images/sdzclogo.png) no-repeat; text-indent:-999px; overflow:hidden; font-size:1px}
+</style>
+<body>
+<div class="top">
+	<a href="/web" class="logo">北京市人民政府侨务办公室</a>
+	<div class="ttext"><a href="http://www.beijing.gov.cn" target="_blank" class="slogo1"></a></div>
+</div>
+<div class="nav">
+	<a href="/web" class="nav1">首页</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9dc3f35000b/2c94968944a9a3100144a9dc3f35000b.html" class="nav10">机构设置</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d852760001/2c94968944a9a3100144a9d852760001.html" class="nav2">最新动态</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d868420002/2c94968944a9a3100144a9d868420002.html" class="nav3">通知公告</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d88fce0003/2c94968944a9a3100144a9d88fce0003.html" class="nav4">友好往来</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d8ccbd0004/2c94968944a9a3100144a9d8ccbd0004.html" class="nav5">经济贸易</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d941570005/2c94968944a9a3100144a9d941570005.html" class="nav6">科技人才</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d966f40006/2c94968944a9a3100144a9d966f40006.html" class="nav7">北京侨政</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d988790007/2c94968944a9a3100144a9d988790007.html" class="nav8">文化教育</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d99ecb0008/2c94968944a9a3100144a9d99ecb0008.html" class="nav9">综合资讯</a>
+	<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d9d5af000a/2c94968944a9a3100144a9d9d5af000a.html" class="nav11">文件下载</a>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+		
+		String.prototype.Trim = function() 
+		{ 
+		return this.replace(/(^\s*)|(\s*$)/g, ""); 
+		} 
+		
+		String.prototype.LTrim = function() 
+		{ 
+		return this.replace(/(^\s*)/g, ""); 
+		} 
+		
+		String.prototype.RTrim = function() 
+		{ 
+		return this.replace(/(\s*$)/g, ""); 
+		} 
+		
+</SCRIPT>
+ <script type="text/javascript">
+    function doKeyDownWithEnter(siteCatalogId){
+        if(event.keyCode==13) 
+            { 
+             doSiteSearch(siteCatalogId);
+            }
+    }
+    function doSiteSearch(siteCatalogId)
+    {
+        var webrootWithBackslash = '/web';
+        var url = webrootWithBackslash + "/dynamic/site/siteArticleSearchAction$searchArticle.action";
+        
+        if(!siteCatalogId){
+            alert("js error：parameter(siteCatalogId) is undefined in this function 'doSiteSearch'");
+            return false;
+        }
+        
+        var siteKeyWords = document.getElementById('siteKeyWords').value;
+        var t=document.getElementById('SearchSelect');
+        if(siteKeyWords == null ||  siteKeyWords == ""){
+            alert("请输入关键字！");
+            return false;
+        }
+        
+        if(siteCatalogId)
+            url = url + "?siteCatalogId=" + siteCatalogId;
+        if(siteKeyWords != null && siteKeyWords != "")
+            url = url + "&siteKeyWords=" + encodeURIComponent(encodeURI(siteKeyWords));
+        window.open(url);
+        return false;
+        
+    }
+</script><script type="text/javascript" src="/web/js/jquery.pack.js"></script>
+<script type="text/javascript" src="/web/js/jquery.SuperSlide.js">
+</script>
+<script type="text/javascript" src="/web/images/MSClass.js">
+</script>
+<script type="text/javascript" src="/web/images/jquery-1.7.2.min.js">
+</script>
+<script type="text/javascript">
+function $(id) { return document.getElementById(id); }
+
+function addLoadEvent(func){
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+function moveElement(elementID,final_x,final_y,interval) {
+  if (!document.getElementById) return false;
+  if (!document.getElementById(elementID)) return false;
+  var elem = document.getElementById(elementID);
+  if (elem.movement) {
+    clearTimeout(elem.movement);
+  }
+  if (!elem.style.left) {
+    elem.style.left = "0px";
+  }
+  if (!elem.style.top) {
+    elem.style.top = "0px";
+  }
+  var xpos = parseInt(elem.style.left);
+  var ypos = parseInt(elem.style.top);
+  if (xpos == final_x && ypos == final_y) {
+		return true;
+  }
+  if (xpos < final_x) {
+    var dist = Math.ceil((final_x - xpos)/10);
+    xpos = xpos + dist;
+  }
+  if (xpos > final_x) {
+    var dist = Math.ceil((xpos - final_x)/10);
+    xpos = xpos - dist;
+  }
+  if (ypos < final_y) {
+    var dist = Math.ceil((final_y - ypos)/10);
+    ypos = ypos + dist;
+  }
+  if (ypos > final_y) {
+    var dist = Math.ceil((ypos - final_y)/10);
+    ypos = ypos - dist;
+  }
+  elem.style.left = xpos + "px";
+  elem.style.top = ypos + "px";
+  var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+  elem.movement = setTimeout(repeat,interval);
+}
+
+function classNormal(iFocusBtnID,iFocusTxID){
+	var iFocusBtns= $(iFocusBtnID).getElementsByTagName('li');
+	var iFocusTxs = $(iFocusTxID).getElementsByTagName('li');
+	for(var i=0; i<iFocusBtns.length; i++) {
+		iFocusBtns[i].className='normal';
+		iFocusTxs[i].className='normal';
+	}
+}
+
+function classCurrent(iFocusBtnID,iFocusTxID,n){
+	var iFocusBtns= $(iFocusBtnID).getElementsByTagName('li');
+	var iFocusTxs = $(iFocusTxID).getElementsByTagName('li');
+	iFocusBtns[n].className='current';
+	iFocusTxs[n].className='current';
+}
+
+function iFocusChange() {
+	if(!$('ifocus')) return false;
+	$('ifocus').onmouseover = function(){atuokey = true};
+	$('ifocus').onmouseout = function(){atuokey = false};
+	var iFocusBtns = $('ifocus_btn').getElementsByTagName('li');
+	var listLength = iFocusBtns.length;
+	iFocusBtns[0].onmouseover = function() {
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (listLength>=2) {
+		iFocusBtns[1].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-290,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',1);
+		}
+	}
+	if (listLength>=3) {
+		iFocusBtns[2].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-580,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',2);
+		}
+	}
+	if (listLength>=4) {
+		iFocusBtns[3].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-870,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',3);
+		}
+	}
+}
+
+setInterval('autoiFocus()',3000);
+var atuokey = false;
+function autoiFocus() {
+	if(!$('ifocus')) return false;
+	if(atuokey) return false;
+	var focusBtnList = $('ifocus_btn').getElementsByTagName('li');
+	var listLength = focusBtnList.length;
+	for(var i=0; i<listLength; i++) {
+		if (focusBtnList[i].className == 'current') var currentNum = i;
+	}
+	if (currentNum==0&&listLength!=1 ){
+		moveElement('ifocus_piclist',0,-290,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',1);
+	}
+	if (currentNum==1&&listLength!=2 ){
+		moveElement('ifocus_piclist',0,-580,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',2);
+	}
+	if (currentNum==2&&listLength!=3 ){
+		moveElement('ifocus_piclist',0,-870,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',3);
+	}
+	if (currentNum==3 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (currentNum==1&&listLength==2 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (currentNum==2&&listLength==3 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+}
+addLoadEvent(iFocusChange);
+</script>
+<div class="jd">	<div id="ifocus">
+	<div id="ifocus_pic">
+		<div id="ifocus_piclist" style="left:0; top:0;">
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a179167014a187355070005/ff8080814a179167014a187355070005.html"><img src="/web/static/homepage/images/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a179167014a187355070005/image_ff8080814a179167014a18b5a3720036/ff8080814a179167014a18b5a3720036.jpg" alt="" /></a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a02f7fa014a0521a6fe0001/ff8080814a02f7fa014a0521a6fe0001.html"><img src="/web/static/homepage/images/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a02f7fa014a0521a6fe0001/image_ff8080814a081e6e014a08d17a940001/ff8080814a081e6e014a08d17a940001.jpg" alt="" /></a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149cf78580149d1c18f410001/ff80808149cf78580149d1c18f410001.html"><img src="/web/static/homepage/images/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149cf78580149d1c18f410001/image_ff80808149cf78580149d1d5b6b10017/ff80808149cf78580149d1d5b6b10017.jpg" alt="" /></a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149bff1150149c00744af0001/ff80808149bff1150149c00744af0001.html"><img src="/web/static/homepage/images/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149bff1150149c00744af0001/image_ff80808149bff1150149c00f99cc0027/ff80808149bff1150149c00f99cc0027.jpg" alt="" /></a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814972c5e00149746aff27001e/ff8080814972c5e00149746aff27001e.html"><img src="/web/static/homepage/images/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814972c5e00149746aff27001e/image_ff8080814972c5e00149746d9ccd002b/ff8080814972c5e00149746d9ccd002b.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="ifocus_opdiv"></div>
+		<div id="ifocus_tx">
+			<ul>
+				<li class="current"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a179167014a187355070005/ff8080814a179167014a187355070005.html">北京市政府侨办举办“侨界法律大讲堂”活动</a></li>
+				<li class="normal"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a02f7fa014a0521a6fe0001/ff8080814a02f7fa014a0521a6fe0001.html">第十七届华侨华人社团中青年负责人研习班在京圆满结业</a></li>
+				<li class="normal"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149cf78580149d1c18f410001/ff80808149cf78580149d1c18f410001.html">海外华侨华人助推首都侨爱工程—平谷甘泉行动</a></li>
+				<li class="normal"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff80808149bff1150149c00744af0001/ff80808149bff1150149c00744af0001.html">市政府侨办与石景山区政府、首钢总公司签署战略合作协议</a></li>
+				<li class="normal"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814972c5e00149746aff27001e/ff8080814972c5e00149746aff27001e.html">市政府侨办组织召开新时期首都侨务工作座谈会</a></li>
+			</ul>
+		</div>
+		<div id="ifocus_btn">
+		<ul>
+			<li class="current"><br /></li>
+			<li class="normal"></li>
+			<li class="normal"></li>
+			<li class="normal"></li>
+		</ul>
+	</div>
+	</div>
+	
+</div>	<div class="jdright">
+		<h1><i>最新动态</i></h1>
+		<ul>
+				<li class="no1"><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a4b10f7014a4d4fd8cc0001/ff8080814a4b10f7014a4d4fd8cc0001.html" target="_blank" >        国务院侨办组织机关干部参观“水立方”APEC景观
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a315137014a3374bf8a001b/ff8080814a315137014a3374bf8a001b.html" target="_blank" >        市贸促会一行来我办座谈交流
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a315137014a336336fb0011/ff8080814a315137014a336336fb0011.html" target="_blank" >        北京市政府侨办、北京海外交流协会举办北京•海外华文教育...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a315137014a322b75330009/ff8080814a315137014a322b75330009.html" target="_blank" >        2014年英蓝圣诞歌剧音乐会成功举办
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a315137014a32291d5e0001/ff8080814a315137014a32291d5e0001.html" target="_blank" >        北京侨商会举办意大利投资机遇分享会
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a179167014a19d56f91003d/ff8080814a179167014a19d56f91003d.html" target="_blank" >        市政府侨办召开2014年“水立方杯”海外华裔青少年中文...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d852760001/article_ff8080814a179167014a19b5c402003b/ff8080814a179167014a19b5c402003b.html" target="_blank" >        北京市侨办与中新社商讨加强合作事宜
+</a></li>
+		</ul>
+		<a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d852760001/2c94968944a9a3100144a9d852760001.html" class="more1">更多&gt;</a>
+	</div>
+</div>
+<table class="dongtai">
+	<tr>
+		<td><a>华盛顿、纽约<br/><span id="localtime1"><span></a></td>
+		<td><a>洛杉矶、温哥华<br/><span id="localtime2"><span></a></td>
+		<td><a>巴黎、柏林、罗马<br/><span id="localtime3"><span></a></Td>
+		<td><a>东京、首尔<br/><span id="localtime4"><span></a></td>
+		<td><a>莫斯科、圣彼得堡<br/><span id="localtime5"><span></a></td>
+		<td><a>开罗、约翰内斯堡<br/><span id="localtime6"><span></a></td>
+	</tr>
+</table>
+<div style="margin: 10px auto auto;width: 1001px;">
+	<a href="/web/static/catalogs/catalog_ff8080814a4b10f7014a4d83ad0c000b/ff8080814a4b10f7014a4d83ad0c000b.html" target="_blank"><img src="/web/images/qfxcy/banner.jpg" width="1001px" alt="侨法宣传月" title="侨法宣传月"/></a>
+</div>
+
+<div class="center">
+	<div class="c_left">
+		<div class="con">
+			<dl><dt><h2>友好交流</h2></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d88fce0003/2c94968944a9a3100144a9d88fce0003.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_ff8080814906a057014908cedf0e0001/ff8080814906a057014908cedf0e0001.html" target="_blank" >        西班牙加泰罗尼亚自治区和巴塞罗那市代表团到访我办
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_ff8080814647008901467e501ee10064/ff8080814647008901467e501ee10064.html" target="_blank" >        夏威夷中华总商会水仙花皇后友好代表团访问北京
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_064694354d814996a182755ef78ca54f/064694354d814996a182755ef78ca54f.html" target="_blank" >        新西兰青年重走路易·艾黎之路访问团访京
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_fb104e94298f4c49a1012f545afcd4bd/fb104e94298f4c49a1012f545afcd4bd.html" target="_blank" >        北京市侨办领导会见香港华侨华人总会青年委员会访京...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_98e43fb2cb01466a9e126878e2bf0f48/98e43fb2cb01466a9e126878e2bf0f48.html" target="_blank" >        美国华人联合总会向北京暴雨灾区捐助善款
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_1234d8df5d3c4c89af4b5c9504c3ea64/1234d8df5d3c4c89af4b5c9504c3ea64.html" target="_blank" >        北京海外交流协会领导见宴马来西亚华裔杰出青年访华...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d88fce0003/article_c851bc4bd6ac47728db702f96b7ef954/c851bc4bd6ac47728db702f96b7ef954.html" target="_blank" >        北京市侨办组织美大地区侨界妇女访华团相关访京活动
+</a></li>
+			</ul>
+		</div>
+		<div class="con">
+			<dl><dt><h2>经济贸易</h2></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d8ccbd0004/2c94968944a9a3100144a9d8ccbd0004.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff8080814a315137014a322f1e11000d/ff8080814a315137014a322f1e11000d.html" target="_blank" >        中国国际经济合作交流年会在京召开
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff808081493f465d014940ea6a8f000b/ff808081493f465d014940ea6a8f000b.html" target="_blank" >        北京农商银行来我办座谈交流
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff8080814817256e014886985ad8003a/ff8080814817256e014886985ad8003a.html" target="_blank" >        北京侨商会组织会员参加国情研修班
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff808081464700890146efc563ec013e/ff808081464700890146efc563ec013e.html" target="_blank" >        北京市向中国侨商会会员推介首都投资环境和旅游资源
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff808081464700890146c691e45a00d5/ff808081464700890146c691e45a00d5.html" target="_blank" >        市政府侨办领导赴市农委走访交流
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff80808145457c1a014545a4a05f0003/ff80808145457c1a014545a4a05f0003.html" target="_blank" >        智利北京海外联合会关金涛会长拜会北京侨办
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d8ccbd0004/article_ff808081451f85720145203cb7a70006/ff808081451f85720145203cb7a70006.html" target="_blank" >        市政府侨办领导会见印尼实嘉集团董事长
+</a></li>
+			</ul>
+		</div>
+		<div class="con">
+			<dl><dt><h2>科技人才</h2></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d941570005/2c94968944a9a3100144a9d941570005.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff808081493f465d01493fca72880001/ff808081493f465d01493fca72880001.html" target="_blank" >        市侨办领导率队赴上海参加2014海归创业千人大会...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff808081464700890147ae7415e30494/ff808081464700890147ae7415e30494.html" target="_blank" >        2014年在京华侨华人科技企业项目融资推介会成功...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff808081464700890146effe74140143/ff808081464700890146effe74140143.html" target="_blank" >        中关村管委会相关部门负责人来我办进行工作研讨
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff808081464700890146ac841832009f/ff808081464700890146ac841832009f.html" target="_blank" >        市政府侨办刘春锋主任赴北京侨创会会长企业安博教育...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff80808146121c8d01461cd884840025/ff80808146121c8d01461cd884840025.html" target="_blank" >        首届“京侨杯”羽毛球友谊赛圆满结束
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff80808145a738750145fe9b15a00146/ff80808145a738750145fe9b15a00146.html" target="_blank" >        市政府侨办赴中国人民大学交流学习
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d941570005/article_ff80808145a738750145ab3da4bb0001/ff80808145a738750145ab3da4bb0001.html" target="_blank" >        15家北京侨创会会员企业入选北京市国际科技合作基...
+</a></li>
+			</ul>
+		</div>
+		<div class="con">
+			<dl><dt><h2>文化教育</h2></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d988790007/2c94968944a9a3100144a9d988790007.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff8080814817256e0148b117e59d0099/ff8080814817256e0148b117e59d0099.html" target="_blank" >        北京市侨务、教育部门对话澳大利亚教育官员访华团
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff808081464700890147a54852a2048a/ff808081464700890147a54852a2048a.html" target="_blank" >        2014优秀华裔大学生文化参访团金辉北京营开营
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff808081464700890147a5473c480488/ff808081464700890147a5473c480488.html" target="_blank" >        2014年中国文化行——完美北京营开营
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff808081464700890147a54618fa0486/ff808081464700890147a54618fa0486.html" target="_blank" >        2014海外华裔青少年寻根之旅夏令营北京营开营
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff808081464700890146f6237c39014e/ff808081464700890146f6237c39014e.html" target="_blank" >        刘春锋会见美国教育官员及公立学校校长访华团
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff808081464700890146d21a51ef0109/ff808081464700890146d21a51ef0109.html" target="_blank" >        2014寻根之旅文莱中华中学艺术夏令营在京举行
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d988790007/article_ff80808146121c8d014640a19a550115/ff80808146121c8d014640a19a550115.html" target="_blank" >        2014年中文学习乐园—完美北京营顺利闭营
+</a></li>
+			</ul>
+		</div>
+
+		<div class="partner">
+		<div class="p_tit">京华奖</div>
+		<div class="leftLoop">
+			<div class="pt">
+				<div id="mq1" style="position:relative;width:725px;height:110px;overflow:hidden;">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014603f101df0241/ff80808145a73875014603f101df0241.html" title="全市侨务工作会议暨首届“京华奖”颁奖大会召开"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014603f101df0241/ff80808145a73875014603f101df0243.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602bc4f690195/ff80808145a73875014602bc4f690195.html" title="5月8日，王安顺市长向谢国民颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602bc4f690195/ff80808145a73875014603b5860c01e6.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602bb492c0191/ff80808145a73875014602bb492c0191.html" title="5月8日，王安顺市长向陈丽华颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602bb492c0191/ff80808145a73875014603b62e4301eb.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b911aa018d/ff80808145a73875014602b911aa018d.html" title="5月8日，王安顺市长向李春平颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b911aa018d/ff80808145a73875014603b6ab9c01ee.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b80f060189/ff80808145a73875014602b80f060189.html" title="5月8日，王安顺市长向钱渊颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b80f060189/ff80808145a73875014603b9b8bd0204.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b6d3940185/ff80808145a73875014602b6d3940185.html" title="5月8日，王安顺市长向严彬颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b6d3940185/ff80808145a73875014603b7dd2201f7.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b5df050181/ff80808145a73875014602b5df050181.html" title="5月8日，王安顺市长向幸公杰颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b5df050181/ff80808145a73875014603b7889101f4.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b4c761017d/ff80808145a73875014602b4c761017d.html" title="5月8日，王安顺市长向万立骏颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b4c761017d/ff80808145a73875014603b8501901fa.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b2592f0179/ff80808145a73875014602b2592f0179.html" title="5月8日，王安顺市长向严歌苓颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b2592f0179/ff80808145a73875014603b88e8701fd.jpg" /></a></div></td>
+						<td><div class="pic" style="width:160px"><a href="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b0a0c80175/ff80808145a73875014602b0a0c80175.html" title="5月8日，王安顺市长向程京颁发“京华奖”"><img width="150" height="102" src="/web/static/articles/catalog_ff80808145a738750145fd5f0b6500dc/article_ff80808145a73875014602b0a0c80175/ff80808145a73875014603b8cc190200.jpg" /></a></div></td>
+					</tr>
+				</table>
+				</div>
+			</div> 
+		</div> 
+	</div>
+	<script type="text/javascript"> 
+	new Marquee("mq1",2,1,725,110,20,-1,0,0)
+	</script>
+		
+		<div class="con">
+			<dl><dt><h2>北京侨政</h2></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d966f40006/2c94968944a9a3100144a9d966f40006.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff8080814972c5e001497474044e002c/ff8080814972c5e001497474044e002c.html" target="_blank" >        市政府侨办检查验收北京市2014年“社区侨务工作...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff808081490bc6b601490de3eac50002/ff808081490bc6b601490de3eac50002.html" target="_blank" >        市政府侨办组织开展2014年“侨爱工程——送温暖...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff808081464700890147a3b7f15803e7/ff808081464700890147a3b7f15803e7.html" target="_blank" >        依法护侨益  真情暖侨心
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff8080814647008901476c5529230332/ff8080814647008901476c5529230332.html" target="_blank" >        市政府侨办与国侨办国内司沟通对接北京市侨务工作
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff80808146470089014757ab04d302cb/ff80808146470089014757ab04d302cb.html" target="_blank" >        市政府侨办召开全市侨政工作座谈会
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff80808146470089014719c45de40179/ff80808146470089014719c45de40179.html" target="_blank" >        市政府侨办副主任李纲慰问丰台区困难归侨家庭
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d966f40006/article_ff8080814647008901471008e170015e/ff8080814647008901471008e170015e.html" target="_blank" >        市政府侨办开展“聚焦首都侨界代表人士•走进北航”...
+</a></li>
+			</ul>
+		</div>
+		<div class="con">
+			<dl><dt><h2>综合资讯</h2></dt><dt class="zxinfo"><span><a href="/web/static/catalogs/catalog_ff80808145a738750145fdbdfaa10139/ff80808145a738750145fdbdfaa10139.html">北京声音</a></span><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9e9c1140014/2c94968944a9a3100144a9e9c1140014.html">侨界风采</a></dt><dd><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d99ecb0008/2c94968944a9a3100144a9d99ecb0008.html">更多&gt;</a></dd></dl>
+			<ul>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff8080814a179167014a181342370003/ff8080814a179167014a181342370003.html" target="_blank" >        李克强主持召开国务院常务会议 部署在更大范围推广...
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff8080814a179167014a180a94000001/ff8080814a179167014a180a94000001.html" target="_blank" >        2015年后文化专项资金“以事定钱”
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff8080814817256e014877e59ea8001a/ff8080814817256e014877e59ea8001a.html" target="_blank" >        北京召开国资国企改革推进会 联姻京津冀一体化
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff808081464700890147c78d962304c5/ff808081464700890147c78d962304c5.html" target="_blank" >        张高丽任京津冀领导小组长 将动利益啃硬骨头
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff808081464700890147ae184d070492/ff808081464700890147ae184d070492.html" target="_blank" >        十年磨一剑 京津冀一体化进入实质性提速
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff8080814647008901479fd50fad03de/ff8080814647008901479fd50fad03de.html" target="_blank" >        发扬光荣传统  争取更大光荣---市政府侨办召开...
+</a></li>
+				<li><a href="/web/static/articles/catalog_ff80808145a738750145fdbdfaa10139/article_ff8080814647008901478f267faa03cd/ff8080814647008901478f267faa03cd.html" target="_blank" >        我国户口登记城乡统一 取消农业非农区分
+</a></li>
+			</ul>
+		</div>
+			<ul class="shehui">
+		<li class="sh1"><img src="/web/images/tuanti.gif" alt="社会团体" /></li>
+		<li class="sh2"><a target="_blank" href="/web/static/catalogs/catalog_2c94968944e3911c0144e394d6960002/2c94968944e3911c0144e394d6960002.html"><img src="/web/images/linkpic1.gif" alt="海外交流协会" /></a></li>
+		<li class="sh3"><a target="_blank" href="/web/static/catalogs/catalog_2c94968944e3911c0144e395006a0003/2c94968944e3911c0144e395006a0003.html"><img src="/web/images/linkpic.gif" alt="北京侨商会" /></a></li>
+		<li class="sh4"><a target="_blank" href="/web/static/catalogs/catalog_2c94968944e3911c0144e39544bd0004/2c94968944e3911c0144e39544bd0004.html"><img src="/web/images/linkpic3.gif" alt="北京华侨科技创业者协会" /></a></li>
+		<li class="sh6"><a target="_blank" href="/web/static/catalogs/catalog_2c94968944e3911c0144e3959d380008/2c94968944e3911c0144e3959d380008.html"><img src="/web/images/linkpic4.gif" alt="为侨服务法律顾问团" /></a></li>
+	</ul>
+		<div class="links">
+			<select name="" onChange="window.open('http://'+this.options[this.selectedIndex].value);this.options[0].selected=true;">
+			<option>上级主管部门</option>
+				<option value="www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133">        首都统一战线
+</option>
+				<option value="www.beijing.gov.cn/">        北京市政府 
+</option>
+				<option value="www.gqb.gov.cn/">        国务院侨务办公室
+</option>
+			</select>
+			<select name="" onChange="window.open('http://'+this.options[this.selectedIndex].value);this.options[0].selected=true;">
+			<option>区县侨办</option>
+				<option value="www.bjyq.gov.cn/">        延庆县政府
+</option>
+				<option value="www.bjmy.gov.cn/">        密云县政府
+</option>
+				<option value="www.bjhr.gov.cn/">        怀柔区政府
+</option>
+				<option value="www.bjpg.gov.cn/">        平谷区政府
+</option>
+				<option value="cpmzqb.bjchp.gov.cn/default.aspx">        昌平区民宗侨务办公室
+</option>
+				<option value="www.bjdx.gov.cn/">        大兴区政府
+</option>
+				<option value="www.minzqb.bjshy.gov.cn/">        顺义区民宗侨务办公室
+</option>
+				<option value="www.bjtzh.gov.cn/">        通州区政府
+</option>
+				<option value="www.bjfsh.gov.cn/">        房山区政府
+</option>
+				<option value="www.bjmtg.gov.cn/">        门头沟政府
+</option>
+				<option value="mzq.bjsjs.gov.cn/">        石景山民宗侨务办公室
+</option>
+				<option value="mzq.bjft.gov.cn/">        丰台区民宗侨务办公室
+</option>
+				<option value="www.bjhd.gov.cn/">        海淀区政府
+</option>
+				<option value="www.bjchy.gov.cn/">        朝阳区政府
+</option>
+				<option value="mzqb.bjxch.gov.cn/index.ycs">        西城区民宗侨务办公室
+</option>
+				<option value="mzqb.bjdch.gov.cn/n5687274/n5723664/index.html">        东城区民宗侨务办公室
+</option>
+			</select>
+			<select name="" onChange="window.open('http://'+this.options[this.selectedIndex].value);this.options[0].selected=true;">
+			<option>省市侨办</option>
+				<option value="www.nmg.gov.cn/main/nmg/">        内蒙古自治区政府
+</option>
+				<option value="www.nxfao.gov.cn/index.html">        宁夏回族自治区外事侨务办公室
+</option>
+				<option value="www.sxfao.gov.cn/copy_1_erji.jsp?urltype=tree.TreeTempUrl&wbtreeid=58">        陕西省人民政府侨务办公室
+</option>
+				<option value="www.ynqb.net.cn/">        云南省人民政府侨务办公室
+</option>
+				<option value="125.70.226.254:8000/">        四川省人民政府侨务办公室
+</option>
+				<option value="dfoca.hainan.gov.cn/wsqbzw/index.html">        海南省外事侨务办公室
+</option>
+				<option value="www.gxqb.gov.cn/">        广西壮族自治区侨务办公室
+</option>
+				<option value="www.gdoverseaschn.com.cn/">        广东省人民政府侨务办公室
+</option>
+				<option value="www.hnfao.gov.cn/">        湖南省人民政府外事侨务办公室
+</option>
+				<option value="www.fohb.gov.cn/">        湖北省人民政府外事侨务办公室
+</option>
+				<option value="www.hnfo.gov.cn/">        河南省人民政府外事侨务办公室
+</option>
+				<option value="www.sdqb.gov.cn/">        山东省人民政府外事侨务办公室
+</option>
+				<option value="www.jxwqb.gov.cn/">        江西省外事侨务办公室
+</option>
+				<option value="www.fjqw.gov.cn/">        福建省人民政府侨务办公室
+</option>
+				<option value="www.ahfao.gov.cn/">        安徽省人民政府侨务办公室
+</option>
+				<option value="www.zjqb.gov.cn/">        浙江省人民政府侨务办公室
+</option>
+				<option value="www.jsqw.com/html/index.html">        江苏省人民政府侨务办公室
+</option>
+				<option value="wb.jl.gov.cn/">        吉林省人民政府外事侨务办公室
+</option>
+				<option value="www.lnfao.gov.cn/">        辽宁省人民政府外事侨务办公室
+</option>
+				<option value="www.sxfoa.gov.cn/">        山西省人民政府外事侨务办公室
+</option>
+			</select>
+			<select name="" onChange="window.open('http://'+this.options[this.selectedIndex].value);this.options[0].selected=true;">
+			<option>新闻单位网站</option>
+				<option value="www.chinanews.com/">        中国新闻网
+</option>
+				<option value="www.ce.cn/">        中国经济网
+</option>
+				<option value="www.youth.cn/">        中青网
+</option>
+				<option value="gb.cri.cn/">        国际在线
+</option>
+				<option value="cn.chinadaily.com.cn/">        中国日报网
+</option>
+				<option value="www.china.com.cn/">        中国网
+</option>
+				<option value="www.cntv.cn/">        中央电视台
+</option>
+				<option value="www.qianlong.com/">        千龙新闻网
+</option>
+				<option value="www.xinhuanet.com/">        新华网
+</option>
+				<option value="www.people.com.cn/">        人民网
+</option>
+			</select>
+	</div>
+	</div>
+	<div class="c_right">
+		<div class="r_con" style="height:210px">
+			<dl><dt><h3>通知公告</h3></dt></dl>
+			<ul class="infopen">
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d868420002/article_ff80808149e9383b0149ea30729c0001/ff80808149e9383b0149ea30729c0001.html" title="2014北京投资咨询日暨重点项目洽谈会邀请函">        2014北京投资咨询日暨重点...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d868420002/article_ff80808145457c1a014545987b080001/ff80808145457c1a014545987b080001.html" title="2014年度归侨子女、华侨在京子女、归侨学生中考身份证明的通知">        2014年度归侨子女、华侨在...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d868420002/article_6d17c31f1e3a41738a4f6a66ee1aea80/6d17c31f1e3a41738a4f6a66ee1aea80.html" title="2014首都侨资企业人才招聘活动邀请函">        2014首都侨资企业人才招聘...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d868420002/article_c943a8d9ebd449c081ea56625bb5c990/c943a8d9ebd449c081ea56625bb5c990.html" title="关于印发《北京市华侨回国定居办理工作实施办法（试行）》的通知">        关于印发《北京市华侨回国定居...
+</a></li>
+				<li><a href="/web/static/articles/catalog_2c94968944a9a3100144a9d868420002/article_129fb0bd6faf497f9b242c39543dd3a9/129fb0bd6faf497f9b242c39543dd3a9.html" title="北京市人民政府侨务办公室关于办理2014年度归侨子女、华侨在京子女、归侨学生高考身份证明的通知">        北京市人民政府侨务办公室关于...
+</a></li>
+			</ul>
+		</div>
+		<div class="r_con">
+			<dl><dt><h3 onmouseover="zcqh(1)">政府信息公开</h3></dt><dt onmouseover="zcqh(2)"><h3><a href="/web/static/catalogs/catalog_ff80808145457c1a0145835df6c200ab/ff80808145457c1a0145835df6c200ab.html">政策法规</a></h3></dt></dl>
+			<ul id="zcqh1" class="infopen" style="display:block">
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="政府信息公开首页">政府信息公开首页</a></li>
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?menuType=2&GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="政府信息公开指南">政府信息公开指南</a></li>
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?menuType=0&GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="政府信息公开目录">政府信息公开目录</a></li>
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?menuType=1&GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="政府信息公开年报">政府信息公开年报</a></li>
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?menuType=3&GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="依申请公开">依申请公开</a></li>
+				<li><a target="_blank" href="http://zfxxgk.beijing.gov.cn/fgdyna.prorghome.prOrgHomeFrame.do?menuType=6&GM_T_CATALOG_INFO/SYS_ORGAN_ID=101" title="监督投诉">监督投诉</a></li>
+			</ul>
+			<ul id="zcqh2" class="infopen" style="display:none">
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a014583664a1d00bc/ff80808145457c1a014583664a1d00bc.html" title="关于鼓励跨国公司在京设立地区总部的若干规定">        关于鼓励跨国公司在京设立地区...
+</a></li>
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a01458368d9bd00ca/ff80808145457c1a01458368d9bd00ca.html" title="侨务信访指导">        侨务信访指导
+</a></li>
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a014583687bbd00c8/ff80808145457c1a014583687bbd00c8.html" title="“海聚工程”短期项目实施细则">        “海聚工程”短期项目实施细则
+</a></li>
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a01458368245800c6/ff80808145457c1a01458368245800c6.html" title="“海聚工程”青年项目工作细则">        “海聚工程”青年项目工作细则
+</a></li>
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a01458367d7aa00c4/ff80808145457c1a01458367d7aa00c4.html" title="北京市建设海外高层次人才创新创业基地暂行办法">        北京市建设海外高层次人才创新...
+</a></li>
+				<li><a target="_blank" href="/web/static/articles/catalog_ff80808145457c1a0145835df6c200ab/article_ff80808145457c1a014583677d5200c2/ff80808145457c1a014583677d5200c2.html" title="关于转发《国家人口计生委、公安部、国务院侨办关于涉侨计划生育政策的若干意见》的通知">        关于转发《国家人口计生委、公...
+</a></li>
+			</ul>
+		</div>
+		<script>
+		function zcqh(aa){
+			if(aa=="1"){document.getElementById("zcqh1").style.display="block";document.getElementById("zcqh2").style.display="none";}
+			if(aa=="2"){document.getElementById("zcqh2").style.display="block";document.getElementById("zcqh1").style.display="none";}
+		}
+		</script>
+		<div class="imglink">
+			<a href="/web/static/catalogs/catalog_ff8080814817256e0148a01f69910066/ff8080814817256e0148a01f69910066.html"><img  src="/web/static/articles/catalog_ff8080814817256e0148a01f69910066/article_ff8080814817256e0148a0e63fe2008c/2014-09-23_2360654063122121_6397616223464863744.jpg" width="246" alt="国庆65周年" title="国庆65周年"/></a>
+			<a href="/web/static/catalogs/catalog_ff80808145a738750145fa2685fc00d6/ff80808145a738750145fa2685fc00d6.html"><img  src="/web/static/articles/catalog_ff80808145a738750145fa2685fc00d6/article_ff80808146121c8d0146121f01d60001/2014-05-19_58140176975806479_695676757192734720.jpg" width="246" alt="京华奖" title="京华奖"/></a>
+			<a target="_blank" href="/web/static/catalogs/catalog_ff80808145457c1a014596b0dc390144/ff80808145457c1a014596b0dc390144.html"><img   src="/web/images/pic3.jpg" width="246" alt="水立方歌曲大赛" /></a>
+			<a href="/web/static/catalogs/catalog_ff80808146121c8d01461d603df40048/ff80808146121c8d01461d603df40048.html"><img style="margin-top: 15px;"  src="/web/images/pic2.jpg" width="246" alt="侨商北京洽谈会" title="侨商北京洽谈会" /></a>
+			<a target="_blank" href="http://www.chinaqw.com/"><img   src="/web/static/articles/catalog_0/article_ff808081464700890147814705680350/2014-07-29_64300015302683479_3756566132536652800.jpg" alt="中国侨网" /></a>
+		</div>
+		<div class="service">
+		<dl><dt><h3>网上办事服务</h3></dt></dl>
+		<ul class="sercon">
+			<li><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9eafdd30016/2c94968944a9a3100144a9eafdd30016.html" title="华侨申请来京定居">华侨申请来京定居</a></li>
+			<li><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9eb156a0017/2c94968944a9a3100144a9eb156a0017.html" title="归侨身份确认">归侨身份确认</a></li>
+			<li><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9eb33680018/2c94968944a9a3100144a9eb33680018.html" title="侨眷身份确认">侨眷身份确认</a></li>
+			<li><a href="/web/static/catalogs/catalog_2c94968944a9a3100144a9d9d5af000a/2c94968944a9a3100144a9d9d5af000a.html" title="文件下载">文件下载</a></li>
+			<li><a href="mailto:webmaster@bjqb.gov.cn" title="主任信箱">主任信箱</a></li>
+			<li><a href="/web/static/catalogs/catalog_2c94968944d80e1c0144d81bd3400001/2c94968944d80e1c0144d81bd3400001.html" title="来访解答">来访解答</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+<div class="about"><a style="color:red" href="/web/static/catalogs/catalog_ff8080814a3677a6014a37e4fbb90001/ff8080814a3677a6014a37e4fbb90001.html">软件正版化学习材料</a>|<a href="/web/static/catalogs/catalog_2c94968944e35b1a0144e36f45390001/2c94968944e35b1a0144e36f45390001.html">网站地图</a>|<a href="/web/static/catalogs/catalog_2c94968944e35b1a0144e36f649c0002/2c94968944e35b1a0144e36f649c0002.html">版权声明</a>|<a href="/web/static/catalogs/catalog_2c94968944e35b1a0144e36f9d100003/2c94968944e35b1a0144e36f9d100003.html">使用条款</a>|<a href="/web/static/catalogs/catalog_2c94968944e35b1a0144e36fd84b0004/2c94968944e35b1a0144e36fd84b0004.html">联系我们</a></div>
+<div class="footer">
+	版权所有：北京市人民政府侨务办公室&nbsp;&nbsp;&nbsp;&nbsp;<a>京ICP备05084928号</a><br />
+	Tel：010-66001088&nbsp;&nbsp;&nbsp;&nbsp;Fax：010-66001066<br />
+	地址：北京市西城区西直门内大街118号冠华大厦&nbsp;&nbsp;&nbsp;&nbsp;邮政编码：100035
+</div>
+<script type="text/javascript">
+function showLocale(objD,opt)
+{
+	var str,colorhead,colorfoot;
+	var MM = objD.getMonth()+1;
+	var dd = objD.getDate();
+	var hh = objD.getHours();
+	var mm = objD.getMinutes();
+	var ss = objD.getSeconds();
+	var ww = objD.getDay();
+	if  (ww==0)  ww="星期日";
+	if  (ww==1)  ww="星期一";
+	if  (ww==2)  ww="星期二";
+	if  (ww==3)  ww="星期三";
+	if  (ww==4)  ww="星期四";
+	if  (ww==5)  ww="星期五";
+	if  (ww==6)  ww="星期六";
+	if(opt==1){hh=hh-13;}else if(opt==2){hh=hh-16}else if(opt==3){hh=hh-7}else if(opt==4){hh=hh+1}else if(opt==5){hh=hh-5}else if(opt==6){hh=hh-6}
+	if(hh<0){dd=dd-1;hh=24+hh}else if(hh>23){dd=dd+1;hh=hh-24;}
+	if(dd<1){
+	switch(MM){
+	case 1: MM=12;dd=31;break;
+	case 2: MM=1;dd=31;break;
+	case 3:MM=2;dd=28;break;
+	case 4:MM=3;dd=31;break;
+	case 5:MM=4;dd=30;break;
+	case 6:MM=5;dd=31;break;
+	case 7:MM=6;dd=30;break;
+	case 8:MM=7;dd=31;break;
+	case 9:MM=8;dd=31;break;
+	case 10:MM=9;dd=30;break;
+	case 11:MM=10;dd=31;break;
+	case 12:MM=11;dd=30;break;
+	}
+	}
+	if(dd==29 && MM==2){dd=1;MM=3;}
+	if(dd==31 && (MM==4 || MM==6 || MM==9 || MM==11)){dd=1;MM=MM+1;}
+	if(dd > 31){dd=1;MM=MM+1;}
+	if(ss<10) ss = '0' + ss;
+	if(mm<10) mm = '0' + mm;
+	if(MM<10) MM = '0' + MM;
+	if(dd<10) dd = '0' + dd;
+	if(hh<10) hh = '0' + hh;
+	str =  MM + "月" + dd + "日" +"  "+hh+":"+mm+":"+ss;
+	return(str);
+}
+function tick()
+{
+	var today;
+	today = new Date();
+	document.getElementById("localtime1").innerHTML = showLocale(today,1);
+	document.getElementById("localtime2").innerHTML = showLocale(today,2);
+	document.getElementById("localtime3").innerHTML = showLocale(today,3);
+	document.getElementById("localtime4").innerHTML = showLocale(today,4);
+	document.getElementById("localtime5").innerHTML = showLocale(today,5);
+	document.getElementById("localtime6").innerHTML = showLocale(today,6);
+	window.setTimeout("tick()", 1000);
+}
+tick();
+</script>
+<script type="text/javascript">
+var xmlHttp;
+function doFilterAjax(){
+if(window.XMLHttpRequest){ 
+xmlHttp = new XMLHttpRequest();
+}else if(window.ActiveXObject) { 
+    try{
+        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }catch(e){
+        try {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }catch(e){}
+    }
+};
+var thisURL = document.URL; //获取访问的url
+var url ="/web/dynamic/readcount/pvcount?pageViewUrl="+thisURL;
+xmlHttp.open("GET",url,true);//true表示发出一个异步的请求。
+xmlHttp.send(null);
+}
+doFilterAjax();
+</script>
+</body>
+</html>

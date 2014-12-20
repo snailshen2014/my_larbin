@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">陈昕：创建中国第一家光刻胶公司</h1>
+                	<div class="show_content_info">2014/12/09   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　陈昕，女，1951年生于北京。1966年随父母到甘肃。1968年下乡，1978年回京。后考入北京化工研究院学习。1985年去美国马萨诸赛州立大学读高分子专业研究生，1990年以满分毕业，获硕士学位。毕业后参与麦道公司的合作项目，后去一家美国光刻胶公司工作。2004年8月创办北京科华微电子材料有限公司，并将其建成中国第一家具有国际水准的集研发、生产、检测于一体的光刻胶企业。2011年3月，入选北京&ldquo;海聚工程&rdquo;，被聘为北京市特聘专家。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　中国第一家光刻胶企业的创办者是一位女性，她是现年62岁的北京科华微电子材料有限公司董事长陈昕。她说，她每天要工作12个小时。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　她遵从&ldquo;今日事今日毕&rdquo;的信条，从早上7点走进办公室，到晚上7点还动不了窝。当然会感到累，但劳累让她学会了调节。她说：&ldquo;创业是艰苦的，要笑。&rdquo;她看起来很有精神，说话时的手势轻柔、坚定、富有感染力，给人以干练爽快的印象。11月1日，我们在北京建国门中纺大厦6楼的北京光刻胶产业联盟办公室进行了这次访谈。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">光刻胶是什么</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　她一再谈到，之所以回国创业，跟光刻胶有关。她希望中国能有自己的光刻胶产业。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　光刻胶是制造半导体的关键材料之一。当今世界，微电子技术的发展日新月异，产品更新换代步伐不断加快，与之配套的光刻胶产业也在同步发展。陈昕介绍说，其实，光刻胶就是把微观电路印刷到半导体上的印刷胶。它技术复杂，品种繁多。光刻胶根据其化学反应机理和显影原理，可分为负性胶和正性胶两类。负性光刻胶是在光照后形成交联，光照部分形成不溶于碱性显影剂的物质的光刻胶;反之，正性光刻胶经光照后发生酸分解，光照部门变成可溶于碱性显影液的物质的光刻胶。利用这种性能，光刻胶就能将所需的电路图形转移到半导体基片(例如硅片)上。光刻胶目前主要应用在集成电路制造业(包括芯片制造、生物芯片、光电子器件、封装等)、平板显示业(包括液晶显示器、发光二极管、触摸屏等)两大领域;未来将在微机械系统、太阳能光伏等领域有更大的发展。在20世纪90年代之前，由于&ldquo;巴统&rdquo;协定的限制，这项技术只为西方工业七国共享，而中国在这方面非常落后。随着&ldquo;巴统&rdquo;的解禁，国内外交流才活跃起来。近年来，中国微电子和平板显示产业迅速发展，带动了光刻胶等微电子材料相关配套企业的起跑。特别是2009年LED(发光二极管)与2012年TP(触摸屏)行业的井喷，更加有力地推动了光刻胶产业的飞奔。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　说起来，陈昕进入光刻胶领域有些偶然。1985年进入美国马萨诸赛州立大学读高分子专业研究生的她，1990年以全系唯一的毕业论文在全美同行业年会上得奖的毕业生而令人刮目相看。她这个唯一的得奖记录一直保持至今。她说，她很喜欢读书，读了很多书，成绩很好。当教授问她为什么读书时，她回答是提升自己。教授告诉她，应该是开发自己(或者说发现自己)，也就是说，通过教育发现自己的长处，以此在社会上竞争，胜算会大大提高。简单地说，就是知道自己在社会上做什么。这个答案是她以前所不知道的，从此对她产生了很大的影响，以至她调整了对儿子的教育观，不再以考试100分作为最高标准。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　她硕士毕业时正值经济危机，她被一个导师聘为助手，给麦道公司做一种新型航空材料的研发项目。但不巧的是，第二年麦道公司因为自身的运营问题进入破产保护了，于是项目搁浅。导师遂回到学校教书，陈昕则去了一家光刻胶公司。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　这里有一段插曲。那个光刻胶企业的研发负责人罗杰&bull;森特说，他之所以在众多的简历中选择陈昕，是因为他颇有几分好奇&mdash;&mdash;他想看看研究生课程读满分的陈昕到底什么样&mdash;&mdash;因为他觉得有些不可思议，在他看来，人应该把力气用到需要的事情上，对无关紧要的课程不要平均用力。一见之下，陈昕被罗杰&bull;森特录用了，后来还成为她归国创业的合作者。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　光刻胶成就了陈的职业，也成就了她的梦想。&ldquo;巴统&rdquo;解禁后，中国派出以化工部副部长李子彬为团长的代表团访问美国，也访问了陈昕所在的公司，而中国代表团的翻译正好是她的同学。这次会见，她结识了中国代表团成员之一的孙靖宇。孙当时是北京化学试剂研究所的所长。两人相谈甚欢，想法多所契合，后来更共同在北京创建了一家企业，致力于光刻胶产业在中国的发展。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　随着国内经济的飞速发展，陈昕创业的时机也已成熟。2003年，她与合作伙伴回国内调研，看到了微电子产业的强劲势头，觉得自己有义务参与其中。言及此处，她说，一个留学生如果她的所学是祖国所需的，那是她的荣幸也是她的责任。她还说，华侨爱国是由衷的，她在海外深有感触，只有祖国强大，华侨才能被人看得起。经过8个月的调研，她带着朋友们帮她筹措的100多万美元，怀揣为国内建设第一个国际水准光刻胶企业的美好愿望，于2004年踏上了回国创业之路。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">第一是怎样炼成的</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　当然，创业是需要冲动的，因为创业是艰难的。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　科华公司人事部长陈明，对2004年夏天有着深刻的记忆。那时，她受总经理陈昕的委托，骑着一辆自行车，在北京城里四处奔波，经多方比较，最后选中了和平里七区一间不到30平方米的陋室。2004年8月13日，将房间打扫干净之后，北京科华微电子材料有限公司在这里诞生了。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　公司原计划在通州购置的土地上建设自己的厂房，但是，在初步设计几乎完成的时候，却被告知土地不能使用。这既给公司造成了损失，也让股东们产生了质疑，陈昕本人非常失望。这时，孙靖宇劝慰她说：&ldquo;在中国做光刻胶，是你自己的梦，也是大家的梦。大家都在为此努力，你没有权利放弃。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　当时，失去了通州的土地，科华正在对从燕山化工二厂租来的厂房进行施工改造。听了孙靖宇的话，陈昕感到有些愧疚，特意发短信向工地员工表示感谢。科华最年轻的员工柴华泽回复说：&ldquo;不用谢。实现中国光刻胶零的突破是我们共同的梦!&rdquo;接到这条短信，陈落泪了。至今，她仍然保存着这条短信，时时以此激励着自己。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　建成后的燕山生产基地，占地面积约3000平方米，建筑面积约1600平方米，以生产紫外负型光刻胶及配套试剂和宽谱正胶为主。其中负胶生产为100吨级规模，配套试剂为千吨级规模，是国内规模最大的负胶和配套试剂生产基地。2005年3月4日，科华公司的负胶前工序生产装置开始试车。3月初的燕山，气温还在零度以下。生产装置建在山顶，部分设备处于露天，寒风袭来，洒在甲板上的水立刻凝结成冰。对于试车当日的寒冷和大风，在场人员至今记忆犹新，但他们不畏艰辛，一丝不苟地完成了每一个细节，保证了3月19日试车投产一次性取得成功。4月4日，科华公司生产出了第一批合格的环化橡胶产品。投产当年共生产了28批环化橡胶，实现了当年投产当年见效。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在陈昕看来，中国的光刻胶发展缓慢，主要有两个原因：技术和资金。这些门槛的存在，使得光刻胶从业人员要具备相应的奉献精神。它既需要工程学、材料学专业知识的厚积薄发，又需要技术和人脉上的积累。在技术上，科华通过努力，培养并建立了自己的团队，可在资金上却存在着严重问题。在最初的商业计划书里，在中国的建设资金是按美国的70%来预算的，而实际发生费用却是美国的110%。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创业之初，陈昕自己有100多万美金，并且把丈夫的退休金也贴了进去。后来，她将自己家在美国的房子做了抵押贷款，弥补了公司的前期损失，她刚参加工作的儿子也拿出5万美元积蓄来支持。然而，要想重新寻找土地，建造厂房，这点资金是远远不够的。于是，再融资就成了科华公司2006年的头等大事。在她苦于无法解决土地问题而一筹莫展时，遇到了两个人：一个是&ldquo;十五&rdquo;规划期间主抓光刻胶材料的国家863计划超大规模集成电路配套材料重大专项办公室主任石瑛，一个是北京市工业促进局副局长梁胜。梁胜认为，中国半导体的产业链不完整，就是因为光刻胶拖了后腿。在他们的帮助下，北京工业发展投资管理有限公司入股科华，使资金问题得以顺利解决，并在天竺出口加工区得到了建设用地。2006年9月18日，占地面积20000多平方米、建筑面积约10000平方米的天竺空港生产基地建设工程奠基。而2009年5月8日则被认为是科华公司发展史上一个非常重要的日子。在国家科技部、北京市工业促进局、市科委、市发展改革委的指导帮助下，科华人经过5年的艰苦努力，终于用自己的双手建成了中国第一个具有国际一流水准的集研发、生产、检测于一体的光刻胶企业。该基地以高档光刻胶生产为主，产品包括高档g线正胶、i线正胶和TFT-LCD用正胶及相关配套试剂。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　科华人目睹了天竺空港生产基地发生的每一点变化：从寸草不生的荒地，到机器轰鸣、钢筋密布的工地，到高大空旷的厂房，到绿草环绕、充满希望的绿色厂区。这种坚持与努力，成为一种宝贵的精神财富，支撑着科华的大厦。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">没有句号，只有前方</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　当初，一位美国朋友曾这样问陈昕：&ldquo;你为什么要回中国?&rdquo;她说：&ldquo;我是中国人。&rdquo;&ldquo;你多久能取得成功?&rdquo;&ldquo;5年。&rdquo;5年，是她给自己设定的时间表，她心里希望用3年的时间来完成。但在这中间，她有时甚至不敢接朋友的电话，颇有点&ldquo;近乡情更怯，不敢问来人&rdquo;的味道。幸运的是，她终于在回国5年内完成了厂房建设。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　她说：&ldquo;没有一件事是一个人能完成的。&rdquo;她的美国朋友瓦森不无羡慕地说：&ldquo;你真幸运，怎么有这么好的年轻人为你工作!&rdquo;如果探究一下她的用人之道，我们会叹为观止。在她的团队里，有罗杰&bull;森特为代表的著名的光刻胶专家，有留美归来的光刻工程师李庆刚，也有以刘易斯&bull;列恩为代表的微电子化学品生产线工程设计专家，但在科华挑大梁的，有更多的是年轻人。天竺空港生产基地建设工程，就是由80后为主的年轻人完成的。1980年出生的工程部长李冰洋，当时作为公司最年轻的部长，承担了公司建设期最艰巨的任务。曾经有很多人担心，这么大的工程由一群孩子来做是否合适?须知，这是中国第一条光刻胶生产线，国内无论如何也找不到有经验的工程师。事实证明，工程部的年轻人用他们的聪明智慧和努力苦干挑起了这副重担。李冰洋更是在公司经费困难时呕心沥血，带领团队一项一项严抠细查，为公司节省了上百万元的费用。谁能想到，这样一条国内领先的光刻胶生产线的建设竟然是由80后挑大梁。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　科华的技术团队同样是从无到有建立起来的。想当初她回国之时，国内大学连光刻胶方面的课程都不曾开设，人才的培养是大问题。好在有清华大学的洪啸吟、钱培信，中国科学院理化技术研究所杨永源等光刻胶专家，帮科华培训了最初的技术团队。当这些人有了一定的基础后，陈昕又从国外聘请专家进行指导。有谁能想到，科华的研发部长居然是一位1983年出生的年轻人呢?谈至此处，陈昕介绍说，科华2012年上市的产品是他们自己研发出来的，2012年还完成了具有自主知识产权的248纳米光刻胶高档线的建设。目前，科华公司的技术力量已经相当雄厚，拥有国际先进水平的分析和应用测试用仪器设备，拥有当代国际先进水平的高档光刻胶生产线，拥有燕山和天竺两处生产基地，并承担了国家02科技重大专项&mdash;&mdash;248纳米光刻胶研发与产业化项目，承担了国家发展和改革委员会的集成电路制造高性能光刻胶项目，是国内唯一同时承担i线正胶、248纳米和193纳米深紫外光刻胶国家重点科技研发任务的单位。北大方正、上海华虹等企业为之高兴，因为终于有了与自己的芯片、平板电脑、LED、光电印刷等产品配套的国内产品。陈昕说，目前国际上只有5家光刻胶企业具有高档胶(Advanced Resist)生产能力，科华的高档胶生产线如果在2013年成功投产，就意味着它步入了国际一流的光刻胶企业之列。她相信，假以时日，中国人会创造更多奇迹。她现在所要做的是，把公司的基础夯实。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　诚如所言，选择创业是一种生活方式，没有句号，只有前方。更大的蓝图正在谋划之中。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　记者手记</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　本文从采访到写作，整整隔了两个月的时间。由于工作的原因，中间一直没有动笔。还有一个原因，是我不知道这次两个半小时的访谈是否足以支撑一篇5000字的文章?但我不打算从其他途径搜集信息。因为陈昕说，别人写她的文章，没有一篇像她本人。这让我不免为难。好在我没有看到那些文章。印像中的陈昕是忙碌的，乐观的，直言快语的。我们所谈的内容，当然要超出本文的范畴，而其中一些颇具意义，包括她对祖国的感情，创业的艰辛和执着，中外文化的冲突，也包括她对一些不正当行为的痛心和批评。这里应当记下她说的一句话：&ldquo;企业的能力是从市场上拿钱，而不是从政府拿钱。当然我也从政府拿过很多钱，我非常感激。&rdquo;这句话表明了她的取向。人们只看到&ldquo;中国第一&rdquo;，但不一定能看到第一背后的辛酸。不知道本文离真实的陈昕有多远，如果在遵从新闻真实的基础上传达了基本事实，或者所写与陈昕本人基本接近，则甚幸!</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　&nbsp;撰稿：李丰洲</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

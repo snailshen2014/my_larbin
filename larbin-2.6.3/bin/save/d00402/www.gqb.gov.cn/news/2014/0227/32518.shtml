@@ -1,0 +1,373 @@
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 1.5}
+.14v {
+	FONT-SIZE: 14px}
+
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="docdist" content="北京">
+<meta name="doclang" content="中文">
+<meta name="sitename" content="国务院侨务办公室">
+<meta name="docdate" content="2014-02-27">
+<LINK href="/node2/node3/index.css" rel=stylesheet>
+<title>国务院侨办2013年政府信息公开年度工作报告</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center"> 
+  <!-- Start Open Web Analytics Tracker -->
+<!-- End Open Web Analytics Code -->
+
+<script language="javascript">
+<!--
+function hidden(){
+   document.searchform.searchword.value="";
+   } 
+function setSearchword()
+{
+	select2 = "", searchword2 = "";
+	//get select
+	select2 = document.searchform.select.value;
+	//get word
+	searchword2 = document.searchform.searchword.value;
+	if(searchword2 == "请输入关键词")
+	{
+		searchword2 = "";
+	}
+
+	if(searchword2 != "")
+	{
+		 if(select2 == "1")
+		{
+			searchword2= "标题=" + searchword2;
+		}
+		else
+		{
+			searchword2 = "正文=" + searchword2;
+		}
+	}
+	document.searchform.searchword.value=searchword2;
+}
+//-->
+</script>
+
+<div align="center">
+<table width="778" height="24" border="0" cellpadding="0" cellspacing="0" bgcolor="#E4E4E4">
+    <tr> 
+ <td width="146" style="FONT-SIZE: 12px">&nbsp;&nbsp;<SCRIPT language=JavaScript>
+<!---
+	today=new Date();
+	function initArray()
+	{
+		this.length=initArray.arguments.length
+		for(var i=0;i<this.length;i++)
+		this[i+1]=initArray.arguments[i]
+	}
+	var d=new initArray("<font color=#FFC8C9>星期日","<font color=#000000>星期一","<font color=#000000>星期二","<font color=#000000>星期三","<font color=#000000>星期四","<font color=#000000>星期五","<font color=#FFC8C9>星期六"); 
+	document.write(" <font color=#000000>",today.getYear(),"<font color=#000000>年" ,"<font color=#000000>",today.getMonth()+1,"<font color=#000000>月","<font color=#000000>",today.getDate(),"<font color=#000000>日</FONT> ",d[today.getDay()+1]," "); 
+//-->
+</SCRIPT> </td>
+      <td align="left" width="284">
+<table width="280" height="24" border="0" cellpadding="0" cellspacing="0">
+  <form name=aa method=post action=http://mail.gqb.gov.cn/index.php target="_self">
+    <tr><input type=hidden name=F_lang value=> 
+        <input type=hidden name=F_tm value=1151047206> 
+              <td width="55" align="right" style="FONT-SIZE: 12px"> <font color="#656565">邮 
+                箱</font>&nbsp;</td>
+      <td width="76" style="FONT-SIZE: 9px"> <input type=text name=F_email value="用户名" size=8 maxlength=20 onFocus="this.value=''" style="COLOR: #656565;">
+      <td width="70" align="left"><input type=password name=F_password value="用户密码" size=8 onFocus="this.value=''" style="FONT-SIZE:12px;COLOR: #656565;"> </td>
+	  <td align="left"><input name=action type=image id=action2 src="/image08/emaillogin.gif" width="50" height="24">
+
+    </tr><input type=hidden name=F_domain value=gqb.gov.cn> <input type=hidden name=F_tpl value="">
+  </FORM>
+</table></td>
+<td width="222"><table width="210" height="24" border="0" align="left" cellpadding="0" cellspacing="0">
+  <form method="post" action="http://search.chinanews.com/was40/search?channelid=28663" name="searchform" onSubmit="javascript:setSearchword();">
+    <tr> 
+      <td width="68" align="left" style="FONT-SIZE: 12px">
+	  <select  name=selectact size=1 style="COLOR: #656565;">
+                <option value="1" selected>标 题</option>
+                <option value="2">全 文</option>
+              </select>
+	  </td>
+      <td style="FONT-SIZE: 9px"><input name="searchword" value="关键字" size="10" style="COLOR: #656565;"> 
+      </td>
+	  <td style="FONT-SIZE: 12px"><input name="submit" type="image" src="/image08/search.gif" width="46" height="24">
+
+    </tr> 
+         </FORM>
+</table></td>
+      <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+      <td width="40" style="FONT-SIZE: 12px"><a href="http://big5.gqb.gov.cn:89/" target="_blank"><font color="#656565">繁体版</font></a></td>
+	  <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+	  <td width="54" style="FONT-SIZE: 12px"><span  onclick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.gqb.gov.cn');"  style="CURSOR: hand"><font color="#656565">设为主页</font></a></span></td>
+ </tr>
+ </table>
+  <table width="778" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td><img src="/image08/zw_logo.jpg" width="476" height="105"></td>
+      <td><img src="/image08/zw_logo2.jpg" width="302" height="105"></td>
+    </tr>
+  </table>
+  <table width="778" height="34" border=0 cellPadding=0 cellSpacing=0 background="/image08/daohang_bg.gif" style="FONT-SIZE: 12px">
+      <TR> 
+        <TD>&nbsp;</td> 
+                  <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/index.shtml" target="_blank">首　　页</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/gzdt/index.shtml" target="_blank">工作动态</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/sqxx/index.shtml" target="_blank">地方侨务</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zwgk/index.shtml" target="_blank">信息公开</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hwqq/index.shtml" target="_blank">海外乡情</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hjzx/index.shtml" target="_blank">华教资讯</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/qwlt/index.shtml" target="_blank">侨务论坛</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zrft/index.shtml" target="_blank">主任访谈</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/ddfp/index.shtml" target="_blank">定点扶贫</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zt/index.shtml" target="_blank">专　题</a></TD>
+                <td>&nbsp;</TD>
+      </TR>
+  </TABLE>
+</div>
+  <table width="778" border="0" cellpadding="0" cellspacing="0" background="/node2/node3/pic/ggybian.jpg">
+ <tr> 
+ <td align="center" valign="top"> 
+ <div align="center"> 
+ <center>
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td  valign="top" width="100%" style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 22px; LETTER-SPACING: normal" 
+ > <p align="center"> <br>
+                    <br>
+                  <div align="center"><strong><font color="#01458A"> <span style="FONT-SIZE: 16px"> 
+                    国务院侨办2013年政府信息公开年度工作报告 </span></font></strong><font color="#000000"></font><font color="#01458A"><span style="FONT-SIZE: 16px"> 
+                    </span></font></div>
+                  <hr align="center"> <div align="center"> <font color="#808080"> 
+                    【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='20px';"><font color="#808080">放大字体</font></a>】【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='12px';"><font color="#808080">缩小字体</font></a>】&nbsp;2014年02月27日 <br></font>  
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <meta name="ContentStart">
+                  <p align="left" class=old>
+				  <div align="left" id="Zoom"><font color="#000000"> <p>　　根据《中华人民共和国政府信息公开条例》(以下简称《条例》)要求，现公布2013年我办政府信息公开年度报告。本报告内容包括概述、主动公开政府信息情况、依申请公开政府信息情况、政府信息公开收费及减免情况、因政府信息公开申请行政复议和提起行政诉讼情况，信息公开工作存在的主要问题及改进措施等。报告中所列数据的统计期限自2013年1月1日起至2013年12月31日止。</p>
+
+<p>　　一、概述</p>
+
+<p>　　2013年，在党中央、国务院的正确领导下，我办认真贯彻落实党的十八大和十八届二中、三中全会精神，深入开展党的群众路线教育实践活动，紧紧围绕国家总体战略目标开展侨务工作，继续落实《国家侨务工作发展纲要(2011—2015年)》，结合工作实际，加强组织领导，完善制度建设，拓展公开形式，进一步提高信息公开工作的规范化水平，信息公开工作取得了新进展。</p>
+
+<p>　　(一)提高思想认识，加强组织领导</p>
+
+<p>　　我办领导始终高度重视政府信息公开工作，要求各部门充分认识信息公开工作的重要性和必要性，特别是信息公开工作对于建设创新、廉洁、法治的服务型政府和保障公民知情权的重要意义，要将信息公开工作作为重要的政治任务去完成，进一步增强做好信息公开工作的责任感、使命感。在政务公开领导小组统一领导下，秘行司认真贯彻落实《条例》规定和领导要求，统筹协调全办政府信息公开工作的组织实施，各司(室)密切配合，结合工作实际和公众需求，积极主动地将有关信息向包括华侨华人和归侨侨眷在内的社会公众公开，确保政府信息公开工作有序开展。</p>
+
+<p>　　(二)加强学习调研，提升工作水平</p>
+
+<p>　　政府信息公开工作是一项长期性的重要工作，为进一步提升政府信息公开工作水平，2013年我办以贯彻落实改进工作作风密切联系群众的八项规定和党的群众路线教育实践活动为契机，加强政府信息公开工作人员特别是秘行司相关人员的教育培训，组织学习政府信息公开工作有关规章制度等文件，进一步提升政策水平和业务能力，确保政府信息公开工作有力开展。加强调查研究，对政府信息公开工作进行全面梳理，认真总结工作中好的经验和做法，查找不足，提出进一步改进的思路和措施，不断提高信息公开工作的质量和水平。</p>
+
+<p>　　(三)深化制度建设，加强机制保障</p>
+
+<p>　　按照《条例》要求，进一步完善政府信息公开工作制度，深入开展制度化、规范化建设，积极推进信息公开工作。在政府信息公开工作具体实践中，严格执行已经制定的《国务院侨务办公室政府信息公开条例实施办法》、《国务院侨务办公室政府信息公开指南》，进一步完善内部沟通协调机制、复杂申请会商机制等。严格贯彻落实《国务院办公厅关于印发当前政府信息公开重点工作安排的通知》(国办发﹝2013)73号)、《国务院办公厅关于进一步加强政府信息公开回应社会关切提升政府公信力的意见》(国办发﹝2013)100号)等指导性文件要求，同时积极结合我办实际，制定印发了《国务院侨办关于进一步加强政府信息公开回应社会关切提升政府公信力的通知》，推动我办政府信息公开向制度化、规范化、常态化发展。</p>
+
+<p>　　(四)拓展公开渠道，丰富公开形式</p>
+
+<p>　　通过我办门户网站的信息公开、工作动态、地方侨务、经济科技等专栏，依法主动公开各类信息内容。据不完全统计，我办门户网站2013年共编发全国侨办系统各类信息资讯3500条，其中办机关相关工作信息150余条。通过全国侨务工作指导性期刊《侨务工作研究》以及报刊等其他新闻媒体，主动公开侨务工作方面的各类重要政府信息。通过新闻发布会等形式，主动全面的向社会公众公开重要涉侨活动等政府信息。依申请公开渠道畅通，着力完善依申请公开工作机制，建立健全督办催办机制，做到“有落实、有结果”。今年，我办正式受理政府信息公开依申请公开1件，对涉及的相关政策信息进行了解读和说明。</p>
+
+<p>　　(五)完善工作载体，加强信息平台建设</p>
+
+<p>　　党的十八大报告中将信息化列为“新四化”的建设目标，我办紧紧抓住信息化建设的良好机遇，成立由办领导牵头的国务院侨办信息化工作领导小组，加强信息化平台建设，对信息网络平台进行升级改造，同时将其作为深入践行党的群众路线教育实践活动的整改措施，列入全办的重点工作。通过认真深入的调查研究和征求各方面意见，我办已着手全面升级外网综合服务平台，全面整合升级我办的网站资源，打造提升服务质量和实现侨务工作全覆盖的综合信息平台。目前平台建设工作正在紧锣密鼓的开展，平台建成启用后，我办的信息工作载体得到进一步完善，政府信息公开工作将迈上一个新台阶。</p>
+
+<p>　　二、主动公开政府信息情况</p>
+
+<p>　　(一)公开的主要内容</p>
+
+<p>　　2013年度，我办主动向社会公开的政府信息共计150余条。包括国内外侨务工作动态、经济科技、政策法规、政策咨询、文教宣传、办事指南、职能介绍等内容。</p>
+
+<p>　　(二)公开形式</p>
+
+<p>　　1.政府网站。充分发挥政府网站主渠道作用，开设工作动态、涉侨信息、信息公开、海外乡情、华教资讯、经济科技、侨务论坛、定点帮扶及侨爱工程等栏目，及时、全面、准确地将国务院侨办重要工作动态和信息在网站主动发布。2013年国务院侨办政府网站日页面访问量突破17万次，较去年的9万次增长了90%，全年访问量达6000余万次，进一步提高了信息公开的水平和质量。</p>
+
+<p>　　2.报刊、广播电视及新闻媒体等。通过发布新闻稿件等形式，及时将国务院侨办重要工作部署、工作进展情况以及公众关注的新闻热点等向社会进行主动公开。</p>
+
+<p>　　3.新闻发布会。通过新闻发布会及时向社会公众公布第七届世界华文传媒论坛、第十二届世界华商大会等有关活动的重要信息。</p>
+
+<p>　　4.《侨务工作研究》刊物。双月刊，全国侨务工作指导性期刊。定期刊载涉及侨务工作的方针政策和涉侨信息。</p>
+
+<p>　　5.其他形式。通过《中国侨网》、《中国华文教育网》、《中国华文教育基金会》、《中国侨商投资企业协会》等网站及公告栏等，及时向社会主动公布侨界要闻、热点问题等公务活动信息情况。</p>
+
+<p>　　三、依申请公开政府信息情况</p>
+
+<p>　　2013年度，我办受理政府信息公开申请1件，已按《条例》有关规定及时答复。</p>
+
+<p>　　四、收费及减免情况</p>
+
+<p>　　2013年度，我办政府信息公开工作未发生相关收费和减免情况。</p>
+
+<p>　　五、申请行政复议和提起行政诉讼情况</p>
+
+<p>　　2013年度，我办未发生因政府信息公开而引发的行政复议或行政诉讼案件。</p>
+
+<p>　　六、存在的主要问题及改进措施</p>
+
+<p>　　2013年，通过认真贯彻落实《条例》精神，进一步加强组织领导，进一步建立健全工作体制机制，丰富公开内容，创新公开形式，深入推进政府信息公开工作。同时我们也清醒的认识到，我办政府信息公开工作仍存在薄弱环节，主要表现在政府信息公开工作总体水平特别是信息化方面仍需进一步提高，政府信息公开内容有待进一步丰富深化。2014年重点将做好以下几方面工作：</p>
+
+<p>　　(一)加强机制建设，进一步完善主动发布机制</p>
+
+<p>　　围绕我办一段时期开展的重点侨务工作，特别针对侨胞热盼的、关注的热点问题，要主动、及时、准确地发布权威信息。在发布内容上，要进一步做好公众关注热点、大型涉侨活动、政策法规的梳理、整合工作，加强政府信息传播的可读性和吸引力；对我办新出台侨务政策和海外侨胞关注的热点问题，要做好权威信息发布工作；在发布形式上，要统筹运用新闻发言人、媒体采访、政府公众信息网等发布信息，充分发挥广播电视、报刊、新闻网站等媒体的作用，扩大发布信息的受众面。通过政府信息主动发布机制，推动完善政府信息公开体系建设。</p>
+
+<p>　　(二)深化信息公开内容，进一步提升服务功能</p>
+
+<p>　　充分运用新媒体技术手段，拓展政府网站公众互动和社会服务功能。以更加灵活互动的方式实现信息发布、政策解读、公众问答、网上调查等功能，诉侨情、听侨声、解侨忧，拉近我办与侨胞的空间与心理距离，通过网上调查等多种方式接受海外建言献策和情况反映。同时，继续发挥《全国侨务工作研究》作为全国侨务工作指导性期刊在解读侨务方针政策等重要政府信息方面的积极作用，在侨务政策解读、工作动态发布的基础上，对全国及各地侨务政策法规进行答疑解惑，加强对侨务政策的权威引导。 </p>
+
+<p>　　(三)加强信息化建设，进一步完善工作载体</p>
+
+<p>　　深入调查研究，加强政府信息平台的改造升级，将侨务信息化建设作为侨务工作的一项基础性、长远性工作认真谋划。强化信息化建设对侨务工作的推动作用，不断探索完善侨务信息公开工作载体，大力推进综合信息服务平台建设，重点突出服务包括华侨和归侨侨眷在内的社会公众的宗旨，增加网站发布的政府信息数量、提高公开的政府信息质量，进一步提升信息公开工作的信息化水平和查询的便利性，着力提高信息公开工作的全面性、主动性和时效性。
+</p>
+<br>
+                    </font></div></p><meta name="ContentEnd"></td>
+              </tr>
+            </table>
+            <center>
+              <br>
+              <table width="600" border="0" cellspacing="0" cellpadding="0" style="LINE-HEIGHT: 1.6">
+                <tr> 
+                  <td><b><span style="FONT-SIZE: 14px"></span></b> </td>
+                </tr>
+              </table>
+              <br>
+            </center>
+
+ </center>
+        </div>
+ </td>
+ </tr>
+ </table>
+
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<LINK href="/image08/index.css" rel=stylesheet><base target="_blank">
+<title>国务院侨务办公室</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body bgcolor="#D4E8F1" leftmargin="0" topmargin="0">
+<table width="778" height="42" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="35" background="/image08/2008_zwdi.jpg"> 
+      <div align="center"> 
+        <table width="88%" height="16" border=0 cellPadding=0 cellSpacing=0 style="FONT-SIZE: 12px">
+          <TBODY>
+            <TR valign="bottom"> 
+              <TD width="10%" align=middle><a href="/index.shtml" target="_blank"><font color="#0167CC">首　　页</font></a></TD>
+              <TD width="10%" align=middle> <A href="/gzdt/index.shtml" target="_blank"><font color="#0167CC">工作动态</font></a></TD>
+              <TD width="10%" align=middle> <A href="/sqxx/index.shtml" target="_blank"><font color="#0167CC">地方侨务</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">信息公开</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">海外乡情</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hjzx/index.shtml" target="_blank"><font color="#0167CC">华教资讯</font></a></TD>
+              <TD width="10%" align=middle> <A href="/qwlt/index.shtml" target="_blank"><font color="#0167CC">侨务论坛</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zrft/index.shtml" target="_blank"><font color="#0167CC">主任访谈</font></a></TD>
+              <TD width="10%" align=middle> <A href="/ddfp/index.shtml" target="_blank"><font color="#0167CC">定点扶贫</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zt/index.shtml" target="_blank"><font color="#0167CC">专　题</font></a></TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      </div></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0"  style="LINE-HEIGHT: 1.6">
+  <tr> 
+    <td align="center">地址：<font color="#000000">北京市西城区阜外大街35号　邮编：100037　电话：86-10-68327530</font> 
+      <font color="#000000"><br>
+      国务院侨务办公室2004版权所有　中国侨网技术支持 </font><font color="#0099CC"><br>
+      <a href="http://www.miibeian.gov.cn"><font color="#000000">[京ICP备05072101号]</font></a></font></td>
+  </tr>
+</table>
+</body>
+</html>
+
+</div>
+</body>
+</html>

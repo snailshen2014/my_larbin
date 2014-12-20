@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">张璟：把创新当做一种信仰</h1>
+                	<div class="show_content_info">2014/10/23   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟，男，生于1972年，北京人。掌握国际一流的光伏发电技术，在某些领域填补国内空白。1994年获北京理工大学工程热物理学士，2000年获新墨西哥大学机械工程及计算机工程双硕士学位，2004年获新墨西哥大学电子工程博士。1994 &mdash;1997年，任西门子中国有限公司工业自动化部系统工程师;1997 &mdash;2005年，任新墨西哥大学制造技术及培训中心助理研究员，博士后;2005 &mdash;2006年，任Surfect Technologies, INC, 高级系统工程师;2006 &mdash;2008年，任美国安科光电有限公司太阳能发电部科学家;2009年，先后任美国TSP公司、美国Kohler公司顾问，分别负责研发光伏太阳能电池及模块户外测试系统和光伏/风电/发电机/蓄电池混合微网逆变器系统总体设计。2009 &mdash;2010年，任中国国电龙源(北京)太阳能技术有限公司副总工程师。2010年8月，任北京太阳能电力研究院有限公司应用工程部主任。2010年，入选第三批北京&ldquo;海聚工程&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2011年7月的北京，几乎有20天在下雨，北京成了雨城。不过记者和张璟博士约谈的那一天，却是闷热的晴天。在中华民族园西面的芝麻花餐厅，我们见面，握手，致意。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟活力充沛、充满热情。他的脸上似乎全是美国西海岸的阳光，在他的目光和语言里，一切都会生动起来。于是，记者开始猜测他究竟有怎么样的人生。而即将开始的采访，则让我们了解这个人的故事，而故事在唐代被称为传奇。如果张璟在光伏发电领域的技术能力和创新能力能够得到发挥，那么对于中国肯定是一个传奇。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　无论怎样，我们先要了解光伏发电的一些知识，在这个基础上，我们才能看到张璟的价值和张璟在光伏发电领域创新的意义。于是，在那个7月里的一个下午，记者经过了学习、理解、钦佩、祝愿和兴奋的过程&hellip;&hellip;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">作为朝阳产业的光伏发电</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　低碳经济、可持续发展、环境保护、和谐世界&hellip;&hellip;21世纪，人类开始认真实现与大自然的和谐发展。能源作为经济的动力，是文明世界必须消耗的，但是如何使这种能源消耗最大限度地不破坏环境、不构成污染则是可以通过技术做到的。于是，除了降低消耗、节能减排这些&ldquo;节流&rdquo;的方式，人类开始采用&ldquo;开源&rdquo;方式，将能源获取转向太阳能，而不仅仅是石油和煤炭。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　太阳是能量的天然来源。地球上每一个活着的生物的活动与生存，都直接或间接地因为来自太阳的能量。我们的地球处在离太阳差不多有一亿英里的地方。它所获得的辐射能少到难以置信 &mdash;&mdash;大约千万分之三。就是这么小的一点能量，实际上比整个世界目前现有的发电能力还大十万倍。目前，全世界尤其是工业发达国家开始感到能量短缺，因此，人们开始求助于太阳能，以解决能源危机。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　太阳能每天都能无限供应，而且数量庞大。如果在大的电厂利用，就减少了温室效应。有些能源专家和环境保护的专家则认为，在满足人类今后能量需要方面，太阳能的热影响比任何其他替换品的热影响要小得多。作为一种不污染环境，又取之不尽的新能源，它无处不在。在电力供力方面，有专家认为太阳能发电最终将在电力供应中占20%。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　太阳能是一种辐射能，太阳能发电意味着将太阳光直接转换成电能，它必须借助于能量转换器才能转换成为电能。将光能直接转换成电能的过程叫&ldquo;光伏效应&rdquo;。这种把光能转换成为电能的能量转换器，就是太阳能电池。太阳能电池也同晶体管一样，是由半导体组成的。它的主要材料是硅，也有一些其他合金。用于制造太阳能电池的高纯硅，要经过特殊的提纯处理制作。太阳能电池只要受到阳光或灯光的照射，就能够把光能转变为电能，使电流从一方流向另一方，一般就可发出相当于所接收光能的10~20% 的电来。一般来说，光线越强，产生的电能就越多。为了使太阳能电池板最大限度地减少光反射，将光能转变为电能，一般在它的上面都蒙上一层可防止光反射的膜，使太阳能板的表面呈紫色。它的工作原理的基础是半导体PN结的光生伏打效应。所谓光生伏打效应就是当物体受光照时，物体内的电荷分布状态发生变化而产生电动势和电流的一种效应。当太阳光或其他光照射半导体的PN结时，就会在PN结的两边出现电压(叫做光生电压)。这种现象就是著名的&ldquo;光生伏特效应&rdquo;。使PN结短路，就会产生电流。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　太阳能发电的主要优点在于：太阳能电池可以设置在房顶等平时不使用的空间，无噪音、寿命长，而且一旦设置完毕就几乎不要需要调整。现在只要将屋顶上排满太阳能电池，就可以实现家中用电的自给。现今太阳能的主要用途已不再是小规模的，从性质上来说，是专业化的。它从军事领域、通信领域到城市建设领域等都起到了重大的作用。委内瑞拉还推出廉价太阳能车、欧洲科学家研制出轻便的可穿在身上的太阳能电池。目前，太阳能的利用存在着巨大的发展空间，有关的技术有可能在短时间内实现突破。它已被许多发达国家作为其能源战略的一个重要组成部分。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　自从1954年第一块实用光伏电池问世以来，太阳光伏发电取得了长足的进步。但比计算机和光纤通讯的发展要慢得多。其原因可能是人们对信息的追求特别强烈，而常规能源还能满足人类对能源的需求。1973年的石油危机和90年代的环境污染问题大大促进了太阳光伏发电的发展。下面是太阳能光伏发电发展的重大阶段：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1839年，法国科学家贝克勒尔发现&ldquo;光生伏特效应&rdquo;，即&ldquo;光伏效应&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1954年，恰宾和皮尔松在美国贝尔实验室，首次制成了实用的单晶太阳电池，效率为6%。同年，韦克尔首次发现了砷化镓有光伏效应，并在玻璃上沉积硫化镉薄膜，制成了第一块薄膜太阳电池。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1978年，美国建成100kWp太阳地面光伏电站。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1980年，单晶硅太阳电池效率达20%，砷化镓电池达22.5%，多晶硅电池达14.5%，硫化镉电池达9.15%。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1986年，美国建成6.5MWp光伏电站。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1990年，德国提出&ldquo;2000个光伏屋顶计划&rdquo;，每个家庭的屋顶装3~5kWp光伏电池。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1995年，高效聚光砷化镓太阳电池效率达32%。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1997年，美国提出&ldquo;克林顿总统百万太阳能屋顶计划&rdquo;，在2010年以前为100万户，每户安装3~5kWp。光伏电池。有太阳时光伏屋顶向电网供电，电表反转;无太阳时电网向家庭供电，电表正转。家庭只需交&ldquo;净电费&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1997年，日本&ldquo;新阳光计划&rdquo;提出到2010年生产43亿Wp光伏电池。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1997年，欧洲联盟计划到2010年生产37亿Wp光伏电池。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1998年，单晶硅光伏电池效率达25%。荷兰政府提出&ldquo;荷兰百万个太阳光伏屋顶计划&rdquo;，到2020年完成。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　总之，美、日、欧和发展中国家都制定出庞大的光伏技术发展计划，开发方向是大幅度提高光电池转换效率和稳定性，降低成本，不断扩大产业。目前已有80多个国家和地区形成商业化、半商业化生产能力，年均增长达16%，市场开拓从空间转向地面系统应用，甚至用于驱动交通工具。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　光伏技术制作的光电池有望成为21世纪的新能源。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　</span><strong><span style="font-family: 宋体">　中国光伏产业强而不大</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　资料显示，中国自1958年起研究光伏技术，中国太阳能资源非常丰富，理论储量达每年17000亿吨标准煤。太阳能资源开发利用的潜力非常广阔。中国光伏发电产业于20世纪70年代起步，90年代中期进入稳步发展时期。太阳电池及组件产量逐年稳步增加。经过30多年的努力，已迎来了快速发展的新阶段。在&ldquo;光明工程&rdquo;先导项目和&ldquo;送电到乡&rdquo;工程等国家项目及世界光伏市场的有力拉动下，中国光伏发电产业迅猛发展。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在全球光伏需求带动下，中国光伏行业近年来发展迅猛，成为政府重视、股市活跃、风投青睐、各行各业蜂拥相聚的世界太阳谷。2007年，中国光伏电池产量首次超过德国和日本，居世界第一位。2008年的产量继续提高，达到了200万千瓦。近5年来，中国光伏电池产量年增长速度为1-3倍，光伏电池产量占全球产量的比例也由2002年1.07%增长到2008年的近15%。商业化晶体硅太阳能电池的效率也从3年前的13%-14%提高到16%-17%。2010年，行业上游，多晶硅需求约为8万吨，自产量达到约4万吨。行业下游，中国光伏产品产能扩张迅速，产量继续在全球处于领先地位，据不完全统计，2010年，中国大陆光伏产品产能已达30吉瓦(GW)，大大超过国际市场需求;光伏产品产量达到8GW，占世界50%，居世界首位。而且，产品中仍有94%以上出口海外，且大部分流向了欧盟地区。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　由于设备、原料和市场三头在外，中国对美国、欧洲和日本等国际市场存在很大依存度。虽然中国光伏产业规模巨大、世界领先，但产业大而不强，这主要体现在国内市场应用严重不足;产业规划不明确，政策支持力度不足，行业发展方向、目标不清晰;下游行业无序竞争严重，中国光伏出口的主要形式是电池组件等光伏产品，高附加值的技术出口较少。尽管中国光伏产品大量出口，中国光伏产品出口量大但企业定价权并不在握。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　主要症结在于技术水平差距和先进成果产业化上。从总体上看，中国的光伏产业技术水平仍较为落后。目前中国光伏产业核心技术缺失，主要体现在缺乏关键设备及依附于这些设备的工艺。由于关键设备落后，导致依附于这些设备的工艺水平也无法提高。比如，在光伏电池生产方面，丝网印刷技术的国内自主研发、模仿制造水平较低;再如，自动机械手设备、硅片的平面清洗装置等，都依赖于进口。此外，中国光伏技术成果转化过程也存在障碍。目前我国光伏产业实验室研发技术成果超前，但中试过程困难较多。中试过程需要大面积的太阳能设备，但这部分设备国产化率低，进口价格较贵。中国光伏技术在实验室的研发水平并不低，然而在中试阶段，由于缺乏长期工业基础的积累、设备制造能力差，先进的技术成果难以产业化、市场化。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟告诉记者：&ldquo;这已经是业内共识，作为新能源行业最有发展前景的行业之一，中国光伏产业规模已经连续几年领先世界，但产业大而不强、产业规划不明确、下游行业无序竞争严重等制约着行业的健康发展。要改变这个局面，必须加快制定产业规划、积极鼓励中小企业技术创新、加大高端人才培养力度。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">致力于光伏发电领域的创新</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　科学创新是讲究天赋的，所以牛顿和爱因斯坦通过书斋里的合理构思能够进行改变世界的伟大创造。在张璟身上，记者能够感到创新火苗的跃动，那种激情，会点燃人们的热情。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟曾是美国EMCORE公司的科学家。这个公司做高效太阳能电池，是世界上两家技术最先进的公司之一，另一家是波音SpectroLAB。目前，张璟掌握国际一流的光伏发电技术，在某些领域填补国内空白。第一项是高倍聚光发电技术，是世界领导性技术。2010年，国家在863立项进行相关研究。第二项是光伏户外实际发电量数字模型，以3%误差算出实际发电量，只有美国具有同类技术。目前，张璟也在做微网系统，即微型电网，是智能电网的基础，实践意义十分大。张璟和所在的北京太阳能电力研究院有限公司正在给科技部做微型电网示范项目。张璟告诉记者，不久他要去海南考察当地微型电网的建设情况。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　也许，正是对于创新和光伏发电的共同的使命与热情使张璟和北京太阳能电力研究院有限公司走到一起。目前，张璟在北京太阳能电力研究院有限公司如鱼得水，所负责的各个项目发展顺利。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　北京太阳能电力研究院有限公司(简称研究院)是北京太阳能电力科技股份有限公司的子公司，是专业从事太阳能光伏技术研发的民营机构，由中国可再生能源学会和北京汇宸投资管理有限公司联合中国电子技术标准化所、北京大学新能源中心、清华大学核能与新能源研究院、北京市太阳能研究所有限公司和上海交大太阳能研究所等科研院所共同发起成立，于2009年5月25日注册成立。公司致力于太阳能发电领域的科研、生产和推广，特别是高效光伏技术的研发应用、超大型光伏电站建设、光伏建筑一体化和关健光伏设备开发。目前已申请成立太阳能光伏北京工程研究中心，并将以此为基础申请成立国家太阳能光伏工程研究中心。北京太阳能电力科技股份有限公司成立于2010年11月，主要从事太阳能电力技术及装备、产品的研发和销售，太阳能产业化技术开发、转让、推广、咨询和技术服务，对外承接太阳能光伏工程。公司注册资本9800万元。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟告诉记者，太阳能光伏发电系统是利用太阳电池半导体材料的光伏效应，将太阳光辐射能直接转换为电能的一种新型发电系统，有独立运行和并网运行两种方式。独立运行的光伏发电系统需要有蓄电池作为储能装置，主要用于无电网的边远地区和人口分散地区，整个系统造价很高;在有公共电网的地区，光伏发电系统与电网连接并网运行，省去蓄电池，不仅可以大幅度降低造价，而且具有更高的发电效率和更好的环保性能。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟说：&ldquo;目前，个别地区如北京的商业用电的电价已经能够使光伏发电企业盈利。加上补贴，光伏发电的未来市场前景十分乐观。但是，中国光伏发电市场除了技术创新力不足外，产业的无序低价竞争，拉低产业的品质也值得忧虑。国家应当在宏观角度营造技术创新和产业良性发展的环境。&rdquo;</span></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　游子的奋斗和回家的感觉</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟是北京理工大学工程热物理学士，1994年毕业后，在西门子中国有限公司工业自动化部任系统工程师，主管工业自动化系统开发、设计、现场安装及售后服务。曾经负责南京汽车研究所和天津汽车研究所车辆尾气排放测试认证系统设计、安装、现场调试、验收及售后服务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1997年，张璟赴美国新墨西哥大学深造，由此开始了十多年的国外生活。张璟告诉记者，他喜欢交往，在美国大学里和导师们相处得很好，在机会与学业上得到许多额外的助力。这种交往的能力可能来自于张璟的热情、聪明与善良，这种影响力，记者也能感觉到。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2000年，张璟获新墨西哥大学机械工程及计算机工程双硕士学位，2004年获新墨西哥大学电子工程博士。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　让我们张璟在国外的工作经历中&ldquo;检阅&rdquo;张璟的能力。1997 &mdash;2005年，张璟任新墨西哥大学制造技术及培训中心助理研究员、博士后，主要科研方向是机器人接触力控制及在医疗、制造业的应用，硬实时RTLinux操作系统内核开发测试，基于视觉反馈和图像分析的机器人跟踪系统。2005 &mdash;2006年，担任Surfect Technologies, INC的高级系统工程师，主要负责半导体元件外部连接端的电镀工艺、化学沉降工艺及设备研发。领导工程部开发设计了电镀设备过程控制系统。参与电镀工艺开发，试验数据采集及数据库设计。2009年，张璟先后任美国TSP公司、美国Kohler公司顾问，分别负责研发光伏太阳能电池及模块户外测试系统和光伏/风电/发电机/蓄电池混合微网逆变器系统总体设计。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　值得一说的是张璟在美国安科(Emcore)的工作经历，当时应聘的时候，面试的公司CTO只问了张璟一些专业，就天南海北聊起来，最后告诉张璟来上班。事实上，这位先生肯定感觉到张璟的内在的能力与活力。确实如此，2006 &mdash;2008年，张璟任美国安科(Emcore)光电有限公司太阳能发电部科学家。主要负责项目分别是：一、主管聚光光伏太阳能电池及模块户外测试系统开发。该测试系统主要应用于太阳能电池/部件/组件的光电性能测试、优化及可靠性分析，是安科太阳能发电部门产品开发研制中重要的环节。目前安科总部有3套该系统全年运行。二、主持/参与太阳能光伏(示范)电站集成。将多组光伏组件采用接地及直流过载保护，通过串并联方式与逆变器匹配并通过变压器配电系统并网。对电站内的气象参数、太阳跟踪控制系统及逆变器工作状态进行实时反馈，实现电站系统的集散控制。同时对示范电站的太阳能电池组件长期跟踪测试及数据采集，以便性能评估。三、主持试研发了太阳跟踪控制系统。该系统采用DIGI公司的BL2500嵌入式单板控制器，同时对两台直流电机进行硬实时闭环控制，以实现对太阳轨道的双轴跟踪。每一台控制器与中央控制系统通过无线网络形成分布式控制构架，以实现时钟同步(计算太阳位置)，光伏组件工作状态反馈及远程控制。独立设计了太阳能电池组件长期跟踪测试及数据采集系统，等等。张璟的工作成绩证明了那位面试先生的判断力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2009年，在自己的母亲和祖国母亲的召唤下，张璟回到了自己的家乡北京。开始时就任中国国电龙源(北京)太阳能技术有限公司副总工程师。主要负责斜单轴跟踪系统产品开发;工程项目技术评估，包括光资源分析，逆变器选型，等等;还有大型光伏电站设计。2010年8月，张璟就任北京太阳能电力研究院有限公司应用工程部主任。并入选北京&ldquo;海聚工程&rdquo;&mdash;&mdash;家乡北京知道自己孩子的价值。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟对北京海外学人中心的服务特别满意，他对记者说，连去医院和孩子上学的事都管，这种关注与服务可谓无微不至。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">创新一直是此生的追求</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　创新一直是张璟的追求和发展的动力。在新墨西哥大学，张璟受到师友的欢迎肯定和他的聪明和创新能力有关&mdash;&mdash;幸运和机会总是偏爱那些有准备的人。张璟先后在几家公司任顾问，没有深厚的行业积累和洞察能力，这是不可能的。张璟也短暂地创过业，这也许使他能全面地把握项目的经济要素和技术要素。这些使得他在项目运作中具有不一般的竞争力，也就是说，张璟总能使技术创新和其他创新完美结合，实现项目的优化和完成。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　做事业其实是人生的一部分，或者说某种程度上在诠释人生、充实人生。创新就是张璟的事业。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟认为，1964年东京奥运会，日本民族觉醒，只用20多年的时间，就实现了技术和经济的腾飞和国际领先。相比之下，中国需要做的更多。目前，互联网的广泛应用下，信息获取十分便捷，中国和世界之间的信息落差几乎没有，需要的资料和参考文献都能找到。中国的各种硬件一点不差，甚至某些超过世界水平，关键是踏踏实实地做研究。科学家和研究者就要做本位的事，管理者就要做管理的事，各司其职，全心全意聚精会神于自己的专业和行业本身。不要用20%时间做研究，80%时间做其他的人事思考或运作，如果科研人员们100%的时间用于科学研究，做二三十年，中国就会在技术创新领域震惊世界。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张璟强调，创新，不能用权力代替学术，要遵循科学的规律和尊重科学家的自由，用结果来证明科学家的能力和态度，要切切实实摒弃形式主义，专注实质，把我们国家的创新能力搞上去。中国已经到了一个拐点，中国走在上升曲线。所以，中国要营造更好的创新环境，这需要系统改变人们的意识和理念。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　回到祖国母亲的怀抱让张璟感到踏实愉快，对未来充满期待。相信，激情和理想的力量会点燃张璟的创造力，在光伏发电领域进行一次创新的迸发，从而引领中国乃至世界光伏产业走向理想境界!</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　创新感悟：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　科研要专注和执著。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：李政</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

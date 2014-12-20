@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>中国侨网-华文媒体</title>
+
+<link href="http://www.chinaqw.com/css/index.css" rel="stylesheet" type="text/css" />
+<link href="http://www.chinaqw.com/css/jjkj.css" rel="stylesheet" type="text/css" />
+<link href="http://www.chinaqw.com/css/zhwh.css" rel="stylesheet" type="text/css" />
+<script src="http://www.chinanews.com/js/jquery1.4.js"></script>
+<base target="_blank"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body >
+<!--返回顶部-->
+<style type="text/css">
+body{background:#fff url(http://i3.chinaqw.com/qiaowu/images/hwmt_02.jpg) repeat-x left 42px;}
+.index_layer {
+	position: fixed;
+	_position: absolute;
+	width: 60px;
+	right: 350px;
+	bottom: 167px;
+	_bottom: 167px;
+	_height: 150px;
+	z-index: 100;
+}
+
+.index_layer .back a {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.index_layer .back a:Hover {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.menuTop1{ top: 555px;}
+.menuBtm1{top:0px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin-top:0px;}
+
+.hwmt_left_div2 {
+width: 352px;
+height: 150px;
+margin-top: 15px;
+padding-right: 15px;
+}
+
+.hwmt_flgc_div{float:left; width:333px; height:151px; padding-top:0px;padding-left: 20px;
+padding-right: 10px; padding-bottom:5px;}
+.hwmt_flgc_div_title{float:left; width:333px; height:50px;}
+.hwmt_flgc_div_title a{float:left; width:100px; height:50px; display:block;}
+
+.zhwh_hwmt_rcon_pic{height:auto;line-height:28px;}
+
+.hwmt_right .leftimg {height: 110px;}
+.hwmt_right .leftimg img {
+width: 116px;
+height: 110px;
+}
+
+</style>
+
+<div  class="index_layer ie6fixedBR" id="full" >
+
+<div class="back" style="width:60px;height:60px;margin-top:8px;" id="newsbacktop"><a href='#qw_top' class='fhtop_a' target='_self'></a></div>
+
+</div>
+
+ <p>
+   <Script>
+(function() {
+	var backToTopTxt1 = $(".index_layer").html(),
+	 backToTopEle1 = backToTopTxt1, backToTopFun1 = function() {
+        var stback = $(document).scrollTop(), winh1 = $(window).height();
+         $(".index_layer").show();
+		  (stback>0)? $("#newsbacktop").css('display','block'): $("#newsbacktop").css('display','none');  
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $(".index_layer").css("top", stback + winh1 - 550);    
+        }
+    };
+	$(window).bind("scroll", backToTopFun1);
+    backToTopFun1(); 
+
+})();	
+
+$(document).ready(function(){
+	 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+	$(window).resize(function() {
+
+		 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+
+});
+
+});
+
+ </Script>
+
+<!--返回顶部结束-->
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_list_top" id="qw_top">
+<div class="w1000 m_center">
+	<div class="qw_list_top_left"><strong><a href="/">侨网首页</a></strong>
+     <span>
+        <a href="/hqhr/">华侨华人</a>
+        <a href="/zhwh/">中华文化</a>
+        <a href="/hwjy/">华文教育</a>
+        <a href="/jjkj/">经济科技</a>
+        <a href="/gqqj/">归侨侨眷</a>
+        <a href="/sqfg/">涉侨法规</a>
+        <a href="/sqjg/">涉侨机构</a>
+        <a href="/hdfw/">互动与服务</a>
+
+    </span>
+    </div>
+    <div class="qw_logoright qw_logoright_list" >
+    	<div class="qw_logoright_ul">
+          <ul>
+          	<script type="text/javascript">
+          //设为首页
+function SetHome(url){
+
+        if (document.all) {
+
+            document.body.style.behavior = 'url(#default#homepage)'; 
+            document.body.setHomePage(url)
+
+        }else{
+
+            alert("抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!");
+
+        }
+
+    }
+          </script>
+<li class="swsy"><a onClick="SetHome('http://www.chinaqw.com/')">设为首页</a></li>
+<li class="jrzm"><a href="http://www.chinaqw.com/news/desktop_shortcut.htm">加入桌面</a></li>
+<!--<li class="khd"><a>客户端</a></li>-->
+<li class="khd"><a href="http://big5.chinaqw.com:89/">繁体版</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+<!--div class="qw_list_top" id="qw_top"-->
+ <div class="w1000 m_center mt10">
+<div class="jjkl_logo"><img src="http://i3.chinaqw.com/qiaowu/images/hqhr-logo.png" /></div>
+<div class="jjkl_topad"><img src="http://i3.chinaqw.com/qiaowu/images/banner2_03.jpg" width="740" height="80"/></div>
+
+</div>
+<div class="clear"></div>
+
+<div class="qw_banner2 m_center">
+<div class="qw_banner_left2"></div>
+<div class="qw_banner_right2"></div>
+<div class="qw_banner_box2">
+<div class="jjkj_nav">
+<a href="http://channel.chinaqw.com/cns/c/hwmt-hmdt.shtml">华媒动态</a>&nbsp;|&nbsp;<a href="http://channel.chinaqw.com/cns/c/hwmt-gdkt.shtml">观点看台</a>&nbsp;|&nbsp;<a href="http://channel.chinaqw.com/cns/c/hwmt-hmrw.shtml">华媒人物</a>&nbsp;|&nbsp;<a href="#fkgc" target="_self">副刊广场</a>
+</div>
+<div class="clear"></div>
+<div class="jjkj_scroll">
+<marquee scrollamount="1" scrolldelay="1"><!--滚动新闻 s-->
+    <!--[894,7,14] published at 2014-12-17 10:30:49 from #10 by 范超--> 
+    &nbsp;·<a href="/hqhr/2014/12-17/30234.shtml">西班牙马塔罗市华侨华人向当地红十字会捐赠善款</a>	    &nbsp;·<a href="/hwjy/2014/12-17/30232.shtml">海外华文教师证书培训走进罗马 为意华教“加油” </a>	    &nbsp;·<a href="/zhwh/2014/12-17/30231.shtml">大马与泰国中医界举办交流活动 促东盟中医合作</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30230.shtml">日本华人男子涉嫌在驾照考试中贿赂考官当场被捕</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30229.shtml">加拿大父母移民申请表已可下载 料名额很快爆满</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30228.shtml">澳洲纽省高考13华裔考生获分科第一 称平常心对待</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30227.shtml">西班牙一6人犯罪团伙被警方破获 曾涉绑架华商案</a>	    &nbsp;·<a href="/hwjy/2014/12-17/30226.shtml">广东开平风采华侨中学庆建校28周年 冀办特色侨校</a>	    &nbsp;·<a href="/zhwh/2014/12-17/30224.shtml">江苏金坛剪纸亮相墨尔本 庆祝省州结好35周年(图)</a>	    &nbsp;·<a href="/zhwh/2014/12-17/30223.shtml">驻埃及使馆参加当地国际美食节 中国美食征服宾客</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30221.shtml">澳洲华裔盘下餐厅 因“前身”劣迹多致新店生意差</a>	    &nbsp;·<a href="/hwmt/2014/12-17/30220.shtml">防范意识淡薄 华人家长需防微杜渐避免子女染赌</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30218.shtml">意大利普拉托再发华人被伤害案 多处受伤疑遭寻仇</a>	    &nbsp;·<a href="/hwjy/2014/12-17/30217.shtml">第三节世界华文教育大会代表赴安徽大学座谈(图)</a>	    &nbsp;·<a href="/jjkj/2014/12-17/30216.shtml">贵州贵阳高层次人才返乡创业最高获百万奖励</a>	    &nbsp;·<a href="/zhwh/2014/12-17/30215.shtml">天津青年京剧团访欧演出获好评 京剧艺术唱响海外</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30214.shtml">中国取代英国成温哥华最大海外观光客来源地(图)</a>	    &nbsp;·<a href="/sqjg/2014/12-17/30213.shtml">国侨办官员赴江苏昆山调研社区侨务工作(图)</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30212.shtml">巴塞侨界“2015年中国农历春节活动”组委会成立</a>	    &nbsp;·<a href="/hqhr/2014/12-17/30211.shtml">少数中国人旅游陋习遭批 “丢人丢到海外”何时休</a>	
+    <!--滚动新闻 e--></marquee>
+</div>
+<div class="hwmt_listsearch">
+<!--搜索qw_listsearch s-->
+    <!--[894,3,7] published at 2014-04-16 15:51:51 from #10 by 赵谦-->
+
+<input type="text" value="请输入关键字" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="input1" onkeydown="checksubmit()">
+
+<input name="" type="button" class="input2" onclick="submitFun()" />
+<script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+window.open("http://sou.chinaqw.com/search.jsp?q="+encodeURIComponent(hotword));
+ }
+
+}
+
+</script>  
+
+   
+    <!--搜索qw_listsearch e-->
+    </div>
+</div>
+</div>
+  <div class="clear"></div>
+  <div class="blank30"></div>
+
+ <div class="w1000 m_center"> 
+  <div class="hwmt_yw_left">
+ <div class="hwmt_yw">
+<h1><a href="/hwmt/2014/12-16/30164.shtml">李克强亚欧行具三大看点 力推合作雪中送炭</a></h1></div>
+
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-17/30220.shtml">防范意识淡薄 华人家长需防微杜渐避免子女染赌</a></li><li><a href="/hwmt/2014/12-16/30180.shtml">侨报：旅美华侨华人时刻扮演中美外交大使角色</a></li><li><a href="/hwmt/2014/12-16/30165.shtml">台报：沉浸大胜情绪 民进党须避遭“台独”绑架</a></li><li><a href="/hwmt/2014/12-16/30117.shtml">中国游客素质无关财富、地位、学历 关乎性格习惯</a></li><li><a href="/hwmt/2014/12-16/30116.shtml">港媒聚焦“占中”最后清障：重塑香港法治形象</a></li><li><a href="/hwmt/2014/12-16/30112.shtml">华报：中国经济“新常态”将释放更多创新活力</a></li><li><a href="/hwmt/2014/12-16/30081.shtml">华报评析日本众议院选举：安倍胜选后或剑指修宪</a></li>
+</ul>
+</div>  
+  </div>
+<div class="hwmt_yw_right">
+<script>
+
+function focusBox(o){
+	if(!o) return;
+	var w=500, $o=$('#'+o),i=0,l=0;arr= [],t= null,
+		$infoLi = $o.find('.banner2_info li'), len= $infoLi.length*2,
+		$ul=$o.find('.banner2_pic>ul');
+	$ul.append($ul.html()).css({'width':len*w, 'left': -len*w/2});
+	$infoLi.eq(0).addClass('current');
+	//add banner2_pages element
+	arr.push('<div class="banner2_pages"><ul>');
+	$infoLi.each(function(i){
+		if(i==0){
+			arr.push('<li class="current"><span>'+ (i+1) +'</span></li>');
+		}else{
+			arr.push('<li><span>'+ (i+1) +'</span></li>');
+		}
+	});
+	arr.push('</ul></div>');
+	$o.append(arr.join(''));
+	var $pagesLi = $o.find('.banner2_pages li');
+	//mouse
+	$pagesLi.children('span').click(function(){
+		var p = $pagesLi.index($o.find('.banner2_pages li.current'));
+		i = $pagesLi.children('span').index($(this));
+		if(i==p) return;
+		l = parseInt($ul.css('left')) + w*(p-i);
+		addCurrent(i,l);
+		return false;
+	})
+	$o.children('a.btn_prev').click(function(){
+		i = $pagesLi.index($o.find('.banner2_pages li.current'));
+		(i==0)? i=(len/2-1):i--;
+		l = parseInt($ul.css('left')) + w;
+		addCurrent(i,l);
+		return false;
+	})
+	$o.children('a.btn_next').click(function(){
+		i = ($pagesLi.index($o.find('.banner2_pages li.current'))+1)%(len/2);
+		l = parseInt($ul.css('left')) - w;
+		addCurrent(i,l);
+		return false;
+	})
+	//auto focus
+	t = setInterval(init,8000);
+	$o.hover(function(){
+		clearInterval(t);
+	}, function(){
+		t = setInterval(init,8000);
+	});
+	function init(){
+		$o.children('a.btn_next').trigger('click');
+	}
+	//add focus
+	function addCurrent(i,l){
+		if($ul.is(':animated')) return;
+		$ul.animate({'left':l},500,function(){
+			$o.children('.banner2_count').text(i+1);
+			$infoLi.not($infoLi.eq(i).addClass('current')).removeClass('current');
+			$pagesLi.not($pagesLi.eq(i).addClass('current')).removeClass('current');
+			if(l== (1-len)*w){
+				$ul.css({'left': (1-len/2)*w});
+			}else if(l== 0){
+				$ul.css({'left': -len*w/2});
+			}
+		});
+	}
+}
+
+$(function(){
+	focusBox('kakaFocus2');
+})
+
+$(document).ready(function(){
+	$("#kakaFocus2").mouseover(function(){
+		$("#lrbt_show12").show();
+	    $("#lrbt_show22").show();
+		});
+	$("#kakaFocus2").mouseout(function(){
+	  	$("#lrbt_show12").hide();
+		$("#lrbt_show22").hide();
+		});
+	});
+
+</script>
+<div class="banner2" id="kakaFocus2"> 
+	<a class="btn_prev" id="lrbt_show12" style="display:none" title="上一个" href="#">Previous</a> 
+	<a class="btn_next" id="lrbt_show22" style="display:none" title="下一个" href="#">Next</a> 
+    <div class="banner2_pic">
+<ul>
+
+		 <li><a href="/hqhr/2014/12-13/29748.shtml"><img width="500" height="290" src="/hqhr/2014/12-13/U416P894T5D29748F42DT20141213091433.jpg" alt="海外华媒:设立国家公祭日是对世界和平的贡献(图)" /></a></li>
+
+		 <li><a href="/hwmt/2014/12-08/28942.shtml"><img width="500" height="290" src="/hwmt/2014/12-08/U55P894T5D28942F42DT20141208144922.jpg" alt="广东汕头集聚高端智慧 推进华侨试验区建设" /></a></li>
+
+</ul> 
+</div>
+<div class="banner2_info">
+<ul>
+
+		 <li><a href="/hqhr/2014/12-13/29748.shtml">海外华媒:设立国家公祭日是对世界和平的贡献(图)</a></li>
+
+		 <li><a href="/hwmt/2014/12-08/28942.shtml">广东汕头集聚高端智慧 推进华侨试验区建设</a></li>
+
+</ul>
+</div>
+<div class="banner2_info_bg"></div>
+    <!--
+<div class="banner2_pic"> 
+<ul>
+<li><a href="${主题图片1链接}"><img width="500" height="290" src="${主题图片1}" alt="${主题图片1标题}" /></a></li>
+<li><a href="${主题图片2链接}"><img width="500" height="290" src="${主题图片2}" alt="${主题图片2标题}" /></a></li>
+<li><a href="${主题图片3链接}"><img width="500" height="290" src="${主题图片3}" alt="${主题图片3标题}" /></a></li>
+
+</ul> 
+</div>
+<div class="banner2_info">
+<ul>
+<li><a href="${主题图片1链接}">${主题图片1标题}</a></li>
+<li><a href="${主题图片2链接}">${主题图片2标题}</a></li>
+<li><a href="${主题图片3链接}">${主题图片3标题}</a></li>
+</ul>
+</div>
+<div class="banner2_info_bg"></div>
+-->
+</div>
+
+</div> 
+
+</div>
+<div class="clear"></div>
+<div class="blank15"></div>
+<div class="w1000 m_center">
+<div class="hwmt_left">
+<div class="hwmt_left_div1 left">
+<div class="hwmt_left_div1_title">
+<div class="hwmt_left_div1_title1"><a href="http://channel.chinaqw.com/cns/c/hwmt-hmdt.shtml">华媒动态</a></div>
+<div class="hwmt_left_div1_title2"></div>
+</div>
+<div class="clear"></div>
+<div class="new_con_border_b " style="padding:15px 10px;"> 
+<ul class="module_con_ul3">            
+<li><a href="/hqhr/2014/12-15/29845.shtml">华媒评出2014匈牙利华侨华人年度十大新闻(图) </a></li><li><a href="/hqhr/2014/12-13/29748.shtml">海外华媒:设立国家公祭日是对世界和平的贡献(图)</a></li><li><a href="/hwmt/2014/12-11/29485.shtml">海外华媒到访云南畹町 参观南侨机工纪念碑</a></li><li><a href="/hwmt/2014/12-11/29423.shtml">《法国侨报》与天津《今晚报》签订合作协议</a></li><li><a href="/hwmt/2014/12-10/29213.shtml">多国华文媒体访云南德宏 关注当地经济社会发展</a></li><li><a href="/hwmt/2014/12-09/29110.shtml">阿根廷举办移民团体新闻媒体大会 两华媒受表彰</a></li>
+</ul>
+</div>
+</div>
+
+<div class="hwmt_left_div1 right">
+<div class="hwmt_left_div1_title">
+<div class="hwmt_left_div1_title1"><a href="http://channel.chinaqw.com/cns/c/hwmt-gdkt.shtml">观点看台</a></div>
+<div class="hwmt_left_div1_title2"></div>
+</div>
+<div class="clear"></div>
+<div class="new_con_border_b " style="padding:15px 10px;"> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-17/30220.shtml">防范意识淡薄 华人家长需防微杜渐避免子女染赌</a></li><li><a href="/hwmt/2014/12-16/30180.shtml">侨报：旅美华侨华人时刻扮演中美外交大使角色</a></li><li><a href="/hwmt/2014/12-16/30165.shtml">台报：沉浸大胜情绪 民进党须避遭“台独”绑架</a></li><li><a href="/hwmt/2014/12-16/30164.shtml">华媒：李克强亚欧行具三大看点 力推合作雪中送炭</a></li><li><a href="/hwmt/2014/12-16/30118.shtml">华媒：放开“单独二孩”政策 释放人口红利</a></li><li><a href="/hwmt/2014/12-16/30117.shtml">中国游客素质无关财富、地位、学历 关乎性格习惯</a></li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<script>
+
+     function tabdonate(num) {  
+	for (var i=1; i < 4; i++) {  
+	  $("#donate_content_"+i).hide();
+	  $("#donate_tab_"+i).removeClass("donate_sel");
+
+	}
+	  $("#donate_content_"+num).show();
+	  $("#donate_tab_"+num).addClass("donate_sel");
+
+} 
+
+</script>
+<div class="hwmt_left_div1_title">
+<div class="hwmt_left_div1_title1"><a name="fkgc">副刊广场</a></div>
+<div class="hwmt_left_div1_title2" style="width:655px;">
+<ul class="donate_title" style="display:none">
+<li class="donate_sel" id="donate_tab_1" onmouseover="javascript:tabdonate(1);">美国侨报</li>
+<li id="donate_tab_2">欧洲时报</li>
+<li id="donate_tab_3">大洋时报</li>
+
+</ul>
+</div>
+</div>
+<div id="donate_content_1">
+
+<div class="blank30"></div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_03.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-wy.shtml"></a></div>
+<div class="new_con_border_b"> 
+<ul class="module_con_ul3">
+
+<li><a href="/hwmt/2014/12-12/29689.shtml">生活这件小事</a></li><li><a href="/hwmt/2014/12-11/29539.shtml">以诗为经</a></li><li><a href="/hwmt/2014/12-10/29373.shtml">提醒幸福</a></li>
+</ul>
+</div>
+</div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_04.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-jk.shtml"></a></div>
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-16/30170.shtml">冬季保暖养生最适合吃的十种蔬菜</a></li><li><a href="/hwmt/2014/12-15/29927.shtml">性格影响人的健康</a></li><li><a href="/hwmt/2014/12-11/29541.shtml">年轻女性亦不可轻视骨质疏松</a></li>
+</ul>
+</div>
+</div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_05.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-ly.shtml"></a></div>
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-12/29695.shtml">别样米克诺斯</a></li><li><a href="/hwmt/2014/12-01/28109.shtml">漂流艾弗伊诺斯</a></li><li><a href="/hwmt/2014/11-27/27757.shtml">格拉纳达见证千年历史</a></li>
+
+</ul>
+</div>
+</div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_07.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-sh.shtml"></a></div>
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hqhr/2014/12-16/30138.shtml">在东瀛追求平淡</a></li><li><a href="/hqhr/2014/12-05/28743.shtml">阿拉斯加狗橇之旅</a></li><li><a href="/hwmt/2014/11-18/26443.shtml">老人空间</a></li>
+</ul>
+</div>
+</div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_08.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-zc.shtml"></a></div>
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-16/30155.shtml">失业可能是另一个事业的起点</a></li><li><a href="/hwmt/2014/12-15/29939.shtml">巧用学业及职业外的经历为求职加分</a></li><li><a href="/hwmt/2014/12-11/29543.shtml">让你更有智慧的10个习惯</a></li>
+</ul>
+</div>
+</div>
+
+<div class="hwmt_flgc_div" style="background:url(http://i3.chinaqw.com/qiaowu/images/hwmtbg_09.jpg) no-repeat center top;">
+<div class="hwmt_flgc_div_title"><a href="http://channel.chinaqw.com/cns/c/hwmt-fkgc-ss.shtml"></a></div>
+<div class="new_con_border_b "> 
+<ul class="module_con_ul3">            
+<li><a href="/hwmt/2014/12-12/29731.shtml">“一件两用”运动也时尚</a></li><li><a href="/hwmt/2014/12-12/29730.shtml">时尚出行 少不了时尚行囊</a></li><li><a href="/hwmt/2014/10-30/24022.shtml">还你“冻龄”肌肤</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="hwmt_right">
+<div class="hwmt_right_div1_title">
+<div class="hwmt_right_div1_title1"><a href="http://channel.chinaqw.com/cns/c/hwmt-hmrw.shtml">华媒人物</a></div>
+<div class="hwmt_right_div1_title2"></div>
+</div>
+<div class="clear"></div>
+<div class="blank15"></div>
+
+<div class="leftimg">
+ <a href="http://www.chinaqw.com/hwmt/2014/08-27/15678.shtml"><img src="U153P894T12D1F180DT20140901085444.jpg"></a>
+</div>
+<div class="righttext">
+<p><a href="http://www.chinaqw.com/hwmt/2014/08-27/15678.shtml">瑞典华媒七旬华裔记者携妻赴青奥会采访报道</a></p>
+</div>
+
+<div class="clear"></div>
+
+<div class="hwmt_right_list">
+<p><a href="/hqhr/2014/11-23/27068.shtml">美侨领方李邦琴计划重飞驼峰航线 捐款筹建纪念馆</a></p>
+</div><div class="hwmt_right_list">
+<p><a href="/hqhr/2014/10-26/23293.shtml">美著名侨领方李邦琴：盛放的“钢铁木兰花”(图) </a></p>
+</div>
+
+<div class="hwmt_right_div1_title">
+<div class="hwmt_right_div1_title1" style="width:150px;"><a>世界华文传媒论坛</a></div>
+<div class="hwmt_right_div1_title2" style="width:70px;"></div>
+</div>
+<div class="zhwh_hwmt_rcon_pic" style="margin-top:8px">
+ <!--[894,25,7] published at 2014-04-23 11:19:58 from #202 by 59-->
+<a href="http://www.chinanews.com/zgqj/z/2013sjhwcmlt/index.shtml"><img src="/part/zhwh/25/U59P894T25D7F451DT20140423111958.gif"></a>
+　　<strong>简介：</strong><a href="http://www.chinanews.com/zgqj/z/2013sjhwcmlt/index.shtml">“世界华文传媒论坛”由中国新闻社每两年主办一届，已先后在南京、长沙、武汉、成都、上海、重庆、青岛举办过七届。中国新闻社是中国以对外报道为主要新闻业务的国家通讯社。</a>
+</div>
+
+<div class="new_con_border_b " style="padding-top:0px;"> 
+<ul class="module_con_ul2">            
+ <!--[894,25,4] published at 2014-04-23 11:27:38 from #202 by 33-->
+<li><a href="http://www.chinanews.com/zgqj/2013/09-08/5258874.shtml">·第七届世界华文传媒论坛闭幕 下届论坛移师贵阳 </a></li>
+<li><a href="http://www.chinanews.com/zgqj/2013/09-07/5257534.shtml">·裘援平希望华文媒体积极传递“中国好声音”</a></li>
+<li><a href="http://www.chinanews.com/gn/2013/06-19/4944688.shtml">·全球华文媒体九月聚首青岛 探寻世界变局下媒体使命</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+  <div class="clear"></div>
+  <div class="clear"></div>
+  <div class="blank15"></div>
+
+   <div class="qw_foot " style="border-top:#dcdcdc 5px solid">
+   		<!--qw_foot s-->
+     		<strong><a href="http://www.chinaqw.com/kong/2014/06-06/5680.shtml" target="_blank">网站介绍</a> | <a href="http://www.chinaqw.com/kong/2014/06-10/6015.shtml" target="_blank">联系我们</a> | <a href="mailto:qiaojie@chinanews.com.cn">供稿信箱</a></strong>
+        <p>
+中国侨网版权所有，未经授权禁止复制和建立镜像 <a href="http://www.miibeian.gov.cn/" target="_blank">[京ICP备05067153号]</a> [京公网安备:110102003042-2] <a href="http://net.china.com.cn/chinese/index.htm" target="_blank">[不良和违法信息举报]</a></p>
+<a href="http://www.chinaqw.com/"><img width="120 "src="http://i3.chinaqw.com/qiaowu/images/logo.png"/></a>
+
+  <!--qw_foot e-->
+   </div>
+</body>
+</html>

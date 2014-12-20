@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">蔡茂林：高校科技成果转化界的新秀推手</h1>
+                	<div class="show_content_info">2014/12/05   信息来源：千人计划网<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　&quot;千人计划&quot;专家蔡茂林，现任北京先进产业技术研究院执行院长、北航先进工业技术研究院院长。东京工业大学博士毕业，曾在全球最大气动产品研发基地---日本SMC筑波技术中心学习工作，2006年海外直聘为北京航空航天大学自动化学院教授，荣获北航蓝天学者、中关村高端领军人才、中关村创业之星等称号，主要研究方向为工业气动系统节能、大规模压缩空气储能、气动发动机、航空航天气密性检测等。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林教授回国后发现国内高校的科技成果转化壁垒重重，虽然很多高校在通过技术开发、技术服务的形式将科技成果向社会输出，但教师持续、深入地参与成果工程化、产业化的道路并不通畅。蔡教授自己也是手握高精尖技术的专家，实战经验表明这种形势会阻滞中国科技创新驱动发展的道路，急需逆转。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　为进一步提升中国科研成果对经济发展的贡献，蔡教授甘愿做中国科技成果转化道路上的清道夫。今天千人计划网的小编有幸见到蔡教授，就让我们一同感受高校科技成果转化3.0时代的蔡教授如何妙手实现科研转化。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：当时您在国外已经有了很好的成绩，您回国创业也很成功。现在您又重新开始了一份新事业，您能跟我们谈一下您的感想吗?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：国外回来的人都希望回国做一份事业。我觉得每个人经过四五年总要尝试一些新的事情，只有挑战才可以学到新的东西。我本是技术出身，但在创业时期学到了许多管理、经营方面的知识，创业必须要了解市场，在体会市场变化时又感受到国家政策的影响。现在我国科技发展正面临一个转折点，此时转个身，再面向一个新的群体，帮助别人创业，会燃起新的激情。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　记者：蔡教授，您也创过业，您当时都遇到了哪些困难，又是怎么解决的?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林：</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　一、钱的问题</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创业的话，从技术到产品，需要一个过程，是一个很烧钱的过程，</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　技术型公司成功基本上是两类，一类是华为，先做贸易，通过贸易做两个事情1、做原始的积累，攒钱;第二个是在做贸易的过程中，找到市场需求，开发符合市场需求的新产品。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第二条路，像百度这样的企业，创业的时候就拿到风险投资，以度过最困难的创业期，摸索产品、完善产品。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　国内高校教师的创业更适合第二条路。我是创业的第二年，熬不下去了，我们去拿的风险投资，软银中国的风险投资解决了我们生存期的问题。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　风险投资进来，第一可以解决教师成果工程化所需资金的问题;第二能解决面向市场的问题，资本一定会驱使科研团队面向市场;第三给技术成果一个合理定价，科研团队与外部资本的博弈能形成市场定价机制。这个是我遇到钱的问题，找风险投资。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　二、人的问题。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第二个问题是人的问题，技术和管理团队。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　高校科技成果创业立足点是技术，而技术的载体是人。科研团队创业必须把控风险，不能出现技术核心骨干流失的情况。我们现在通常建议学校教师的技术团队必须有他的学生。让学生去做开发并形成毕业后进公司的机制，以规避技术流失的风险。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　关于管理团队，教师对于企业管理比较欠缺，这要从社会上去找管理团队和销售团队，聘请职业经理人。通过内外结合，解决人的问题。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：蔡教授，您能简单给我们介绍一下&quot;北京先进产业技术研究院&quot;这个服务平台以及它的市场定位吗?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：研究院是为适应北京创新中心的建设需求，面向北京地区高校及科研院所，汇聚人才、技术、资本、市场等要素，探索主动适应市场机制的科技成果转化新模式，打造一种由政府、大学和企业共同构建的开放、融合与多样性的创新创业服务新平台。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　传统的科技成果转化更多的是一种被动式的课题合作，研究院是致力于打造一种技术、资本、市场三要素融合的科技成果转化3.0模式，通过技术转移引进资本，资本驱使技术面向市场，市场成功获得收益再反哺技术团队，这样可以获得1+1+1&gt;3的效应。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：该平台的目标用户是哪些?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：北京市高校及科研院所的教师、研究人员及学生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您的研究院主要是提供哪些方面的服务?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：研究院面向高校及科研院所创业人员，开展技术转移咨询及办理、资本对接、基金管理、人才推荐、创业培训、政策咨询等服务;面向中关村创业团队及基金管理人，开展先进产业技术成果展示、技术开发资源对接、创业项目推荐等服务。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您选择在人生的这个阶段建设这个平台的原因是?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：第一、明年是央属高校科技成果转化试点年，清华、北航等拥有大量科技成果的研究型大学可以自主处置知识产权，并自主决定收益分配。这是一个转折点，生产关系的变革将可以解放生产力，明年将成为中国高校教师创业的元年。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第二、北京是全球高校科研院所最密集的地方之一，我们现在面向的科技成果创造群体非常大，我觉得能够帮助很多老师创业也是一个事业，也是一种自我创业。你如果能够帮助别人成功，也是一种成功。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第三、北航的校领导充分地信任我，给我这样一个机会。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　所以天时、地利、人和。我做了这样的选择。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　记者：这个平台目前处于什么阶段?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：产研院成立还不到一年，尚处于起步阶段。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您针对这个平台的发展规划是?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林：</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">我们拟将该平台打造为&quot;两地三器&quot;：高新产业技术的发源地，孵育具有国际竞争力的产业新技术;创新创业人才的聚集地，集聚先进产业技术创新及技术经营人才规模性群体;高校技术转移的加速器，形成合法规范的技术成果转化流程和服务体系;大学衍生企业的孵化器，孵化从产业新技术转化的科技公司;大学追求一流的助推器，提升高校社会声誉和技术转移收益。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：这个平台的行业影响力是?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：北京产研院是一个新生事物，会助推一个新的创业生态体系的形成，会诞生出很多大学衍生公司，对北京高校和中关村都将会产生一个深远的影响。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您能给我们介绍一下您的团队力量吗?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：产研院采用项目经理人制度，让一批在信息电子、装备制造、能源交通环境、新材料、医疗健康等领域有技术背景、懂市场经营的职业经理人负责项目。目前，我们面向社会招聘，欢迎有识之士加盟。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您主要是通过哪些方式对该项目进行宣传的?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：我们正在努力通过成果发布、创业大赛以及一些新媒体手段让更多的北京高校教师及科研院所科研人员知道有这样一个平台。目前，我们正准备将研究院搬至中关村创业大街，更开放地面向更多的创业者。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：该平台的优势是?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：该平台是北京市科学技术委员会、中关村科技园区管理委员会、海淀区人民政府、北京航空航天大学为推进北京科技成果转化而共建的机构，依托北航、政府支持是我们最大的优势。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您是这方面的专家，您认为教师创业存在哪些问题?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林：</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">教师创业通常面临三个问题：第一，产权处置问题，教师在学校的科技创新活动产生的成果是职务发明成果，在央属高校属于国有资产。明年财政部牵头实施的中央级事业单位科技成果转化试点政策，通过下放知识产权处置权和收益管理权给高校，并进一步明确科研团队激励制度，基本解决了该问题。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第二，身份认同问题，在社会上教师创业通常被认为是不务正业，且在高校绩效评价、职称评定上得不到应有认同。习近平主席在今年6月两院院士大会上指出，传统意义上的基础研究、应用研究、技术开发与产业化的边界日趋模糊，实施创新驱动发展战略，最紧迫的工作就是要破除体制机制障碍。美国硅谷的成功，斯坦福大学与加州大学伯克利分校的教师参与发挥了不可替代的作用。随着高校综合改革的推进，身份认同问题会逐步得到解决。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第三，市场面向问题，教师从事研究中原创性工作较多，与市场需求未必匹配，即使匹配，从技术到产品、再到商品还有一个较长的距离，科研团队能否完全面向市场完善技术和产品，通常直接决定该产业化项目的成功与否。只要面向市场，资金、人才总有办法解决。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　这三个问题，第一个是政策问题，第二个是环境问题，第三个是团队问题，只有这三个问题解决好了，我国高校教师的创业生态体系才能建立起来。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：蔡院长，北京产研院平台是如何帮助教师实现创业?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：北京产研院做三件事：第一是让技术走出去，每年会举办产业技术成果发布会、实验室开放日活动、创业大赛、国际科技产业大会等，让北京高校的先进产业技术能展示在公众面前;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第二是让资本走进来，通过筛选技术，安排科研团队参加专业领域投资沙龙，接触创投基金，提供政策咨询、技术入股、技术许可的手续代办一站式服务及融资相关的法律、财务帮助;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　第三是把服务做上去，配备项目经理，实行点对点扶持，对接政府配置创业资源，并协调高校职能部门配套校内政策，支持教师技术创业。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">记者：您觉得教师在在做科研与做企业上，更适合担当什么角色?</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　蔡茂林</span></span></strong><span style="font-family: 宋体"><span style="font-size: 14px">：现在北京市&quot;京校十条&quot;等政策鼓励教师以科技成果创业，是鼓励一部分拥有产业化潜力科技成果的教师去创业，以技术入股，而不是让教师去转行做企业经营者。由于教师工作性质与企业家有着明显的不同，我们不希望看到一流的科学家变成三流的企业家。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　所以，教师更适合拿科技成果去入股，去持续地参与、支持企业研发，可以兼任技术总工或技术顾问的职位，而不要去做总经理。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　中国的高校老师要对中国经济做出贡献就要将自己科研成果实现成功转化，然后融入到产业发展中去。蔡茂林在这条道路上兢兢业业，为每一个优秀的科研项目寻找着它的伯乐，使其面向市场，并引入资本的力量，最终让它走出实验室。</span></span></p><p><span style="color: #c0c0c0">声明：凡本网注明“信息来源：某某某”的文/图等稿件，本网转载出于传递更多信息目的，本网站不对其观点或真实性负责，内容仅供参考。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

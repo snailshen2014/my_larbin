@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_news.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+<script type="text/javascript" src="../../../js/mxl.tab.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns02" onload="loading()">
+<!--包含头部文件 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+				<div class="content_box">
+					<div class="nav_path">当前位置：<a href="/index.html">首页</a>-><a href="/news/news_index.html">资讯广场</a>->中心动态</div>
+					<h1 class="content_title">关于做好2015年国家留学基金资助出国留学人员选拔工作的通知</h1>
+					<div class="content_time">2014/12/02               信息来源：北京海外学人中心<br></div>   
+					<div class="content_main">
+					<!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">各有关单位：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　为进一步深入贯彻落实《国家中长期人才发展规划纲要(2010～2020年)》及《国家中长期教育改革和发展规划纲要(2010～2020年)》精神，做好新形势下国家公派出国留学选派工作，保证2015年选派工作的顺利进行，满足建设创新型城市对人才的需求，培养首都建设所需的创新人才，促进我市和世界各地的交流与合作，按照国家留学基金管理委员会的工作部署，我市2015年国家留学基金资助出国留学人员选拔工作于2014年12月1日启动。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　现就做好2015年国家留学基金资助出国留学人员选拔工作的有关事宜通知如下：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　一、2015年国家留学基金资助出国留学采取&ldquo;个人申请、单位推荐、专家评审、择优录取&rdquo;的方式进行选拔。根据《国家公派出国留学选派办法》和年度选派规划，国家留学基金管理委员会(以下简称留学基金委)2015年将在全国选拔各类国家公派出国留学人员25000名，比2014年增加17%。其中国家公派高级研究学者及访问学者(含博士后研究)项目计划选派3200人，国家建设高水平大学公派研究生项目(攻读博士)计划选派8000人，国家公派硕士研究生项目计划选派600人。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　二、根据《2015年国家留学基金资助出国留学人员选拔简章》(以下简称《选拔简章》)有关规定，并结合我市实际情况，北京海外学人中心于2014年12月1日起对2015年国家留学基金资助出国留学的相关事宜提供咨询。国家公派高级研究学者及访问学者项目于2015年1月5 日至1月15日受理申请材料并进行审核;国家建设高水平大学公派研究生项目、国家公派硕士研究生项目于2015年3月20日至4月5日受理申请材料并进行审核。请各单位将《选拔简章》转发给下属有关单位，通知相关人员，并确定专人负责，在规定时间内完成单位推荐和申报工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　三、2015年国家留学基金管理委员会使用网上报名系统(<a href="http://apply.csc.edu.cn"><span style="color: #0000ff">http://apply.csc.edu.cn</span></a>)进行国家留学基金资助出国留学人员的选拔工作。申请人在网上报名之后按照《关于准备2015年国家留学基金资助出国留学申请材料的说明》报送书面申请材料。书面申请材料中的《单位推荐意见表》由申请人所在单位签署意见之后送交至北京海外学人中心，并请同时提供单位推荐意见电子版文件。为提高受理效率，建议统一报送材料的单位提前与北京海外学人中心具体工作人员联系，预约报送材料时间。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　四、国家留学基金资助出国留学是培养国家建设所需的创新人才和培养科学、技术、文化、管理等方面高层次、国际化人才的重要途径。各单位应从实施首都人才优先发展战略、培养高层次国际化人才的战略高度出发，依据本单位的人才培养规划，积极组织、推荐符合申报条件的人员申报。对于被录取人员，应妥善安排，保证其按期出国学习，并协助有关部门作好管理工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　有关国家留学基金资助出国留学信息及培训信息可查询&ldquo;<a href=""><span style="color: #0000ff">北京海外学人网</span></a>&rdquo;或&ldquo;国家留学网&rdquo;(<a href="http://www.csc.edu.cn"><span style="color: #0000ff">http://www.csc.edu.cn</span></a>)。有何意见和建议，请及时联系和沟通。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　报名地址：中关村西区海淀北二街10号泰鹏大厦二层</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　北京海外学人中心服务大厅</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联 系 人：曹靖</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　咨询电话：010-82484907</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　电子邮箱：<a href="http://caojing@8610hr.cn"><span style="color: #0000ff">caojing@8610hr.cn</span></a></span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件：</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1、2015年国家留学基金资助出国留学人员选拔简章</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2、2015年国家公派高级研究学者及访问学者(含博士后)项目选派办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3、2015年国家建设高水平大学公派研究生项目(攻读博士)选派办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4、2015年国家公派硕士研究生项目选派办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5、外语水平要求及说明</span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件1：</span></strong></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　2015年国家留学基金资助出国留学人员选拔简章</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2015年计划选拔各类国家公派留学人员25000名。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　一、主要项目及选派计划</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1. 国家公派高级研究学者及访问学者(含博士后)项目3200人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 国家建设高水平大学公派研究生项目8000人，博士生导师短期出国交流项目500人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3. 国家公派硕士研究生项目600人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4. 优秀本科生国际交流项目3400人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5. 高校合作项目(青年骨干教师出国研修项目)3000人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6. 地方和行业部门合作项目2700人，其中西部地区人才培养特别项目及地方合作项目2100人、与行业部门合作项目600人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　7.国际区域问题研究及外语高层次人才培养项目和政府互换项目(与有关国家互换奖学金计划)1650人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　8.国外合作项目1650人;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　9.艺术类人才特别培养项目300人。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　二、选派类别及留学期限</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1. 高级研究学者：留学期限为3-6个月;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 访问学者：留学期限为3-12个月;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3. 博士后：留学期限为3-24个月;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4. 博士研究生(赴国外攻读博士学位)：留学期限一般为36-48个月，具体以留学目的国及院校学制或外方出具的录取通知书/邀请信为准;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5. 联合培养博士生(攻读博士学位期间赴国外从事研究)：留学期限为6-24个月;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6. 硕士研究生(赴国外攻读硕士学位)：留学期限为12-24个月, 具体以留学目的国及院校的学制为准;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　7. 联合培养硕士生(攻读硕士学位期间赴国外学习)：留学期限为3-12个月;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　8. 本科插班生(攻读学士学位期间赴国外学习、毕业设计或实习等)：留学期限为3-12个月。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　三、优先资助学科、专业领域</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　《国家中长期人才发展规划纲要(2010-2020年)》确定的经济和社会发展重点领域;《国家中长期科学和技术发展规划纲要(2006-2020年)》确定的重点领域、重大专项、前沿技术、基础研究;人文与社会科学领域。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　四、资助内容</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　一般为一次往返国际旅费和资助期限内的奖学金生活费，对部分人员可提供学费资助。具体资助内容、标准等在录取时确定。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　五、申请人基本条件</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1. 热爱社会主义祖国，具有良好的政治素质，无违法违纪记录，学成后回国为祖国建设服务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 具有中国国籍，须为高等学校、企业事业单位、行政机关、科研机构的正式工作人员或优秀在校学生。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3. 具有良好专业基础和发展潜力，在工作、学习中表现突出。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4. 身心健康。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5. 申请时年龄满18周岁。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6. 申请时应符合国家留学基金资助出国留学外语条件的相关要求。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　7. 国家留学基金资助范围不包括以下人员：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　①已获得国家公派留学资格且在有效期内的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　②曾获得国家公派留学资格，未经国家留学基金管理委员会(以下简称国家留学基金委)批准擅自放弃且时间在5年以内的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　③曾获得国家公派留学资格，经国家留学基金委批准放弃且时间在2年以内的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　④已获得国外全额奖学金资助的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　⑤已取得国外永久居留权的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　⑥正在境外工作的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　⑦正在境外学习的人员;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　⑧曾享受国家留学基金资助出国留学、回国后工作尚不满五年的人员。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　<strong>有关项目有特殊规定的，按项目规定执行</strong>。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　8. 符合所申请项目的其他要求(请登录国家留学网http://www.csc.edu.cn查阅)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　* </span><strong><span style="font-family: 宋体">同一时段内仅限申报一个国家公派出国留学项目。在已申报项目未公布录取结果前，不接受申请人申请其他项目。</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　六、申请、评审及录取</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　采取&ldquo;个人申请，单位推荐，专家评审，择优录取&rdquo;的方式进行选拔。符合申请条件者，经所在单位审核同意后，按规定的程序和办法申请。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　国家留学基金委将根据相关项目要求，组织专家对申请人材料进行评审，并根据专家评审意见确定录取人员名单。申请人可登录国家公派留学管理信息平台(http://apply.csc.edu.cn)查询录取结果。录取通知将通过各受理单位转发或由国家留学基金委直接发至申请人所在单位。2015年各项目申请、录取时间如下：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1. 国家公派高级研究学者及访问学者(含博士后)项目：1月5日-1月15日申请，3月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 国家建设高水平大学公派研究生项目：3月20日-4月5日申请，5月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3. 国家公派硕士研究生项目：3月20日-4月5日申请，5月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4. 优秀本科生国际交流项目：项目申请时间：12月1日-15日;人选申报时间：第一批4月21日-5月5日申请，5月公布录取结果;第二批9月20日-9月30日申请，10月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5. 高校合作项目(青年骨干教师出国研修项目)：第一批4月6-20日申请，5月公布录取结果;第二批9月20-30日申请，11月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6. 地方和行业部门合作项目：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 西部地区人才培养特别项目及地方合作项目：4月6-20日申请，8月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 与行业部门合作项目将根据相应项目规定另行公布。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　7. 国际区域问题研究及外语高层次人才培养项目和政府互换项目(与有关国家互换奖学金项目)另行公布。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　8. 国外合作项目将根据相应项目规定另行公布。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　9. 艺术类人才培养特别项目：3月20日-4月5日申请，5月公布录取结果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　七、派出及管理</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1. 被录取人员须在留学资格有效期内派出。凡未按期派出者，留学资格将自动取消。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 对留学人员实行&ldquo;签约派出，违约赔偿&rdquo;的管理办法。留学人员派出前须在国内签订并公证《资助出国留学协议书》、交存保证金、办理《国际旅行健康证明书》，按相关要求办理派出手续。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3. 留学人员自抵达留学所在国后十日内凭《国家留学基金资助出国留学资格证书》、《国家公派留学人员报到证明》向中国驻留学所在国使(领)馆办理报到手续后方可享受国家留学基金资助。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4. 留学人员在国外留学期间，应遵守所在国法律法规、国家留学基金资助出国留学人员的有关规定及《资助出国留学协议书》的有关约定，自觉接受国内推选单位和驻外使(领)馆的管理，定期向推选单位和驻外使(领)馆提交研修报告，学成后履行按期回国服务义务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　八、本简章由国家留学基金委负责解释。</span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件2：</span></strong></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　2015年国家公派高级研究学者及访问学者(含博士后)项目选派办法</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一章 总则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一条 为做好国家公派高级研究学者及访问学者(含博士后)项目选派工作，制定本办法。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二条 国家留学基金管理委员会(以下简称国家留学基金委)负责本项目的组织实施工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二章 选派计划</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三条 2015年计划选派高级研究学者200人;访问学者(含博士后)3000人。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四条 高级研究学者的留学期限为3-6个月。访问学者的留学期限为3-12个月。博士后的留学期限为3-24个月。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五条 选派专业领域主要为《国家中长期人才发展规划纲要(2010-2020年)》确定的经济和社会发展重点领域，《国家中长期科学和技术发展规划纲要(2006-2020年)》确定的重点领域、重大专项、前沿技术、基础研究，人文与社会科学领域。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　重点支持国家重大工程、重点学科和研究基地、重大科研项目以及国际学术交流合作对人才培养的需求。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六条 留学人员主要派往教育、科技发达国家的知名院校、科研院所、实验室等机构。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第七条 留学人员主要通过国内推选单位或个人渠道联系国外留学单位派出，也可利用国家留学基金委与国外教育、科研机构合作协议派出。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第八条 国家留学基金提供一次往返国际旅费及规定留学期间的奖学金生活费。奖学金资助标准及方式按照国家现行有关规定执行。赴英国留学的访问学者可申请1000英镑以内的Bench Fee。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三章 申请条件</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第九条 符合《2015年国家留学基金资助出国留学人员选拔简章》规定的申请人基本条件。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十条 须为国内高等学校、企业事业单位、行政机关、科研机构的正式工作人员。申请人原则上应主持或参与研究项目、课题，出国研修计划应紧密结合在研项目、课题及所在单位重点工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十一条 高级研究学者申请人应符合以下条件：申请时年龄不超过55岁(以申请截止时间为准)。教学科研人员应为教授或博士生导师。此外，申请人还至少具备以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(一)国家重点实验室、教育部重点实验室、国家工程(技术)研究中心骨干。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(二)两院院士、长江学者特聘教授、&ldquo;国家高层次人才特殊支持计划&rdquo;杰出人才或领军人才入选者、其他国家级人才计划入选者。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(三)中央国家机关、地方行政管理部门、国有大中型企业高级行政管理人员，须具有或相当于副司局级(含副司局级)以上行政职务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十二条 访问学者申请人应符合以下条件：年龄不超过50岁(以申请截止时间为准)，本科毕业后一般应有5年以上的工作经历，硕士毕业后一般应有2年以上的工作经历。对博士毕业的申请人，没有工作年限的要求。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十三条 博士后申请人应符合以下条件：年龄不超过40岁(以申请截止时间为准)，应为国内高等学校或科研单位具有博士学位、具体从事教学或科研工作的优秀在职青年教师或科研人员。申请时距其博士毕业时间应在3年以内。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十四条 申请时须提交国外大学或科研机构的邀请函。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十五条 外语水平需达到《2015年国家留学基金资助出国留学人员选拔简章》确定的国家留学基金资助出国留学外语条件。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　申请时外语水平未达到条件者，如系所在单位重点推荐，亦可申请，但须提供可以反映其外语水平的外语考试成绩证明，如WSK/TOEFL/IELTS考试成绩单复印件等。此部分人员被录取后，须参加教育部指定出国留学人员培训部相关语种培训或自行参加&ldquo;全国外语水平考试(WSK)&rdquo;等考试，获得相关培训结业证书或考试成绩达到外语条件后方可派出。希望参加外语培训者，应在申请表中注明意向培训地点。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　同等条件下，优先考虑申请时外语水平合格者。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四章 选拔办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十六条 遵循&ldquo;公开、公平、公正&rdquo;的原则，采取&ldquo;个人申请，单位推荐，专家评审，择优录取&rdquo;的方式。重点依托国家重大工程、重点学科和研究基地、重大科研项目以及国际学术交流合作进行选拔。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十七条 2015年的网上报名及申请受理时间为1月5日-1月15日。申请人应在此期限内登录国家公派留学管理信息平台(http://apply.csc.edu.cn)进行网上报名，按照《关于准备国家留学基金资助出国留学申请材料的说明(访问学者类)》准备申请材料并提交所在单位审核。申请通过国家留学基金委与国外有关教育、科研机构合作协议派出者，须按相应合作协议要求提交申请材料。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十八条 推选单位应对申请人的申请资格、综合素质、发展潜力、出国留学必要性、学习计划可行性、品德修养及身心健康情况等方面进行严格把关，对其出国留学提出明确目标要求，并出具有针对性的单位推荐意见。推选单位在对申请人材料进行认真审核后,将申请材料统一提交至相关受理单位或国家留学基金委。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十九条 国家留学基金委委托以下单位(以下简称受理单位)负责申请受理工作：&ldquo;211工程&rdquo;建设高校负责受理本校人员的申请;其他人员的申请由有关国家留学基金申请受理机构负责受理(详见国家留学网受理机构通讯录)。国家留学基金委不直接受理个人申请。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十条 受理单位应在1月20日前将书面公函及推荐人选名单提交至国家留学基金委，并通过信息平台提交申请人的电子材料。申请人的书面材料由受理单位留存，留存期限为2年。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十一条 国家留学基金委将组织专家对申请材料进行评审，并根据专家评审意见确定录取人员名单。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十二条 录取结果将于2015年3月公布。申请人可登录国家公派留学管理信息平台(http://apply.csc.edu.cn)查询录取结果。录取通知将及时发放至受理单位。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五章 派出与管理</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十三条 被录取人员的留学资格保留至2016年3月31日。凡未按期派出者，其留学资格将自动取消。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　国家留学基金委原则上不受理变更留学国别、变更留学单位、变更留学期限及延期派出的申请。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十四条 留学人员在到相关留学服务机构办理签证、预订机票等派出手续前，须登录国家公派留学管理信息平台(http://apply.csc.edu.cn)查阅是否需要办理《同意办理派出手续的函》及办理方式。如遇问题，请按录取国别或地区联系欧洲事务部、亚非事务部、美大事务部(联系方式请登录www.csc.edu.cn，浏览&ldquo;基金委机构设置&rdquo;查询)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十五条 在为留学人员办理派出手续时，推选单位及留学服务机构应按要求认真审核其留学国别、留学单位、留学期限等信息。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十六条 对留学人员的管理实行&ldquo;签约派出、违约赔偿&rdquo;的办法。留学人员派出前须与国家留学基金委签订《资助出国留学协议书》并办理公证、交存保证金后派出。为方便留学人员了解国家留学基金资助出国留学的有关规定，指导签订和公证《资助出国留学协议书》，办理护照、签证、交存保证金等派出手续，国家留学基金委编写了《出国留学人员须知》，请登录国家留学网(http://www.csc.edu.cn)认真阅读并按要求执行。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十七条 按照《资助出国留学协议书》规定，留学人员自抵达留学所在国后十日内须凭《国家留学基金资助出国留学资格证书》、《国家公派留学人员报到证明》向中国驻留学所在国使(领)馆办理报到手续后方可享受国家留学基金资助。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十八条 留学人员在国外留学期间，应遵守所在国法律法规、国家留学基金资助出国留学人员的有关规定及《资助出国留学协议书》的有关约定，自觉接受国内推选单位和驻外使(领)馆的管理;每3个月向推选单位和驻外使(领)馆提交研修报告及国外合作者鉴定。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十九条 留学人员应按协议约定完成所制定的研修计划及国内推选单位提出的任务和要求，履行按期回国服务的义务。留学人员回国后须以适当形式向推选单位汇报留学成果。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　留学人员须认真填写《回国报到提取保证金证明表》中&ldquo;留学总结及学术成果报告要点&rdquo;一项，并提交国外邀请方出具的评价意见。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十条 推选单位应制定本单位国家公派访问学者(含高级研究学者、博士后)出国留学管理办法，统筹考虑&ldquo;选拔、派出、管理、回国&rdquo;各环节，对留学人员加强目标和过程管理，做到派出前有要求，派出后有跟踪和检查，回国后有考核，具体工作应有专门机构和人员负责。在留学人员录取后，推选单位应合理安排其工作，保证按期派出，并及时将未派出人员名单及原因函告国家留学基金委;在留学人员派出前，应进行行前教育，对其国外研修计划提出明确要求，并指导、协助其办理出国手续;在留学人员派出后，应加强对其指导和检查，保持定期联系，对留学人员所提交的研修报告进行认真审核，协助国家留学基金委和驻外使(领)馆做好在外管理和按期回国工作;在留学人员回国后，应进行考核，确保留学效益。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十一条 推选单位应定期对本单位派出在外管理和回国情况以及取得的公派留学效益等情况进行总结，将总结报告连同典型事例等材料提交至国家留学基金委。国家留学基金委将对各单位研修报告提交和审核情况进行抽查。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十二条 留学人员与获得资助有关的论文、研究项目或科研成果在成文、发表、公开时，应注明&ldquo;本研究/成果/论文得到国家留学基金资助&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六章 附则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十三条 本办法自发布之日施行。</span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件3：</span></strong></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　2015年国家建设高水平大学公派研究生项目选派办法</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一章 总则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一条 为做好国家建设高水平大学公派研究生项目的选派工作，制定本办法。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二条 实施国家建设高水平大学公派研究生项目应以服务人才强国战略，推进高水平大学建设，增强其为建设创新型国家服务的能力为宗旨，遵循&ldquo;公开、公平、公正&rdquo;的原则，按照选拔一流的学生，到国外一流的院校、科研机构或学科专业，师从一流的导师的要求，着眼于培养一批具有国际视野、通晓国际规则，能够参与国际事务和竞争的拔尖创新人才。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三条 国家留学基金管理委员会(以下简称国家留学基金委)负责本项目的组织实施工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二章 选派计划</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四条 2015年计划选派8000人出国留学，其中攻读博士学位研究生3000人，联合培养博士研究生5000人。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五条 攻读博士学位研究生面向全国及在国外就读的留学人员公开选拔。2015年面向在外留学人员选拔的实施国别见附件。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养博士研究生面向全国各博士学位授予单位选拔,由国家留学基金委以下达指导性计划的方式确定各单位选派计划。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六条 攻读博士学位研究生的留学期限一般为36-48个月，具体以拟留学院校或单位学制为准。资助期限原则上不超过48个月。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养博士研究生的留学期限、资助期限为6-24个月。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第七条 重点支持《人才规划纲要》、《科技规划纲要》确定的重点支持学科、前沿技术、基础研究、人文及应用社会科学领域。国内推选单位应结合本单位重大科研项目、创新团队、创新基地和平台、国家重点实验室、重点学科及人才队伍建设需要确定具体选派专业和领域。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第八条 重点支持留学人员前往教育、科技发达国家和地区的知名院校、科研院所、实验室等机构。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　可通过推选单位或个人自行联系国外留学单位派出;亦可利用国家留学基金委与国外教育、科研机构合作协议派出。重点支持联合培养博士研究生通过国内外导师间已有的科研合作项目/协议赴国外学习。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第九条 国家留学基金为留学人员提供一次往返国际旅费和资助期限内的奖学金生活费，奖学金资助标准及方式按照国家有关规定执行。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　对人文及应用社会科学专业和部分国家急需学科、专业攻读博士学位人员，国家留学基金可提供学费资助。具体按照《国家建设高水平大学公派研究生项目学费资助办法(试行)》执行。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三章 申请条件</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十条 选拔对象：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　申请攻读博士学位人员：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(一)国内高校或科研机构优秀在读硕士生(包括应届硕士毕业生)、应届本科毕业生。相关单位可根据学校实际情况推荐在读博士一年级学生申报。在读硕士生、博士生应具备一定的科研能力和科研成果，应届本科毕业生应达到校内免试直升研究生水平。申请时应已获拟留学单位出具的攻读博士学位或硕博连读(仅针对应届本科毕业生)入学通知书(邀请信)、免学费或获得学费资助证明。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(二)国内企业、事业单位、行政机关、科研机构的正式工作人员。应具有硕士学位，在相应工作岗位取得较突出成绩、具有较强的科研能力。申请时应已获拟留学单位出具的攻读博士学位入学通知书(邀请信)、免学费或获得学费资助证明。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(三)国外高校或科研机构正式注册的自费留学应届硕士毕业生(已毕业离校的学生除外)、攻读博士学位第一年的学生、正在外学习的应届国家公派硕士毕业生。申请时，应届硕士毕业生应已获得攻读博士学位入学通知书(邀请信)、免学费或获得学费资助证明，攻读博士学位第一年的学生须出具就读院校注册证明、免学费或获得学费资助证明。申请时为在外攻读博士学位第一年的学生，被录取后留学期限和资助期限从博士第二年开始计算。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养博士研究生：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　国内全日制优秀在读博士研究生(委托培养和定向生除外)。申请时应已获拟留学单位出具的正式邀请信及国内外导师共同制定的联合培养计划。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　选拔范围不包括：已获得博士学位人员;曾享受国家留学基金资助出国留学的违约人员;已获得国外全额奖学金资助的人员;已取得国外永久居留权的人员。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十一条 具有中国国籍，热爱社会主义祖国,具有良好的政治素质,无违法违纪记录,有学成回国为祖国建设服务的事业心和责任感。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十二条 身心健康，具备扎实的专业基础，较强的学习、科研能力和交流能力，综合素质良好，学习成绩优异，工作业绩突出，具有较强的发展潜力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十三条 申请时年龄不超过35岁(以申请截止时间为准)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十四条 申请时外语水平须符合以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(一)外语专业本科(含)以上毕业(专业语种应与留学目的国使用语种一致)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(二)近十年内曾在同一语种国家留学一学年(8-12个月)或连续工作一年(含)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(三)参加&quot;全国外语水平考试(WSK)并达到合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(四)曾在教育部指定出国留学培训部参加相关语种培训并获得结业证书(英语为高级班，其他语种为中级班)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(五)参加雅思(学术类)、托福、德、法、意、西、日、韩语水平考试，成绩达到以下标准：雅思6.5分，托福95分，德、法、意、西语达到欧洲统一语言参考框架(CECRL)的B2级，日语达到二级(N2)，韩语达到TOPIK4级。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(六)通过国外拟留学单位组织的面试、考试等方式达到其语言要求(应在外方邀请信中注明或单独出具证明)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十五条 拟赴德语、法语、俄语、日语、意大利语及西班牙语国家的申请人，如被录取，派出前外语还须符合以下条件：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(一)如工作语言为英语，在英语达到合格标准的同时，还须在教育部指定的出国留学培训部参加留学对象国语言培训，并达到初级班水平或自行参加第十四条(三)、(五)规定的考试达到合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(二)如工作语言为俄语、日语，攻读博士学位研究生达到培训部初级班水平或自行参加第十四条(三)、(五)规定的考试并达到合格标准。联合培养博士研究生达到培训部中级班水平或自行参加第十四条(三)、(五)规定的考试并达到合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(三)如工作语言为德语、法语、意大利语、西班牙语，申请人需达到培训部中级班水平或自行参加第十四条(三)、(五)规定的考试并达到合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十六条 申请通过国家留学基金委与国外有关教育、科研机构合作协议派出者，还需满足协议要求的其他条件。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十七条 申请学费资助者应具有较高的综合素质和发展潜力并在各方面表现突出;核心课程应在优良以上;(拟)留学单位应为世界一流;国外导师应有很强的科研能力和水平,系所从事学科专业领域的权威专家或学术带头人,在国际上有较大影响力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四章 选拔办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十八条 遵循&ldquo;公开、公平、公正&rdquo;的原则，采取&ldquo;个人申请，单位推荐，专家评审，择优录取&rdquo;的方式进行选拔。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十九条 2015年的网上报名及申请受理时间为3月20日--4月5日。申请人应在此期限内登录国家公派留学管理信息平台(http://apply.csc.edu.cn/)进行网上报名，按照《2015年国家建设高水平大学公派研究生项目申请材料及说明(国内申请人用)》或《2015年国家建设高水平大学公派研究生项目申请材料及说明(在外留学申请人用)》准备申请材料并提交所在单位审核。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十条 推选单位应对申请人的资格、综合素质、发展潜力、出国留学必要性、学习计划可行性、品德修养及身心健康情况等方面进行审核(评审)后出具有针对性的单位推荐意见。推选单位在对申请材料进行认真审核后,将申请材料统一提交至相关受理单位或国家留学基金委。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十一条 国家留学基金委委托以下单位(以下简称受理单位)负责申请受理工作：&ldquo;211工程&rdquo;建设高校负责受理本校人员(学生及在职人员)的申请;在外留学人员的申请委托现就读院校或科研机构所在国我驻外使(领)馆教育处(组)负责受理;其他人员的申请由有关国家留学基金申请受理机构负责受理(详见国家留学网受理机构通讯录)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　国家留学基金委不直接受理个人申请。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十二条 受理单位应在4月12日前将书面公函及推荐人选名单提交至国家留学基金委，并通过信息平台提交申请人的电子材料。申请人的书面材料由受理单位留存，留存期限为3年。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十三条 国家留学基金委负责组织评审及录取工作。对申请学费资助人员将另行组织面试。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十四条 录取结果于2015年5月公布。申请人可登录国家公派留学管理信息平台(http://apply.csc.edu.cn)查询录取结果。录取通知将及时发放至受理单位。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五章 派出与管理</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十五条 被录取人员的留学资格有效期至2016年3月31日。凡未按期派出者，其留学资格将自动取消。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十六条 对留学人员的管理实行&ldquo;签约派出、违约赔偿&rdquo;的办法。留学人员派出前须在国内签订并公证《资助出国留学协议书》、交存保证金、办理《国际旅行健康检查证明书》，通过相关留学服务机构办理派出手续。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在外自费留学申请人被录取者，须回国办理签订并公证《资助出国留学协议书》、交存保证金及派出手续，回国国际旅费由本人自理。自国内赴留学目的国的国际旅费均由国家留学基金负担，由相关留学服务机构在办理派出手续时购买。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在外应届国家公派硕士毕业生如被录取，可直接在我驻该国使(领)馆办理续签《资助出国留学协议书》等手续，无需再行交存保证金。如需回国办理签证等手续，回国旅费及赴攻读博士学位目的国的国际旅费均由国家留学基金负担。如直接前往第三国攻读博士学位的，国际旅费自理。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十七条 留学人员派出前，推选单位应对其进行行前教育，并指导、协助其办理出国手续;同时，加强心理、精神和道德与诚信等方面的教育指导。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　推选单位应合理安排留学人员工作/学业，保证按期派出，并于12月底前将本年度录取未派出人员名单及原因提交至国家留学基金委。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　留学人员派出后，应加强对其指导和检查，保持定期联系，协助国家留学基金委和驻外使(领)馆做好在外管理和按期回国学习/工作，并创造各种有利条件吸引优秀留学人员回国工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十八条 按照《资助出国留学协议书》规定，留学人员自抵达留学所在国后十日内凭《国家留学基金资助出国留学资格证书》、《国家公派留学人员报到证明》向中国驻留学所在国使(领)馆办理报到手续后方可享受国家留学基金资助。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十九条 留学人员在国外留学期间，应遵守所在国法律法规、国家留学基金资助出国留学人员的有关规定及《资助出国留学协议书》的有关约定，自觉接受推选单位及驻外使(领)馆的管理，学成后应履行回国服务义务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十条 国家留学基金委对攻读博士学位研究生的学业进展进行年度审核。审核范围为正在国外学习的攻读博士学位研究生(享受外方资助学费和生活费及政府互换奖学金的博士生暂不纳入年度审核范围)，审核形式为网上在线审核。审核对象及其国外导师分别在国家公派出国留学管理信息平台上传报告表及导师评价意见，国家留学基金委组织审核。通过审核的，继续享受国家留学基金资助;未通过审核的，将停发奖学金，终止国家公派留学资格。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养博士生每学期末须提交经国外导师签字认可的学习报告至国内学校、国内导师和有关驻外使(领)馆。国家留学基金委将进行抽查。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十一条 留学人员与获得资助有关的论文、研究项目或科研成果在成文、发表、公开时，应注明 &ldquo;本研究/成果/论文得到国家留学基金资助&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六章 附则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三十二条 本办法自发布之日施行。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　附：2015年国家建设高水平大学公派研究生项目攻读博士学位研究生面向在外留学人员选拔的实施国别</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　美国、加拿大、古巴、日本、韩国、新加坡、泰国、以色列、南非、澳大利亚、新西兰、俄罗斯、白俄罗斯、乌克兰、捷克、德国、法国、瑞士、比利时、奥地利、荷兰、意大利、西班牙、葡萄牙、瑞典、丹麦、挪威、芬兰、英国、爱尔兰、匈牙利、塞尔维亚</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　注：本办法中的日期和时间均为北京时间。</span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件4：</span></strong></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　2015年国家公派硕士研究生项目选派办法</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一章 总则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第一条 为服务国家经济社会发展和人才强国战略，培养一批国家急需的具有国际视野、通晓国际规则，能够参与国际事务和竞争的高层次应用型专门人才，设立并实施国家公派硕士研究生项目。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二条 国家留学基金管理委员会(以下简称国家留学基金委)负责本项目的组织实施工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二章 选派计划</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三条 2015年计划选派600名硕士研究生出国留学。选派类别包括攻读硕士学位研究生和联合培养硕士研究生。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四条 重点面向行政机关、事业单位、高等职业院校在职人员选拔攻读硕士学位研究生。选派专业领域由推选单位根据人才培养实际需要确定。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　面向高等学校应届本科毕业生选拔攻读硕士学位研究生，面向高等学校在读硕士生选拔联合培养硕士研究生。选派学科专业领域为农业、公共管理、经济管理、社会工作、国际金融、国际法等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五条 攻读硕士学位研究生的留学期限一般为12-24个月，具体以拟留学院校或单位学制为准。联合培养硕士研究生的留学期限为3-12个月。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六条 留学人员派往教育、科技发达国家的知名院校、科研院所、实验室等机构。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第七条 攻读硕士学位研究生可通过国内推选单位或个人联系国外留学单位派出，也可利用国家留学基金委与国外教育、科研机构合作协议派出。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养硕士研究生主要通过国内高校的中外合作项目派出。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第八条 国家留学基金资助一次往返国际旅费和规定期间的奖学金生活费，资助标准及方式按照国家有关规定执行。对攻读硕士学位研究生，可提供学费资助。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第三章 申请条件</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第九条 具有中国国籍，热爱社会主义祖国,具有良好的政治素质,身心健康，无违法违纪记录,有学成回国为祖国建设服务的事业心和责任感。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十条 具备扎实的专业基础，较强的学习、科研能力和交流能力，综合素质良好，学习成绩优异或工作业绩突出，具有较强的发展潜力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十一条 申请时年龄不超过45岁(以申请截止时间为准)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十二条 申请时外语水平应达到以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(一)外语专业本科(含)以上毕业(专业语种应与留学目的国使用语种一致)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(二)近十年内曾在同一语种国家留学一学年(8-12个月)或连续工作一年(含)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(三)参加&ldquo;全国外语水平考试&rdquo;(WSK)并达到合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(四)曾在教育部指定出国留学培训部参加相关语种培训并获得结业证书(英语为高级班，其他语种为中级班)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(五)参加雅思(学术类)、托福、德、法、意、西、日、韩语水平考试，成绩达到以下标准：雅思6.5分，托福95分，德、法、意、西语达到欧洲统一语言参考框架(CECRL)的B2级，日语达到二级(N2)，韩语达到TOPIK4级。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(六)通过国外拟留学单位组织的面试、考试等方式达到其语言要求(应在外方邀请信中注明或单独出具证明)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十三条 攻读硕士学位研究生申请时应已获拟留学单位出具的入学通知书或邀请信。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　联合培养硕士研究生申请时应已获拟留学单位出具的正式邀请信、中外双方联合制定的学习计划等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十四条 选派范围不包括：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　已获得国家留学基金资助尚在有效期内人员;曾享受国家留学基金资助出国留学的违约人员;已获得国外全额奖学金资助的人员;已取得国外永久居留权的人员;正在境外学习或工作的人员。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第四章 选拔办法</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十五条 遵循&ldquo;公开、公平、公正&rdquo;的原则，采取&ldquo;个人申请，单位推荐，专家评审，择优录取&rdquo;的方式进行选拔。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十六条 2015年的网上报名及申请受理时间为3月20日-4月5日。申请人应在此期限内登录国家公派留学管理信息平台(http://apply.csc.edu.cn)进行网上报名、按照《2015年国家公派硕士研究生项目申请材料及说明》准备申请材料(请见国家留学网&ldquo;2015年国家公派硕士研究生项目专栏&rdquo;，www.csc.edu.cn)并提交所在单位审核。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十七条 推选单位应对申请人的资格、综合素质、发展潜力、出国留学必要性、学习计划可行性、品德修养及身心健康情况等方面进行审核(评审)后出具有针对性的单位推荐意见。推选单位在对申请材料进行认真审核后,将申请材料统一提交至相关受理单位或国家留学基金委。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十八条 国家留学基金委委托以下单位(以下简称受理单位)负责申请受理工作：&ldquo;211工程&rdquo;建设高校负责受理本校人员(学生及在职人员)的申请;其他人员的申请由有关国家留学基金申请受理机构负责受理(详见国家留学网受理机构通讯录)。国家留学基金委不直接受理个人申请。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第十九条 受理单位应在4月12日前将书面公函及推荐人选名单提交至国家留学基金委，并通过信息平台提交申请人的电子材料。申请人书面材料由受理单位留存,留存期限为3年。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十条 国家留学基金委负责组织评审及录取工作。对申请学费资助人员将另行组织面试。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十一条 录取结果于2015年5月公布。申请人可登录国家公派留学管理信息平台(http://apply.csc.edu.cn)查询录取结果。录取通知将发放至受理单位。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第五章 派出与管理</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十二条 被录取人员的留学资格有效期至2016年3月31日。凡未按期派出者，其留学资格将自动取消。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十三条 对留学人员的管理实行&ldquo;签约派出、违约赔偿&rdquo;的办法。留学人员派出前须在国内签订并公证《资助出国留学协议书》、交存保证金、办理《国际旅行健康检查证明书》，通过相关留学服务机构办理派出手续。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十四条 留学人员派出前，推选单位应对其进行行前教育，对国外学习计划提出明确要求，并指导、协助其办理出国手续;同时，加强心理、精神和道德与诚信等方面的指导。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　推选单位应合理安排留学人员工作/学业，保证按期派出，并于12月底前将本年度录取未派出人员名单及原因提交至国家留学基金委。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　留学人员派出后，应加强对其指导和检查，保持定期联系，协助国家留学基金委和驻外使(领)馆做好在外管理和按期回国学习/工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十五条 按照《资助出国留学协议书》规定，留学人员自抵达留学所在国后十日内凭《国家留学基金资助出国留学资格证书》、《国家公派留学人员报到证明》向中国驻留学所在国使(领)馆办理报到手续后方可享受国家留学基金资助。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十六条 留学人员在国外留学期间，应遵守所在国法律法规、国家留学基金资助出国留学人员的有关规定及《资助出国留学协议书》的有关约定，自觉接受推选单位和驻外使(领)馆的管理，学成后应履行回国服务义务。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十七条 尚未完成回国服务义务的本项目留学人员再次出国留学攻读博士学位者，应向国家留学基金委备案，回国服务期顺延;再次申请国家公派出国攻读博士学位或进行联合培养时，亦不受回国后满五年方可再次申请国家公派出国留学的限制。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十八条 留学人员与获得资助有关的论文、研究项目或科研成果在成文、发表、公开时，应注明 &ldquo;本研究/成果/论文得到国家留学基金资助&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第六章 附则</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　第二十九条 本办法自发布之日施行。</span></span></p>
+<p><span style="font-size: 14px"><strong><span style="font-family: 宋体">附件5：</span></strong></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　国家留学基金资助出国留学外语条件</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　一、高级研究学者、访问学者及博士后类别申请人，外语水平需达到以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1.参加&ldquo;全国外语水平考试 (WSK)&rdquo;并达到合格标准。各语种要求如下：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 英语(PETS5)：笔试总分55分(含)以上，其中听力部分18分(含)以上，口试总分3分(含)以上;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 德语(NTD)：笔试总分65分(含)以上;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 法语(TNF)：笔试总分60分(含)以上;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 日语(NNS)/俄语(ТЛРЯ)：笔试总分60分(含)以上，其中口试总分3分(含)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2.外语专业本科(含)以上毕业(专业语种应与留学目的国使用的语种一致)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3.近十年内曾在同一语种国家或地区连续留学8个月(含)以上，或连续工作12个月(含)以上，或曾以国家公派高级研究学者身份留学3个月(含)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4.曾在教育部指定出国留学人员培训部参加相应语种培训并获结业证书。各语种要求如下：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 英语：高级班结业证书;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　- 德语、法语、日语、俄语、西班牙语、意大利语：中级班结业证书。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5.参加雅思、托福、德语、法语、西班牙语、意大利语、日语、韩语水平考试，成绩达到以下标准：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　雅思(学术类)6.5分、托福网考95分;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　德语、法语、西班牙语、意大利语达到欧洲统一语言参考框架(CECRL)B2级;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　日语达到日本语能力测试(JLPT)三级(N3);</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　韩语达到TOPIK3级。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6.赴英语、德语、法语、日语、俄语、西班牙语、意大利语以外其他语种国家留学者，通过国外拟留学单位组织的对该语种的面试或考试等方式达到其语言要求(应在外方邀请信中注明或单独出具证明)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　*</span><strong><span style="font-family: 宋体">相关说明</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1.上述外语合格条件系留学人员申请和派出的统一标准，申请时合格且外语成绩证明在有效期内，派出时即可视为外语合格。全国外语水平考试(WSK)、教育部出国留学人员培训部结业证书、雅思、托福、欧洲统一语言参考框架(CECRL)、韩语(TOPIK)、日语(JLPT)成绩有效期均为两年。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2.全国外语水平考试(WSK)的证明材料为全国外语水平考试 (WSK)成绩通知单。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3.外语专业本科(含)以上毕业的证明材料为学历或学位证书。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4.曾在同一语种国家或地区留学或工作的证明材料为：我驻外使(领)馆出具的《留学回国人员证明》或曾留学单位及工作单位人事部门分别出具的在外学习或工作的证明。对曾留学国与拟留学国使用语言不一致的，须另行提供曾留学单位出具的工作语言为相应语种的证明。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5.德语、法语、西班牙语、意大利语达到欧洲统一语言参考框架(CECRL)B2级包括参加相应语种考试并取得等同于CECRL B2级的证书或成绩，如德语TestDaF12分以上，法语TEF541分以上、TCF400分以上、DELFB2，西班牙语TELEB2，意大利语CELI3、CILS Due B2、PLIDA B2等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6.赴非英语国家外语合格条件的说明</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　外方邀请信须明确工作语言。对外方邀请信中明确表述可使用英语作为工作语言的留学人员，英语达到国家公派合格标准也可以申请并派出,派出前可按自愿原则到有关教育部出国留学人员培训部参加对象国语言初级培训;对外方邀请信中明确表述使用英语以外语种作为工作语言的留学人员(含邀请信中未明确工作语言者)，应达到上述外语合格条件规定的相应语种合格要求。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　二、博士研究生、联合培养博士研究生、硕士研究生及联合培养硕士研究生类别申请人，申请时外语水平需达到以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1.外语专业本科(含)以上毕业(专业语种应与留学目的国使用语种一致)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2.近十年内曾在同一语种国家留学一学年(8-12个月)或连续工作一年(含)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3.参加&ldquo;全国外语水平考试&rdquo;(WSK)并达到合格标准，合格标准同上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4.曾在教育部指定出国留学培训部参加相关语种培训并获得结业证书(英语为高级班，其他语种为中级班)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5.参加雅思(学术类)、托福、德、法、意、西、日、韩语水平考试，成绩达到以下标准：雅思6.5分，托福95分，德、法、意、西语达到欧洲统一语言参考框架(CECRL)的B2级，日语达到二级(N2)，韩语达到TOPIK4级。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6.通过国外拟留学单位组织的面试、考试等方式达到其语言要求(应在外方邀请信中注明或单独出具证明)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　赴德语、法语、俄语、日语、意大利语及西班牙语国家攻读博士学位研究生和联合培养博士生如被录取，派出前须达到以下要求：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(1)如工作语言为英语，英语达到合格标准;同时，须在培训部参加留学对象国语言培训达到初级班水平或自行参加考试达到相关语种合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(2)如工作语言为俄语、日语，攻读博士学位研究生达到培训部初级班水平或自行参加考试达到相关语种合格标准;联合培养博士研究生达到培训部中级班水平或自行参加考试达到相关语种合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　(3)如工作语言为德语、法语、意大利语、西班牙语，攻读博士学位研究生和联合培养博士研究生均需达到培训部中级班水平或自行参加考试达到相关语种合格标准。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　三、本科插班生类别申请人，外语水平需达到以下条件之一：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1.外语专业在读本科二年级(含)以上学生(专业语种应与留学目的国使用语种一致)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2.曾在同一语种国家留学一学年(8-12个月)以上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3.参加&ldquo;全国外语水平考试&rdquo;(WSK)并达到合格标准，合格标准同上。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　4.曾在教育部指定出国留学培训部参加相关语种培训并获得结业证书(英语为高级班，其他语种为中级班)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　5.参加雅思(学术类)、托福、德、法、意、西、日、韩语水平考试，成绩达到以下标准：雅思6.5分，托福95分，德、法、意、西语达到欧洲统一语言参考框架(CECRL)的B2级，日语达到二级(N2)，韩语达到TOPIK4级。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　6. 通过国外拟留学单位组织的面试、考试等方式达到其语言要求(应在外方邀请信中注明或单独出具证明)。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　四、关于全国外语水平考试(WSK)及外语培训</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1.&ldquo;全国外语水平考试 (WSK)&rdquo;考试时间请在每年一月查询教育部考试中心网站 www.neea.edu.cn。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2. 参加英语培训者，由申请人自行联系教育部指定出国留学人员培训部参加培训。参加德语、法语、俄语、日语、意大利语及西班牙语培训者，可由申请人自行联系教育部指定出国留学人员培训部参加培训，亦可在录取后由国家留学基金管理委员会统一安排到相应培训部参加培训。各培训部培训语种、联系电话等信息请查阅《教育部指定出国留学人员培训部培训语种及联系电话》。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　3.参加培训的人员入学前需参加有关培训部组织的水平测试，并根据测试结果安排相应级别的培训。参加英语高级班培训的人员，须参加全国统一结业考试。</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+					</div>
+					<div class="page" align="center"></div>
+				</div>
+			</div>
+			<div class="wrap_side">
+				<!--包含广而告之 -->
+								<!-- 广而告之 -->
+				<div id="notice" class="news_normal_style2">
+					<h2>广而告之</h2>
+					<ul>
+						<!--index_gegz--><li><a href="http://www.8610hr.cn//docs/gb/2013-11-18/1384744541481.html" target="_blank">北京海外学人中心长期失去...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/gb/2013-11-13/1384327415767.html" target="_blank">关于做好2014年国家留学基...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/zxdt/2013-10-24/1382599363573.html" target="_blank">关于开展第十批海外高层次...</a></li>
+ <li><a href="/docs/gegz/2013-08-09/1376034625445.html" target="_blank">2013海外赤子北京行 火热报...</a></li>
+ <li><a href="http://www.8610hr.cn//docs/zxdt/2013-07-12/1373605801157.html" target="_blank">第九批（2013年第一批）留...</a></li>
+ <li><a href="/docs/gegz/2013-05-07/1367907312620.html" target="_blank">中科院中自留创园“中小企...</a></li>
+ <li><a href="/docs/gegz/2013-04-22/1366609010806.html" target="_blank">关于举办卓越领导力提升体...</a></li>
+ <!--index_gegz-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/gegz_index_gegz/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+				<!--包含媒体聚焦 -->
+								<!-- 广而告之 -->
+				<div id="media" class="news_normal_style2">
+					<h2>媒体聚焦</h2>
+					<ul>
+						<!--index_mtjj--><li><a href="/docs/mtjj/2014-09-24/1411540434063.html" target="_blank">朝阳区开展“凤凰计划”海...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188932742.html" target="_blank">我为北京减排养棵树</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188838252.html" target="_blank">2013“北京海外人才创业林...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188647973.html" target="_blank">2013“北京海外人才创业林...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188464494.html" target="_blank">“北京海外人才创业林”认...</a></li>
+ <li><a href="/docs/mtjj/2013-04-17/1366188402059.html" target="_blank">“北京海外人才创业林”又...</a></li>
+ <!--index_mtjj-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/mtjj_index_mtjj/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+				<!--包含中心动态 -->
+								<!-- 中心动态 -->
+				<div id="center_trends" class="news_normal_style3">
+					<h2>中心动态</h2>
+					<ul>
+						<!--index_zxdt--><li><a href="/docs/zxdt/2014-12-16/1418699884624.html" target="_blank">“全英中国创业发展协会北...</a></li>
+ <li><a href="/docs/zxdt/2014-12-02/1417504342065.html" target="_blank">北京海外高层次人才协会第...</a></li>
+ <li><a href="/docs/zxdt/2014-12-02/1417489258299.html" target="_blank">关于做好2015年国家留学基...</a></li>
+ <li><a href="/docs/zxdt/2014-11-27/1417071239060.html" target="_blank">“走进海聚”之四——北京...</a></li>
+ <li><a href="/docs/zxdt/2014-11-27/1417069739324.html" target="_blank">北京海创企业人力资源管理...</a></li>
+ <li><a href="/docs/zxdt/2014-11-24/1416814624918.html" target="_blank">北京海外学人中心分中心赴...</a></li>
+ <!--index_zxdt-->
+					
+					<li class="more"><a href="/docs/more/zxdt_index_zxdt/index_morenews1.html" target="_blank">&gt;&gt;more
+					</a></li>
+					</ul>
+				</div>
+
+				<!--包含专家观点 -->
+								<!-- 专家观点 -->
+				<div id="hot_topic" class="news_normal_style2">
+					<h2>热门话题</h2>
+					<ul>
+						<!--index_zjgd--><li><a href="/docs/rmht/2014-03-21/1395368527971.html" target="_blank">国家外专局局长张建国：加...</a></li>
+ <li><a href="/docs/rmht/2014-03-20/1395282273750.html" target="_blank">王辉耀：中国高校人才流动...</a></li>
+ <li><a href="/docs/rmht/2014-03-18/1395109410088.html" target="_blank">叶飞帆代表：不形成人才多...</a></li>
+ <li><a href="/docs/rmht/2014-03-14/1394763814149.html" target="_blank">“千人计划”专家施一公：...</a></li>
+ <li><a href="/docs/rmht/2014-03-11/1394504079933.html" target="_blank">宁桂玲代表：国际化人才培...</a></li>
+ <li><a href="/docs/rmht/2014-03-10/1394419725425.html" target="_blank">中国教育学会副会长朱永新...</a></li>
+ <li><a href="/docs/rmht/2014-03-07/1394158932129.html" target="_blank">刘利民：弘扬核心价值 培养...</a></li>
+ <!--index_zjgd-->
+					</ul>
+					<div class="more_box"><a href="#">
+					<a href="/docs/more/rmht_index_zjgd/index_morenews1.html" target="_blank">>>more</a>
+					</a></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--包含底部文件 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+
+</body>
+</html>

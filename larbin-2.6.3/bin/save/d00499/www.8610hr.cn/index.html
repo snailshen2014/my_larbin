@@ -1,0 +1,1296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/lenovocomcn/allmobilize.min.js"></script>
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="alternate" media="handheld" href="#" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name= "keywords" content="海外学人,海外人才,海聚工程,留学人员,创业,创新,海归,人才引进,千人计划" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="style/css_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.4.min.js" ></script>
+<script type="text/javascript" src="js/YLMarquee-1.1.min.js" ></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript" src="js/mxl.tab.js" ></script>
+<script type="text/javascript" src="js/wajax.js" ></script>
+<script type="text/javascript">  
+
+  if(top.window.location.href != window.location.href)
+{
+	top.window.location.href = window.location.href
+}
+
+/*动态嵌入方法不适用ExternalInterface.addCallback方*/
+var flashvars_focus = {
+	
+	<!--index_xwzx-->
+pic0:"/docs/xwzx/2014-12-16/img/1418700527387.jpg",link0:"http://www.8610hr.cn/docs/zxdt/2014-12-16/1418699884624.html",title0:"“全英中国创业发展协会北京行”活动在京举办",
+pic1:"/docs/xwzx/2014-12-02/img/1417505639786.jpg",link1:"http://www.8610hr.cn/docs/zxdt/2014-12-02/1417504342065.html",title1:"北京海外高层次人才协会第一届理事会第四次会议召开",
+pic2:"/docs/xwzx/2014-11-27/img/1418005656051.jpg",link2:"http://www.8610hr.cn/docs/zxdt/2014-11-27/1417069739324.html",title2:"北京海创企业人力资源管理沙龙举办",
+pic3:"/docs/xwzx/2014-11-27/img/1417065052114.jpg",link3:"http://www.8610hr.cn/docs/jgsz/2014-11-27/1417064994605.html",title3:"“走进海聚”之四——北京生命科学研究所参观交流活动成功举办",
+picNumber:"4",<!--index_xwzx-->
+	myTimer:3
+	};   
+var params_focus = {
+	wmode:"transparent"
+	};   
+var attributes_focus = {   
+  id: "focusIndex",   
+  name: "focusFlash"  
+}; 
+swfobject.embedSWF("images/focusPic.swf", "focus", "384", "236", "9.0.0","expressInstall.swf",  flashvars_focus, params_focus, attributes_focus); 
+</script>
+
+
+<!--订阅期刊-->
+<script type="text/javascript">
+
+function to_email(){
+	if(checkemail()){
+		var email = document.getElementById("email").value; 
+		var userId="";
+		if(getCookie("mrgUserId")!=null){
+		   userId = getCookie("mrgUserId");
+		}
+		  $.ajax({
+		   type: "POST",
+		   url: "/wbs/magazine/SendEmail.action?",
+		   data: 'email='+email+'&userId'+userId,
+		   dataType:'json',
+		   success: function(msg){
+		   alert(msg.message);
+		   }
+		});
+  }
+}
+function getCookie(objName){
+	//var objName = "mrgUserName";
+				var arrStr = document.cookie.split("; ");
+	            for(var i = 0;i < arrStr.length;i ++){
+	                var temp = arrStr[i].split("=");
+	                if(temp[0] == objName){  				
+	                return (unescape(temp[1]));
+	                }
+	            } 
+	}
+	
+	
+function checkemail(){
+	  //开始验证
+	  var email=document.getElementById("email").value;
+	  var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+	  chkFlag = pattern.test(email);
+	  
+		if(email==""){
+			alert("请输入邮箱！");
+			document.getElementById("email").value="";
+			return false;
+		}else if(!chkFlag){
+			alert("邮箱格式不正确！");
+			document.getElementById("email").value="";
+	      return false;
+		}
+		return true;
+	}
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+</script>
+
+
+
+<script type="text/javascript">
+		$(document).ready( function() {
+			
+		<!--公示滚动 -->
+		$("#scrollDiv").YlMarquee({
+    	 visible:2,
+		 vertical:true,
+		 height:85,
+    	 step:1
+      	 });
+		$("#scrollDiv_show ul").show();
+		<!--在线展示滚动 -->
+		$("#scrollDiv_show").YlMarquee({
+    	 visible:1,
+		 vertical:false,
+		 width:622,
+    	 step:1
+      	 });
+		<!--显示隐藏全部服务 -->
+		$(".service_all_a").click(function(){
+	  		 $(".service_all").slideToggle();
+			 $(this).toggleClass("service_all_a1"); 
+			 	}
+			);
+		$(".service_all_close a").click(function(){
+	  		 $(".service_all").slideToggle();
+			 $(".service_all_a").toggleClass("service_all_a1"); 
+			 	}
+			);
+		<!--显示隐藏荐才求贤 -->
+		$(".hr_tab span:eq(0)").mouseover(function(){
+	  		 	$(".job").hide();
+				$(".headhunter").hide();
+			 	$(".talent").show();				
+			 	$(this).addClass("tabJob_hover"); 
+				$(".hr_tab span:eq(1)").removeClass("tabTalent_hover"); 
+				$(".hr_tab span:eq(2)").removeClass("tabHeadhunter_hover");
+			 	}
+			);
+		$(".hr_tab span:eq(1)").mouseover(function(){
+				$(".job").show();									   
+	  		 	$(".headhunter").hide();
+				$(".talent").hide();
+				$(".hr_tab span:eq(0)").removeClass("tabJob_hover"); 
+				$(".hr_tab span:eq(2)").removeClass("tabHeadhunter_hover"); 
+			 	$(this).addClass("tabTalent_hover"); 
+			 	}
+			);
+			$(".hr_tab span:eq(2)").mouseover(function(){
+				$(".headhunter").show();
+				$(".job").hide();									   
+	  		 	$(".talent").hide();
+				$(".hr_tab span:eq(0)").removeClass("tabJob_hover"); 
+				$(".hr_tab span:eq(1)").removeClass("tabTalent_hover");
+			 	$(this).addClass("tabHeadhunter_hover"); 
+			 	}
+			);
+	
+	});
+
+   //判断敏感字符，字符要小写的
+       var forbiddenArray =['delete','update','join','where','select','insert','group by','like','value','from','create','or','and','table','drop','truncate','between','in','order by','function','href','open','submit','return','var','document','element','add','remove','show','html','alert','close','onclick','dutton','form','<','>','{','}','&','%','~','!'];
+
+       function goSearch(){
+	    var keyword=document.getElementById("search_keyword");	
+		if (keyword.value != ""){
+		  var destString =keyword.value.toLowerCase();
+		  var re = '';
+		  for(var i=0;i<forbiddenArray.length;i++){
+			if(i==forbiddenArray.length-1)
+				re+=forbiddenArray[i];
+			else
+				re+=forbiddenArray[i]+"|";
+         }
+		   //定义正则表示式对象
+		   //利用RegExp可以动态生成正则表示式
+		   var pattern = new RegExp(re,"g"); 
+		   destString=destString.replace(pattern,"***");
+	        if(destString.indexOf("***")==-1){
+					return true;
+			}else{
+					alert("请输入正确的搜索条件");
+			return false;}
+		}else{
+			alert("请输入正确的搜索条件");
+			return false;
+		}
+	}
+    
+
+</script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns01" onload="loading()" >
+<div class="theme_bg"></div>
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+
+<!--第一屏不规则背景内容 -->
+<div class="index_main">
+<!--广播 -->
+<span class="radio"><a href="/docs/more/gb_index_gb/index_morenews1.html">广播</a>：<a id="HotNews" href=""></a></span>
+<!--打字效果脚本 -->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var NewsTime = 3000;	//每条新闻的停留时间
+var TextTime = 50;		//新闻标题文字出现等待时间，越小越快
+
+var newsi = 0;
+var txti = 0;
+var txttimer;
+var newstimer;
+
+var newstitle = new Array();	//新闻标题
+var newshref = new Array();		//新闻链接
+<!--index_gb-->
+newstitle[0] = "<font color=#FF0000><b>2014人才服务公益行·留学归国人员（冬季）...</b></font>";
+newshref[0] = "http://www.8610hr.cn/docs/jgsz/2014-11-25/1416895418278.html";
+
+
+newstitle[1] = "<font color=#FF0000><b>关于举办“创新•管理•绩效——海创企业人...</b></font>";
+newshref[1] = "http://www.8610hr.cn/docs/zxdt/2014-11-17/1416189536693.html";
+
+
+newstitle[2] = "<font color=#0088FF>关于开展第十四批（2014年第三批）北京市留...</font>";
+newshref[2] = "http://www.8610hr.cn/docs/jgsz/2014-10-11/1413005061816.html";
+
+
+<!--index_gb-->
+function shownew()
+{
+	//code by haiwa @2005-10-21 www.51windows.net
+	var endstr = "_"
+	hwnewstr = newstitle[newsi];
+	newslink = newshref[newsi];
+	if(txti==(hwnewstr.length-1)){endstr="";}
+	if(txti>=hwnewstr.length){
+		clearInterval(txttimer);
+		clearInterval(newstimer);
+		newsi++;
+		if(newsi>=newstitle.length){
+			newsi = 0
+		}
+		newstimer = setInterval("shownew()",NewsTime);
+		txti = 0;
+		return;
+	}
+	clearInterval(txttimer);
+	document.getElementById("HotNews").href=newslink;
+	document.getElementById("HotNews").innerHTML = hwnewstr.substring(0,txti+1)+endstr;
+	txti++;
+	txttimer = setInterval("shownew()",TextTime);
+}
+shownew();
+//-->
+</SCRIPT>
+
+<!--焦点图 -->
+<div class="focus_box">
+<div id="focus"></div>
+</div>
+<!--新闻资讯 -->
+<a href="../../../news/news_index.html" class="news_tit" title="新闻资讯"><em>新闻资讯</em></a>
+<div class="topNews">
+<dl>
+<!--index_btjjxwzx--><dt><a href="/docs/btjjxwzx/2014-12-12/1418363788915.html">中央经济工作会议干货版</a></dt><dd>坚持稳中求进工作总基调，坚持以提高经济发展质量和效益为中心，主动适应经济发展新常态，保持经济运行在合理区间，把转方..</dd><!--index_btjjxwzx-->
+</dl>
+
+<ul>
+<!--index_lbxwzx-->
+<li><a href="http://www.8610hr.cn/docs/zxdt/2014-12-02/1417489258299.html" target="_blank"><font color=#000000><b>关于做好2015年国家留学基金资助出国留...</b></font></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/jgsz/2014-12-08/1418025564363.html" target="_blank"><font color=#000000><b>第十四批（2014年第三批）留学人员创办...</b></font></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/yjdw/2014-12-16/1418714252367.html" target="_blank">全国首个国家文化产业创新实验区落户朝...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/jgsz/2014-12-16/1418713962230.html" target="_blank">如何营造具有国际竞争力的创新创业环境...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/jgsz/2014-12-16/1418713587290.html" target="_blank">培养更多优秀人才开创留学工作新局面</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/jgsz/2014-12-16/1418714056254.html" target="_blank">第三届金砖国家财经论坛在京举行</a></li>
+
+ <!--index_lbxwzx-->
+</ul>
+
+</div>
+
+<!--业务办理结果公示 -->
+<a href="/service/service_index.html" class="service_tit" title="服务大厅"><em>服务大厅</em></a>
+<a href="/docs/more/bwtz_index_bwtz/index_morenews1.html"  target="_blank" class="publicity_more">&gt;&gt;more</a>
+				<div id="scrollDiv">
+				                <ul>
+                        <!--index_bwtz-->	<li>秦迪先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>左祥先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>吴学增先生，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>向丽娟女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>陈联先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>李洁女士，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>付子健女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>周浩先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>郝亚楠女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>张轶男女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>孙艺桐女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>方华女士，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>何华先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>刘悦女士，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>寇书鸣先生，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>曾冠维先生，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>姚娟娟女士，您的《留学人员身份认定》已办...（2014-11-27）</li>
+	<li>康峰先生，您的《留学人员身份认定》已办理...（2014-11-27）</li>
+	<li>孙艺桐女士，您的《留学人员身份认定》已办...（2014-09-11）</li>
+	<li>龙佑军先生，您的《留学人员身份认定》已办...（2014-09-11）</li>
+	<li>熊烨鹏先生，您的《留学人员身份认定》已办...（2014-09-11）</li>
+
+<!--index_bwtz-->
+                    </ul>
+</div>
+
+<!--在线服务 -->
+<ul class="service_online">
+<li class="s01"><a href="/service/service_online/service_online4.html"></a></li>
+<li class="s05"><a href="/service/service_content/convergence_content.html"></a></li>
+<li class="s02"><a href="/service/service_content/service_content6.html"></a></li>
+<li class="s03"><a href="/service/service_content/service_content.html"></a></li>
+<li class="s04"><a  href="#"></a></li>
+<li class="s06"><a href="/topics/2014htoGuide/base.html"></a></li>
+<!--暂时没开通20110916<li class="s04"><a onclick="gotoLogin()" href="#"></a></li>-->
+</ul>
+<!--全部服务 -->
+<a href="####" class="service_all_a"><span>all service</span></a>
+
+<div class="service_all">
+<div class="service_all_in">
+
+<h3>身份认定</h3>
+<ul>
+<li><a href="/service/service_content/service_content.html" target="_blank">留学人员身份认定</a></li>
+<li><a href="/service/service_content/service_content1.html" target="_blank">海外留学人才身份证明</a></li>
+</ul>
+<h3>在京工作</h3>
+<ul>
+<li><a href="/service/service_content/service_content2.html" target="_blank">单位立户</a></li>
+<li><a href="/service/service_content/service_content3.html" target="_blank">北京市留学人员工作居住证</a></li>
+<li><a href="/service/service_content/service_content4.html" target="_blank">外国人就业证</a></li>
+<li><a href="/service/service_content/service_content5.html" target="_blank">留学人员人才引进</a></li>
+</ul>
+<h3>资金扶持</h3>
+<ul>
+<li><a href="/service/service_content/service_content6.html" target="_blank">留学人员创办企业开办费资助资金</a></li>
+</ul>
+<h3>人事代理</h3>
+<ul>
+<li><a href="/service/service_content/service_content7.html" target="_blank">集体户口管理</a></li>
+<li><a href="/service/service_content/service_content8.html" target="_blank">社会保险</a></li>
+<li><a href="/service/service_content/service_content9.html" target="_blank">档案管理</a></li>
+<li><a href="/service/service_content/service_content10.html" target="_blank">党员管理</a></li>
+</ul>
+<h3>留创企业服务</h3>
+<div class="service_all_close"><a href="###"><span>关闭</span></a></div>
+</div>
+</div>
+<!--在线展示 -->
+<a href="show/show_index.html" class="show_index_tit"><em>在线展馆</em></a>
+<a href="/show/show_index.html" class="show_more">|　更多成果展示</a>
+<div id="scrollDiv_show" class="clearfix">
+  <ul>
+         <!--index_hjcgzs-->
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-15/1418612984298.html" target="_blank"><img src="/docs/hjcgzs/2014-12-15/img/1418613107600.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-15/1418612984298.html" class="txt">雷鸣：在互联网上演奏美妙乐...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-12/1418352434504.html" target="_blank"><img src="/docs/hjcgzs/2014-12-12/img/1418352574654.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-12/1418352434504.html" class="txt">江中杰：让天下没有难做的珠...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-11/1418268244926.html" target="_blank"><img src="/docs/hjcgzs/2014-12-11/img/1418268268352.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-11/1418268244926.html" class="txt">邸烁：Android之上</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-10/1418188729788.html" target="_blank"><img src="/docs/hjcgzs/2014-12-10/img/1418189004996.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-10/1418188729788.html" class="txt">陈忠苏：志做网上教育的总后...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-09/1418092649692.html" target="_blank"><img src="/docs/hjcgzs/2014-12-10/img/1418188897013.png" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-09/1418092649692.html" class="txt">陈昕：创建中国第一家光刻胶...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-08/1418006559346.html" target="_blank"><img src="/docs/hjcgzs/2014-12-08/img/1418006592636.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-08/1418006559346.html" class="txt">曹堪宇：演绎芯片领域的“阿...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417745565868.html" target="_blank"><img src="/docs/hjcgzs/2014-12-05/img/1417745670656.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417745565868.html" class="txt">郑茂林：助力中国信用社会建...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417743521680.html" target="_blank"><img src="/docs/hjcgzs/2014-12-05/img/1417743848450.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417743521680.html" class="txt">马列伟：态度让我成为人生的...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417743780952.html" target="_blank"><img src="/docs/hjcgzs/2014-12-05/img/1417743827443.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-05/1417743780952.html" class="txt">蔡茂林：高校科技成果转化界...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-04/1417658000635.html" target="_blank"><img src="/docs/hjcgzs/2014-12-04/img/1417658040409.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-04/1417658000635.html" class="txt">张世平：用最先进的转基因技...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-03/1417573914862.html" target="_blank"><img src="/docs/hjcgzs/2014-12-03/img/1417573955601.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-03/1417573914862.html" class="txt">张建亮：致力于攻克帕金森综...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-02/1417490387670.html" target="_blank"><img src="/docs/hjcgzs/2014-12-02/img/1417490416400.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-02/1417490387670.html" class="txt">张国勇：做超导领域的领导者</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-12-01/1417400501686.html" target="_blank"><img src="/docs/hjcgzs/2014-12-01/img/1417400554701.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-12-01/1417400501686.html" class="txt">苑学礼：我国泌尿外科 “第三...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-27/1417056201725.html" target="_blank"><img src="/docs/hjcgzs/2014-11-27/img/1417056228928.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-27/1417056201725.html" class="txt">杨海光:助力康乐卫士实现产业...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-26/1416971039622.html" target="_blank"><img src="/docs/hjcgzs/2014-11-26/img/1416971092004.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-26/1416971039622.html" class="txt">夏长青：血液学研究领域的探...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-25/1416883461436.html" target="_blank"><img src="/docs/hjcgzs/2014-11-25/img/1416883517389.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-25/1416883461436.html" class="txt">王厚工：为了中国芯片事业</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-24/1416796220248.html" target="_blank"><img src="/docs/hjcgzs/2014-11-24/img/1416796263448.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-24/1416796220248.html" class="txt">汪大总：打造中国的德尔福</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-21/1416550068927.html" target="_blank"><img src="/docs/hjcgzs/2014-11-21/img/1416550115693.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-21/1416550068927.html" class="txt">阙红：畅游在生物医药领域的...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-20/1416450197008.html" target="_blank"><img src="/docs/hjcgzs/2014-11-20/img/1416450283879.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-20/1416450197008.html" class="txt">马骏：为美丽北京而努力</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-19/1416375231532.html" target="_blank"><img src="/docs/hjcgzs/2014-11-19/img/1416375499804.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-19/1416375231532.html" class="txt">卢敏：上帝派来人间的抗癌天...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-18/1416280142981.html" target="_blank"><img src="/docs/hjcgzs/2014-11-18/img/1416280207901.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-18/1416280142981.html" class="txt">刘国旭:让LED照亮美好生活</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-17/1416201210708.html" target="_blank"><img src="/docs/hjcgzs/2014-11-17/img/1416201255892.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-17/1416201210708.html" class="txt">李锁定：研制国际领先的水处...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-14/1415942175526.html" target="_blank"><img src="/docs/hjcgzs/2014-11-14/img/1415943278513.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-14/1415942175526.html" class="txt">黎志欣：推动中国光伏产业发...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-13/1415844669349.html" target="_blank"><img src="/docs/hjcgzs/2014-11-13/img/1415844708260.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-13/1415844669349.html" class="txt">黎江：建立国内领先的云计算...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-06/1415239429649.html" target="_blank"><img src="/docs/hjcgzs/2014-11-06/img/1415239477242.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-06/1415239429649.html" class="txt">雷慧萌：痴迷生物科学的80后...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-05/1415154280410.html" target="_blank"><img src="/docs/hjcgzs/2014-11-05/img/1415154311232.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-05/1415154280410.html" class="txt">洪沨：此“芯”安处是吾乡</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-04/1415066946052.html" target="_blank"><img src="/docs/hjcgzs/2014-11-04/img/1415067660165.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-04/1415066946052.html" class="txt">韩永信：奋力改写世界创新药...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-03/1414992357214.html" target="_blank"><img src="/docs/hjcgzs/2014-11-03/img/1414992389068.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-03/1414992357214.html" class="txt">郭祥麟：助力国内汽车产业腾...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-11-02/1414906332258.html" target="_blank"><img src="/docs/hjcgzs/2014-11-02/img/1414906375636.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-11-02/1414906332258.html" class="txt">范振灿：打造LED领域的中国名...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-31/1414720999532.html" target="_blank"><img src="/docs/hjcgzs/2014-10-31/img/1414721176630.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-31/1414720999532.html" class="txt">陈伟刚：从福特到北汽的追梦...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-30/1414646347841.html" target="_blank"><img src="/docs/hjcgzs/2014-10-30/img/1414646380943.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-30/1414646347841.html" class="txt">朱一明：打造中国存储器的世...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-29/1414562974310.html" target="_blank"><img src="/docs/hjcgzs/2014-10-29/img/1414563002333.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-29/1414562974310.html" class="txt">周欣：制造国际领先的激光气...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-28/1414464033005.html" target="_blank"><img src="/docs/hjcgzs/2014-10-28/img/1414464076255.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-28/1414464033005.html" class="txt">周杰：淘尽黄沙始见金</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-27/1414400072079.html" target="_blank"><img src="/docs/hjcgzs/2014-10-27/img/1414400112246.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-27/1414400072079.html" class="txt">钟宁：开创Web智能和脑信息学...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-24/1414121939648.html" target="_blank"><img src="/docs/hjcgzs/2014-10-24/img/1414122151881.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-24/1414121939648.html" class="txt">张世龙：成长为世界一流的模...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-23/1414041732757.html" target="_blank"><img src="/docs/hjcgzs/2014-10-23/img/1414041825866.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-23/1414041732757.html" class="txt">张璟：把创新当做一种信仰</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-22/1413966929268.html" target="_blank"><img src="/docs/hjcgzs/2014-10-22/img/1413967030625.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-22/1413966929268.html" class="txt">张建军：打造汽车工业民族品...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-22/1413966831119.html" target="_blank"><img src="/docs/hjcgzs/2014-10-22/img/1413966973656.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-22/1413966831119.html" class="txt">张二利：善于挑战的实干家</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-20/1413783047241.html" target="_blank"><img src="/docs/hjcgzs/2014-10-20/img/1413783137956.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-20/1413783047241.html" class="txt">原诚寅：助力中国新能源汽车...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-15/1413350327295.html" target="_blank"><img src="/docs/hjcgzs/2014-10-15/img/1413350361193.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-15/1413350327295.html" class="txt">袁宝珠：解开基因密码的肿瘤...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-14/1413255042547.html" target="_blank"><img src="/docs/hjcgzs/2014-10-14/img/1413255177062.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-14/1413255042547.html" class="txt">俞振华：全球储能领域的探索...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-13/1413169810219.html" target="_blank"><img src="/docs/hjcgzs/2014-10-13/img/1413169852756.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-13/1413169810219.html" class="txt">徐仰汇：汽车自主品牌之路-—...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-11/1413011638143.html" target="_blank"><img src="/docs/hjcgzs/2014-10-11/img/1413011673601.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-11/1413011638143.html" class="txt">徐平：中国蛋白质组研究的逐...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-10/1412909049655.html" target="_blank"><img src="/docs/hjcgzs/2014-10-10/img/1412909220922.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-10/1412909049655.html" class="txt">吴越：领跑中国抗癌药物研发...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-10-09/1412845146620.html" target="_blank"><img src="/docs/hjcgzs/2014-10-09/img/1412845205731.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-10-09/1412845146620.html" class="txt">吴仪：醉心微电子清洗</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-09-29/1411958338656.html" target="_blank"><img src="/docs/hjcgzs/2014-09-29/img/1411958373325.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-09-29/1411958338656.html" class="txt">魏忠勇：在药物研发中把握人...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-09-28/1411881719889.html" target="_blank"><img src="/docs/hjcgzs/2014-09-28/img/1411881930764.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-09-28/1411881719889.html" class="txt">王阳：打造国际一流的生物医...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-09-25/1411638482972.html" target="_blank"><img src="/docs/hjcgzs/2014-09-25/img/1411638511637.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-09-25/1411638482972.html" class="txt">王晓东：建设让科学家“眷恋...</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-09-24/1411540848683.html" target="_blank"><img src="/docs/hjcgzs/2014-09-24/img/1411541029737.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-09-24/1411540848683.html" class="txt">王铁军：月在故乡明</a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/docs/hgrw/2014-09-23/1411454501165.html" target="_blank"><img src="/docs/hjcgzs/2014-09-23/img/1411454569207.jpg" width="96" height="96" /></a><a href="http://www.8610hr.cn/docs/hgrw/2014-09-23/1411454501165.html" class="txt">王璞：行走于激光技术研究前...</a></li>
+
+ <!--index_hjcgzs-->
+    </ul>
+</div>
+
+<!--站内搜索 -->
+<form id="goSearchForm" name="goSearchForm" method="post" action="/cms/CmsQueryServlet" method="post" onSubmit="return goSearch();">
+<input type="hidden" name="page" id="page" value="1"/>
+<div class="indexSearch">
+<label><input type="text" id="search_keyword"  name="search_keyword" value="" class="t" /></label>
+<label><input type="image" name="imageField" id="imageField" src="style/button_search.png" /></label>
+<script>
+$(document).ready(function(e) {
+    //input默认文字
+			var s_txt="站内查询";
+			$("#search_keyword").val(s_txt).addClass("gary");
+			$("#search_keyword").focus(function(){
+				$(this).removeClass("gary");
+				if($(this).val()==s_txt){$(this).val("");}
+				});
+			$("#search_keyword").blur(function(){
+				if($(this).val()==""){$(this).val(s_txt).addClass("gary");}
+				});
+});
+</script>
+</div>
+</form>
+<!--生活小贴士 -->
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+
+
+
+
+</div>
+<!--index_main结束 -->
+
+<!--页面通用内容，可扩展-->
+<div class="generalBox">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="generalBox_in">
+    <tr>
+      <td valign="top" class="g_left">
+      <!--单元块开始 -->
+       <!--<iframe height="200" frameborder="0" src="/wbs/botc/web/inc/index_consultation_hot.jsp" width="235" scrolling="no" style="margin-bottom:10px;"></iframe>-->
+	   <div class="sideCon">
+      <div class="sideCon_in sc_consult">
+      <h3><a href="/wbs/botc/web/nldoRunT.action?handler=WebConsultation.addQuestion" class="tit" title="咨询吧"><em>咨询吧</em></a><a href="/wbs/botc/web/nldoRunT.action?handler=WebConsultation.addQuestion" class="ask">我要提问</a></h3>
+      <ul class="consultHot">
+      <!--<li><a href="#">国家现在的留学政策是什么？</a></li>
+	  <li><a href="consultation/consultation_content.shtml" target="_blank">赴美行前应该注意哪些事项？</a></li>
+	  <li><a href="consultation/consultation_content.shtml" target="_blank">留学德国体检中乙肝澳抗阳性...</a></li>
+	  <li><a href="consultation/consultation_content.shtml" target="_blank">什么是大学“双录取”？</a></li>
+	  <li><a href="consultation/consultation_content.shtml" target="_blank">留学德国体检中乙肝澳抗阳性...</a></li>
+      </ul>-->
+	    <li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=299430"  target="_blank">申请工作居住证和留学人员人才..</a></li>
+		<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=299429"  target="_blank">我们单位是2012年9月在北京海外..</a></li>
+	  <li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=258714"  target="_blank">想在金融领域里寻找工作..</a></li>
+      <li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=257736"  target="_blank">南非法律硕士是否有落户北京 
+..</a></li>
+      <li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=255871"  target="_blank">学成想回国工作，简历往哪发？ 
+..</a></li>
+<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=254586"  target="_blank">关于北京落户的指标问题 
+..</a></li>
+<!--<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=240928"  target="_blank">出国留学前想办档案管理 
+ 
+..</a></li>
+<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=238882"  target="_blank">想出国深造，能否申请公派出国
+..</a></li>-->
+<!--<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=231918"  target="_blank">留学人员或配偶的人事档案应具..</a></li>-->
+<!--<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=231923"  target="_blank">什么是大学“双录取”？</a></li>-->
+<!--<li><a href="/wbs/nldoRunT.action?handler=ConsultationContent.queryQuestion&id=255398"  target="_blank">贵中心能为想回国发展的澳洲留..</a></li>-->
+
+      </div>
+      </div>
+      </div>
+      <!--单元块结束 -->
+      
+      <!--单元块开始 -->
+      <div class="sideCon">
+      <div class="sideCon_in sc_ej">
+      <h3><em>订阅电子期刊</em></h3>
+      <div class="dy">
+        <form id="form3" name="form3" method="post" action="">
+          <label>
+            <input name="email" type="text" class="text" id="email" value="" />
+            <input type="image" name="imageField2" id="imageField2" src="style/button_ej_dy.png" onclick="to_email();" />
+          </label>
+        </form>
+		<a href=/docs/more/dzzk_index_dzzk/index_morenews1.html class="more">&gt;&gt;more</a>
+      </div>
+      <div class="ejList">
+      <!--index_dzzk-->	<a href="http://www.8610hr.cn/kos/nldoRunT.action?handler=WebMagazine.viewWebMagazine&formData.id=337504" target="_blank">第31期</a>
+	<a href="http://www.8610hr.cn/kos/nldoRunT.action?handler=WebMagazine.viewWebMagazine&formData.id=319030" target="_blank">第30期</a>
+	<a href="http://www.8610hr.cn/kos/nldoRunT.action?handler=WebMagazine.viewWebMagazine&formData.id=318064" target="_blank">专刊</a>
+	<a href="http://www.8610hr.cn/kos/nldoRunT.action?handler=WebMagazine.viewWebMagazine&formData.id=318047" target="_blank">第29期</a>
+
+<!--index_dzzk-->
+      </div>
+      </div>
+      </div>
+      <!--单元块结束 -->
+	 <div class="side_banner">
+	 	<a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=InterviewBase.showInterview"><img src="images/interview.jpg" width="235" height="45" alt="主题访谈" /></a>
+        <!--<a href="#" style="margin-right:2px;">
+		</a>-->
+      </div>
+
+      </td>
+      <td valign="top" class="g_middle">
+      <div><a href="http://8610hr.cn/topics/2014sygjhwrcyjgg/" ><img src="images/sygjhwrcyjgg.jpg" width="450" height="58"/></a></div>
+      <!--荐才求贤 -->
+      <div class="index_hr"><div class="index_hr_in">
+
+      <h3><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo" title="荐才求贤" target="_blank"><em>荐才求贤</em></a></h3>
+      <div class="hr_tab"><span class="tabJob tabJob_hover"><em>找工作</em></span><span class="tabTalent"><em>找人才</em></span><span class="tabHeadhunter"><em>高端职位</em></span></div>
+      
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="job">
+    <thead>
+      <tr>
+        <td>学位</td>
+        <td>专业</td>
+        <td>留学国别</td>
+        </tr>
+      </thead>
+    <tbody>
+	<!--index_rclb-->		
+		<tr>
+			<td><a href="/docs/gzlb/2011-05-30/1306731824916.html" target="_blank">硕士</a></td>	
+		<td>金融投资</td>
+		<td>英国</td>
+	</tr>
+	
+		<tr align="center" class="b">
+				<td><a href="/docs/gzlb/2010-08-22/1306731934133.html" target="_blank">硕士</a></td>	
+		<td>MBA</td>
+		<td>英国</td>
+	</tr>
+		
+		<tr>
+			<td><a href="/docs/gzlb/2010-08-19/1306731782120.html" target="_blank">硕士</a></td>	
+		<td>微系统工程</td>
+		<td>德国</td>
+	</tr>
+	
+		<tr align="center" class="b">
+				<td><a href="/docs/gzlb/2010-08-16/1306727758706.html" target="_blank">硕士</a></td>	
+		<td>金融管理</td>
+		<td>英国</td>
+	</tr>
+		
+		<tr>
+			<td><a href="/docs/gzlb/2010-07-17/1306727444244.html" target="_blank">研究生</a></td>	
+		<td>建筑电气自动化</td>
+		<td>俄罗斯</td>
+	</tr>
+	
+		<tr align="center" class="b">
+				<td><a href="/docs/gzlb/2010-07-11/1306726943100.html" target="_blank">硕士</a></td>	
+		<td>电子商务</td>
+		<td>英国</td>
+	</tr>
+		
+		<tr>
+			<td><a href="/docs/gzlb/2010-06-4/1306727161040.html" target="_blank">硕士</a></td>	
+		<td>经营管理</td>
+		<td>日本</td>
+	</tr>
+	
+		<tr align="center" class="b">
+				<td><a href="/docs/gzlb/2010-06-29/1306726846325.html" target="_blank">硕士</a></td>	
+		<td>计算机</td>
+		<td>加拿大</td>
+	</tr>
+		
+		<tr>
+			<td><a href="/docs/gzlb/2010-06-22/1306726768790.html" target="_blank">学士</a></td>	
+		<td>人文科学</td>
+		<td>日本</td>
+	</tr>
+	
+		<tr align="center" class="b">
+				<td><a href="/docs/gzlb/2010-06-20/1306726668159.html" target="_blank">双学士学位</a></td>	
+		<td>商业&管理</td>
+		<td>马来西亚</td>
+	</tr>
+<!--index_rclb-->
+      <tr class="job_more">
+        <td colspan="3"><a href="/wbs/nldoRunT.action?handler=JopPersonResume.viewPersonResumeList" target="_blank">&gt;&gt; 查看更多人才信息 &lt;&lt;</a></td>
+        </tr>
+      </tbody>
+  </table>
+        
+        
+  <ul class="talent">
+    <!--index_gzlb-->  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=322912" target="_blank"> 中国当代医药杂志社有限公司 </a><em>英文编辑 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=322935" target="_blank"> 中国当代医药杂志社有限公司 </a><em>专职医学编辑 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=322940" target="_blank"> 中国当代医药杂志社有限公司 </a><em>兼职编辑 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=322942" target="_blank"> 中国当代医药杂志社有限公司 </a><em>编辑助理 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=322947" target="_blank"> 中国当代医药杂志社有限公司 </a><em>记者 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=324823" target="_blank"> 北京电子控股有限责任公司 </a><em>硬件研发工程师 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=317936" target="_blank"> 北京百达盛国际管理咨询有限公司 </a><em>翻译兼市场研究 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=317938" target="_blank"> 北京百达盛国际管理咨询有限公司 </a><em>咨询策划师 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostInfo&pid=318912" target="_blank"> 中国医学科学院药物研究所 </a><em>药学研究科研骨干 </a></em></li>
+<!--index_gzlb-->
+    <li class="talent_more"><a href="/wbs/nldoRunT.action?handler=JobNormalPost.viewNormalPostList" target="_blank">&gt;&gt; 查看更多职位信息 &lt;&lt;</a></li>
+  </ul>
+        
+<ul class="headhunter" style="display:none;">
+	<!--index_ltzw-->  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318738" target="_blank"> 药物化学和有机合成课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318736" target="_blank"> 药理学课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318742" target="_blank"> 天然产物研究课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318744" target="_blank"> 药剂学课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318746" target="_blank"> 药物晶型研究课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=318748" target="_blank"> 药物代谢研究课题组长 </a><em>生物医药 </a></em></li>
+  <li><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostInfo&pid=333691" target="_blank"> 技术总监 </a><em>生物医药   </a></em></li>
+<!--index_ltzw-->
+ <li class="headhunter_more"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobHeadhunterPost.viewHeadhunterPostList" target="_blank">&gt;&gt; 查看更多高端职位信息 &lt;&lt;</a></li>
+</ul>
+
+      </div></div>
+      <!--广告或链接 -->
+   <!--  <div class="index_banner">
+        <a href="#" style="margin-right:2px;"><img src="/images/pic_zxft.png" width="220" height="45" alt="在线访谈" /></a><a href="#"><img src="images/pic_twzb.png" width="220" height="45" alt="在线访谈" /></a>
+        </div>-->
+      </td>
+      <td valign="top" class="g_right">
+      <!--单元块开始 -->
+	<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+      <!--单元块结束 -->
+      <!--单元块开始 -->
+      <div class="sideCon">
+      <div class="sideCon_in sc_hj">
+      <h3><a href="hj/hj_index.html" target="_blank"><em>海聚工程</em></a></h3>
+		<ul>
+        <li><a href="../../../docs/hjgc/2011-05-31/1306811963506.html" target="_blank">关于实施北京海外人才聚集工程的意见</a></li>
+        <li><a href="../../../docs/hjgc/2010-03-30/1306812045539.html" target="_blank">北京市鼓励海外高层次人才来京创业和工作的暂行办法</a></li>
+        </ul>
+<a href="hj/hj_index.html" target="_blank" class="hj_details">&gt;&gt;查看详情</a>
+      </div>
+      </div>
+      <!--单元块结束 -->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--<div class="banner_box">
+  <a href="http://www.8610hr.cn/topics/2013zph/"><img src="images/banner_2013zph.jpg" width="980" height="100" alt="2013招聘会" /></a>  <script type="text/javascript" src="http://www.1000plan.org/js/jquery-1.3.2.js"></script>
+</div>-->
+
+<div class="banner_box"><script type="text/javascript" id='qrjh' src='http://www.1000plan.org/js/zhaopin.js?width=980&height=100&id=ceba989f56a3e337e11809107db1a4ff&type=1'></script>
+</div>
+<!--包含底部文件 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+
+</body>
+</html>

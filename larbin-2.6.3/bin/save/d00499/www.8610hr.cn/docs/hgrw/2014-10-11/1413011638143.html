@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">徐平：中国蛋白质组研究的逐梦者</h1>
+                	<div class="show_content_info">2014/10/11   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平，男，军事医学科学院放射与辐射医学研究所研究员，博士生导师， &ldquo;973&rdquo;首席科学家。2004年获云南大学博士学位。1992年自武汉大学生物系本科毕业后到华北制药集团新药研究开发中心工作。1997年到1999年公派日本北里研究所从事微生物来源生理活性物质的筛选研究，任客座研究员。1999年学成后回到华北制药集团新药中心工作，任生物资源室主任，组建抗生素工业生产菌种代谢途径工程实验室，成功构建发酵法生产7-ADCA产黄青霉基因工程菌和高产量低氧耗产黄青霉氧结合蛋白基因工程菌。2001年开始微生物生理活性物质产生菌的基因筛选研究，系统地建立了基因筛选的技术体系。2005年去美国Emory大学做博士后，研究主要集中在蛋白质组学和蛋白质泛素化研究，2009年5月升任资深研究员。2009年底受聘于军事医学科学院和北京蛋白质组学研究中心，担任研究员和蛋白质翻译后修饰研究室P.I.。承担过多项&ldquo;863&rdquo; 等国家重大课题。申请中国发明专利6项，已授权3项，产业化成果两个。曾获省自然科学一等奖等多个奖励。已在Cell等杂志发表研究论文50余篇。2010年，入选第三批北京&ldquo;海聚工程&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在一个炎炎夏日的午后，记者如约来到位于北京市昌平区生命园内的北京蛋白质组研究中心，见到了从楼梯上正往下走的徐平在向记者挥手，格子T恤，灰色休闲裤，一身再普通不过的衣着，神情有些严肃，言语不多，几句简洁的介绍之后，似乎更没话了。套用他自己的一句话说，&ldquo;我就是个书呆子类型的。&rdquo;采访随着话题的深入、转移，他才开始有了笑声，似乎时间又把他拉回了童年。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">不甘现状</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1969年9月，徐平出于江苏南通的一个小乡村。上小学时，曾因为交不起5角钱的学费，常常被老师赶出教室，&ldquo;当时，我最大的愿望是能有书念。&rdquo;说起这事，徐平似乎回到了当年，眼睛中闪烁着一种叫做希望的东西。他说，那时的想法很简单，读书可以改变他及家人的生活现状。因为从小就吃不饱饭，体质比较弱，他的理想是长大了当医生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　家里虽然穷，父母也不识字，但都很支持徐平的学习，东拼西凑地为他备学费。1988年，徐平高中即将毕业，已经具有独立思考能力的徐平在班主任老师的引导下，更改了高考志愿，选择了生物学，并希望自己将来长大了能够亲手做出一些新的物种服务于人类。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1988年，徐平顺利进入武汉大学生物系，就读遗传专业。四年的大学生活，除了让他头脑充实之外，也让他身负重债，因此，他毕业之后很快参加了工作，当时选择了国内最大的医药企业之一&mdash;&mdash;华北制药。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;当时之所以选择华北制药，是听同学说&lsquo;华北制药待遇很好，又发冰箱，又发洗衣机的&rsquo;，这样既可以改善父母的生活，又能为以后的深造打基础。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　理想中的工作似乎为他满怀期待的富足生活开了个玩笑。一个月只有70元工资的徐平，既要还债，还要生活。而当时的物价已经开始节节攀升，&ldquo;实在不够用，就去菜市场卖些包菜拌点盐下饭吃。&rdquo;跟他一起分过去的一些大学生因为难以生计，陆陆续续都走了。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;要不是买不起火车票，我也走了。&rdquo; 徐平有些自嘲地说。而实际上，让他能够坚持下来的一个重要原因，是因为他儿时的理想&mdash;&mdash;做不了医生，做个制药人也一样能救死扶伤。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">突破</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1993年，徐平终于迎来了改变一生的机遇。由于踏实肯干，徐平被选派到北京医科大学心血管研究所参与国家&ldquo;攀登计划&rdquo;的&ldquo;心血管疾病的基因治疗研究&rdquo;。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在此期间，刚好华北制药在研究蛋白质药物基因工程菌种上遇到了难题，初生牛犊不怕虎的徐平，人虽在北京，毅然接下了这个课题。两万元的科研经费，一年的业余时间，遗传背景清楚的粒细胞集落刺激因子基因工程菌就诞生了。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　很快，国家新药重组人粒细胞集落刺激因子(rhG-CSF)注射液成功产业化。徐平及其团队也因此得到了社会和各级政府部门的认可，荣获了1996年度华北制药集团十大杰出青年，1996年度华北制药集团科技进步一等奖，2001年度国家经贸委优秀技术创新项目奖，2002年度石家庄市科学技术一等奖，2003年度河北省科技厅科技成果证书(2003-0494)，2004年度河北省科技创新项目奖等多项荣誉和奖励。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　一项项荣誉，一顶顶光环并没有让徐平就此止步。1997年5月，徐平被公派到日本学习。&ldquo;因为我爷爷当初死在了日本侵略者的枪下，当时对去日本是有一种抵触心理的。但很快，我就发现其实日本有许多值得学习的地方。&rdquo; 徐平回忆去日本的心情是极为复杂的。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;日本地方很小，也没什么资源，发展的速度却是惊人的。日本发现新药种类是排在世界前列的。中国虽大，资源也很丰富，但研发却远远落后于他们。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平在日本北里研究所从事微生物来源新药筛选研究。和日本人相处，给徐平感受最深的是，&ldquo;日本人做事很认真，技术上总是精益求精，这使得他们很小一个企业的研发水平就相当于国内一个中型企业的实力。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　这让徐平更加坚信中国医药业未来潜在的巨大发展，并让徐平觉得医药研发可以改变社会、改变人类的生活水平。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1999年，徐平回国。华北制药已经安排了徐平接管一位老高工的工作，几乎就是升职加薪，安安稳稳可以富足的过日子了。虽然徐平一直渴望着丰衣足食的生活，但这并不是他最终的追求，日本的发展让他深刻感受到&ldquo;&lsquo;落后就要挨打&rsquo;，我们祖国那么好的地方肯定可以建设得比日本更好。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　出国两年，徐平看到企业的发展似乎不大，生产依然处在最原始的原材料加工上，并且由于观念落后，已经危机四伏。当时青霉素是我国出口量最大的一种原材料，但国外已经研制出可以替代这种原材料的产品，如果有一天不再需要青霉素，将会危及到企业的发展。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　时任生物资源研究室主任的徐平将目标锁定在基因工程改造上，并得到华北制药各级领导的支持。在国家科研经费的大力支持下，他领导的团队组建了国内首个工业抗生素生产菌种代谢途径工程实验室，主持了国家经贸委的国家技术创新项目&ldquo;发酵法直接生产7-ADCA基因工程菌研究&rdquo;和&ldquo;863&rdquo;高技术项目&ldquo;高产量、低氧耗产黄青霉基因工程菌的构建、筛选及工业生产&rdquo;等一系列国家重大项目。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　华丽转身</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　书到用时方恨少，徐平在技术上遇到了难以解决的问题&mdash;&mdash;要定向、定点改造菌种，必须找到影响生产菌种产量或质量性状的限速步骤或关键基因，但当时国内还没有这样的技术。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　正在徐平苦闷之际，第三届国际人类蛋白学大会在北京召开了。徐平决定过去看看。而这一看，让他看到了希望。蛋白质是生命功能的直接承担者和生物反应效率的决定者，因此以系统鉴定和定量蛋白质为己任的蛋白质组学研究是系统生物学研究的前提和基础。要让基因表现出其特性，蛋白质组是关键，而国内在这方面几乎是空白，这让徐平萌生了再次出国留学的想法。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　而此时的蛋白质组学，从上世纪九十年代中期兴起后，随着2001年国际人类蛋白质组组织(HUPO)的成立和随后的国际人类蛋白质组计划的开展实施，到此时声势如日中天，是生命科学与生物高科技领域的明珠。徐平有一个武汉大学同门师兄正是从事这一前沿新领域的研究，在两人的一次对蛋白质组学的探讨和前景展望之后，凭着自己喜欢挑战的性格，徐平坚定地转向这个领域，去美国的Emory大学开展蛋白质组学研究。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2005年，已经是华北制药生物资源研究室主任的徐平，放弃带领几十号人搞研究的领导工作，放弃从事了十多年熟悉的专业，踏入一个全新的领域。尽管有着对高新尖端技术执着追求的信念，有着对未来美好发展的憧憬，但是此时徐平脚下的路，坎坷不平，荆棘丛生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　科研转型需要过渡期，而且失败的风险很大。徐平从事蛋白质组学研究的第一年确实相当不容易，白天做实验，完成课题，晚上看文献，了解最前沿的进展。以一种科研狂人的态度和玩命的工作精神，一年之后，当初的蛋白质组学门外汉，已经发表文章，并且能够为课题研究，同实验室老板争论探讨。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　尽管徐平由于工作需要没有接受按部就班的研究生教育，但丝毫不影响他对科研创新的追求和实现，反而恰恰使得他在科研原始创新的路上少了很多磕绊，不循规蹈矩，不迷信权威，更注重实际结果。他不人云亦云，凡事都有着自己的独到深刻的观察和领会;他严谨而追求完美，设计的实验方方面面都考虑周全;他实干而又能坚持，能够一个人产生整个实验室70%的数据量。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　这样，五年之后，徐平就在生命科学领域最顶尖的Cell期刊上发表文章，介绍自己在泛素组定量蛋白质组研究的一流科研成果。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　回国建试验室</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平工作的Emory大学位于亚特兰大。&ldquo;那里到处是乡村景象，很少看到工厂区，但生产能力却很强，这一切都是科研实力在支撑。在那里，从基础研究到加工成商品，只要是有价值的技术，很快就可以应用到市场上去。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平深刻感受到了美国科研实力的强大，&ldquo;这是日本的精细，中国的规模化都无法比的&rdquo;。也就是从这时候开始，徐平的思想开始了质的转变&mdash;&mdash;将科研成果快速产业化。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　作为一个中国式传统的研究人员，他开始考虑，如何将在美国学习到的先进的蛋白质组学研究技术体系带回国，建立国际先进的蛋白质组学研究平台，实现这些系列产品的产业化，建立我国蛋白质组学研究相关的产品链和健康医学相关的产业链。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2009年5月，徐平回国，开始各地考察，准备将研究应用起来。&ldquo;几乎两天一个省市，共走访了11个单位&rdquo;，徐平有些无奈地说，在国内，想将自己的研究成果产业化并非易事。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　经过多番考察，2009年底，徐平加盟北京蛋白质组学研究中心，担任研究员和蛋白质翻译后修饰研究室P.I.。将研究方向定位在利用定量蛋白质组学技术研究中国人高发的肿瘤蛋白质组和具有重大经济价值的工业微生物蛋白质组学研究。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　一切就序，徐平迅速招兵买马，建立自己的实验室。从徒有四壁的空房间开始，从LTQ Orbitrap Velos仪器的购买开始，从带领自己的第一个学生做实验开始，短短15个月，实验室开始高效运转。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　放眼生命科学领域的实验室，一个美国的生物实验室里有两个中国人，恐怕是非常平常的事情;如果在中国，一个中国人的生物实验室里有两个美国人，恐怕不是很多见。徐平研究员正是这样一个不多见的实验室的拥有者。徐平在美国的两个同事，DUC和Eric，在徐平归国后，也随着徐平一起来到中国，做着共同感兴趣的研究。他们三个人每天一起讨论问题，一起交流思想和看法。也是在他们三个人的眼中，幽静的北京中关村生命科学园和美丽的亚特兰大的Emory大学校园没有什么区别，同样对于科学的追求，架起三个人之间不分国籍民族的友谊和对真理的向往。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平凭着自己宽广的视野，先进的定量蛋白质组学技术和泛素蛋白纯化技术，迅速的被委以&ldquo;973&rdquo;首席科学家重任，领衔&ldquo;肝病发生发展中的蛋白质翻译后修饰及其调控的定量蛋白质组学研究&rdquo;重大基础项目的研究。同时，还拿到组织实施中欧合作&ldquo;肝病血清糖蛋白组和糖组学技术和疾病糖标志物研究&rdquo;国际项目，参与中国和欧盟科学家合作的研究中。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　如今，徐平实验室已经拥有十多人，因为有DUC和Eric这样的国际友人加盟，学生们戏称这个研究团体为&ldquo;国际纵队&rdquo;。实验室英语氛围浓厚，国际交流频繁。徐平倾力打造的团队，迅速高效运转，目前已拿到一批领先的数据，第一篇高质量的论文正在准备之中。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平带记者参观其在北京蛋白质组研究中心的试验室时，记者发现了一个特别的现象，所有的试验室门口展板上写的都是研究员所发的论文标题，而只有徐平的试验室展板上赫然写着可提供的产品和技术：如系列蛋白质富集纯化试剂盒、系列多肽富集纯化试剂盒、系列多肽净化试剂盒、系列低反压高流速纳喷毛细管高压液相色谱柱、蛋白质组定量重稳定性同位素标记内标、蛋白质组鉴定和定量分析服务平台等。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平指着展示版上的课题，自豪地向记者说，他的目标是开发具有国际领先水平的蛋白质组学技术平台和支撑蛋白质组学发展的蛋白质组学相关产业。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　言传身教育英才</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　接触过徐平的学生或者研究同事，都对徐平的谦谦君子形象非常深刻。徐平生活中平易近人，从来不摆架子。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在徐平的眼中，学生和老师都是平等的。楼道过道狭窄，碰到徐平，他会停住，让学生先走。排队吃饭，他会让学生在他前面。凡是帮助徐平做一点小事，徐平都会真诚的说一句&ldquo;谢谢!&rdquo;在这些点滴小事中，许多学生都很受教益和感动。一位有过合作接触的学生谈到徐平时说：&ldquo;我非常佩服徐老师，不光是学术造诣深厚，更重要的是学术渊博之中的平易，一点架子都没有，是一位非常值得敬重的好老师!&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　当然，徐平也不是没有脾气的人。在美国，他可以为了学术问题，同自己的老板吵的面红耳赤。回国后，会因为国内推销人员在卖出产品后良心和责任感的缺失而痛斥他们。但是独独对学生们，徐平从来没有说话大声过。徐平认为学生都是了不起的，他经常说：&ldquo;这个世界上没有不好的学生，只有不好的老师&rdquo;。无论是自己团队的学生，还是慕名前来请教的学生，徐平都保持了良好的亦师亦友的关系，言传身教，循循善诱。徐平以自己的行动，诠释着一个传统东方知识分子的谦和忍让，睿智与贤达。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐平自己是一个追求完美的人，对学生学术的要求也非常高，学生们的懒惰行为和对待小错误的放任，是他最不想看到的。徐平早年在药厂，以及后来留学日本、美国，遇到过一些外国人在科技领域伤害国人民族感情的事情。这种亲身经历更使得他立志在国内培养出具有高水平的学生。他亲自和学生一起做实验，每天都会和所有的学生谈论实验的进展和可能出现的问题。学生的每一个问题，他都不怕麻烦，尽量抽出时间来耐心解答。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　蛋白质组学是一个充满希望的领域，也是一个竞争激烈的领域。作为这个领域的逐梦者，作为一个新实验室的带头人。一切都是新的，徐平还有太多的事情要去做。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创新感悟：</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　只要胆子大，敢于偿试，没什么是完不成的!</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：蔡亚晓</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">张国勇：做超导领域的领导者</h1>
+                	<div class="show_content_info">2014/12/02   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇，男，1976年生于天津。现任综艺超导科技有限公司常务副总经理。1995年-1999年，本科就读于南开大学物理系，获学士学位;1999年-2002年，硕士就读于清华大学物理系，获硕士学位;2002年-2007年，博士就读于英国伯明翰大学，获博士学位，拥有许多高温超导应用的专利。2007年-2008年，就职于英国华为公司，做3G网络;2009年，就任综艺超导科技有限公司副总经理，负责日常运营。综艺超导拥有的高温超导滤波系统及技术是降低移动通讯噪声干扰、提高频率利用率、减少运营商成本的特别有效的方法和手段。综艺超导拥有完全自主的知识产权，获得了数十项国际国内的专利，该技术的研究和实施得到清华大学985、973 、211等多年重点支持，并获北京市科委和国家863重大项目的高强度支持，入选并建成了2008年奥运会科技奥运亮点工程。2011年9月，入选北京&ldquo;海聚工程&rdquo;青年项目，被聘为北京市特聘专家。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　高温超导不是指超过常温的&ldquo;高温&rdquo;超导现象，那么，为什么叫高温超导呢?因为最初发现的超导现象是在接近绝对零度的条件下，这样的温度下，超导应用比较有限。所以，科学家就寻找能够在更高转变温度下，甚至室温情况下可以使用的超导材料。但现在最高转变温度的超导材料大约160K(零下110摄氏度左右)。由于液氮温度相对于液氦温度是高温，所以人们把液氮温度条件下稳定工作的超导材料叫做高温超导。高温超导有许多应用，其中之一就是无线通讯领域。综艺超导科技有限公司拥有的高温超导滤波系统及技术是降低移动通讯噪声干扰、提高频率利用率、减少运营商成本的特别有效的方法和手段，它也是中国这个领域的领跑者。不久前，记者采访了综艺超导副总经理张国勇，了解了许多超导知识和行业的进展，了解了综艺超导所注力的产业进展，也了解到综艺超导的成绩和张国勇的故事。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">高温超导已经进入我们的生活</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1882 年，昂内斯成为莱顿大学物理系教授，开始把实验室的全部研究方向都确定在低温方向。1911年2月，昂内斯发现，在 4.3K 时，铂的电阻是一个定值。他认为这个定值是由杂质引起的，从而昂内斯选择汞作研究对象，因为汞在常温下可以连续用蒸馏法提纯。在 3K 时，他发现电阻降到 3&times;10-6以下，这是第一次观察到的超导电性。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　此时人们提出疑问，临界温度一直在十几 K、二十几 K，这么低的临界温度的超导材料的应用价值何在?能否有更高的临界温度?能否在常温下就有超导现象产生?后来，在科学家一代一代的努力下，超导材料临界温度不断提高，现在人们将这些材料称为高温超导体。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　磁悬浮列车的材料就是应用磁场强、体积小、重量轻的超导磁体。列车上装有超导磁体，线圈固定在铁路的底部，由于电磁感应，在线圈里产生电流，电流产生的磁场极性与列车上的电磁体极性总是保持相同，这样在线圈和电磁体之间就会一直存在排斥力，从而使列车悬浮起来。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在军事工业中，超导技术也可以发挥其特有的作用，超导扫雷具就是其中之一。超导扫雷具的工作原理是：超导扫雷具模拟舰船磁场特性，采用两根大电流电缆在海水中形成电极，并与海水组成闭合电路产生磁场，或者在船上安装一个电磁体产生磁场，从而将磁水雷引爆。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　超导材料在强电、弱电方面的应用也具有很大的空间。在强电方面如高能物理受控热核反应、核磁共振等方面的应用，还有一些物理研究需要很强的磁场，一些特殊的设备都需要超导磁体，如回旋加速器等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　还有，利用超导隧道效应，可以制造具有高灵敏的电磁信号探测元件和用于高速运行的计算机元件，可以制造出超导量子干涉磁强计，能测出脑磁图和心磁图，这对人的大脑活动具有重大的意义。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇告诉记者，高温超导体可以用于微波器件中，这对通信的质量的提高也具有重大的应用价值，通信质量的提高将会提高的人们生活水平。目前，高温超导无源微波器件及其系统产品的成功研制，例如超导天线、超导滤波器、超导延迟线、超导接收机等等，它们的规模应用已经标志高温超导材料在通信领域已经进入规模商业化，综艺超导作为我国首个在该领域规模商业应用的公司，是中国在该领域技术水平和产业化水平的佼佼者。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">中国高温超导滤波系统及技术的领军者</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇介绍说，综艺超导科技有限公司于2006年11月3日注册，注册资金6800万元。江苏综艺股份有限公司作为投资方入主，与清华大学物理系共同组建，致力于高温超导技术及高温超导滤波系统的工程化和产业化发展。公司基于高温超导技术核心的产品为&ldquo;超导滤波系统&rdquo;和&ldquo;超导接收前端&rdquo;。公司的主营业务范围是超导技术研究开发，通讯设备、电子元器件以及生产经营超导滤波器的销售。目前主要产品是高温超导滤波系统，主要包含超导滤波器、低温低噪声放大器、小型电制冷机和控制系统等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　超导滤波系统具有常规滤波系统无法比拟的优越性能。同时拥有几乎为零的带内插损和几乎垂直的矩形系数，并具有良好的带外抑制性能。极低的噪声系数使得应用该技术的设备具有优异的接收灵敏度，可大幅提高设备对弱信号的接收和处理能力;极高的带边陡峭度和带外抑制使得应用该技术的设备抗干扰能力大幅提高。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;超导滤波技术在移动通信、卫星通信和其他通信领域有巨大的应用前景，市场规模高达数千亿元人民币。综艺超导是国内唯一实现超导滤波系统研制和应用的高新技术企业，并在北京建成了高温超导移动通信应用示范基地，实现了超导滤波器的示范应用。&rdquo;张国勇说，&ldquo;目前，通信系统已对高温超导滤波器提出了迫切需求。随着第三代移动通信的应用和移动通信用户和数据业务的增长，对通信系统的容量、抗射频干扰能力和频谱利用率的要求迅速提高，急需高性能的超导滤波器。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　据悉，综艺超导公司在多年的研究中开拓创新，形成了从超导滤波器和低温低噪声放大器设计、制备、低温调谐、系统集成到实际应用等一整套创新技术，获得授权发明专利12项，拥有了高温超导滤波系统技术完整的自主知识产权。公司研究成果荣获多项国家级和省部级奖励和荣誉：包括2010中关村十大企业技术创新成果、国家教育部技术发明一等奖、电子学会电子信息科学技术奖三等奖及信息产业部信息产业重大技术发明荣誉证书、2009年国家技术发明奖二等奖等。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　记者了解到，综艺超导各项专利的研究和实施得到清华大学985、973 、211等多年重点支持，并获北京市科委和国家863重大项目的高强度支持，入选并建成了2008年奥运会科技奥运亮点工程。从2005年12月开始，综艺超导已经成功的进行了产品中试，完成了在中国联通CDMA运营网络上的规模长时间稳定运行。中国联通在北京市海淀区覆盖了十多万居民的应用是全国唯一的一个应用高温超导技术改进移动通讯质量，提高环保和绿色通讯水平的无线通讯示范区域，经过近一年的实际运营使用，设备的性能优良，指标稳定，效果良好，手机的平均发射功率下降近一半，通话质量明显提高，具备了大规模应用的条件，是提高移动通讯网络性能的理想设备和技术。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇告诉记者：&ldquo;2012年，综艺超导实现了弱电领域的历史性突破，原来在试验应用的样机，现在已经进入规模产业化，实现了规模的商业应用。这大大拉开了综艺超导和国内同业的距离。目前，公司正计划进行下一轮融资，并筹备国内上市，尽快将这个市场做起来。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　正因为综艺超导做出的突出成绩，公司领导多次受到胡锦涛主席和首长的接见。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">智慧的头脑</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇1976年生于天津，今年是张国勇的本命年，也就是说，他属龙。记者没有想到搞这么艰深研究的科学家这么年轻。对了，张国勇还十分帅气，浓眉大眼，有几分英气。一开始，记者以为他也许是综艺超导主管技术研发的副总，但是一聊，才知道，综艺超导的日常运营都由他负责。也就是说，老总把权力下放给他，让他奋力带领综艺超导在研发、产品和市场上向前奔驰。记者想起来，在记者来时，张国勇正在开一个会，是关于产品质量控制的，大家讨论得十分热烈，楼道里都听得到。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　那么，为什么综艺超导的老总对张国勇这么信任，不仅仅信任他的人品，也信任他的能力?因为老总是清华大学的教授，也是张国勇的硕士的授业恩师。还因为，中国第一台GSM移动通信网超导接收机前端的样机设计就是张国勇在导师的指导下在2001年开发弄出来的，当然是在导师的指导下。当时，国内谁也做不出来，也就是说，进口了国外的产品，但是我们怎么也复制不出来。如果复制不出来，就谈不到模仿创新，更谈不上超越了。而张国勇第一个&ldquo;鼓捣&rdquo;出来，震惊了业界，也使导师大喜，整个清华大学的相关领域一下子就走在国内前列。也就是在这个基础上，清华大学集中力量进一步研究，并引入江苏综艺股份有限公司作为投资，在2006年，成立了综艺超导。因此，张国勇从某种角度上是综艺超导技术和产品的技术力量的源头之一，难怪导师对他这么欣赏和器重。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　事实上，张国勇是大师兄，他笑着说，以后的是师弟师妹们确实参考他的论文，寻找灵感。毕竟这是一篇开创性的，至少是开拓性的工作，可以让他们更快地掌握这个领域和发现更好的创新点。目前，张国勇的手下大部分是他的师弟师妹，配合默契，文化同根，齐心协力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这个突破事实上也将张国勇带入不一样的人生境界，他发现了自己的潜力，也发现了创新的法门&mdash;&mdash;那就是思考和勤奋。在清华求学期间，为了掌握相关数据，张国勇在各个图书馆查阅了大量的资料，和实物进行对比分析，并且不断地紧张思考、计算、画图。2000年寒假，他正月初一就返回学校进行研究。那时，在安静的只有一人的实验室，豁然开朗之际，他登上了一个高峰。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">勇敢的心</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇的工作也让国际的同行十分惊讶，他们很难相信一个二十四五岁的小伙子能有这样大的创新。于是纷纷给张国勇发来邀请(offer)，有美国的，有英国的，但是英国伯明翰大学电子系的EDT研究中心offer吸引了他，因为这是一个工作offer，这十分罕见，因为即便是英国本土的硕士或博士都不见得有这样的机会。难得的是，张国勇可以一边工作一边读博士。而且，研究所那边要求张国勇在2002年1月1日报到，但是，当时他还没有硕士答辩，于是只能推迟。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　终于，在各方努力下，张国勇在2002年7月初第一批答辩，7月13日离校，7月14日到19日，收拾宿舍，将行李什么的带回天津。然后也没带生活用具，在行李箱里装上换洗衣服和文件以及论文，就开始买票飞往英国。当时为了省钱，到哈萨克斯坦转机，由于当时系统未联网，那里的工作人员竟说电脑里查不出他的名字，结果一个人在那样边远的地方胆战心惊的等了3个小时，后来花了200英镑请工作人员找一个座位，3小时后，他终于被允许登机，并飞到伦敦。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　到了伦敦，他立刻遇到麻烦，因为都要自带生活用具，于是开始的一段时间，他就买来电饭锅，从超市里买来半成品鸡腿，煮着吃，戏称&ldquo;手抓鸡&rdquo;。后来，在当地的留学生帮助下，他买齐了生活用具。当然，到了更后来，他叫了女朋友，就更入佳境了。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在伯明翰，他工作了5年，用4年时间拿下博士学位。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2007年，张国勇离开伯明翰，就职于英国华为公司，做3G网络。2008年，张国勇在深圳一家公司的邀请下回国。一回国，张国勇就给清华导师打电话，导师立刻催促他北上，加盟综艺超导。于是，2009年，张国勇重新来到导师的身边，成为老师最倚重的助手。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇个性开朗，他的团队也是清华范&mdash;&mdash;严谨认真，执行力强，而且，他认准的事情，他一定要办成，他欢迎竞争，不怕竞争。他把从英国带回来的技术和理念融入综艺超导。他告诉记者，在国内，综艺超导技术上是NO.1。在国际上，综艺超导和美国的STI及日本富士通公司等公司相竞争，并正努力做出自己的特色。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇希望国家更加关注综艺超导，给予更多的支持，因为综艺超导已经展现了自己的力量，国家应当重点扶持，使之快速成长。当然，他更愿意综艺超导的产品在市场上获得巨大的收获，所以，他正全力从技术和产品，从市场和经营上狠下功夫。这位有研发天才的人为什么不一直做研究呢?张国勇认为，做企业更能实现自己的价值，这等于一次创业。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　希望，张国勇用他的勇敢和智慧再次给业界带来震撼人心的惊喜成果!</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　记者手记：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　张国勇十分大气和帅气，有一种领导者的气场。相由心生，这说明他的内心十分平静和坚定。在和记者的交流中，一些资料和数据他信手拈来，这说明他对这个领域的谙熟。他是一个认准了的事情，一定要办成的人。无论怎样，作为综艺超导的日常运营人，他肩负着许多责任，包括资本运作，包括市场开拓，包括产品质量控制和产品性能升级，包括人才培养，但看得出他驾轻就熟，有条不紊。相信，就像他当年25岁时在科研上的钻劲和突破一样，在未来日子理，他也会带领综艺超导走出一条创新发展的创业之路。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：李宝印</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

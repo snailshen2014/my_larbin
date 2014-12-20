@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="author" content="chinaqw" />
+<meta name="copyright" content="www.chinaqw.com,版权所有" />
+<meta name="keywords" content="高层次,电子商务,留学人员,创业园,下城区" />
+<meta name="description" content="据浙江侨联网消息，近日，在浙江杭州下城区统战人士的推动下，由杭州市人力资源和社会保障局、下城区人民政府共建的杭州市留学人员下城创业园正式落户" />
+<title>中国侨网-浙江杭州留学人员下城创业园在下城区正式挂牌</title>
+<base target="_blank"/>
+<link href="http://www.chinaqw.com/css/index.css" rel="stylesheet" type="text/css" />
+<!--[894,5,29937] published at 2014-12-15 14:54:42 from #10 by 王海波,designer:liuxin  maker:liweiwei zhaoqian -->  
+<script src="http://www.chinanews.com/js/jquery1.4.js"></script>
+<script language="JavaScript"> 
+<!--
+    document.domain = "chinaqw.com"; 
+
+-->
+</script>
+<SCRIPT type="text/javascript" SRC="http://www.chinanews.com/javascript/swfobject.js"></SCRIPT>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body >
+  <!--表情字段开始-->
+  <input id="newsid" type="hidden"  name="newsid"  value="894_5_29937"/>
+  <input id="newsurl" type="hidden" name="newsurl" value="http://www.chinaqw.com/jjkj/2014/12-15/29937.shtml"/>
+  <input id="newsdate" type="hidden" name="newsdate" value="2014-12-15"/>
+  <input id="newstime" name="newstime" type="hidden" value="14:32:30"/>
+  <input id="newstitle" name="newstitle" type="hidden" value='浙江杭州留学人员下城创业园在下城区正式挂牌'/>
+  <input id="newstype" name="newstype" type="hidden" value='jjkj'/>
+  <input id="moodtotal" name="moodtotal" type="hidden" value='0'/>
+  <input id="bbstotal" name="bbstotal" type="hidden" value='0'/>
+  <input id="creator" name="creator" type="hidden" value='luoyuan' />
+  <input id="editorname" name ="editorname" type="hidden" value='罗渊' />
+  <!--表情字段结束-->
+<!--返回顶部-->
+<style type="text/css">
+body{background:#e9f1f6;}
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.index_layer {
+	position: fixed;
+	_position: absolute;
+	width: 60px;
+	right: 350px;
+	bottom: 167px;
+	_bottom: 167px;
+	_height: 150px;
+	z-index: 100;
+}
+
+.index_layer .back a {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.index_layer .back a:Hover {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.menuTop1{ top: 555px;}
+.menuBtm1{top:0px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin-top:0px;}
+
+</style>
+
+<div  class="index_layer ie6fixedBR" id="full" >
+
+<div class="back" style="width:60px;height:60px;margin-top:8px;" id="newsbacktop"><a href='#qw_top' class='fhtop_a' target='_self'></a></div>
+
+</div>
+
+ <p>
+   <Script>
+(function() {
+	var backToTopTxt1 = $(".index_layer").html(),
+	 backToTopEle1 = backToTopTxt1, backToTopFun1 = function() {
+        var stback = $(document).scrollTop(), winh1 = $(window).height();
+         $(".index_layer").show();
+		  (stback>0)? $("#newsbacktop").css('display','block'): $("#newsbacktop").css('display','none');  
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $(".index_layer").css("top", stback + winh1 - 550);    
+        }
+    };
+	$(window).bind("scroll", backToTopFun1);
+    backToTopFun1(); 
+
+})();	
+
+$(document).ready(function(){
+	 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+	$(window).resize(function() {
+
+		 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+
+});
+
+});
+
+ </Script>
+<!--返回顶部结束-->
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_list_top" id="qw_top">
+<div class="w1000 m_center">
+	<div class="qw_list_top_left"><strong><a href="/">侨网首页</a></strong>
+     <span>
+        <a href="/hqhr/">华侨华人</a>
+        <a href="/zhwh/">中华文化</a>
+        <a href="/hwjy/">华文教育</a>
+        <a href="/jjkj/">经济科技</a>
+        <a href="/gqqj/">归侨侨眷</a>
+        <a href="/sqfg/">涉侨法规</a>
+        <a href="/sqjg/">涉侨机构</a>
+        <a href="/hdfw/">互动与服务</a>
+
+    </span>
+    </div>
+    <div class="qw_logoright qw_logoright_list" >
+    	<div class="qw_logoright_ul">
+          <ul>
+          	<script type="text/javascript">
+          //设为首页
+function SetHome(url){
+
+        if (document.all) {
+
+            document.body.style.behavior = 'url(#default#homepage)'; 
+            document.body.setHomePage(url)
+
+        }else{
+
+            alert("抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!");
+
+        }
+
+    }
+          </script>
+<li class="swsy"><a onClick="SetHome('http://www.chinaqw.com/')">设为首页</a></li>
+<li class="jrzm"><a href="http://www.chinaqw.com/news/desktop_shortcut.htm">加入桌面</a></li>
+<!--<li class="khd"><a>客户端</a></li>-->
+<li class="khd"><a href="http://big5.chinaqw.com:89/">繁体版</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_listbanner">
+	<div class="qw_listlogo"><a href="/"><img src="http://i3.chinaqw.com/qiaowu/images/list_logo.jpg"/></a></div>
+    <div class="qw_listmbx"><a href="/">首页</a>   → <a href="/jjkj/">经济科技</a></div>
+    <div class="qw_listsearch">
+    <!--搜索qw_listsearch s-->
+    <!--[894,3,7] published at 2014-04-16 15:51:51 from #10 by 赵谦-->
+
+<input type="text" value="请输入关键字" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="input1" onkeydown="checksubmit()">
+
+<input name="" type="button" class="input2" onclick="submitFun()" />
+<script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+window.open("http://sou.chinaqw.com/search.jsp?q="+encodeURIComponent(hotword));
+ }
+
+}
+
+</script>  
+
+   
+    <!--搜索qw_listsearch e-->
+     </div>
+</div>
+<div class="qw_main">
+	<div class="qw_main_box">
+        <div class="qw_list_left">
+        	
+
+              <!---->
+              <div class="content">
+                      <h1 style="display:block; position:relative; text-align:center; width:624px;">
+                      浙江杭州留学人员下城创业园在下城区正式挂牌
+                      </h1>
+                   <div class="left-time">
+                        <div class="left-t" style="padding-left:6px;"> 2014年12月15日 14:32　来源：<a href='http://www.chinaqw.com/' style='color:#666;font-weight:normal;'>中国侨网</a>　<img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+
+                   <div id="zihao">
+                    <div>字号：</div>
+                    <a id="txt_x" javascript:void(0);="">小</a> <a class="on" id="txt_z" javascript:void(0);="">中</a> <a id="txt_d" javascript:void(0);="">大</a> 
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  <!--图片搜索-->
+      <div id="tupian_div" align="center" style="width:98%;margin:0 auto;font-size:14px;"><!--Yc94EUEtAn4YSUKCaSOM -->  </div>
+      <!--图片搜索-->
+      <!--图片start-->
+
+      <!--图片end-->
+
+                  <div class="left_zw" style="position:relative">  
+
+<p>　　中国侨网12月15日电 据浙江侨联网消息，近日，在浙江杭州下城区统战人士的推动下，由杭州市人力资源和社会保障局、下城区人民政府共建的杭州市留学人员下城创业园正式落户下城。</p>
+
+<p>　　留学人员创业园是海外高端人才归国创业的乐土，也是高新技术企业集中发展的聚集地和实现科技创新成果转化的发源地。近年来，下城区为实现“人才强区”总战略，出台一系列政策措施，积极鼓励和吸引海内外高层次人才来下城创新创业，为下城经济发展贡献才智。</p>
+
+<p>　　一是积极建言，吸引留学人员来下城创新创业。下城区委统战部及有关统战人士在2014年“两会”上提出利用下城的区位优势和海外人才优势，建立市级留学人员下城创业园积极引进产业发展急需的海内外高层次人才，打造人才聚集高地的提案，引起区领导的重视。在市、区联动下，留学人员下城创业园正式成立，它将为留学海归创业人员提供政策和资金保障，如制定出台海外高层次人才创业相关配套政策，专门设立留学人员创业专项资助资金，对留学人员创业企业实行项目资金资助、创业期房租减免补贴等创业资助，积极鼓励、吸引、扶持海外留学人员来下城创新创业。</p>
+
+<p>　　二、资源整合，搭建海外高层次人才创业平台。留学生创业园位于下城区星火电子商务产业园内，以区电子商务产业园为依托，电子商务园区占地面积76亩，建筑面积为6.6万余平方米，主要引进金融服务、文化创意、信息软件、电子商务、物联网等企业。留创园首期面积5000平方米，办公室配有空调、电话、网络接入等设施，同时配套大型会议室、商务洽谈室、网络交换机房、园区管理办公室，办公环境一流。同时以浙江&#8226;杭州国际人才交流与合作大会为项目洽谈、对接平台，各街道、部门积极行动，不断寻求有合作意向的企事业单位，积极创立新的合作渠道，加大对高层次海外留学人才政策的宣传力度，吸引更多高层次国际人才和行业领军人才在下城“落地生根”。<table border=0 cellspacing=0 cellpadding=0 align=left style="padding-right:10px;"><tr><td></td></tr></table></p>
+
+<p>　　三、服务升级，构建留学人员创新创业成长基地。人才引进来，更要留得住。下城区坚持以吸引人才、留住人才、用好人才为根本，为海外留学高端人才提供更加优质的服务。目前，下城区共有留学回国人员300余人，创办企业25家，主要从事生物技术、电子信息、新材料等高新技术产业，发展势头良好，其中有2名留学回国创业人员入选浙江省“千人计划”、 2名入选杭州市“521”计划，还有9个优秀海外留学人员的科技项目获得“513”武林英才项目资助。为优化海外留学人员创业环境，建立健全海外人才工作流程和服务规范，制定《杭州市留学生创业园(下城)办事手册》和《杭州市留学生创业园(下城)规章制度》，规范留创园区内车辆、环境卫生、用水用电等管理秩序，并设立留学人员组织机构和服务专窗，开展政策咨询、创业辅导、项目资助申报、人事代理、招聘信息发布等一站式配套服务，为海归人才创业提供更加高效快捷的服务。<div id="function_code_page"></div>
+
+      </div>
+
+              <div class="left_name" style="width:600px; margin:0 auto">
+            	 <div  class="biaoqian"><p></p></div>
+<!--编辑姓名-->
+      <div class="left_name"> 【编辑:罗渊】 </div>
+
+<!--编辑姓名-->
+</div>
+             </div>
+
+              <div style="width:600px; margin:0 auto" class="div624">
+                <div class="divshare">
+                  <div class="hds"> <img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+                  <!--分享的html代码s-->
+                  <div class="bdsharebuttonbox">
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a>
+<a href="#" class="bds_more" data-cmd="more"></a>
+<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+                  <!--分享的html代码e-->
+
+<!--分享的js代码s-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--分享的js代码e-->
+                </div>
+
+                <div class="clear"></div>
+          </div>    
+
+<!--相关新闻--> <div class="div624 border-top-darshd margin-top20">
+        <h4 class="padding-left20">>相关新闻：</h4>
+        <ul class="padding-left20">
+           <li>
+          ·<a href=http://www.chinaqw.com/jjkj/2014/12-02/28209.shtml target=_blank>从海归到草根 浙江杭州创新人才体系渐趋成型</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/11-09/25382.shtml target=_blank>杭州设立5亿<span style="color:red;text-decoration:underline;">创业</span>基金 让老海归“传帮带”新海归</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/11-05/24991.shtml target=_blank>509名海外留学人才带来676个高新项目杭州谈合作</a>
+         </li>
+        </ul>
+      </div><!--相关新闻-->
+
+              <!--预选频道精选s-->
+              <!--[894,7,10] published at 2014-12-17 10:08:27 from #10 by 刘郁菁--> 
+<div class="div624 border-top-darshd margin-top20">
+                <h4 class="padding-left20">&gt;经济科技频道精选：</h4>
+                <ul class="padding-left20">
+                   <li>
+
+    <li><a href="/jjkj/2014/12-17/30199.shtml">海归硕士回国卖包子 遭质疑得卖多少赚回学费？</a></li>
+
+    <li><a href="/jjkj/2014/12-16/30034.shtml">侨青企业家续写父辈辉煌：挑战与机遇并存(图)</a></li>
+
+    <li><a href="/jjkj/2014/12-15/29909.shtml">2014中国留学人员创业园百家企业交流洽谈会举行</a></li>
+
+    <li><a href="/jjkj/2014/12-15/29835.shtml">海归回国创业趋势明显 造富神话互联网行业热门 </a></li>
+
+    <li><a href="/jjkj/2014/12-12/29615.shtml">女海归求职遭遇现实碰撞 高不成低不就境地尴尬</a></li>
+
+    <li><a href="/jjkj/2014/12-11/29411.shtml">上海成立首批新侨创业实践基地 形成侨帮侨模式</a></li>
+
+    <li><a href="/jjkj/2014/12-10/29304.shtml">云南海归创业园入围第二批全国创业孵化示范基地</a></li>
+
+    <li><a href="/jjkj/2014/12-08/28994.shtml">天才“学霸”转学计算机 归国两度创业做“土狼”</a></li>
+
+                 </li>
+                </ul>
+              </div>
+              <!--预选频道精选e-->
+
+          <div class="div624 margin-top20">
+                      <div class="con_title ">
+                            <div class="life_title_rztx_text"><a name="cyhd">参与互动</a></div>
+
+                   </div>
+                    <div> <iframe id='moodiframe' width="98%" scrolling="no" height="110" marginheight="0" marginwidth="0"  src="/iframe/mood/2012.shtml" frameborder="0"></iframe>
+ </div>
+                    <div> <iframe src="http://comment.chinaqw.com/ci/index.php?d=comment&c=comment&m=article_post_box_2012&newsid=qw29937&title=dsafa&style=qw_2014&reference=http://www.chinaqw.com/jjkj/2014/12-15/29937.shtml"   id="iframepost" name="iframepost" align="middle" marginWidth="0" marginHeight="0"  frameBorder="0" scrolling="no" width="624" height="200"></iframe>
+<div id="wypl1"></div> </div>
+
+          </div>
+        </div>
+              <!---->
+
+        <div class="qw_list_right">
+         
+        <!--要闻推荐s-->
+       <!--[894,7,1] published at 2014-12-17 09:58:43 from #10 by 谢萍--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">要闻推荐</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30211.shtml">少数中国人旅游陋习遭批 “丢人丢到海外”何时休</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30207.shtml">美五大城市留学生实习机会多 毕业后可逗留29个月</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30190.shtml">海内外华人书画家创作百余作品 献力华侨公益事业</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30181.shtml">中国出境游规模庞大 各国争相变招招揽中国游客</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30176.shtml">SAT亚洲考区12月又爆作弊丑闻 SAT成绩或延迟发放</a></li>
+
+    <li><a href="/gqqj/2014/12-16/30099.shtml">华侨祖屋财产频被盗 亟需保护华侨华人的“根” </a></li>
+
+    <li><a href="/hqhr/2014/12-16/30076.shtml">澳洲华人留学生对悉尼劫持事件高度关注 网上热议</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30074.shtml">加拿大“快速移民”催热留学 专家：绕开这些误区</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30059.shtml">日元贬值改变在日华人生活 回国添忧虑义务代购忙</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--要闻推荐e-->
+
+        <!--频道精选s-->
+        <!--[894,7,2] published at 2014-12-17 10:08:23 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">频道精选</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30221.shtml">澳洲华裔盘下餐厅 因“前身”劣迹多致新店生意差</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30214.shtml">中国取代英国成温哥华最大海外观光客来源地(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30205.shtml">菲律宾华人区4商店因出售玩具枪像真枪被警方没收</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30204.shtml">西班牙华人母亲带小孩公园玩耍 无辜遭两妇女殴打</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30201.shtml">女华侨火车如厕丢八千美元 民警徒步铁路找两天</a></li>
+
+    <li><a href="/jjkj/2014/12-17/30199.shtml">海归硕士回国卖包子 遭质疑得卖多少赚回学费？</a></li>
+
+    <li><a href="/hwjy/2014/12-17/30198.shtml">俄罗斯学霸长沙学汉语 遭遇“塑普”好抓狂(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30184.shtml">探访巴西华人“农业庄园”：打造休闲观光的乐园</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30126.shtml">南非新老唐人街兼收并蓄 摩擦变动中谋求发展(图)</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--频道精选e-->
+
+        <!--热点图片s-->
+        <!--[894,9,1] published at 2014-12-17 10:26:24 from #202 by 55-->
+<style>
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.jiusj_listul li .title_text {overflow: visible;height:36px;}
+</style>
+
+  <div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">热点图片</div>
+                </div>
+               <ul class="jiusj_listul mt10">
+<li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30228.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U595P4T8D6884425F107DT20141217100346.bmp"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30228.shtml">澳洲纽省高考华裔生亮眼</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30209.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U618P4T8D6883559F107DT20141217084151.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30209.shtml">中国小伙独行三大洲</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30203.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U357P4T8D6883735F107DT20141217090124.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30203.shtml">美奇诺冈市严查月子中心</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30124.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6881627F107DT20141216135146.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30124.shtml">纽约华裔意裔年末联谊</a></div>
+</li><li>
+<div class="conlist_img"><a href="/zhwh/2014/12-16/30119.shtml"><img src="/zhwh/2014/12-16/U606P894T5D30119F42DT20141216140336.jpg"></a></div>
+<div class="title_text"><a href="/zhwh/2014/12-16/30119.shtml">美小伙重庆“安居乐业”</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30055.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6880005F107DT20141216094511.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30055.shtml">美华商年末派对增加</a></div>
+</li>
+ <div class="clear"></div>
+               </ul>
+              </div>
+        <!--热点图片e-->
+
+        <!--侨务咨询s-->
+        <!--[894,7,3] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">侨务咨询</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hdfw/2014/12-16/30178.shtml">华侨学生就读国内普通高校的收费标准是什么</a></li>
+
+    <li><a href="/hdfw/2014/12-16/30105.shtml">出国定居的退休、退职人员死亡后有什么规定</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29963.shtml">地方政府对哪些归侨、侨眷应予救济</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29948.shtml">归侨侨眷在职职工申请出境定居有何待遇？</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29936.shtml">侨企员工工作表现不佳，可扣除员工工资吗</a></li>
+
+    <li><a href="/hdfw/2014/12-12/29733.shtml">华侨、华人持境外机动驾驶证能否在境内驾驶机动车</a></li>
+
+                  </ul>
+                </div>
+              </div>
+        <!--侨务咨询e-->
+
+        <!--公共社区s-->
+        <!--[894,7,4] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">公共社区</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+                  <li><a href="http://bbs.chinanews.com/forum.php?mod=viewthread&tid=5079350">近千万中国富人为什么要移民？</a></li>
+<li><a href="http://bbs.chinanews.com/picview-137-5079760-1.shtml">6岁女孩的100张游历全国抗战纪念地照</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5079264-1.shtml">美国到处都是“中国制造”唯独这些不是</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5075673-1.shtml">各国富二代网晒奢华暑假 网友：投胎是门技术！</a></li>
+<li><a href="http://bbs.chinanews.com/thread-176-5075516-1-1.html">离不开中国制造的非洲人：上帝一定住在中国</a></li>                  </ul>
+                </div>
+              </div>
+        <!--公共社区e-->
+
+      </div>
+
+          <div class="clear"></div>
+    </div>
+      <div class="clear"></div>
+</div>
+
+<div class="qw_foot ">  
+  <!--qw_foot s-->
+     		<strong><a href="http://www.chinaqw.com/kong/2014/06-06/5680.shtml" target="_blank">网站介绍</a> | <a href="http://www.chinaqw.com/kong/2014/06-10/6015.shtml" target="_blank">联系我们</a> | <a href="mailto:qiaojie@chinanews.com.cn">供稿信箱</a></strong>
+        <p>
+中国侨网版权所有，未经授权禁止复制和建立镜像 <a href="http://www.miibeian.gov.cn/" target="_blank">[京ICP备05067153号]</a> [京公网安备:110102003042-2] <a href="http://net.china.com.cn/chinese/index.htm" target="_blank">[不良和违法信息举报]</a></p>
+<a href="http://www.chinaqw.com/"><img width="120 "src="http://i3.chinaqw.com/qiaowu/images/logo.png"/></a>
+
+
+  <!--qw_foot e-->
+</div>
+<script>
+
+$(document).ready(function(){
+ $.getScript('http://comment.chinaqw.com/ci/index.php/comment/comment/get_article_list_2012/qw29937',function(){
+																														var ts=comment_lists.cns_list;
+if(ts.records.length=='0'){
+$('#wypl').append("<div class='font13'>提示信息： 暂无评论内容，欢迎您发表高见！</div>");
+}																																
+																														var tss;
+var tiaoshu;
+if (ts.records.length !=''){	
+
+if(ts.records.length<10){
+tiaoshu=ts.records.length;
+}
+else{
+tiaoshu=10;
+}																													for(var i=0;i<tiaoshu;i++){
+																															tss=ts.records[i];
+																															var wyname=tss.author;
+																															if (wyname ==''){
+																																wyname="中新网友";
+																																}
+
+																														 mylist=("<div class='wypl_list'> <div class='wypl_list_wy'>"+wyname+"<div class='wypl_list_biao' style='background:no-repeart'></div></div> <div class='wypl_list_t'> &nbsp;&nbsp;" +tss.dateline+"&nbsp;&nbsp; 来自："+tss.area+" &nbsp;&nbsp;</div><div class='clear'></div><div class='wypl_list_n'>" +tss.message+ "</div> </div>");																													
+																													$('#wypl1').append(mylist);
+																														}
+																														$('#tstotal').html("("+ts.total+")");
+																														if(ts.records.length>'0'){
+																														$('#wypl1').append("<div style=text-align:center;><a href=http://comment.chinaqw.com/ci/index.php/comment/news/more/qw29937><img src=http://i6.chinanews.com/2012/news/images/pl.gif></a></div>");
+																														}
+
+}																																		  });
+
+						   });
+</script>
+<div id="BaiduSpider" style="display:none">
+<span id="pubtime_baidu">2014年12月15日 14:32</span>
+<span id="source_baidu">来源：<a href="http://www.chinaqw.com/jjkj/2014/12-15/29937.shtml" target="_blank">中国侨网</a></span>
+<span id="author_baidu">作者：</span>
+<span id="editor_baidu">责任编辑：罗渊</span>
+</div>
+</body>
+</html>
+<script>
+
+$('#txt_x').click(function(){
+
+						$('.left_zw').css('font-size','12px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_x').addClass("on");
+
+						  });
+$('#txt_z').click(function(){
+						$('.left_zw').css('font-size','15px');  
+						$('#txt_x').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_z').addClass("on");
+
+						  });
+$('#txt_d').click(function(){
+						$('.left_zw').css('font-size','18px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_x').removeClass("on");
+						$('#txt_d').addClass("on");
+
+  });
+</script>

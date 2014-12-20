@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">朱一明：打造中国存储器的世界竞争力</h1>
+                	<div class="show_content_info">2014/10/30   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明，男，江苏人。生于1972年。现任北京兆易创新科技有限公司总裁兼CEO。1997年毕业于清华大学，获清华大学物理学硕士学位，1998年赴美国深造，2000年获纽约州立大学石溪分校电子工程系硕士学位。2005年回国创业前，已在美国Monolithic System Technologies公司从事存储器芯片开发工作多年，作为项目主管和主要的设计者完成了多种基于逻辑工艺的存储器;之后在iPolicy Networks公司从事研发工作，主要为网络处理器搜索引擎芯片组。2005年4月，回国创建北京芯技佳易微电子科技有限公司(2010年12月更名为北京兆易创新科技有限公司)，出任总裁兼CEO。兆易创新是国内首家专业从事存储器及相关芯片设计的集成电路设计公司，致力于各种高速和低功耗存储器的设计研发，在IC设计领域中，兆易创新高速发展并大放异彩，已成为中国存储器领域的第一品牌。2010年，入选北京&ldquo;海聚工程&rdquo;和中央&ldquo;千人计划&rdquo;，并被授予国家级 &ldquo;特聘专家&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　秋高气爽，万里无云，在这个清新的早晨，记者如约来到北京兆易创新科技有限公司拜访朱一明先生。为了更好的观察体会，记者比约定时间早到了几分钟，看到兆易创新的员工们正迈着轻松明快的步伐走进办公室，有的还带着网球拍或羽毛球拍，这种愉快的氛围感染了记者，对此次采访充满了期待。由于北京路况问题，朱一明先生不得不将采访时间推后了10分钟，在总裁助理滕旭红女士的安排下，记者先见到了兆易创新公司市场宣传主管，记者也很想听一听，这个能开创出若干个业界&ldquo;第一&rdquo;的创奇人物，在员工的心里是什么样子呢。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　她告诉记者：&ldquo;朱总是一个睿智而温和的人，有很强的亲和力和感染力，和他一起工作大家非常开心。而且朱总的学识非常渊博且思路清晰，能够在一个战略高度上把握行业走向，从而理性地定位公司，从容进行市场布局和耕耘。在朱总的领导下，公司一路高速发展，已成长为中国存储器领域的领导企业，获得了国家级、部级的多项大奖，在行业里备受瞩目，我们会继续努力的，相信在朱总的带领下，兆易创新会成为中国的&lsquo;三星&rsquo;。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　正谈着，朱总赶到了&hellip;&hellip;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　</span><strong><span style="font-family: 宋体">　填补中国存储器芯片的空白</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明先生有一种大气，一种胸怀天下的大气，谈笑之间，举重若轻。中国有句老话，叫&ldquo;腹有诗书气自华&rdquo;，看来，他的确是一个有故事的人。那么，他是如何&ldquo;书写&rdquo; 北京兆易创新科技有限公司的故事的呢?</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　存储器(Memory)是计算机电子系统中的记忆设备，用来存放程序和数据。举例来说，计算机中全部信息，包括输入的原始数据、计算机程序、中间运行结果和最终运行结果都保存在存储器中。它根据控制器指定的位置存入和取出信息。有了存储器，计算机才有记忆功能，才能保证正常工作。按用途存储器可分为主存储器(内存)和辅助存储器(外存)，也有分为外部存储器和内部存储器的分类方法。外存通常是磁性介质或光盘等，能长期保存信息。内存指主板上的存储部件，用来存放当前正在执行的数据和程序，但仅用于暂时存放程序和数据。闪存是发展的很快的存储器件，可以永久程序和数据。新型的iPad，iPhone大量使用该类存储器。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;如果把计算机比喻为皇冠，那么，CPU是皇冠上的明珠，存储器就是皇冠的底座。底座自然要更多的黄金珠宝，确实，存储器的市场是IC产业里最大的，占整个产业市场的35%。你有没有发现?任何一个新工艺诞生，它做的第一个东西都是存储器。原因在于，所有逻辑器件的尺寸要求和设计规格都相对宽松，而存储器因为工艺线程过细，一旦工艺不够完善，就很难保证它的良率，因此存储器可以作为工艺成熟与否的标准。&rdquo;朱一明告诉记者，&ldquo;谁领导了存储器技术，谁就能称雄整个集成电路产业。随着半导体工艺走向深亚微米时代，各类存储器在集成电路中所占的比重逐渐增大。由于存储器架构设计和制造工艺的高难度，长期以来，该领域一直被三星、东芝、美光等大牌国外厂商所占据。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　从朱一明的介绍中，记者了解到，存储器的发展史从上世纪六七十年代的美国到80年代的日本，到90年代的韩国和台湾的崛起，产业转移的脉络非常清晰。三星代表着存储器在韩国崛起。存储器对技术先进性要求较高，其关键技术基本掌握在国外公司的手中，中国长期以来一直没有本土的设计公司，使得我国各方面的发展受制于人，极大的影响了发展速度。中国这么大的国家和市场，应该有自己的存储器设计公司。在这样的背景下，为了促进中国半导体行业的发展，北京兆易创新科技有限公司(原名为北京芯技佳易公司)应运而生。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　兆易创新公司是国内第一家存储器设计公司，是专门从事存储器及相关芯片设计、测试、生产、销售、技术保障与服务一体化的高新技术企业，已通过SGS ISO9001及ISO14001等管理体系的认证。公司研发的主要产品为Serial Flash及MCP，产品具有高可靠性、低功耗及适应便携式应用等特点。公司拥有超过110件的发明专利申请，获得授权专利27件。公司核心管理团队都曾在硅谷、韩国、台湾等各地著名存储器公司工作多年，有着丰富的研发及管理经验，带领团队研发出国内第一颗静态存储器及IP技术、第一颗 Serial Flash产品及第一款 GigaROM 产品，均填补了国内空白。因此，兆易创新在IC行业中备受瞩目，先后被授予中关村&ldquo;优秀留学人员企业&rdquo;，并通过&ldquo;高新技术企业认证&rdquo;及信息产业部认定的&ldquo;集成电路设计企业称号&rdquo;;入围清华科技园钻石计划企业;入选&ldquo;第二批中关村科技园区百家创新型试点企业&rdquo;及获得2009年重大科技成果产业化突出贡献单位称号;2010年凭借良好的销售业绩，一举获得&ldquo;&lsquo;中国芯&rsquo;最佳市场表现奖&rdquo;。朱一明本人2010年初入选第二批北京市&ldquo;海聚工程&rdquo;，并被北京市委组织部和人力资源和社会保障局认定为&ldquo;北京市海外高层次人才&rdquo;，同时被聘为&ldquo;北京市特聘专家&rdquo;，同年入选第四批中共中央组织部&ldquo;千人计划&rdquo;,授予&ldquo;国家特聘专家&rdquo;称号。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　作为国内存储器设计的领军企业，兆易创新的未来值得期待。对全球产业链的准确定位和对中国应用市场的熟悉，使兆易创新有望在未来几年成为中国IC设计企业的领导者。而那一块块闪烁着辉煌光芒的行业奖牌，似乎在诠释兆易创新的理想和努力。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;兆易创新公司立志成为中国的三星，树立中国存储器第一品牌，立志研发更多更好的存储器产品，为中国的存储器事业发展贡献力量。&rdquo;朱一明微笑着说，&ldquo;当然，目前我们是三星的供应伙伴。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　据悉，兆易创新凭借其显赫的市场份额和良好的营收状况吸引了众多VC的投入，目前已经进行了三轮融资，融资总额超过2600万美元。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　</span><strong><span style="font-family: 宋体">点燃燎原的&ldquo;星火&rdquo;</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　阿基米德说，给我一个支点，我能撬动地球。显然，兆易创新是朱一明实现理想的支点，但是怎样打造这个支点?兵法讲：谋定而后动。朱一明是怎样发现一片蓝海，怎样点燃星星之火，并逐步使之成为燎原之势的呢?</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　听创业人将创业的经历和心路，是一本创业的教科书。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　中国的芯片产业一直落后于发达国家，国内芯片需求90%以上依靠进口。2005年，存储器销售额占IC行业的22%，处理器占15%以下。在国内，这样大的市场却几乎没有做存储器芯片设计的公司。中国巨大的市场、大幅提高的工业设计水平和世界芯片产业逐渐东移，使得中国出现巨大的市场机会。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在硅谷实战多年，朱一明和他的核心团队在芯片设计领域积累了国际一流的丰富经验和技术实力。这种独特优势和国内强大的市场需求的结合，就是朱一明创业的蓝海。于是，2005年4月，北京兆易创新科技有限公司横空出世。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　对于企业而言，生存和发展是一门深奥的学问。如何让种子找到合适的土壤?如何让种子生根发芽?如何让幼苗成长壮大?如何长成参天大树，并且蔚然成林，就像三星?</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　先生存，再谋发展。朱一明的思考和选择同毛泽东的&ldquo;绕开大路，占领两厢&rdquo;的战略思维遥相呼应。从技术上说，兆易创新实际上可以做DRAM和FLASH这两大存储器类型中的任何一种;但是作为初创企业，必须选择一个最容易使自身活下来，也就是有营业收入和利润的项目。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　经过细致的调查和反复的考量，朱一明将 SRAM作为进军存储器市场的切口。其市场在过去几年一直萎缩，很多国际著名的存储器大厂纷纷淡出或转向，将大量企业资源投入新型的DRAM和FLASH技术，以图占领下一代主流存储技术的制高点。朱一明分析说，大品牌的战略转移正是自己可遇而不可求的良机。在这样的时机耕耘SRAM，兆易创新既有市场需求，又无强大竞争对手，可以挖到第一桶金，顺利地度过企业生存期。权威调查公司Gartner 的报告显示，2006年全球半导体市场规模达2614亿美元。其中，存储器占大约30%左右的份额;不难推算，即便SRAM难逃逐年萎缩的命运，但是留给兆易创新的想象空间，仍是一个高达数十亿美金左右的全球市场规模;另外，存储器有很高的技术门槛，所以韩国的三星才能一家称雄。虽然欧美和日韩都有一些具有相同市场思考的小公司正在进入SRAM市场，但是在中国，这种技术门槛使兆易创新没有竞争对手。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　即使是在SRAM领域，朱一明也选择了有异于国际大厂的低功耗、低价位的产品方向。由于超深亚微米工艺带来的漏电顽疾，IBM公司研制的8T SRAM和TI研制的10T SRAM，都把主攻目标定位于利润更高、前景更好的SRAM领域。为此，他们有可能用增加的成本换取出众的性能表现。与之相比，市场规模更大、毛利率偏低的中低端应用市场，只能接受传统的6T SRAM，乃至更为经济的2T SRAM产品。综合考虑多方因素，兆易创新选择以2T SRAM产品开局，而把更高端的产品线留待日后。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　凭借着质优价廉的产品和接近市场的地利之便，朱一明当初的谋划很快就成为了现实：公司逐步接到很多客户和分销商的电话，表示对公司产品的兴趣和合作意向。&ldquo;最初几年每个单子几千美金，现在有的单子已经有一两百万美金。&rdquo;朱一明笑着告诉记者。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　事实上，正式创立一年之后，兆易创新实现了静态存储器(SRAM)的规模量产。这说明了朱一明&ldquo;谋定后动&rdquo;的成功。有媒体解读道：&ldquo;这可以让产业中人解读出两层含义：首先，这家公司至少应该拥有某种同步于国际主流的存储器技术。唯其如此，它方能迈入存储器的竞技场;其次，这家公司的核心团队富有经验且善于布局。唯其如此，它方能用一年时间打通国内产业链环节。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在朱一明看来，很多初创企业不乏技术创新的能力，但是却没掌握好技术创新的分寸。&ldquo;太大的创新在中国缺乏资本支持，结合现实，我比较提倡现实主义的创新，也就是创新应当与时俱进，我把这叫做微创新。在某个时段，产品别人做得好一点，产品比竞争对手有一定的先进性，用田忌赛马的方法取得市场胜利。这种创新不至于耗费过长的研发周期，同时，这种创新又是变化中的，会随着公司的发展而变化。要关注市场，对产生营收和利润的项目投入最大资源。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明强调，在不同的阶段，公司的核心竞争力来源于不同的技术创新点。要关注竞争对手，瞭望世界，对世界巨头的行动给予跟踪，必要时跟进，同时要考量未来三五年有收益。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;技术是根本，未来成功要靠未来技术。技术加强有两种手段&mdash;&mdash;有机加强，即企业内生的技术能力;无机加强，即用并购整合来完成和实现。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　按照最有效率地利用公司资源并实现最佳经营效果的思路。朱一明把兆易创新总部设在中国北京清华科技园区，分支机构设立于上海、深圳、香港及台湾，并于韩国、日本等地设立了办事处。公司还与清华大学等著名学府进行全面合作，致力于推进IC设计的技术创新，带领国内IC设计企业跻身世界行列。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明的思考是这样的，北京是最好的研发中心，因为北京聚集了全中国最有实力的高校，拥有得天独厚的人才资源;上海最合适设立生产中心，因为长三角地带有着良好的工业环境;而市场中心设在深圳，因为深圳的市场环境比较成熟;台湾是存储芯片市生产的国际重镇;韩国和日本则是存储芯片领域的强者。为了保证公司的创新力，与北京的研发中心对接的是兆易创新在硅谷的一个研发团队，适时与北京保持互动，目的是保持技术上的先进性和持续的创新动力。任何一个企业发展到一定程度的时候都会产生巨大的惰性，容易失去创新的动力，硅谷的激烈竞争环境带给大家相对较强的创新理念。显然，这种布局下，兆易创新已经是一家国际性的公司，确实，朱一明已经在世界开拓市场，并利用世界资源进行公司创新和经营。只有这样，才能&ldquo;星星之火，可以燎原&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　关于未来，朱一明有着明确的战略。但是目前，三星是兆易创新重要的合作伙伴，三星电脑的50%SPI闪存芯片是兆易创新供应的。&ldquo;我们现在和国际大企业并没有形成竞争关系，而是互补关系，共同构成整个市场的完整布局。当然，我们紧盯着产业走向，在适当时候会推出我们颠覆性的战略产品。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　</span><strong><span style="font-family: 宋体">　追求生命的精彩</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;此心安处，便是吾乡。&rdquo;朱一明是一个内省而多思的人，在学习中，他一直用行动追问自己应当做什么才能实现人生的价值。为此，他转向计算机行业，转向软件，最终在芯片领域找到了自己的使命。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　就读清华期间，在搞好学业的同时，他开始尝试做一些软件方面的设计和开发。毛主席纪念堂的一个软件管理系统就是当年他的&ldquo;手笔&rdquo;。但是，&ldquo;当时我的感觉是在做高技术里面的低技术&rdquo;。他不满足于校园里学到的东西，开始了新的追寻。一天，朱一明在报纸上看到这样一则消息：中国的VCD行业方兴未艾，但国内企业使用的是同一种美国芯片，市场竞争惨烈，产品价格不断下降，企业甚至已经无利可图。但是，美国那家芯片公司却没有降价，反而效益越来越好。&ldquo;人家做芯片稳赚，我们却辛辛苦苦为别人打工。看来这个行业前景非常好。&rdquo;这使朱一明开始产生了要到美国去的想法，去美国接触当今世界上最先进的技术。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　凭着对技术的执着和年轻人的一腔热血，朱一明远赴美国，在纽约州立大学石溪分校电子工程系开始进行半导体方面的学习和研究并拿下了硕士学位，而有些人需要两三年才能通过的攻读博士的资格认证，他第一次考试就顺利通过了。朱一明是个很用功的学生，几乎每天都学习到深夜。有一次，学校装修试验室，换地板，空调也关了，夜里12点，朱一明把房门打开，光线从屋里透出来，恰巧被研究生管理组的老师看到，老师特别惊讶，也从此对这个刻苦的中国小伙子留下了很深的印象。学习理论的同时，朱一明也没有忽略实践的重要性，很长时间里，他在iPolicy Networks公司从事研发网络处理器搜索引擎芯片组。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2001年，朱一明加入了Monolithic System Technologies 公司，从事存储器芯片开发工作，作为项目主管和主要的设计者，他完成了多种基于逻辑工艺的存储器。在Monolithic System Technologies 公司积累了丰富的经验之后，朱一明决定自己创业，他和朋友们四处游说，终于得到了第一笔风险投资，很快，公司有了起色，得到更大的风险投资的跟进，一切都进入良性循环。这时，朱一明又有了新的想法：回国!</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;回国是顺理成章的。人们都会选择适合自己生存的环境发展，回到中国是最有发展的。中国不仅有市场，产业链也很齐全。什么叫人才?在价值体系中能够体现自身价值的就是人才。回国既可以实现个人价值，也可以为国内IC产业做点贡献，算是添砖加瓦吧。年轻的时候应该多做点事，要敢于突破自己。&rdquo;朱一明若有所思地说， &ldquo;我们不能&lsquo;无芯&rsquo;、&lsquo;无魂&rsquo;。核心技术都被人家掌握，国家是站不起来的。&rdquo;。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　于是，朱一明回来了，带着理想，带着一颗中国心，来实现自己的历史使命。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明感到欣慰的是，中国没有存储芯片产业，而自己开创了这个先河。对他而言，成功在未来，自豪也永远在未来。&ldquo;在某一个点，我们做到世界最强了，我才感到自豪。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　朱一明认为，10年之内，兆易创新将一直处在追赶期，在做到一二百亿人民币市场的时候，将面临企业的巨大提升和转型，将会更密切而深刻地同全球市场以及中国社会互动。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;什么都要靠实力，就VC而言，我更看重VC的资源和经验，而不仅仅是钱。那么怎样打造实力?每个单位和个人都要找到自己的本色和特色。企业要找到自己的核心竞争力;各地政府要看清自身的优势所在，打造特色产业，做世界最好的;学生要老老实实到企业学本事，不要一下子就想创业，要有积累&hellip;&hellip;&rdquo;朱一明说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　实力需要谋略，实力需要积累，现实和未来要靠实力来说话&hellip;&hellip;韩国有三星，中国有兆易创新，世界产业的转移肯定会带来机会，祝福朱一明!</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　创业感悟：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　低调务实做事。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：李政</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

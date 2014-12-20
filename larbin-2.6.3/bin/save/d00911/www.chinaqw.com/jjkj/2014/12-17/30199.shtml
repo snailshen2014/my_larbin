@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="author" content="chinaqw" />
+<meta name="copyright" content="www.chinaqw.com,版权所有" />
+<meta name="keywords" content="潘文超,包子,星火,早餐店,包点" />
+<meta name="description" content="从英国诺丁汉特伦特大学拿到工程管理硕士学位之后，温州小伙潘文超选择了一个在他看来最有前景的事业——“卖包子”。" />
+<title>中国侨网-海归硕士回国卖包子 遭质疑得卖多少赚回学费？</title>
+<base target="_blank"/>
+<link href="http://www.chinaqw.com/css/index.css" rel="stylesheet" type="text/css" />
+<!--[894,5,30199] published at 2014-12-17 09:23:12 from #10 by 王海波,designer:liuxin  maker:liweiwei zhaoqian -->  
+<script src="http://www.chinanews.com/js/jquery1.4.js"></script>
+<script language="JavaScript"> 
+<!--
+    document.domain = "chinaqw.com"; 
+
+-->
+</script>
+<SCRIPT type="text/javascript" SRC="http://www.chinanews.com/javascript/swfobject.js"></SCRIPT>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body >
+  <!--表情字段开始-->
+  <input id="newsid" type="hidden"  name="newsid"  value="894_5_30199"/>
+  <input id="newsurl" type="hidden" name="newsurl" value="http://www.chinaqw.com/jjkj/2014/12-17/30199.shtml"/>
+  <input id="newsdate" type="hidden" name="newsdate" value="2014-12-17"/>
+  <input id="newstime" name="newstime" type="hidden" value="09:16:16"/>
+  <input id="newstitle" name="newstitle" type="hidden" value='海归硕士回国卖包子 遭质疑得卖多少赚回学费？'/>
+  <input id="newstype" name="newstype" type="hidden" value='jjkj'/>
+  <input id="moodtotal" name="moodtotal" type="hidden" value='0'/>
+  <input id="bbstotal" name="bbstotal" type="hidden" value='0'/>
+  <input id="creator" name="creator" type="hidden" value='zhenglihua' />
+  <input id="editorname" name ="editorname" type="hidden" value='郑丽华' />
+  <!--表情字段结束-->
+<!--返回顶部-->
+<style type="text/css">
+body{background:#e9f1f6;}
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.index_layer {
+	position: fixed;
+	_position: absolute;
+	width: 60px;
+	right: 350px;
+	bottom: 167px;
+	_bottom: 167px;
+	_height: 150px;
+	z-index: 100;
+}
+
+.index_layer .back a {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.index_layer .back a:Hover {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.menuTop1{ top: 555px;}
+.menuBtm1{top:0px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin-top:0px;}
+
+</style>
+
+<div  class="index_layer ie6fixedBR" id="full" >
+
+<div class="back" style="width:60px;height:60px;margin-top:8px;" id="newsbacktop"><a href='#qw_top' class='fhtop_a' target='_self'></a></div>
+
+</div>
+
+ <p>
+   <Script>
+(function() {
+	var backToTopTxt1 = $(".index_layer").html(),
+	 backToTopEle1 = backToTopTxt1, backToTopFun1 = function() {
+        var stback = $(document).scrollTop(), winh1 = $(window).height();
+         $(".index_layer").show();
+		  (stback>0)? $("#newsbacktop").css('display','block'): $("#newsbacktop").css('display','none');  
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $(".index_layer").css("top", stback + winh1 - 550);    
+        }
+    };
+	$(window).bind("scroll", backToTopFun1);
+    backToTopFun1(); 
+
+})();	
+
+$(document).ready(function(){
+	 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+	$(window).resize(function() {
+
+		 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+
+});
+
+});
+
+ </Script>
+<!--返回顶部结束-->
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_list_top" id="qw_top">
+<div class="w1000 m_center">
+	<div class="qw_list_top_left"><strong><a href="/">侨网首页</a></strong>
+     <span>
+        <a href="/hqhr/">华侨华人</a>
+        <a href="/zhwh/">中华文化</a>
+        <a href="/hwjy/">华文教育</a>
+        <a href="/jjkj/">经济科技</a>
+        <a href="/gqqj/">归侨侨眷</a>
+        <a href="/sqfg/">涉侨法规</a>
+        <a href="/sqjg/">涉侨机构</a>
+        <a href="/hdfw/">互动与服务</a>
+
+    </span>
+    </div>
+    <div class="qw_logoright qw_logoright_list" >
+    	<div class="qw_logoright_ul">
+          <ul>
+          	<script type="text/javascript">
+          //设为首页
+function SetHome(url){
+
+        if (document.all) {
+
+            document.body.style.behavior = 'url(#default#homepage)'; 
+            document.body.setHomePage(url)
+
+        }else{
+
+            alert("抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!");
+
+        }
+
+    }
+          </script>
+<li class="swsy"><a onClick="SetHome('http://www.chinaqw.com/')">设为首页</a></li>
+<li class="jrzm"><a href="http://www.chinaqw.com/news/desktop_shortcut.htm">加入桌面</a></li>
+<!--<li class="khd"><a>客户端</a></li>-->
+<li class="khd"><a href="http://big5.chinaqw.com:89/">繁体版</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_listbanner">
+	<div class="qw_listlogo"><a href="/"><img src="http://i3.chinaqw.com/qiaowu/images/list_logo.jpg"/></a></div>
+    <div class="qw_listmbx"><a href="/">首页</a>   → <a href="/jjkj/">经济科技</a></div>
+    <div class="qw_listsearch">
+    <!--搜索qw_listsearch s-->
+    <!--[894,3,7] published at 2014-04-16 15:51:51 from #10 by 赵谦-->
+
+<input type="text" value="请输入关键字" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="input1" onkeydown="checksubmit()">
+
+<input name="" type="button" class="input2" onclick="submitFun()" />
+<script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+window.open("http://sou.chinaqw.com/search.jsp?q="+encodeURIComponent(hotword));
+ }
+
+}
+
+</script>  
+
+   
+    <!--搜索qw_listsearch e-->
+     </div>
+</div>
+<div class="qw_main">
+	<div class="qw_main_box">
+        <div class="qw_list_left">
+        	
+
+              <!---->
+              <div class="content">
+                      <h1 style="display:block; position:relative; text-align:center; width:624px;">
+                      海归硕士回国卖包子 遭质疑得卖多少赚回学费？
+                      </h1>
+                   <div class="left-time">
+                        <div class="left-t" style="padding-left:6px;"> 2014年12月17日 09:16　来源：温州商报　<img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+
+                   <div id="zihao">
+                    <div>字号：</div>
+                    <a id="txt_x" javascript:void(0);="">小</a> <a class="on" id="txt_z" javascript:void(0);="">中</a> <a id="txt_d" javascript:void(0);="">大</a> 
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  <!--图片搜索-->
+      <div id="tupian_div" align="center" style="width:98%;margin:0 auto;font-size:14px;"><!--Yc94EUEtAn4YSUKCaSOM --></div>
+      <!--图片搜索-->
+      <!--图片start-->
+      <!--图片--><div class=left_ph><img src="U611P894T5D30199F42DT20141217091616.jpg" alt=温州小伙潘文超是英国诺丁汉特伦特大学的硕士。（《温州商报》） /></div><!--图片--><!--图片说明-->
+<div class=left_pt><div style="text-align:center;">温州小伙潘文超是英国诺丁汉特伦特大学的硕士。（《温州商报》）</div></div>
+<!--图片说明--><!--图片--><div class=left_ph><img src="U611P894T5D30199F44DT20141217091616.jpg" /></div><!--图片--><!--图片说明-->
+<div class=left_pt><div style="text-align:center;"> 星火鲜包在市区总共开了4家直营店。（《温州商报》）</div></div>
+<!--图片说明-->
+
+      <!--图片end-->
+
+                  <div class="left_zw" style="position:relative">  
+
+<p>　　从英国诺丁汉特伦特大学拿到工程管理硕士学位之后，温州小伙潘文超选择了一个在他看来最有前景的事业——“卖包子”。他说，在互联网时代，许多传统的产业都将因电商的冲击而发生意想不到的变化，只有早餐等必需品才是经久不衰的。但即使如此，也需要转变思路，以互联网的思维改造流程，推广产品，才能走出一条全新的道路。<table border=0 cellspacing=0 cellpadding=0 align=left style="padding-right:10px;"><tr><td></td></tr></table></p>
+
+<p>　　<strong>得卖多少个包子才能赚回学费呀？</strong></p>
+
+<p>　　2013年初，26岁的潘文超刚启动“星火鲜包”这个中餐包子连锁项目时，他的很多同学都大感震惊：你一个喝了5年“洋墨水”的海归硕士，怎么去卖包子了？</p>
+
+<p>　　这样的质疑并非没有道理。在2011年毕业回归之前，潘文超用长达5年的时间求学于英国诺丁汉特伦特大学，从本科的国际贸易专业到研究生的工程管理专业，可算含金量十足的海归人才。而卖包子有什么前途？别的不说，光留学5年、数以百万元计的求学成本，得卖多少万个包子才能赚回来啊？</p>
+
+<p>　　但潘文超还是认定了这门生意。在此前的两年时间里，他已试水过多个创业项目：从熟门熟路的留学咨询公司到以网络平台经销美国品牌蛋白粉……但因为互联网时代下信息越来越透明，这些行当竞争越来越激烈而利润也越来越薄。反倒是许多不起眼的行当，却始终保持良好的盈利能力——潘文超的一位堂兄，持续十多年经营一家以早餐为主的老牌包点店，虽然扩张不易，但却每年稳稳进账数十万元利润。</p>
+
+<p>　　这才是经久不衰、不受互联网冲击的生意。潘文超由这家店想起自己的毕业论文——用西式的商业逻辑寻找中式烹饪的盈利点。早餐中的“包子”不就是一个很好的切入点吗？</p>
+
+<p>　　当然，对于卖包子这件事，同学们也并非一面倒的惊诧。</p>
+
+<p>　　“你是要创立一个全新的品牌吗？这很好。”一位从事3D打印机制造的同学说。</p>
+
+<p>　　<strong>为做好包子，实打实投了200多万元</strong></p>
+
+<p>　　捏好一个包子，一位熟练的包点师大约只用7秒。但要在保持包子口感的同时，实现标准化与流水线作业，却远远没那么简单。</p>
+
+<p>　　“星火鲜包”出产的包子一律净重85克。消费者很难察觉包子“块头”的细微变化，但潘文超却反反复复试销了许多次，才得出这样一个成本与消费者感受之间的最佳结合点。</p>
+
+<p>　　皮与馅的比例精确到克、擀皮的时间精确到秒……为了在包子中融入浙北大包的优点，“星火鲜包”的中央厨房曾经每天都要出笼十多种版本的鲜包。“几乎每一笼我都至少要咬上一大口试试味道……”说起那段日子，潘文超很是感慨。</p>
+
+<p>　　除包子本身之外，潘文超遇到的另一个巨大挑战是配送。包子蒸熟后进行速冻配送当然最简单，但这样就造成了二次蒸制，松软的口感大受影响，汤汁也会急剧缩水。</p>
+
+<p>　　“生胚速冻包”便是他最终的解决方法。为了实现生包子速冻后不粘皮、不变形等问题，星火食品在设备与配方上又增加了许多资金投入。</p>
+
+<p>　　“在这样一个包子上，我们已经实打实投了200多万元。”拿着一个早餐店少见的咖喱牛肉包，潘文超感慨地说。</p>
+
+<p>　　<strong>让早餐店凌晨摸黑做包子成为历史</strong></p>
+
+<p>　　目前，星火鲜包在市区总共开了4家直营店。加盟业务虽然只是刚刚开始，却已吸引了近二十家早餐店前来洽谈。</p>
+
+<p>　　潘文超制定了免收加盟费的低门槛扩张政策。在他看来，作为一家早餐店，星火鲜包仅凭包子一种产品是无法真正支撑起一家早餐店需求的。所以即便是自家的直营店，除了品牌化的包子之外，他们同样要上马各种非标准化、却被温州人喜闻乐见的早点——糯米饭必不可少，软大饼也得上……</p>
+
+<p>　　这也是一种“生活所迫”。</p>
+
+<p>　　作为一名温商二代，潘文超的“包子产业”获得了父亲极大的支持。但“背负”留学成本+研发投入总计数百万元“赤字”的他，首先考虑的还是企业的财务健康问题。</p>
+
+<p>　　“我们目前另一项重要的工作是面向企业、单位食堂之类的大客户，以一周或十天为周期，一次向其配送数百上千个包子。”在他的计划中，进入机构食堂，以广受好评的包子逐步取代包点师傅，是星火食品积累资本、占领市场极为重要的一环。“生胚速冻包将顺应新一代早餐店经营者的需求，让店主起早摸黑做包子成为历史。”对于这一点，潘文超的信心极为坚定。</p>
+
+<p>　　手工做包子的流程，一般需要近两个小时，所以传统的早餐店主一般凌晨3点多便会开始忙活。潘文超认为，单凭生胚包的配送模式和包子的好口碑，改变这些传统早餐店的工作模式是极其艰难的。但随着越来越多的80后、90后早餐店经营者将走向前台，新生代们有别于父辈的生活观将使得他们更为乐意接受配送模式。</p>
+
+<p>　　“在未来，我们肯定还要实现更多中式早点的标准化问题，也许是糯米饭，也许是软大饼。”他说。(李显)<div id="function_code_page"></div>
+
+      </div>
+
+              <div class="left_name" style="width:600px; margin:0 auto">
+            	 <div  class="biaoqian"><p></p></div>
+<!--编辑姓名-->
+      <div class="left_name"> 【编辑:郑丽华】 </div>
+
+<!--编辑姓名-->
+</div>
+             </div>
+
+              <div style="width:600px; margin:0 auto" class="div624">
+                <div class="divshare">
+                  <div class="hds"> <img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+                  <!--分享的html代码s-->
+                  <div class="bdsharebuttonbox">
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a>
+<a href="#" class="bds_more" data-cmd="more"></a>
+<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+                  <!--分享的html代码e-->
+
+<!--分享的js代码s-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--分享的js代码e-->
+                </div>
+
+                <div class="clear"></div>
+          </div>    
+
+<!--相关新闻--> <div class="div624 border-top-darshd margin-top20">
+        <h4 class="padding-left20">>相关新闻：</h4>
+        <ul class="padding-left20">
+           <li>
+          ·<a href=http://www.chinaqw.com/jjkj/2014/12-16/30169.shtml target=_blank>人力资源专家劝慰海归 不能将自己划为特殊人群</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/12-16/30042.shtml target=_blank>广州留学海归年增30% 专家建议多了解国内情况</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/12-16/30009.shtml target=_blank>中国留学人员创新创业大赛决赛将在广州举行</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/12-16/30004.shtml target=_blank>海外清华学子浙江找“婆家” 携近百项高科技项目</a><br>·<a href=http://www.chinaqw.com/jjkj/2014/12-15/29910.shtml target=_blank>海归博士辞职开少儿科学馆 创业获得36万扶持金</a>
+         </li>
+        </ul>
+      </div><!--相关新闻-->
+
+              <!--预选频道精选s-->
+              <!--[894,7,10] published at 2014-12-17 10:08:27 from #10 by 刘郁菁--> 
+<div class="div624 border-top-darshd margin-top20">
+                <h4 class="padding-left20">&gt;经济科技频道精选：</h4>
+                <ul class="padding-left20">
+                   <li>
+
+    <li><a href="/jjkj/2014/12-17/30199.shtml">海归硕士回国卖包子 遭质疑得卖多少赚回学费？</a></li>
+
+    <li><a href="/jjkj/2014/12-16/30034.shtml">侨青企业家续写父辈辉煌：挑战与机遇并存(图)</a></li>
+
+    <li><a href="/jjkj/2014/12-15/29909.shtml">2014中国留学人员创业园百家企业交流洽谈会举行</a></li>
+
+    <li><a href="/jjkj/2014/12-15/29835.shtml">海归回国创业趋势明显 造富神话互联网行业热门 </a></li>
+
+    <li><a href="/jjkj/2014/12-12/29615.shtml">女海归求职遭遇现实碰撞 高不成低不就境地尴尬</a></li>
+
+    <li><a href="/jjkj/2014/12-11/29411.shtml">上海成立首批新侨创业实践基地 形成侨帮侨模式</a></li>
+
+    <li><a href="/jjkj/2014/12-10/29304.shtml">云南海归创业园入围第二批全国创业孵化示范基地</a></li>
+
+    <li><a href="/jjkj/2014/12-08/28994.shtml">天才“学霸”转学计算机 归国两度创业做“土狼”</a></li>
+
+                 </li>
+                </ul>
+              </div>
+              <!--预选频道精选e-->
+
+          <div class="div624 margin-top20">
+                      <div class="con_title ">
+                            <div class="life_title_rztx_text"><a name="cyhd">参与互动</a></div>
+
+                   </div>
+                    <div> <iframe id='moodiframe' width="98%" scrolling="no" height="110" marginheight="0" marginwidth="0"  src="/iframe/mood/2012.shtml" frameborder="0"></iframe>
+ </div>
+                    <div> <iframe src="http://comment.chinaqw.com/ci/index.php?d=comment&c=comment&m=article_post_box_2012&newsid=qw30199&title=dsafa&style=qw_2014&reference=http://www.chinaqw.com/jjkj/2014/12-17/30199.shtml"   id="iframepost" name="iframepost" align="middle" marginWidth="0" marginHeight="0"  frameBorder="0" scrolling="no" width="624" height="200"></iframe>
+<div id="wypl1"></div> </div>
+
+          </div>
+        </div>
+              <!---->
+
+        <div class="qw_list_right">
+         
+        <!--要闻推荐s-->
+       <!--[894,7,1] published at 2014-12-17 09:58:43 from #10 by 谢萍--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">要闻推荐</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30211.shtml">少数中国人旅游陋习遭批 “丢人丢到海外”何时休</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30207.shtml">美五大城市留学生实习机会多 毕业后可逗留29个月</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30190.shtml">海内外华人书画家创作百余作品 献力华侨公益事业</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30181.shtml">中国出境游规模庞大 各国争相变招招揽中国游客</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30176.shtml">SAT亚洲考区12月又爆作弊丑闻 SAT成绩或延迟发放</a></li>
+
+    <li><a href="/gqqj/2014/12-16/30099.shtml">华侨祖屋财产频被盗 亟需保护华侨华人的“根” </a></li>
+
+    <li><a href="/hqhr/2014/12-16/30076.shtml">澳洲华人留学生对悉尼劫持事件高度关注 网上热议</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30074.shtml">加拿大“快速移民”催热留学 专家：绕开这些误区</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30059.shtml">日元贬值改变在日华人生活 回国添忧虑义务代购忙</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--要闻推荐e-->
+
+        <!--频道精选s-->
+        <!--[894,7,2] published at 2014-12-17 10:08:23 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">频道精选</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30221.shtml">澳洲华裔盘下餐厅 因“前身”劣迹多致新店生意差</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30214.shtml">中国取代英国成温哥华最大海外观光客来源地(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30205.shtml">菲律宾华人区4商店因出售玩具枪像真枪被警方没收</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30204.shtml">西班牙华人母亲带小孩公园玩耍 无辜遭两妇女殴打</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30201.shtml">女华侨火车如厕丢八千美元 民警徒步铁路找两天</a></li>
+
+    <li><a href="/jjkj/2014/12-17/30199.shtml">海归硕士回国卖包子 遭质疑得卖多少赚回学费？</a></li>
+
+    <li><a href="/hwjy/2014/12-17/30198.shtml">俄罗斯学霸长沙学汉语 遭遇“塑普”好抓狂(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30184.shtml">探访巴西华人“农业庄园”：打造休闲观光的乐园</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30126.shtml">南非新老唐人街兼收并蓄 摩擦变动中谋求发展(图)</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--频道精选e-->
+
+        <!--热点图片s-->
+        <!--[894,9,1] published at 2014-12-17 10:26:24 from #202 by 55-->
+<style>
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.jiusj_listul li .title_text {overflow: visible;height:36px;}
+</style>
+
+  <div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">热点图片</div>
+                </div>
+               <ul class="jiusj_listul mt10">
+<li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30228.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U595P4T8D6884425F107DT20141217100346.bmp"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30228.shtml">澳洲纽省高考华裔生亮眼</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30209.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U618P4T8D6883559F107DT20141217084151.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30209.shtml">中国小伙独行三大洲</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30203.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U357P4T8D6883735F107DT20141217090124.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30203.shtml">美奇诺冈市严查月子中心</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30124.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6881627F107DT20141216135146.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30124.shtml">纽约华裔意裔年末联谊</a></div>
+</li><li>
+<div class="conlist_img"><a href="/zhwh/2014/12-16/30119.shtml"><img src="/zhwh/2014/12-16/U606P894T5D30119F42DT20141216140336.jpg"></a></div>
+<div class="title_text"><a href="/zhwh/2014/12-16/30119.shtml">美小伙重庆“安居乐业”</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30055.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6880005F107DT20141216094511.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30055.shtml">美华商年末派对增加</a></div>
+</li>
+ <div class="clear"></div>
+               </ul>
+              </div>
+        <!--热点图片e-->
+
+        <!--侨务咨询s-->
+        <!--[894,7,3] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">侨务咨询</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hdfw/2014/12-16/30178.shtml">华侨学生就读国内普通高校的收费标准是什么</a></li>
+
+    <li><a href="/hdfw/2014/12-16/30105.shtml">出国定居的退休、退职人员死亡后有什么规定</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29963.shtml">地方政府对哪些归侨、侨眷应予救济</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29948.shtml">归侨侨眷在职职工申请出境定居有何待遇？</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29936.shtml">侨企员工工作表现不佳，可扣除员工工资吗</a></li>
+
+    <li><a href="/hdfw/2014/12-12/29733.shtml">华侨、华人持境外机动驾驶证能否在境内驾驶机动车</a></li>
+
+                  </ul>
+                </div>
+              </div>
+        <!--侨务咨询e-->
+
+        <!--公共社区s-->
+        <!--[894,7,4] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">公共社区</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+                  <li><a href="http://bbs.chinanews.com/forum.php?mod=viewthread&tid=5079350">近千万中国富人为什么要移民？</a></li>
+<li><a href="http://bbs.chinanews.com/picview-137-5079760-1.shtml">6岁女孩的100张游历全国抗战纪念地照</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5079264-1.shtml">美国到处都是“中国制造”唯独这些不是</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5075673-1.shtml">各国富二代网晒奢华暑假 网友：投胎是门技术！</a></li>
+<li><a href="http://bbs.chinanews.com/thread-176-5075516-1-1.html">离不开中国制造的非洲人：上帝一定住在中国</a></li>                  </ul>
+                </div>
+              </div>
+        <!--公共社区e-->
+
+      </div>
+
+          <div class="clear"></div>
+    </div>
+      <div class="clear"></div>
+</div>
+
+<div class="qw_foot ">  
+  <!--qw_foot s-->
+     		<strong><a href="http://www.chinaqw.com/kong/2014/06-06/5680.shtml" target="_blank">网站介绍</a> | <a href="http://www.chinaqw.com/kong/2014/06-10/6015.shtml" target="_blank">联系我们</a> | <a href="mailto:qiaojie@chinanews.com.cn">供稿信箱</a></strong>
+        <p>
+中国侨网版权所有，未经授权禁止复制和建立镜像 <a href="http://www.miibeian.gov.cn/" target="_blank">[京ICP备05067153号]</a> [京公网安备:110102003042-2] <a href="http://net.china.com.cn/chinese/index.htm" target="_blank">[不良和违法信息举报]</a></p>
+<a href="http://www.chinaqw.com/"><img width="120 "src="http://i3.chinaqw.com/qiaowu/images/logo.png"/></a>
+
+
+  <!--qw_foot e-->
+</div>
+<script>
+
+$(document).ready(function(){
+ $.getScript('http://comment.chinaqw.com/ci/index.php/comment/comment/get_article_list_2012/qw30199',function(){
+																														var ts=comment_lists.cns_list;
+if(ts.records.length=='0'){
+$('#wypl').append("<div class='font13'>提示信息： 暂无评论内容，欢迎您发表高见！</div>");
+}																																
+																														var tss;
+var tiaoshu;
+if (ts.records.length !=''){	
+
+if(ts.records.length<10){
+tiaoshu=ts.records.length;
+}
+else{
+tiaoshu=10;
+}																													for(var i=0;i<tiaoshu;i++){
+																															tss=ts.records[i];
+																															var wyname=tss.author;
+																															if (wyname ==''){
+																																wyname="中新网友";
+																																}
+
+																														 mylist=("<div class='wypl_list'> <div class='wypl_list_wy'>"+wyname+"<div class='wypl_list_biao' style='background:no-repeart'></div></div> <div class='wypl_list_t'> &nbsp;&nbsp;" +tss.dateline+"&nbsp;&nbsp; 来自："+tss.area+" &nbsp;&nbsp;</div><div class='clear'></div><div class='wypl_list_n'>" +tss.message+ "</div> </div>");																													
+																													$('#wypl1').append(mylist);
+																														}
+																														$('#tstotal').html("("+ts.total+")");
+																														if(ts.records.length>'0'){
+																														$('#wypl1').append("<div style=text-align:center;><a href=http://comment.chinaqw.com/ci/index.php/comment/news/more/qw30199><img src=http://i6.chinanews.com/2012/news/images/pl.gif></a></div>");
+																														}
+
+}																																		  });
+
+						   });
+</script>
+<div id="BaiduSpider" style="display:none">
+<span id="pubtime_baidu">2014年12月17日 09:16</span>
+<span id="source_baidu">来源：<a href="http://www.chinaqw.com/jjkj/2014/12-17/30199.shtml" target="_blank">中国侨网</a></span>
+<span id="author_baidu">作者：</span>
+<span id="editor_baidu">责任编辑：郑丽华</span>
+</div>
+</body>
+</html>
+<script>
+
+$('#txt_x').click(function(){
+
+						$('.left_zw').css('font-size','12px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_x').addClass("on");
+
+						  });
+$('#txt_z').click(function(){
+						$('.left_zw').css('font-size','15px');  
+						$('#txt_x').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_z').addClass("on");
+
+						  });
+$('#txt_d').click(function(){
+						$('.left_zw').css('font-size','18px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_x').removeClass("on");
+						$('#txt_d').addClass("on");
+
+  });
+</script>

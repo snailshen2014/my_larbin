@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">徐仰汇：汽车自主品牌之路-—水到自然渠成</h1>
+                	<div class="show_content_info">2014/10/13   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇,男，1970年生。现任北京汽车工程研究院(原名为北京汽车研究总院)CAE及整车性能部部长。1992年毕业于清华大学，2002年获日本东京工业大学钢结构振动与控制专业博士学位。其后任职于日本日产汽车公司研发中心，从事整车NVH性能开发与CAE分析工作。参与了TIIDA(骐达)、TEANA(天籁)、INFINITI (英菲尼迪)、MURANO(SUV)、SERENA(MPV)等车的研发。2009年回国任职于北京汽车工程研究院，担任CAE及整车性能部部长，负责NVH性能开发及CAE分析，以及整车安全性、耐久性、操控性、动力经济性、流场及热管理等性能开发的管理工作。2010年入选北京&ldquo;海海聚工程&rdquo;，北京市特聘专家。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　坐在徐仰汇的对面，你会感到一种凝聚的气场、亲切而坚韧。他对这项事业的执着，与他的经历和性格不无关系。东西方文化和清华学子的儒雅在他身上得到了很好的交融。那种谦逊礼貌而又严谨的行事风格，已经让徐仰汇从百炼钢变成了绕指柔。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　人们羡慕有信仰的人，因为那些人可以在自己的信仰中找到快乐和归宿。人们敬重有信仰的人，因为那些人有着可贵的坚持和专注。他们眼神中的纯粹是技术再好的化妆师也无法粉饰和雕琢的。在徐仰汇的眼中你会发现这种弥足珍贵的纯粹。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　和很多海归精英一样，徐仰汇的背后，一路辉煌，荣誉等身：北汽股份汽车工程研究院 CAE及整车性能部部长。(日本)东京工业大学高层钢结构抗震性能研究研究员，在世界知名学术杂志上发表了十几篇论文。对于一个在异国求学的人，对于一个科研工作者，这样的成就已经足以让他过上优越的生活，足以衣锦还乡。然而，对于徐仰汇来说，似乎注定不会只是做一个科研工作者，生活的波涛推动着他朝向更高的境界不断迈进。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">日本求学</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇的老家户县隶属于陕西省西安市，地处关中平原腹地，南依世界地质公园秦岭终南山，北临渭水，是蜚声中外的&ldquo;中国第一画乡&rdquo;、&ldquo;中国诗词之乡&rdquo;。温润的山水培养了他谦和的气场。1987年，徐仰汇从那里走入清华。1992年，度过了五年充实的大学时光后徐仰汇毕业于清华大学水电工程结构专业,取得学士学位。在清华的五年里他成长为一个有理想人，并开始规划自己的人生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　站在学科的前沿，挑战学术的尖端，是每一个真正想做事情的人的心愿。学习，就应该到学科的最前端去学习。抱着这样决心的徐仰汇，带着家人和朋友的祝福，毅然乘上了飞往日本的飞机。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　位于神奈川县横滨市保土谷区常盘台的日本横滨国立大学，是一所在关东地区乃至全日本都很著名的综合性大学。回忆起那段留学的经历，徐仰汇感觉到了不同国家教学方式的不同。1999年，徐仰汇以优异的成绩从横滨国立大学硕士毕业，他选择了去(日本)东京工业大学继续学习。(日本)东京工业大学在工程与技术 (Engineering/Technology) 类大学排名世界19位(日本第3位)，&ldquo;建成为世界顶尖之理工系综合大学&rdquo;为该大学的长期目标，&ldquo;培养具有创造力的国际领导者&rdquo;&ldquo;不断进化的创造性教育&rdquo;等为该校办学之目的。在这样一所名校里徐仰汇拿到了钢结构振动与控制专业工学博士学位。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　在日产的成长</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2002年，徐仰汇博士毕业后进入日本著名的日产汽车公司研发中心NVH部，3年后调入综合CAE部(NVH性能方向)。日产汽车公司是日本的第二大汽车制造商(仅次于丰田)，也是世界十大汽车公司之一。自创立至今，日产汽车公司在全球累计生产销售了超过1亿辆汽车。公司总部位于东京，现有雇员总数近13万人。进入这样一个连日本人都很难企及的大型著名企业，徐仰汇令很多人羡慕。其实，在最初选择工作时，徐仰汇还因为拿不定主意是去那个时代在国人眼中最好的归宿&ldquo;合资企业&rdquo;，还是日本本土的日产汽车公司而犹豫不决。在朋友建议下，他选择了这个直至今天还有很多日本人拼命想要挤进去的日产汽车公司。也就是从这个时候开始，徐仰汇渐渐清楚了&ldquo;合资&rdquo;的含义，这是使包括汽车产业在内的中国很多行业至今不能快速发展的重要阻碍之一。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇对 &ldquo;合资&rdquo;的看法是，我们用市场和土地换来的只是低端的体力劳动而无法进入其核心技术的领域。合资的最大副作用就是使我们的自主技术止步不前，以致都在花高价买别人的技术而荒废了自己的品牌研发。汽车产业一片繁荣的景象下其实是民族自主产业的满目疮痍。看着满街跑的合资品牌车,徐仰汇觉得自己该做些什么。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在日产公司，徐仰汇参与了很多重要的、非常有挑战性的工作。在那里，每个人的能力都很强，徐仰汇在这样的团队中进行开发、科研攻关，使他增长了团队协作的经验，同时认识到人才是最重要的资源。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在日产汽车公司工作的近6年中，徐仰汇主要集中在车身结构振动噪声的CAE分析及试验上。徐仰汇在日产公司参与了多款车的开发：TIIDA(骐达，B级轿车)、TEANA(天籁，D级轿车)、MURANO(SUV)、SERENA(MPV)，INFINITI(英菲尼迪、后驱E级轿车)、Fairlady Z(跑车)。徐仰汇非常熟悉车身结构振动噪声的控制，主要包括:控制整备车身(trimmed body)的模态分布，及动力总成、悬架连接点的动刚度;控制关键子系统的模态分布及刚度;控制振动传递函数VTF、以及声压传递函数NTF;在设计阶段充分运用计算机仿真技术(CAE技术)进行虚拟验证，在样车试验阶段对未达目标的部分进行整改。在担任的项目中，徐仰汇提出了多项减振降噪的方案。最成功的一个案例是对空气室板(Air Box)结构的优化。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在此期间，徐仰汇还在振动-噪声的分析方法、建模精度方面做了大量工作。特别是在车内声腔模型、转向管柱模型的精度改善方面取得了突出贡献，这些建模方法被日产公司的建模规范所采用，并因此获得日产CAE部的部长奖。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　回首来路，原来真的没有任何一段是毫无意义的。当初也许觉得平淡无奇，也许觉得毫无相干，但是其实每一个环节都或多或少地影响着人生的走向。徐仰汇在日产汽车公司，工作期间接触到的都是高难度的任务。正是这种参与大项目运作的经历和磨炼使他具备了挑战高难度工作的能力和信心，增长了处理系统工程的经验和应对高难度技术问题的勇气。此后徐仰汇在汽车领域所参与的一系列车型开发项目，也一一验证了这一点。其实，正是这种立足高端、舍我其谁的作风，使得他后来开发汽车自主品牌成为一种水到渠成。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　此时的徐仰汇，已是身价倍增，技术和经验样样俱全，可以比较轻松地生活。可是此时他却毅然决定回到祖国。很多人无法理解徐仰汇，因为他在日本有如日中天的事业，有幸福和睦的家庭，稳定的工作,贤惠的妻子&hellip;&hellip;几乎是所有社会精英梦寐以求的一切。&ldquo;可是往往到这个时候，一直追求的目标都实现的时候，会感到很失落。有一种冲动，想去做更有意义的事情，所以我选择回到国内重新开始。&rdquo;徐仰汇说。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇曾经和妻子交流：&ldquo;我们现在做点牺牲，但是将来可以为中国汽车的自主品牌多做些事情，对中国的汽车自主品牌有好处。&rdquo;就因为这一个理由，妻子愿意放弃所有，跟他回来。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　要挖掘徐仰汇回国的&ldquo;充分&rdquo;理由，还有很多：&ldquo;国内的总体环境在变好，正需要这个方向的人才。特别是近几年来，党和政府提出要建设创新型国家，鼓励和支持企业发展自主品牌汽车，给海外汽车人才提供了施展拳脚的平台&hellip;&hellip;在汽车行业，有很多海外学人都发展得不错，对中国自主品牌汽车的研发发挥了非常重要的作用。&rdquo; 徐仰汇不无感慨地说：&ldquo;现在回国投入汽车行业恰逢其时，既响应了国家和企业的号召，又能充分实现个人的价值。&rdquo;</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　加入北汽</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2009年，徐仰汇听从自己内心的声音，回到了自己喜欢的城市北京， 2009年4月加入北汽，担任CAE及整车性能部部长。该部门承担着北汽所有自主品牌汽车整车性能的开发任务。除了负责NVH性能的专业技术外，还负责其他主要性能的开发管理工作，包括安全性、耐久性、操控性、动力经济性、CFD性能。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在徐仰汇的积极推动下，部门人数由十几人扩到到目前的50多人。CAE分析及性能开发能力有了长足进步，各项工作有序地、扎实地开展，为此获得2010年度北汽集团&ldquo;先进班组&rdquo;称号，CAE及整车性能部是整个汽车工程研究院唯一获此殊荣的专业部门。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　中国汽车企业欲走出国门，自主品牌是一条必经之路。徐仰汇说：&ldquo;中国汽车必须有自己的品牌&rdquo;。但是，在自主品牌与合资品牌不断角逐的10多年中，曾经一度是合资品牌的天下，自主品牌无论是在研发实力、产品营销、品牌塑造方面都要稍逊一筹，这导致中国车市长期被外来&ldquo;灰太狼&rdquo;们所垄断。并且&ldquo;国内的汽车用户对于汽车自主品牌缺乏足够的信心。&rdquo;徐仰汇无奈的说。徐仰汇希望他们可以让国人对国内的产品重拾信心。作为一名多年旅居海外的中国人，作为一名在汽车研究领域有着深厚资历的工程师，徐仰汇想把他的工作经验和研究成果拿回国内，应用于自主品牌的开发，让它造福国内汽车用户，让他们以最少的钱得到本国造的好品质的车。大力发展自主品牌，是中国汽车公司扩大规模和影响力的重要途径。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　和其他产业相比，中国汽车领域的自主品牌建设之路更加曲折，更加艰难。巨额的资金投入、漫长的研发过程、巨大的风险，使得汽车产业领域的从业者必须要有良好的心理素质，沉得住气，耐得住寂寞，受得了打击，经得起折腾。没有这样的心理准备，往往容易半途而废，前功尽弃。自主品牌的研发是一个巨大的工程，需要消耗大量的时间和人财物力，徐仰汇心里早已清楚。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　不管怎么样，经过这些年的发展，我国自主品牌汽车无论在外观设计、制造工艺还是技术含量上都有了质的飞跃，已与国际水平逐渐融合。记得在去年，&ldquo;喜羊羊&rdquo;是孤身独闯贺岁档的国产动画电影，但票房的成功让更多影片争先恐后加入2010年春节档期。这就像中国的汽车市场，2009年之前还主要是有限的几家自主品牌等孤军奋战，而2010年，无论是奇瑞、吉利、比亚迪，还是一汽、上汽、长安、北汽等都加入了这个战团。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　北京汽车股份有限公司中高端自主品牌的研发是在2009年收购了瑞典saab轿车平台的基础上取得跨越式发展的。自主品牌汽车，特别是中高端自主品牌汽车的研发，整车安全性、NVH、操控性等性能的开发是核心技术之一，也是中国汽车研发技术的短板。徐仰汇带领的这支团队正好填补了这一短板。他带给企业的不仅是NVH专业技术，更为重要的是&ldquo;以性能开发为导向、以结构设计为基础&rdquo;这个现代的汽车开发理念。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在一般人看来，技术背景出身的人对于管理都不太在行，从一个技术专家到一个管理者都要经过一个漫长的蜕变过程。然而这在徐仰汇身上似乎失效了，他在管理工作上并没有遇到麻烦，反而游刃有余，这让他在职业道路上找到了更广阔的空间。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇深知，任何一个领域的成功，都不是靠某一个人的努力，而是要无数人的探索和奋斗。事实上，徐仰汇现在就在自己的团队里培养这样的人才。团队里的年轻人们既像他的同事又像他的学生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　徐仰汇脸上有着领导者少有的谦和的笑容。他说话的时候你可以从他的眼睛里看见真诚和信任。他不苛求员工们上下班分秒不差，只要按时完成工作任务就可以，效率才是最主要的。当听说记者要拍照时，他赶紧召集了办公室所有的工作人员，生怕漏掉任何一个，大家听从了他的召唤放下手中的活笑嘻嘻的围了过来。那架势就好像大家在拍全家福。在徐仰汇的心里办公室里的同事们都像是家人，他不仅为他们感到骄傲，而且愿意和他们分享快乐和美好的东西。拍完照大家很快又回到工作状态中去了，看得出是张弛有度</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　长久以来，在媒体上很少见到徐仰汇的任何报道。像他一贯低调谦和的作风一样，徐仰汇认为做事情就要踏踏实实地做，一切都是水到渠成。徐仰汇深知，中国汽车自主品牌任重而道远。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创新感悟：</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　要打造自主品牌汽车特别是有市场竞争力的中高端自主品牌汽车，没有科研创新绝对不可能成功。科研创新，没有踏踏实实的实干精神，绝对不可能实现。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：程迪</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

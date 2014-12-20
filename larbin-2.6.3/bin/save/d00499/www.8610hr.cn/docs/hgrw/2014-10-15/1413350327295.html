@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">袁宝珠：解开基因密码的肿瘤学专家</h1>
+                	<div class="show_content_info">2014/10/15   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-size: 14px"><span style="font-family: 宋体">　　袁宝珠，男，1965年生，祖籍陕西西安。现任首都医科大学附属北京世纪坛医院肿瘤研究室主任。1994年毕业于中国医学科学院、北京协和医科大学，获分子肿瘤学博士学位。1995-2000年，在美国国立卫生研究院国立肿瘤研究所(NCI/NIH)，从事博士后研究工作。期间，完成了多项癌基因和抑癌基因的研究工作，并独立发现、克隆和分析了DLC-1肿瘤抑癌基因。2000年起，在美国疾病控制中心的国立职业安全与健康研究所(NIOSH/CDC)，领导和组织了多项肿瘤课题的研究。期间，进一步证明了DLC-1是一种在大多数常见肿瘤发生过程中，高频异常的肿瘤抑癌基因，并提出了正反馈机制的新的凋亡信号调控理论。2010年3月，入选第二批北京&ldquo;海聚工程&rdquo;，被评为北京市海外高层次人才。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;我感觉自己回国晚了。要是早几年回来，我也许能做更多的事情。&rdquo; 北京世纪坛医院肿瘤研究室主任袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　绿树掩映中的北京世纪坛医院肿瘤研究室占地面积几百平方米，设有三个主体实验室，一个细胞培养室，一个肿瘤组织库。从2010年7月正式回国到现在的短短一年多时间里，袁宝珠已经在这里开展了大量工作，确立了肿瘤学研究的方向，并成功申请获得了国家自然科学基金的支持。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;北京一家三甲医院就能够拥有设备如此先进的实验室，这一切在过去不可想象。&rdquo;袁宝珠说，他出国前，国内很少有科研院所能够建设设备如此先进的肿瘤实验室，而今天，像这样的实验室已经并不少见。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在国内科研条件不断改善、自身经验相对丰富的今天，袁宝珠希望能在国内大干一场。</span></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　选择自己所喜欢的专业</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　袁宝珠像许多海归一样，少年时期学业优异，顺利申请国外的顶级研究机构，学习并工作多年。在积累了丰富的经验和能力之后，在&ldquo;不惑&rdquo;或者&ldquo;知天命&rdquo;之年选择回国。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　而袁宝珠所从事的分子肿瘤学，也似乎是属于命运冥冥之中注定的。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　小时候的袁宝珠，就喜欢寻根问底。父母给他买的玩具，还没玩几天，就被他给拆得七零八落。&ldquo;后来，我才知道，不是所有人都像我这样，对事情的细节和原因会如此感兴趣。这一点性格对我以后事业的发展和取向有巨大影响。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　正是因为这一点，本科时读临床医学的袁宝珠，在研究生时却选择了遗传学。这一点出乎很多同学的意料，但是这确实是袁宝珠一直梦寐以求的理想。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;当时选择了这个专业，我非常激动。我好像一直都对遗传学很痴迷，认为这是人类最核心的东西，非常值得研究。还在读大学时，我读了很多关于现代遗传学之父摩尔根和现代分子生物学的奠基人詹姆斯&middot;华森的生平传记，非常崇拜他们，也希望有一天能从事这方面的研究。&rdquo;袁宝珠表示，&ldquo;当然，后来我所学的是分子遗传学，不是当时想像的遗传学，但是所学和我想学基本是一致的。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在兰州医学院读硕士期间，袁宝珠所学的基本上是遗传学的整体概念。在中国医学科学院、北京协和医科大学博士期间，袁宝珠开始学习分子肿瘤学，把遗传学知识应用到肿瘤学。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;到这个阶段，我所学的知识就开始深入到具体的基因。我们学习怎么去用体外表达这个基因，了解基因如何影响细胞发展，怎么用基因来影响性状的改变。&rdquo;袁宝珠表示。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　由于所学是自己喜欢的专业，袁宝珠进步非常快，在国内相关领域的最高学府，他渡过了几年难忘的时光。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　但从事博士毕业课题研究时，他却经历了一段非常痛苦的时期。当时，袁宝珠的课题是研究肝癌的癌变机制，这也是当时一个非常具有中国特色的热门话题。这个课题需要大量的基因剪切拼接和克隆的过程。然而，初期的研究工作并不顺利，特别是基因克隆和表达载体构建工作进展很慢。试验时间过得很快，几个月过去了，袁宝珠却没有任何发现。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;当时太年轻，还不太懂科研的一般规律，特别是对耐心和细致思考方式的培养没有思想准备，因此当时心里特别难过。因为试验需要的是最终结果，如果没有结果，前面再多的努力都是白费。可是好几个月下来，我都毫无发现。我那时候产生了极度的怀疑，不知道下一步是否还会重复同样的失败。&rdquo;袁宝珠回忆。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这段痛苦的经历持续了一段时期。庆幸的是，到第四五个月的时候，袁宝珠的思路开始逐渐清晰，知道下一步需要解决什么问题，最初的急躁情绪也开始被慢慢抚平。第六个月，袁宝珠意识到，胜利就在眼前了。果然，最后他成功地完成了这一课题中的最核心内容。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这个课题也为他后来出国打下了坚实的基础。由于博士论文完成得不错，袁宝珠第一个申请的美国国立卫生研究院国立肿瘤研究所很快就给他回复了，表示愿意接受他工作。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;我1994年8月毕业，9月开始联系，10月美国国立卫生研究院(NIH)国立肿瘤研究所(NCI)就回复答应接受收我了。&rdquo;袁宝珠表示，但由于美国国立卫生研究院国立肿瘤研究所是美国联邦政府机构，办各类手续时间非常长，他真正成行是第二年。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　1995年8月，袁宝珠坐上了飞往美国马里兰的航班，开始了自己人生的一段新的旅程。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　</span><strong><span style="font-family: 宋体">　独立发现DLC-1肿瘤抑癌基因</span></strong></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　美国国立卫生研究院国立肿瘤研究所在美国马里兰州，是一个拥有众多著名大学和研究机构的州，全世界最著名的NIH就坐落在这个州。而NIH绝大部分科研投入就是肿瘤研究。有一段时间，NIH下属的NCI研究经费占全部NIH经费的90%左右。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;当时一个实验室共20多个人，年经费却达到了200多万美元。&rdquo;袁宝珠回忆，NIH下的NCI研究经费相当充足，也为所有研究者提供了一个自由思考、自由发挥的空间。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　由于美国国立卫生研究院国立肿瘤研究所的环境非常宽松自由，袁宝珠的研究也没有受到太大约束。在去美国的第一年，袁宝珠主要是熟悉当地的环境。第二年，袁宝珠就开始思考寻找一种合适的技术，来帮助他从肿瘤基因组DNA中寻找新的基因。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　很幸运的是，当时一位在美国工作的前苏联科学家在《科学》杂志上，详细报道了一种从基因组DNA中发现新肿瘤基因的技术，而这一技术正是袁宝珠苦苦思考和寻找的。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;这对于我来说是一件很关键的事。我一直在苦苦寻找适合自己的技术，有一天真的找到了。&rdquo;袁宝珠回忆。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　也是到后来，袁宝珠才发现，原来当时和他同一栋大楼的不同研究室中共有5个人都是在用这个技术从肿瘤中寻找新的基因。不过，最后成功的却只有他一个。回想起来，尽管这其中包含了一丝幸运，却很大程度上得益于国内博士生阶段扎实的实验训练，以及那段难忘的痛苦的毕业课题的磨练。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;当时寻找这个技术花了2个月，发现这个基因本身用了3个月，后来又用1个多月来证实这个发现。我们先发现该基因的片段，证明它位置很重要，功能也很重要。后来又把它克隆出来了。这些过程前前后后花了一年多时间。&rdquo;袁宝珠回忆。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　独立发现、克隆和分析这个后来由袁宝珠自己命名的DLC-1肿瘤抑癌基因，里面包含的故事也很多。回忆这段往事，袁宝珠总结了八个字：幸运、自豪、悲愤、喜悦。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;幸运是发现了这个关键技术;自豪是因为我们独立发现了DLC-1肿瘤抑癌基因。&rdquo;袁宝珠表示，&ldquo;当然，其中也还有一些悲愤的事情。也是因为如此，加快了申请DLC-1专利和发表文章的步伐。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在袁宝珠研究初期，美国国立卫生研究院国立肿瘤研究所相关负责人邀请其朋友对袁宝珠的实验进行了评估。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;那个朋友来了以后特别激动。因为我们当时把发现的新基因定位在人8号染色体短臂上(8p22)。在肿瘤学研究方面，这是一个非常有价值的发现。&rdquo;袁宝珠表示，因为这是一个非常重要的染色体位点，大家都在期待从这里发现新基因，特别是新的抑癌基因。从某种程度上来说，这是当时肿瘤学界的一个共同目标。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这位朋友当场就表示要和袁宝珠合作。由于当时还没有发表任何相关文章，合作容易丧失优势，袁宝珠委婉地拒绝了。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　没想到的是，不久后，这个&ldquo;朋友&rdquo;就提前在美国国家生物信息中心报道了这一基因序列。这一点令袁宝珠非常气愤。由于当时邀请这个朋友评估时，美国国立卫生研究院国立肿瘤研究所进行了录音，留下了宝贵的证据，也最终为袁宝珠及其研究小组成功争取了成果的归属权。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　最后，袁宝珠不得不加快发表文章的速度，并申请了专利。很快，《肿瘤研究》杂志就刊登了袁宝珠发表的相关文章。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;如果不是发生这个意外，我们对DLC-1研究的时间会更充足一些，我的第一篇文章也会更加完善和成熟一些。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　DLC-1肿瘤抑癌基因的发现，在当时给肿瘤学研究者提供了一个新的研究方向。后来，越来越多的国内外学者开始关注和深入研究DLC-1。目前，DLC-1及其相关的问题已成为肿瘤学研究中的一个热点之一。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;当时是一个大家都在发现、寻找新肿瘤相关基因的时代，特别是寻找重要染色体位点上的基因。现在这些工作已经没有当时那么大的意义了。&rdquo;袁宝珠说，&ldquo;美国科学发展的时代感特别强。我们的幸运之处在于，正好在那个时代解决了那个时代迫切要解决的问题。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在美国国立卫生研究院国立肿瘤研究所渡过了5年难忘的时光后，2000年，袁宝珠来到了美国疾病控制中心国立职业安全与健康研究所。在这里，他以高级研究助理和课题组负责人的身份，领导和组织了多项肿瘤课题的研究。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;在美国疾病控制中心国立职业安全与健康研究所，我们做了很多分子遗传学的工作，同时对DLC-1进行了更深入的研究。&rdquo;袁宝珠介绍，在美国国立卫生研究院国立肿瘤研究所期间，他们发现DLC-1主要存在于肝癌细胞中。到了美国疾病控制中心国立职业安全与健康研究所后，他们发现，DLC-1在肺癌中的变异率更高，如在人原发性非小细胞肺癌中的变异率高于90%。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在后来的实验中，袁宝珠证实，DLC-1实际是一个广谱的抑癌基因，几乎在所有的肿瘤中都有异常表达，只是在肺癌中，DLC-1的异常表现更为显著。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这一发现也广泛应用于现在的医学诊断中。如今，DLC-1已经成为许多肿瘤诊断的基因检测基础之一。在乳腺癌、淋巴瘤中，DLC-1更是成为肿瘤诊断和预测治疗效果的检测内容之一。</span></span></p>
+<p><strong><span style="font-size: 14px"><span style="font-family: 宋体">　　提出正反馈机制</span></span></strong></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　除了持续跟进DLC-1研究工作外，袁宝珠还开展了有关肿瘤细胞凋亡以及凋亡信号通路的研究工作，并提出了正反馈机制的新的凋亡信号调控理论。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;这是一种方法论相关的理论，其理论本身不算新东西。但这却是我们在细胞凋亡研究中首先提出并详细阐述的。当正反馈机制被调动起来，可以诱导完全的细胞死亡。这种机制如果能很好地发挥作用，肿瘤细胞将会100%死亡。这种机制我认为非常重要。&rdquo;袁宝珠介绍，正反馈机制的新的凋亡信号调控理论的提出，对探索新的肿瘤治疗靶分子和开发新的以靶分子为基础的肿瘤联合治疗方法，也具有重要指导意义。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　这一理论的提出，也和袁宝珠从小的思维习惯有关。抛开肿瘤学专家的身份，袁宝珠也是一名哲学爱好者。肿瘤学是一种探究人生死的生命科学，而哲学则是一门解密世界普遍规律的社会科学和思维方法。袁宝珠喜欢用哲学的理论来指导他的科研工作，并不断有新的发现。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;正反馈机制就是一种哲学的思考，是一种对传统凋亡信号调控理论的全新思考。&rdquo;袁宝珠说，&ldquo;相信沿着这条路走下去，我们将来会做得更好。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　确定多靶位点研究方向</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在国际肿瘤学界逐渐崭露头角的同时，袁宝珠也开始和国内肿瘤学界人士有所接触。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　2009年，袁宝珠借着休假时期，回国内各个地方转了一圈。和十几年前出国时相比，国内已经发生了翻天覆地的变化。同时，国内众多科研院所也都对袁宝珠表示出了极大的欢迎，诚恳地邀请他回国。而北京世纪坛医院更是表示出了非常大的热情。这也让袁宝珠逐渐萌生了回国的想法。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在多番考察后，袁宝珠最终选择了回到北京世纪坛医院。&ldquo;回国的最大动力是能够做事了。一是国内环境发生了翻天覆地的变化，我们有机会做一番事业。二是经历国外多年的积累，我们现在也有能力做一些事情。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　仅在科研条件上，国内就发生了极大的变化。&ldquo;比如说，十几年前，要想建立一个像北京世纪坛肿瘤实验室这样规模的实验室，几乎是一个梦想。就是最有科研优势的医科院系统，当时也只有一个肿瘤研究重点实验室。北京世纪坛医院在北京属于普通三甲医院，却建立了这么好的实验室。从这一点就可以说明很多问题。这说明国家开始重视基础科研，愿意投大笔钱来推动这个事业的发展。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　袁宝珠认为，对于中国的发展，不能用静止的眼光来看，要用发展的角度来看。和五年前、十年前相比，我国能够发展到今天非常不容易。从这个角度来看，我国的发展潜力非常大。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　经历了多年的科研洗礼，袁宝珠认为自己带领团队从事科研的能力、视野、经验也已经具备。&ldquo;孔子是一个非常有智慧的人，他总结了一句话，&lsquo;三十而立，四十不惑，五十知天命&rsquo;。我现在回国，就是在做一件知天命的事情。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　在回国的这一年多时间里，北京世纪坛医院从设备、经费等方面都给与了袁宝珠大力支持，这也给了他极大鼓舞，并对未来有了很清晰的规划。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;在科研上我们有很多想法，大多数都是在以前思路的基础上展开和深入。现在我们主要是进行多靶分子特异的肿瘤联合治疗和寻找以肿瘤早期诊断为目地的新的分子标志物群的研究。&rdquo;袁宝珠介绍，&ldquo;这一研究内容也饱含哲学思考，即用宏观思考的角度来综合肿瘤诊断和治疗的研究。科学和哲学是相通的，将这两门学问有机结合，将对科研工作者有很大帮助。此外，今后我们还会在DLC-1抑癌基因方面，继续进行深入和广泛的研究。目前我们对DLC-1在肿瘤治疗方面的作用非常感兴趣，相信在这方面会有更新的发现。&rdquo;</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　值得一提的是，袁宝珠在回国后申请的国家自然科学基金已经顺利获批，这也为他的科研发展助力。&ldquo;北京世纪坛医院肿瘤研究室的功能建设是我目前工作重点之一。下一步，我们将逐步完善研究室的组织结构，进一步推动其顺利运转。北京世纪坛医院肿瘤研究室的人员规模也将不断扩大，我们现有科研人员4个，到今年8月即将变成8个，明年7月又将扩充到10个左右。&rdquo;袁宝珠说。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　&ldquo;我希望回国后大干一场，把该实现的都实现了，把有待实现的也实现了，再为人类多做点事情。&rdquo;袁宝珠踌躇满志。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　创新感悟：</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">　　孔子说：&ldquo;三十而立，四十不惑，五十知天命。&rdquo;我年近50岁，正是知道上天的使命的时刻。在国外工作生活多年，在有能力做事的时期回国参与祖国建设，是我们这一代海归的使命。</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　撰稿：邓淑华</span></span></p>
+<p><span style="font-size: 14px"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 1.5}
+.14v {
+	FONT-SIZE: 14px}
+
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="docdist" content="北京">
+<meta name="doclang" content="中文">
+<meta name="sitename" content="国务院侨务办公室">
+<meta name="docdate" content="2014-12-08">
+<LINK href="/node2/node3/index.css" rel=stylesheet>
+<title>创新社会管理 社区为侨服务走进移动互联时代</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center"> 
+  <!-- Start Open Web Analytics Tracker -->
+<!-- End Open Web Analytics Code -->
+
+<script language="javascript">
+<!--
+function hidden(){
+   document.searchform.searchword.value="";
+   } 
+function setSearchword()
+{
+	select2 = "", searchword2 = "";
+	//get select
+	select2 = document.searchform.select.value;
+	//get word
+	searchword2 = document.searchform.searchword.value;
+	if(searchword2 == "请输入关键词")
+	{
+		searchword2 = "";
+	}
+
+	if(searchword2 != "")
+	{
+		 if(select2 == "1")
+		{
+			searchword2= "标题=" + searchword2;
+		}
+		else
+		{
+			searchword2 = "正文=" + searchword2;
+		}
+	}
+	document.searchform.searchword.value=searchword2;
+}
+//-->
+</script>
+
+<div align="center">
+<table width="778" height="24" border="0" cellpadding="0" cellspacing="0" bgcolor="#E4E4E4">
+    <tr> 
+ <td width="146" style="FONT-SIZE: 12px">&nbsp;&nbsp;<SCRIPT language=JavaScript>
+<!---
+	today=new Date();
+	function initArray()
+	{
+		this.length=initArray.arguments.length
+		for(var i=0;i<this.length;i++)
+		this[i+1]=initArray.arguments[i]
+	}
+	var d=new initArray("<font color=#FFC8C9>星期日","<font color=#000000>星期一","<font color=#000000>星期二","<font color=#000000>星期三","<font color=#000000>星期四","<font color=#000000>星期五","<font color=#FFC8C9>星期六"); 
+	document.write(" <font color=#000000>",today.getYear(),"<font color=#000000>年" ,"<font color=#000000>",today.getMonth()+1,"<font color=#000000>月","<font color=#000000>",today.getDate(),"<font color=#000000>日</FONT> ",d[today.getDay()+1]," "); 
+//-->
+</SCRIPT> </td>
+      <td align="left" width="284">
+<table width="280" height="24" border="0" cellpadding="0" cellspacing="0">
+  <form name=aa method=post action=http://mail.gqb.gov.cn/index.php target="_self">
+    <tr><input type=hidden name=F_lang value=> 
+        <input type=hidden name=F_tm value=1151047206> 
+              <td width="55" align="right" style="FONT-SIZE: 12px"> <font color="#656565">邮 
+                箱</font>&nbsp;</td>
+      <td width="76" style="FONT-SIZE: 9px"> <input type=text name=F_email value="用户名" size=8 maxlength=20 onFocus="this.value=''" style="COLOR: #656565;">
+      <td width="70" align="left"><input type=password name=F_password value="用户密码" size=8 onFocus="this.value=''" style="FONT-SIZE:12px;COLOR: #656565;"> </td>
+	  <td align="left"><input name=action type=image id=action2 src="/image08/emaillogin.gif" width="50" height="24">
+
+    </tr><input type=hidden name=F_domain value=gqb.gov.cn> <input type=hidden name=F_tpl value="">
+  </FORM>
+</table></td>
+<td width="222"><table width="210" height="24" border="0" align="left" cellpadding="0" cellspacing="0">
+  <form method="post" action="http://search.chinanews.com/was40/search?channelid=28663" name="searchform" onSubmit="javascript:setSearchword();">
+    <tr> 
+      <td width="68" align="left" style="FONT-SIZE: 12px">
+	  <select  name=selectact size=1 style="COLOR: #656565;">
+                <option value="1" selected>标 题</option>
+                <option value="2">全 文</option>
+              </select>
+	  </td>
+      <td style="FONT-SIZE: 9px"><input name="searchword" value="关键字" size="10" style="COLOR: #656565;"> 
+      </td>
+	  <td style="FONT-SIZE: 12px"><input name="submit" type="image" src="/image08/search.gif" width="46" height="24">
+
+    </tr> 
+         </FORM>
+</table></td>
+      <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+      <td width="40" style="FONT-SIZE: 12px"><a href="http://big5.gqb.gov.cn:89/" target="_blank"><font color="#656565">繁体版</font></a></td>
+	  <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+	  <td width="54" style="FONT-SIZE: 12px"><span  onclick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.gqb.gov.cn');"  style="CURSOR: hand"><font color="#656565">设为主页</font></a></span></td>
+ </tr>
+ </table>
+  <table width="778" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td><img src="/image08/zw_logo.jpg" width="476" height="105"></td>
+      <td><img src="/image08/zw_logo2.jpg" width="302" height="105"></td>
+    </tr>
+  </table>
+  <table width="778" height="34" border=0 cellPadding=0 cellSpacing=0 background="/image08/daohang_bg.gif" style="FONT-SIZE: 12px">
+      <TR> 
+        <TD>&nbsp;</td> 
+                  <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/index.shtml" target="_blank">首　　页</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/gzdt/index.shtml" target="_blank">工作动态</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/sqxx/index.shtml" target="_blank">地方侨务</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zwgk/index.shtml" target="_blank">信息公开</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hwqq/index.shtml" target="_blank">海外乡情</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hjzx/index.shtml" target="_blank">华教资讯</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/qwlt/index.shtml" target="_blank">侨务论坛</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zrft/index.shtml" target="_blank">主任访谈</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/ddfp/index.shtml" target="_blank">定点扶贫</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zt/index.shtml" target="_blank">专　题</a></TD>
+                <td>&nbsp;</TD>
+      </TR>
+  </TABLE>
+</div>
+  <table width="778" border="0" cellpadding="0" cellspacing="0" background="/node2/node3/pic/ggybian.jpg">
+ <tr> 
+ <td align="center" valign="top"> 
+ <div align="center"> 
+ <center>
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td  valign="top" width="100%" style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 22px; LETTER-SPACING: normal" 
+ > <p align="center"> <br>
+                    <br>
+                  <div align="center"><strong><font color="#01458A"> <span style="FONT-SIZE: 16px"> 
+                    创新社会管理 社区为侨服务走进移动互联时代 </span></font></strong><font color="#000000"></font><font color="#01458A"><span style="FONT-SIZE: 16px"> 
+                    </span></font></div>
+                  <hr align="center"> <div align="center"> <font color="#808080"> 
+                    【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='20px';"><font color="#808080">放大字体</font></a>】【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='12px';"><font color="#808080">缩小字体</font></a>】&nbsp;2014年12月08日 <br></font>  
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                   </div>
+                  <meta name="ContentStart">
+                  <p align="left" class=old>
+				  <div align="left" id="Zoom"><font color="#000000"> <p>　　当今时代是一个信息化时代，移动互联网正在深刻地改变着人们的生活方式和人际交往方式。充分运用信息技术带来的各种便利，建设更加便捷高效的服务型政府是信息化时代对政府工作提出的新的挑战性的课题。</p>
+
+<p>　　近年来，各级侨务部门与时俱进，积极探索为侨服务新模式，以先进的信息化工具为载体，进一步优化公共服务、强化社会管理，逐步实现为侨服务掌上化、数字化、信息化，使各项为侨服务工作更具时代性和精准性，取得了显著成绩，积累了有益经验。</p>
+
+<p>　　<strong>网络服务平台助力侨务工作信息化</strong></p>
+
+<p>　　“互联网真正让世界变成了地球村，让国际社会越来越成为你中有我、我中有你的命运共同体。”而在最贴近归侨侨眷生活的街道社区里，互联网真正让社区变成了一个大家庭，让生活在社区里的每一位归侨侨眷，特别是孤独的老年归侨侨眷都有了“亲人”，有了依靠。</p>
+
+<p>　　近年来，江苏省苏州市姑苏区沧浪街道着力打造“姑苏区沧浪街道数字化综合管理服务信息系统”(简称“数字沧浪”)，将侨务工作纳入数字化管理，挖掘社区侨务资源，在开辟为侨服务新途径方面做出了积极努力。“数字沧浪”系统的“社区人口库”版块收集并记录了辖区内侨界人士的基本信息和个性化需求，为社区开展分类服务，特别是给予侨界老年人特殊照顾打下良好基础；</p>
+
+<p>　　“好管家”服务平台通过网格化管理模式，使街道实现了全面数字化管理，通过街道各社区、各楼宇的平面图，每一位归侨侨眷的位置和信息都能够清晰地显示出来，他们的求助、建议、投诉等需求也能通过社区“好管家”服务平台得到及时响应，为做好社区为侨服务工作提供了十分便利的条件。“数字沧浪”系统将社会管理和为侨服务巧妙地结合在一起，为侨界人士提供了更加细致、周到的动态服务，使社区成为让广大归侨侨眷享受生活的基础单元。</p>
+
+<p>　　<strong>网络交流平台使侨爱传递零障碍</strong></p>
+
+<p>　　最大程度地缩短彼此之间的距离是信息技术的另一个重要贡献。网络交流平台不但可以及时、全面地传递各种关爱信息，还可以使人们随时和远方的家人、朋友“面对面”地联络感情。借助各种网络交流工具的力量，广大归侨侨眷可以通过微博、微信等渠道获取丰富的信息，感受社会各界对侨界特殊群体的关怀；可以通过视频通讯软件随时和身居海外的家人“见面”，一解相思之情；还可以通过加入网络兴趣群组，和身在远方的朋友保持联系，维系彼此的友谊。</p>
+
+<p>　　在北京市东城区体育馆路街道国家体育总局社区，结合“2014年暖侨敬老行动”的开展，社区创建了“国家体育总局社区公共微信平台”，及时将街道社区的动态信息、服务项目、展览讲座等内容传递给辖区居民，为老年归侨侨眷参与社区活动提供便利条件。在重庆市渝北区安康路社区，电子阅览室对辖区内的归侨侨眷免费开放，社区干部亲手教老人们如何使用上网聊天工具，并定期帮助他们通过网络和在国外的子女们视频联系，了解彼此的近况，倾诉思念之情。</p>
+
+<p>　　<strong>手机APP使社区服务“尽在掌握”</strong></p>
+
+<p>　　在移动互联时代，手机APP覆盖了生活的方方面面，良好的用户体验、引领潮流的应用内容，为我们的日常生活带来了诸多便捷，并潜移默化地改变着一切。今年，居住在江西省赣州市章贡区各个社区里的老年归侨侨眷们也追赶了一次潮流，享受到手机APP带来的贴心服务。</p>
+
+<p>　　章贡区外侨办结合章贡区智慧社区综合体系建设，积极探索信息化背景下为侨服务的新模式，为辖区内60岁以上的老年归侨侨眷免费发放了安装有“智慧章贡”APP软件的老人手机。这款软件具有线上预约、在线咨询、办事指南查询等综合服务功能，主页面有“家政服务、卫生文教、数字城管、养老服务、智慧生活、智慧政府、为侨服务”7大功能版块，服务内容涵盖衣食住行各个方面，非常实用。</p>
+
+<p>　　老年归侨侨眷通过“家政服务”版块可以预约家庭保姆、家电维修、送水送气等23项基础生活服务；通过“卫生文教版块”可以享受网上预约挂号等医疗服务；通过“养老服务”版块可以了解和学习到专门为老年人编写的健康指南和饮食指导等相关内容，还可以在线申请“老年人服务券”等。</p>
+
+<p>　　需要特殊照顾的侨界空巢老人还可以直接拨打主页上的服务热线“96333”与志愿者直接预约，提出自己的需求，志愿者会尽快主动上门提供免费服务，帮助老人解决生活困难。章贡区打造的这个智慧信息平台在归侨侨眷和政府、社区之间搭建起一座“联心桥”，使归侨侨眷的帮扶诉求得以及时有效地被记录、响应和解决，收到了良好的社会反响。</p>
+
+<p>　　时代在变迁，始终未变的是我们为侨服务的决心和信念。新时期的侨务工作将紧紧跟随时代的脚步，在创新为侨服务新方式、开拓为侨服务新领域、开辟为侨服务新渠道等方面作出更多积极有益的探索。</p><br>
+                    </font></div></p><meta name="ContentEnd"></td>
+              </tr>
+            </table>
+            <center>
+              <br>
+              <table width="600" border="0" cellspacing="0" cellpadding="0" style="LINE-HEIGHT: 1.6">
+                <tr> 
+                  <td><b><span style="FONT-SIZE: 14px"></span></b> </td>
+                </tr>
+              </table>
+              <br>
+            </center>
+
+ </center>
+        </div>
+ </td>
+ </tr>
+ </table>
+
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<LINK href="/image08/index.css" rel=stylesheet><base target="_blank">
+<title>国务院侨务办公室</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body bgcolor="#D4E8F1" leftmargin="0" topmargin="0">
+<table width="778" height="42" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="35" background="/image08/2008_zwdi.jpg"> 
+      <div align="center"> 
+        <table width="88%" height="16" border=0 cellPadding=0 cellSpacing=0 style="FONT-SIZE: 12px">
+          <TBODY>
+            <TR valign="bottom"> 
+              <TD width="10%" align=middle><a href="/index.shtml" target="_blank"><font color="#0167CC">首　　页</font></a></TD>
+              <TD width="10%" align=middle> <A href="/gzdt/index.shtml" target="_blank"><font color="#0167CC">工作动态</font></a></TD>
+              <TD width="10%" align=middle> <A href="/sqxx/index.shtml" target="_blank"><font color="#0167CC">地方侨务</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">信息公开</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">海外乡情</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hjzx/index.shtml" target="_blank"><font color="#0167CC">华教资讯</font></a></TD>
+              <TD width="10%" align=middle> <A href="/qwlt/index.shtml" target="_blank"><font color="#0167CC">侨务论坛</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zrft/index.shtml" target="_blank"><font color="#0167CC">主任访谈</font></a></TD>
+              <TD width="10%" align=middle> <A href="/ddfp/index.shtml" target="_blank"><font color="#0167CC">定点扶贫</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zt/index.shtml" target="_blank"><font color="#0167CC">专　题</font></a></TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      </div></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0"  style="LINE-HEIGHT: 1.6">
+  <tr> 
+    <td align="center">地址：<font color="#000000">北京市西城区阜外大街35号　邮编：100037　电话：86-10-68327530</font> 
+      <font color="#000000"><br>
+      国务院侨务办公室2004版权所有　中国侨网技术支持 </font><font color="#0099CC"><br>
+      <a href="http://www.miibeian.gov.cn"><font color="#000000">[京ICP备05072101号]</font></a></font></td>
+  </tr>
+</table>
+</body>
+</html>
+
+</div>
+</body>
+</html>

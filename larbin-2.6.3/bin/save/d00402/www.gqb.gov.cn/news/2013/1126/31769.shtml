@@ -1,0 +1,325 @@
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 1.5}
+.14v {
+	FONT-SIZE: 14px}
+
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="docdist" content="北京">
+<meta name="doclang" content="中文">
+<meta name="sitename" content="国务院侨务办公室">
+<meta name="docdate" content="2013-11-26">
+<LINK href="/node2/node3/index.css" rel=stylesheet>
+<title>归侨创业应注意哪些法律问题？</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center"> 
+  <!-- Start Open Web Analytics Tracker -->
+<!-- End Open Web Analytics Code -->
+
+<script language="javascript">
+<!--
+function hidden(){
+   document.searchform.searchword.value="";
+   } 
+function setSearchword()
+{
+	select2 = "", searchword2 = "";
+	//get select
+	select2 = document.searchform.select.value;
+	//get word
+	searchword2 = document.searchform.searchword.value;
+	if(searchword2 == "请输入关键词")
+	{
+		searchword2 = "";
+	}
+
+	if(searchword2 != "")
+	{
+		 if(select2 == "1")
+		{
+			searchword2= "标题=" + searchword2;
+		}
+		else
+		{
+			searchword2 = "正文=" + searchword2;
+		}
+	}
+	document.searchform.searchword.value=searchword2;
+}
+//-->
+</script>
+
+<div align="center">
+<table width="778" height="24" border="0" cellpadding="0" cellspacing="0" bgcolor="#E4E4E4">
+    <tr> 
+ <td width="146" style="FONT-SIZE: 12px">&nbsp;&nbsp;<SCRIPT language=JavaScript>
+<!---
+	today=new Date();
+	function initArray()
+	{
+		this.length=initArray.arguments.length
+		for(var i=0;i<this.length;i++)
+		this[i+1]=initArray.arguments[i]
+	}
+	var d=new initArray("<font color=#FFC8C9>星期日","<font color=#000000>星期一","<font color=#000000>星期二","<font color=#000000>星期三","<font color=#000000>星期四","<font color=#000000>星期五","<font color=#FFC8C9>星期六"); 
+	document.write(" <font color=#000000>",today.getYear(),"<font color=#000000>年" ,"<font color=#000000>",today.getMonth()+1,"<font color=#000000>月","<font color=#000000>",today.getDate(),"<font color=#000000>日</FONT> ",d[today.getDay()+1]," "); 
+//-->
+</SCRIPT> </td>
+      <td align="left" width="284">
+<table width="280" height="24" border="0" cellpadding="0" cellspacing="0">
+  <form name=aa method=post action=http://mail.gqb.gov.cn/index.php target="_self">
+    <tr><input type=hidden name=F_lang value=> 
+        <input type=hidden name=F_tm value=1151047206> 
+              <td width="55" align="right" style="FONT-SIZE: 12px"> <font color="#656565">邮 
+                箱</font>&nbsp;</td>
+      <td width="76" style="FONT-SIZE: 9px"> <input type=text name=F_email value="用户名" size=8 maxlength=20 onFocus="this.value=''" style="COLOR: #656565;">
+      <td width="70" align="left"><input type=password name=F_password value="用户密码" size=8 onFocus="this.value=''" style="FONT-SIZE:12px;COLOR: #656565;"> </td>
+	  <td align="left"><input name=action type=image id=action2 src="/image08/emaillogin.gif" width="50" height="24">
+
+    </tr><input type=hidden name=F_domain value=gqb.gov.cn> <input type=hidden name=F_tpl value="">
+  </FORM>
+</table></td>
+<td width="222"><table width="210" height="24" border="0" align="left" cellpadding="0" cellspacing="0">
+  <form method="post" action="http://search.chinanews.com/was40/search?channelid=28663" name="searchform" onSubmit="javascript:setSearchword();">
+    <tr> 
+      <td width="68" align="left" style="FONT-SIZE: 12px">
+	  <select  name=selectact size=1 style="COLOR: #656565;">
+                <option value="1" selected>标 题</option>
+                <option value="2">全 文</option>
+              </select>
+	  </td>
+      <td style="FONT-SIZE: 9px"><input name="searchword" value="关键字" size="10" style="COLOR: #656565;"> 
+      </td>
+	  <td style="FONT-SIZE: 12px"><input name="submit" type="image" src="/image08/search.gif" width="46" height="24">
+
+    </tr> 
+         </FORM>
+</table></td>
+      <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+      <td width="40" style="FONT-SIZE: 12px"><a href="http://big5.gqb.gov.cn:89/" target="_blank"><font color="#656565">繁体版</font></a></td>
+	  <td width="16"><img src="/image08/jiao.gif" width="16" height="24"></td>
+	  <td width="54" style="FONT-SIZE: 12px"><span  onclick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.gqb.gov.cn');"  style="CURSOR: hand"><font color="#656565">设为主页</font></a></span></td>
+ </tr>
+ </table>
+  <table width="778" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td><img src="/image08/zw_logo.jpg" width="476" height="105"></td>
+      <td><img src="/image08/zw_logo2.jpg" width="302" height="105"></td>
+    </tr>
+  </table>
+  <table width="778" height="34" border=0 cellPadding=0 cellSpacing=0 background="/image08/daohang_bg.gif" style="FONT-SIZE: 12px">
+      <TR> 
+        <TD>&nbsp;</td> 
+                  <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/index.shtml" target="_blank">首　　页</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/gzdt/index.shtml" target="_blank">工作动态</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/sqxx/index.shtml" target="_blank">地方侨务</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zwgk/index.shtml" target="_blank">信息公开</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hwqq/index.shtml" target="_blank">海外乡情</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/hjzx/index.shtml" target="_blank">华教资讯</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/qwlt/index.shtml" target="_blank">侨务论坛</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zrft/index.shtml" target="_blank">主任访谈</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/ddfp/index.shtml" target="_blank">定点扶贫</a></TD>
+
+        <td width="74" align="center" onMouseOver="this.background='/image08/1.gif';" onMouseOut="this.background='/image08/2.gif';" ><A class="daohang" href="/zt/index.shtml" target="_blank">专　题</a></TD>
+                <td>&nbsp;</TD>
+      </TR>
+  </TABLE>
+</div>
+  <table width="778" border="0" cellpadding="0" cellspacing="0" background="/node2/node3/pic/ggybian.jpg">
+ <tr> 
+ <td align="center" valign="top"> 
+ <div align="center"> 
+ <center>
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td  valign="top" width="100%" style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 22px; LETTER-SPACING: normal" 
+ > <p align="center"> <br>
+                    <br>
+                  <div align="center"><strong><font color="#01458A"> <span style="FONT-SIZE: 16px"> 
+                    归侨创业应注意哪些法律问题？ </span></font></strong><font color="#000000"></font><font color="#01458A"><span style="FONT-SIZE: 16px"> 
+                    </span></font></div>
+                  <hr align="center"> <div align="center"> <font color="#808080"> 
+                    【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='20px';"><font color="#808080">放大字体</font></a>】【<a href="#" target="_self" class="white" onClick="Zoom.style.fontSize='12px';"><font color="#808080">缩小字体</font></a>】&nbsp;2013年11月26日 <br></font>  
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+
+                    <table width="450"  border="0" cellspacing="0" cellpadding="0" align="center" span style="FONT-SIZE: 12px;LINE-HEIGHT: 155% ">
+                      <tr> 
+                        <td align="left" class="14v"><font color="#800000"></font></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <meta name="ContentStart">
+                  <p align="left" class=old>
+				  <div align="left" id="Zoom"><font color="#000000"> <p>　　随着中国改革开放程度的不断加深，中国经济得到了蓬勃的发展,国外资本大量地进入了中国市场,久居国外的侨资企业家、留学归国人员也相继回国投资创业。但是与此同时，许多侨资企业家、留学归国人员由于久居国外，对中国市场的规则及商业运作模式比较陌生，不了解商业运作及经营中面临的各种复杂风险。因此，归侨投资者应充分了解在华商业运作与经营中遇到的主要法律问题。</p>
+
+<p><strong>　　劳动合同到期后 劳动关系的处理 </strong></p>
+
+<p>　　侨企在国内开办企业聘用员工，同样要遵守中国劳动法及劳动合同法等相关法律法规的规定。劳动合同期满，除非符合必须签订无固定期限劳动合同的情形，侨资企业可以选择和劳动者续签新的劳动合同也可以选择和劳动者终止劳动合同。但在实践中，有一些侨资企业在员工劳动合同期限届满时既没有续签劳动合同也没有通知员工终止劳动合同，员工继续在侨资企业工作。这种情况属于侨资企业和该劳动者建立了新的劳动关系，原先已经到期的劳动合同自然终止，对侨资企业和劳动者不再具有法律约束力，侨资企业不能再以劳动合同期满为由与劳动者终止劳动合同。侨资企业只能自劳动合同期满之日起1个月内与该劳动者重新签订新的劳动合同，否则就会违反劳动合同法的规定，将面临向该劳动者支付双倍工资的不利局面，超过一年未订立劳动合同的，还将视为与劳动者建立了无固定期限的劳动合同。</p>
+
+<p>　　根据相关的司法实践，如果侨资企业已尽到诚实信用义务，愿意与劳动者续订新的书面劳动合同，而是因为劳动者个人原因不与侨资企业订立书面劳动合同的，侨资企业可以书面通知劳动者终止劳动关系，不过，此时，侨资企业需根据《劳动合同法》第四十七条的规定支付经济补偿金。</p>
+
+<p>　　因此，提醒侨资企业注意，一定要留意公司与各员工签订的劳动合同期限，注意在劳动合同期满前采取相应措施，若希望与员工续签书面劳动合同的，可在期满前续订新的书面劳动合同，以避免期满后因缺乏劳动合同而形成事实劳动关系给企业带来的法律风险；若希望与员工终止劳动合同的，则必须在劳动合同期满前做出决定并书面通知劳动者，以避免形成事实劳动关系。</p>
+
+<p><strong>　　规章制度需要通过职工民主程序</strong></p>
+
+<p>　　制定规章制度是公司实现有效管理的重要手段，也是企业自主经营权的重要内容。但有些侨资企业在一些特殊的规章制度经过民主程序方面做得不是很完备，当发生争议时，内部规章制度制定程序不符合规定可能会导致内部规章制度无效。</p>
+
+<p>　　根据《劳动合同法》第四条规定，侨资企业在制定、修改或者决定有关劳动报酬、工作时间、休息休假、劳动安全卫生、保险福利、职工培训、劳动纪律以及劳动定额管理等直接涉及劳动者切身利益的规章制度或者重大事项时，应当经职工代表大会或者全体职工讨论，提出方案和意见，与工会或者职工代表平等协商确定。同时，侨资企业应当将直接涉及劳动者切身利益的规章制度和重大事项决定公示，或告知劳动者。</p>
+
+<p>　　关于民主程序，企业应特别注意以下两点。第一，公司可以根据具体人数情况，选择通过职工代表大会或全体职工会议的方式开展民主程序，开会时请做好相关签到记录及会议记录，公司可以事后就职工的问题进行总结、归纳、回答。这里需要提醒的是，职工对公司内部规章制度仅有讨论权、而非决定权，最终的决定权在于公司。第二，公司应当将制定完成或者修改完成的规章制度向职工进行公示或告知。如果没有履行公示或告知义务，该规章制度不能作为管理或处罚职工的依据。是否已经对职工进行公示或告知，是由公司承担举证责任，公司无法举证或举证不充分，将承担不利的法律后果。因此，企业某些涉及职工切身利益的内部规章制度经过民主程序非常重要、不可或缺。</p>
+
+<p><strong>　　企业知识产权的保护非常重要</strong></p>
+
+<p>　　知识产权对保护智力成果将发挥越来越重要的作用，尤其是许多侨资企业为知识和技术集中型的企业，能否成功实施知识产权特别是专利保护策略，将直接关系到企业发展的成败。</p>
+
+<p>　　在此，仅就专利权的保护提出一些建议。首先要及时申请专利。如果企业发明创造了一项能够为自身带来可观的经济效益的知识成果(包括产品或技术)，且该产品或技术又很容易遭受仿冒的情况下，应当在该产品投入市场之前依据《专利法》的相关规定，申请并取得专利权。企业在取得专利权后，应当在内部建立完备的专利管理制度，并且根据《专利法》的规定按时缴纳年费。其次，如果是通过委托或合作的方式取得的技术成果，相关当事人应明确约定专利申请权及专利权的归属，否则，在没有约定或约定不明的情况下，委托开发的专利申请权及专利权应归属于受托方，合作开发的专利成果由各方共有。</p>
+
+<p>　　此外，要加强对技术核心人员的管理。大多数情况下，企业的专利一般是由员工以职务发明的形式创造的。因此企业应注意避免因专利人才的流失而导致的对于本企业专利技术的侵害。企业可以与核心技术人员事先签订“竞业限制协议”、“保密协议”等限制措施，要求核心技术人员在离开企业后的一段时间内不得从事与本企业有竞争关系的工作，并义务为企业保守商业秘密、技术秘密等，同时给予相应的物质补偿。这些措施都可以在一定程度上防止企业核心技术人员的流失，从而保护企业的专利权。(人民日报海外版)</p><br>
+                    </font></div></p><meta name="ContentEnd"></td>
+              </tr>
+            </table>
+            <center>
+              <br>
+              <table width="600" border="0" cellspacing="0" cellpadding="0" style="LINE-HEIGHT: 1.6">
+                <tr> 
+                  <td><b><span style="FONT-SIZE: 14px"></span></b> </td>
+                </tr>
+              </table>
+              <br>
+            </center>
+
+ </center>
+        </div>
+ </td>
+ </tr>
+ </table>
+
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE>BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+TABLE {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体}
+A:link {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:visited {
+	FONT-FAMILY: 宋体; TEXT-DECORATION: none}
+A:active {
+	FONT-FAMILY: 宋体 TEXT-DECORATION: none}
+A:hover {
+	TEXT-DECORATION: underline}
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<LINK href="/image08/index.css" rel=stylesheet><base target="_blank">
+<title>国务院侨务办公室</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body bgcolor="#D4E8F1" leftmargin="0" topmargin="0">
+<table width="778" height="42" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="35" background="/image08/2008_zwdi.jpg"> 
+      <div align="center"> 
+        <table width="88%" height="16" border=0 cellPadding=0 cellSpacing=0 style="FONT-SIZE: 12px">
+          <TBODY>
+            <TR valign="bottom"> 
+              <TD width="10%" align=middle><a href="/index.shtml" target="_blank"><font color="#0167CC">首　　页</font></a></TD>
+              <TD width="10%" align=middle> <A href="/gzdt/index.shtml" target="_blank"><font color="#0167CC">工作动态</font></a></TD>
+              <TD width="10%" align=middle> <A href="/sqxx/index.shtml" target="_blank"><font color="#0167CC">地方侨务</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">信息公开</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hwqq/index.shtml" target="_blank"><font color="#0167CC">海外乡情</font></a></TD>
+              <TD width="10%" align=middle> <A href="/hjzx/index.shtml" target="_blank"><font color="#0167CC">华教资讯</font></a></TD>
+              <TD width="10%" align=middle> <A href="/qwlt/index.shtml" target="_blank"><font color="#0167CC">侨务论坛</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zrft/index.shtml" target="_blank"><font color="#0167CC">主任访谈</font></a></TD>
+              <TD width="10%" align=middle> <A href="/ddfp/index.shtml" target="_blank"><font color="#0167CC">定点扶贫</font></a></TD>
+              <TD width="10%" align=middle> <A href="/zt/index.shtml" target="_blank"><font color="#0167CC">专　题</font></a></TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      </div></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td></td>
+  </tr>
+</table>
+<table width="778" height="9" border="0" align="center" cellpadding="0" cellspacing="0"  style="LINE-HEIGHT: 1.6">
+  <tr> 
+    <td align="center">地址：<font color="#000000">北京市西城区阜外大街35号　邮编：100037　电话：86-10-68327530</font> 
+      <font color="#000000"><br>
+      国务院侨务办公室2004版权所有　中国侨网技术支持 </font><font color="#0099CC"><br>
+      <a href="http://www.miibeian.gov.cn"><font color="#000000">[京ICP备05072101号]</font></a></font></td>
+  </tr>
+</table>
+</body>
+</html>
+
+</div>
+</body>
+</html>

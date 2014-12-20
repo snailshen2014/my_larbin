@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">钟宁：开创Web智能和脑信息学研究</h1>
+                	<div class="show_content_info">2014/10/27   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁，男，日本东京大学博士。现任日本前桥工业大学研究生院及生命信息系教授，知识信息系统研究室主任，北京工业大学国际WIC研究院学术带头人，博士生导师。曾任日本山口大学副教授 (1996-2000)、北京市特聘教授 (2006-2009)、北京工业大学兼职教授 (2001-2007)。2010年入选第三批北京&ldquo;海聚工程&rdquo;，被聘为北京市特聘专家。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　IEEE计算智能学会脑信息学任务组 (IEEE TF-BI) 主席、国际Web智能协会 (WIC: Web Intelligence Consortium) 的创办人之一并任主席、《Web Intelligence and Agent Systems》国际学术期刊创刊人之一并任主编、《Knowledge and Information Systems》国际学术期刊副编、《Transactions on Rough Sets》国际学术期刊编委、《Cognitive Systems Research》国际学术期刊编委。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　主要研究兴趣包括人工智能、Web智能、脑信息学、知识发现与数据挖掘、粒计算等。分别于2000年和2004年与合作伙伴共同提出Web智能和脑信息学两个全新的研究方向，在Web智能和脑信息学研究领域具有开创作用和领导地位。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;山不在高，有仙则名;水不在深，有龙则灵。&rdquo;就大学教育而言，这可以理解为大师对于大学的重要性，有大师的大学才具有可持续的发展力和影响力。对于北京工业大学而言，钟宁教授就是这样的学术大家。记者无意抬高钟宁教授的价值，但是在一个新的领域开宗立派乃至开创一个新的科研领域，无论中外，都是一位大家。不过，也许钟宁教授会拒绝记者的这番言论，但是钟宁教授分别于2000年和2004年与合作伙伴共同提出Web智能和脑信息学两个全新的研究方向，在Web智能和脑信息学研究领域具有开创作用和领导地位。这会成为记者结论的胜于雄辩的事实论据。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　好了，我们且追循钟宁教授的一番话语，去理解这些新的学科领域的内涵与价值。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">什么是Web智能</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　Web智能(Web Intelligence，简称WI)是人工智能技术(AI)和高级信息技术(IT)在Web和Internet上的应用和发展。WI技术的基础是AI和IT技术，WI研究的支撑平台是Web网络，因此WI的研究目标就是AI和IT技术在新的Web平台上的共同研究目标。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在这里我们应当先了解Web、Internet和人工智能，在这个基础上，对Web智能自然获得较为清晰的理解。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　Web的本意是蜘蛛网和网的意思，现广泛译作网络、互联网等技术领域，表现为三种形式，即超文本(hypertext)、超媒体(hypermedia)、超文本传输协议(HTTP)等。Internet，中文正式译名为因特网，又叫做国际互联网。它是由那些使用公用语言互相通信的计算机连接而成的全球网络，一旦你连接到它的任何一个节点上，就意味着您的计算机已经连入Internet网上了，Internet目前的用户已经遍及全球。Web和Internet的区别是，Internet采用超文本和超媒体的信息组织方式，将信息的链接扩展到整个Internet上。而Web就是一种超文本信息系统，Web的一个主要的概念就是超文本连接，它使得文本不再象一本书一样是固定的线性的，而是可以从一个位置跳到另外的位置，你可以从中获取更多的信息，可以转到别的主题上。想要了解某一个主题的内容只要在这个主题上点一下，就可以跳转到包含这一主题的文档上。正是这种多连接性我们才把它称为Web。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授说：&ldquo;Web Intelligence研究的内容实际上是万维网(World Wide Web)上的智能，即在Internet之上，遵循HTTP协议的信息系统之上的智能。因此Web Intelligence正确的翻译我想有两种可能更合适，即Web智能或万维智能。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　Web智能与人工智能密切相关，生活在信息时代的我们对于机器人和互联网并不陌生，机器人就是人工智能的一种。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　人工智能(Artificial Intelligence) ，英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。人工智能是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。二十世纪七十年代以来，人工智能被称为世界三大尖端技术之一(空间技术、能源技术、人工智能)。也被认为是二十一世纪(基因工程、纳米科学、人工智能)三大尖端技术之一。这是因为近三十年来它获得了迅速的发展，在很多学科领域都获得了广泛应用，并取得了丰硕的成果，人工智能已逐步成为一个独立的分支，无论在理论和实践上都已自成一个系统。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　除了计算机科学以外, 人工智能还涉及信息论、控制论、自动化、仿生学、生物学、心理学、数理逻辑、语言学、医学和哲学等多门学科。人工智能学科研究的主要内容包括：知识表示、自动推理和搜索方法、机器学习和知识获取、知识处理系统、自然语言理解、计算机视觉、智能机器人、自动程序设计等方面。人工智能在实际应用上包括：指纹识别，人脸识别，视网膜识别，虹膜识别，掌纹识别，专家系统，智能搜索，定理证明，博弈，自动程序设计，还有航天应用等。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;人工智能&rdquo;一词最初是在1956 年Dartmouth学会上提出的。从那以后，研究者们发展了众多理论和原理，人工智能的概念也随之扩展。人工智能是一门极富挑战性的科学，从事这项工作的人必须懂得计算机知识、心理学和哲学。人工智能是包括十分广泛的科学，它由不同的领域组成，如机器学习，计算机视觉等等。总的说来，人工智能研究的一个主要目标是使机器能够胜任一些通常需要人类智能才能完成的复杂工作。但不同的时代、不同的人对这种&ldquo;复杂工作&rdquo;的理解是不同的。例如繁重的科学和工程计算本来是要人脑来承担的，现在计算机不但能完成这种计算, 而且能够比人脑做得更快、更准确，因此当代人已不再把这种计算看作是&ldquo;需要人类智能才能完成的复杂任务&rdquo;。 可见复杂工作的定义是随着时代的发展和技术的进步而变化的，人工智能这门科学的具体目标也自然随着时代的变化而发展。它一方面不断获得新的进展，一方面又转向更有意义、更加困难的目标。目前能够用来研究人工智能的主要物质手段以及能够实现人工智能技术的机器就是计算机, 人工智能的发展历史是和计算机科学技术的发展史联系在一起的。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　到了互联网时代，如何使人工智能技术能够适应Web这一开放、巨大、分布式、动态的多信息源环境的研究，就产生了Web智能。因此，换句话说，Web智能就是应用AI和IT技术来设计和实现智能Web信息系统。可见，Web智能系统是一种高级的基于Web的智能信息系统，它能够实现类似于人类智能的一些功能，包括推理、学习和自适应等。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　关于大家经常讨论&ldquo;Web智能到底与人工智能等学科有何关系，新在哪里&rdquo;这样的问题。钟宁教授借鉴&ldquo;Web Science&rdquo;的观点说：&ldquo;Web Science之所以得到了广泛的关注不但在于倡导它的学者是Web领域的领袖，更重要的是它的目标，即&lsquo;跟踪Web的发展，辨别好的发展方向与不好的发展方向，并致力于发展有益的方向&rsquo;。这样的目标虽然让人难以看出其与传统的Web研究有何区别，然而，却广纳了一切关注Web的研究者。如果沿着这条思路思考下去，究竟什么又是Web智能呢?从我个人的想法来讲，不必强调Web智能有多新，或者革命性，只需将其作为Web环境下有关智能(包括人工智能、人类智能、自然智能)的研究方向也许更务实，更能引起各个领域学者们的广泛关注。目前，我们在Web智能方向的研究重点为基于Web的问题解决和推理的研究。以此为中心，展开Web智能的粒计算 (GrC) 模型、Web智能的面向自治的计算 (AOC) 模型、问题解决标记语言PSML、智能门户开发技术及电子邮件智能应用、智慧物联万维网等方面的研究。这方面的研究特色主要在于将在单机环境下的人工智能技术与信息技术扩展到Web这一全局的、巨大的、分布的多信息源环境中，以人机物合一的观点研究人与Web的问题求解和推理，弥补现有Web规模及环境中缺少问题求解和推理功能的缺陷。同时在云计算的平台上，实现&ldquo;物-数据-信息-知识-智慧-服务-人-物&rdquo;的数据循环，建立智慧物联万维网，达到&ldquo;人-机-物&rdquo;的合一。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">怎样理解Web智能</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟教授告诉记者，与传统计算机科学相比较，Web科学的观察和研究视角更广泛，是多学科交叉和融汇的产物。为此，Web智能是从不同角度分析具有不同的特征和性质。正是这些多侧面的反映，Web智能才会获得全面的勾勒和描述。科学表明，科学的进步就是对研究对象的描述不断清晰化的过程。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1、智慧Web角度。按照信息科学和科学管理对数据、信息、知识和智慧不同层次的定义，可以将Web分成数据Web、信息Web、知识Web和智慧Web。目前Web相关技术可以处理数据、信息并在一定程度上处理知识。为了更好地为人们服务，将Web变成具有类似人类智能的智慧Web是新一代Web的重要发展方向。智慧Web可以简单理解为在合适的时间，将合适的内容和合适的服务提供给合适的对象。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2、物联网角度。随着互联网技术和物联网技术的发展，在不久的将来，基于计算机互连的计算机世界将与人的社会世界和物的物质世界逐渐融合。一个涵盖人、机、物的超世界逐渐形成，并作为&ldquo;环境&rdquo;对人类社会以及每个成员的生产生活产生巨大影响。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　3、功能和技术角度。包括四个层次：这可以从超世界的运转看出来。第一层，因特网层;第二层，接口层，这是物、因特网和人各自世界的表达与翻译，产生相互理解的约定数据或符号。第三层，知识层，对信息进行加工。第四层，应用层。就是通过智能表达，人对超世界的有机参与和互动，智能就体现在这些互动和参与的大系统中。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　4、Web信息系统角度。主要是指Web具有的智能化功能，能够实现数据的能动性、具有近似于人的信息和问题处理能力，满足人们的更高需要。其实，这是现在Web功能向智能化的升级，逐步具有近似于人的功能性，从而更好地协助人类。在这个意义上，Web真正实现了了人脑的延伸，人类更加具有打造必然王国的能力。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　5、问题解决角度。随着互联网的发展，人们目前面临的数据与知识呈多样性、分散性、海量性等特征。怎样用合适的语言模式对数据检索和推理，并得出结论，用于决策，就变得难但重要。国际上已经有相关的研究和成果，提出各种语言表达。钟教授等专家在Web智能的基础上提出了PSML语言，目的是将Web信息数据和知识有机有效地组织和表达出来。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　6、人机交互角度。人机交互是Web软件的根本使用模式，随着Web软件的发展，服务化、效率化和智能化成为新要求。值得注意的是，与传统计算机(信息系统)比较，Web软件呈现信息量大、动态变化、不确定性等新特点。人在与Web软件互动时，随时需要做出决定，选择还是放弃信息。这就需要人的决策。认知科学认为，人具有基于感性的第一思维系统和基于理性的第二思维系统。由于信息量大、动态变化、不确定性、多信息源的情况下，很难逻辑性地得出结论，因此第一思维系统要参与到决策中。Web智能就是试图研究出一种机制，更有利于人们的决策。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　7、人类智能研究角度。问题解决和推理是体现人类智能的两个主要方面。在认知科学和人工智能领域，与问题解决和推理相关的理论与技术得到相应的研究。在认知科学中，问题解决与人的注意、控制、记忆、语言、推理和学习等以推理为中心的认知功能相关。在人工智能领域，图灵于1950年曾对具有人类智能水平的机器智能给予科学的讨论。McCarthy曾指出，要实现具有人类智能水平的人工智能要求计算机程序能处理常识信息。近年来，具有人类智能水平的Web智能被提出，联合机器智能、人类智能和社会智能进行研究。这一系统应有人类水平的智能信息处理的主要能力，例如实时反应、与所在环境自主交互、自然语言交流、常识推理、问题解决、决策、学习、发现和创造等等。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授说：&ldquo;我们研究Web智能的梦想是不但要使其达到人类的智能水平，还要利用它来为人类处理信息提供新的方式和手段。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在记者看来，Web智能是计算机科学发展到一定阶段的产物。人类赋予世界以智慧的能力，从这个意义上来讲Web智能深刻地表达了我们这个世界的文明度，也深刻地承载了我们的理想。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">开创脑信息学</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　关于什么是&ldquo;智能&rdquo;，这涉及到诸如意识(consciousness)、自我(self)、思维(mind)(包括无意识的思维(unconscious_mind)等等问题。人唯一了解的智能是人本身的智能，这是普遍认同的观点。但是我们对我们自身智能的理解都非常有限，对构成人的智能的必要元素也了解有限。因此Web智能的研究往往涉及对人的智能本身的研究。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授介绍说：&ldquo;目前，北京工业大学国际WIC研究院主要进行两方面的研究，一个是Web智能，另一个是脑信息学。Web智能是人工智能与网络技术的结合。我们期望的Web智能是在我们进行检索或其他行为时，人机对话能够像人与人之间的对话一样，能够理解人的思路、心理、行为等，真正为人类工作。人工智能的创始人之一西蒙曾这样描述人工智能：开发的机器能够像人一样思考。但是，人到底是怎么思考的，直到现在我们仍不清楚，这就需要我们去研究，把&lsquo;黑壳&rsquo;打开，研究人脑是怎样进行信息处理的、知识数据是怎样组织加工的等等。然后，把人脑的信息处理模型化，并应用于Web智能系统;也就是说，通过对脑信息学的研究，总结出人类智能的内部机制，并运用到Web智能的实现过程。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　对人脑推理等方面的研究，以前主要是通过人的外在行为进行的。钟宁举例说：&ldquo;比如，问你一个问题，你回答我，我通过你的答案推理你是如何思考的。这种方法限制很大，精准度也不高。所以，与脑信息学相结合成为提高Web智能化的必需。脑信息学开放实验室也是在此基础上建立起来的。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授介绍说，脑信息学方面的主要研究理念是：侧重于将大脑看作信息加工处理系统，利用脑成像和信息技术作为主要手段，系统研究人类语言、推理、决策、问题求解、学习、发现和创造等以思维为中心的人类高级认知活动的神经机制和信息加工过程;在Web和Internet时代，从Web智能 (Internet时代的人工智能) 研究和开发的需要出发，针对需要解决的问题来研究人类智能机制，从而提出全新的认知模型和计算模型，建立新一代Web智能理论模型、技术和方法论，实现从人机接口 (HCI) 到脑机接口 (BCI) 的转变;Web智能中的数据、信息、知识管理和处理技术可以为脑科学研究提供一个新的强有力的平台，采用Web智能技术建立数据脑模型，支持多侧面的数据分析方法学及脑信息中心构建技术，对抑郁症、帕金森病、癫痫等与人脑及认知功能相关的重大疾病研究提供强有力的支撑作用，实现智能e/m-医疗和e/m-健康系统，并可在智能交通方面为北京市发展作出贡献。近几年钟宁教授在脑信息学方面的学术成果主要体现在人脑推理的信息加工机制等基础研究方面，创新性地提出利用特异数据分析方法对ERP和fMRI数据进行分析研究，并总结出一整套系统化的脑信息学方法学，以及基于数据脑的数据概念模型驱动的执行策略，以支持对思维为核心的人脑高级认知功能及神经机制的深入研究。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　据介绍，脑信息学开放实验室由北京工业大学与首都医科大学附属宣武医院共同组建，目的是促进Web智能与脑信息学的交叉融合研究。据介绍，实验室的定位是以思维研究为中心，主要通过功能性核磁共振和脑电两种方法进行研究。实验通过给人一些刺激，如一段话、一个句子，让人去理解或让人计算一些数据等，来观测大脑是怎样工作的、大脑的反应过程是怎样的。功能性核磁共振主要测试大脑信息处理的空间特性，即观察人在思维的时候大脑各部分的变化;而脑电测试的是时间特性，即观察人在思维的时候大脑各部分发挥作用的先后顺序;最后综合这两方面的信息，找到大脑的知识数据表达方法，并将其模式化，运用于Web智能研究领域，使网络像人一样具有思维、决策、学习等能力。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　开创者的轨迹</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授是日本东京大学博士。现任日本前桥工业大学研究生院及生命信息系教授，知识信息系统研究室主任。作为一位海归精英，它的创新工作为祖国争得了荣誉，使得中国在相关领域研究处于国际领先水平。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在Web智能领域，创造性工作包括：2001年发起了Web智能国际学术会议，目前该会议已成为国际学会IEEE和ACM系列会议;创办了Web智能相关的学术期刊《Web Intelligence and Agent Systems》;2002年与合作伙伴成立了国际Web智能协会WIC，目前已在20多个国家和地区建立了研究中心，并于2006年成立了WIC的实体研究机构&ldquo;国际WIC研究院&rdquo;这些工作和成果奠定了Web智能领域的发展基础，对该领域的发展产生了深远的影响。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授曾受在西班牙举行的AWIC 2003国际会议邀请做特邀报告，之后多次受国际学术会议的邀请做特邀报告。2008年，作为中国唯一的合作单位参加了欧盟第七研究框架计划项目&ldquo;The Large Knowledge Collider (LarKC): a platform for large scale integrated reasoning and Web-search&rdquo;(大规模知识加速器：推理和Web搜索集成平台)。该项目成员组由11个国家的计算机科学、认知科学以及经济学等领域的14个科研机构组成，欧盟投资800万欧元。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在Web智能的研究基础上，2004年，钟宁教授等在WIC工作会议上提出了脑信息学这一全新概念，逐渐形成了以思维为中心的研究体系以及从信息学角度研究人的大脑和使用信息技术支持脑科学研究的脑信息学方法学，着重研究数据脑的构建，强调&ldquo;Web智能与脑信息学交叉融合&rdquo;的研究特色。自提出脑信息学研究方向以来，2006年分别受美国斯坦福大学认知与学习研究中心和IEEE计算机协会Santa Clara Valley支部(美国硅谷地区)的邀请做特邀报告;成功发起并举办&ldquo;2006 WICI Web智能与脑信息学国际研讨会&rdquo;，并由Springer出版社出版了会议论文集，会议论文集是此交叉领域的第一本著作。2009年发起了脑信息学国际学术会议 (2009 International Conference on Brain Informatics)，成立了IEEE计算智能学会脑信息学任务组 (IEEE TF-BI) 并任主席;2010年在国际学术期刊《Cognitive Systems Research》(Elsevier出版社) 上组织了脑信息学研究领域的第一本特刊;2011年在国际学术期刊《IEEE Intelligent Systems》上出版脑信息学的论文专辑。以上工作推进了脑信息学的发展，并奠定了钟宁教授在该研究领域的主导地位。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　钟宁教授有着一位学术大家的使命感和责任感，这些从他面部充满意志力的线条和坚定的眼神中表达出来。不过记者感受更多的是他作为学者的谦和，这种谦和，更让人感受到一种强大的气场扑面而来&hellip;&hellip;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创新感悟：</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　搞科研一定要严谨、谦虚，不断创新。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 撰稿：李政 宋道宇</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

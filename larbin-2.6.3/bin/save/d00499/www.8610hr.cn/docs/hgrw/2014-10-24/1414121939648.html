@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">张世龙：成长为世界一流的模拟芯片公司</h1>
+                	<div class="show_content_info">2014/10/24   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙，男，河北张家口人。1999年毕业于美国亚利桑那大学，获航空航天和机械工程系博士学位。回国前曾在国外一家知名芯片公司担任电子设计工程师，并兼任质量评审委员会委员且两届轮值主席。作为电子设计专家，张世龙博士拥有5项发明专利，包括超载恢复电路及方法、高速CMOS运算放大器快速截止及运算放大器输入级等。2007年在国内创办圣邦微电子(北京)有限公司。圣邦公司作为一家拥有核心技术的芯片企业，专注于高性能、高品质模拟/混合信号集成电路研发、生产和销售。主要产品有运算放大器、数模/模数转换器、音频/视频放大器以及电源管理芯片等。产品广泛应用于通讯、消费类、工业、医疗和汽车电子等领域。技术和管理团队核心成员由来自国际同行业的资深专家组成，拥有先进的集成电路设计、工艺、测试技术和质量管理经验。2010年3月 被认定为2009年&ldquo;中关村高端领军人才&rdquo;;2010年8月入选第三批北京&ldquo;海聚工程&rdquo;，被认定为&ldquo;北京市海外高层次人才&rdquo;;2010年12月 入选第五批中央&ldquo;千人计划&rdquo;。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙是国内知名的专注、专门且高度专业做模拟芯片的企业家。1966年出生的张世龙看上去就像三十几岁的年轻人，那满面的阳光让人感到青春逼人。这是一个心中有太阳的人，乐观，积极，向上。这种气场明显地在他们的公司存在着，每个人都那么轻松而充满活力。2007年才创立的圣邦微电子(北京)有限公司短短几年就在业内广受瞩目，连续四年被评为&ldquo;十大中国IC设计公司品牌&rdquo;，而张世龙博士也在2010年相继入选中关村&ldquo;高聚工程&rdquo;、北京市&ldquo;海聚工程&rdquo;和中央&ldquo;千人计划&rdquo;&hellip;&hellip;这些既证明了张世龙所带领团队的力量，也证明&ldquo;阳光&rdquo;的热力。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　和张世龙博士的交流充满思辨，但是温馨和煦、深入浅出，记者撷取其中的最精彩处作为文章每个部分的标题。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　模拟芯片是电子信息产业很重要的触角</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　是连接现实世界与数字虚拟世界的桥梁</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙博士介绍说：&ldquo;我们生活的世界是一个模拟世界。自然界中的声音、光线、压力、温度等都是模拟信号。模拟信号一般需要被调制并通过模数转换芯片转换成数字量才能被数字电路接受和处理。而数字电路的输出一般也需要数模转换芯片转换成模拟量才能重新影响我们所在的模拟世界。所以，模拟芯片是连接现实世界与数字虚拟世界的桥梁&rdquo;。模拟电信号是对现实世界的模拟表达，而数字虚拟世界则是将模拟电信号转换成数字信号的结果。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　从电子产品应用来看，数字化是发展的趋势。不过，模拟芯片市场不会因为数字芯片的发展而萎缩，甚至还会获得更多机会。从应用的角度来看，任何电子产品的最终使用者都是人，作为人与设备的界面并让人与设备实现互动的都是模拟电路，因此，数字芯片的发展会带动模拟芯片市场的增长。可见，模拟芯片的市场何其广阔!张世龙博士告诉记者，世界模拟芯片市场占整个世界芯片市场的10-15%，大概300-400亿美元。从某种意义上来说，模拟芯片是全球半导体产业的晴雨表，基本代表了整个市场的发展状况。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　对模拟芯片和数字芯片的关系，张世龙用人的大脑和眼睛、耳朵、鼻子和皮肤做了一个形象的比喻：&ldquo;人的大脑好比是数字芯片，而眼睛、耳朵、鼻子和皮肤好比是模拟芯片。大脑再聪明、算得再快，但如果眼睛看不清、耳朵听不清、鼻子闻不到气味、皮肤也感觉不准温度，那么大脑也很难做出正确的判断。所以模拟芯片和数字芯片同样的重要。&rdquo;&ldquo;随着集成电路工艺的进步，数字芯片的规模越来越大，计算速度越来越快，存储量越来越大，功能越来越强。这就对相配合的模拟芯片提出了更高的要求，要求模拟芯片速度更快，精度更高，噪声更低，功耗更低等。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　模拟芯片主要是指由晶体管、电阻、电容等组成的模拟电路集成在一起用来处理模拟信号的集成电路。模拟芯片中的电压和电流量随时间是连续变化的。模拟芯片有许多种，如运算放大器、模数转换器、数模转换器、滤波器、锁相环、电源管理芯片等。模拟芯片的主要构成电路有：电流源、电流镜、差分放大器、反馈电路、基准源电路、开关电容电路等。模拟集成电路设计主要是通过有经验的设计师进行手动的电路调试，模拟仿真而得到，与此相对应的数字集成电路设计大部分是通过使用硬件描述语言在EDA软件的控制下自动地综合产生。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电源管理芯片也被看成模拟芯片，比如DC/DC转换器和LDO，他们的主要功能是给系统中其他的芯片提供稳定的供电电源。目前节能环保是全球发展的主题，各种终端设备对节能环保的要求也在不断提高，这会加速电子产品的更新换代，所以电源管理产品市场被普遍看好。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　有关专家表示，尽管竞争激烈，从全球范围来看，欧美公司依然占据着全球模拟和电源管理IC的主要市场。与全球相比，中国的模拟器件市场主要有四个特点：消费电子市场需求偏大，因为中国是全球最大的消费电子生产基地，所以用于消费电子的模拟芯片需求比例就特别高;中低端需求较大;工业市场很小但增长很快;对外依赖度较高，超过80%的模拟芯片都来自进口。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　就市场而言，专家们认为包括手机在内的无线通信仍将是整个模拟IC市场增长的主要推动力。就产品而言，因为电源管理IC占据了40%～45%的模拟IC产品份额，因而这类应用的绝对发展速度肯定是最快的。由于几乎所有的电子类应用都离不开电源，因而无论哪个行业的发展都将为电源管理IC的发展带来契机。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　随着应用不断向亚洲尤其是中国大陆转移，亚洲公司的份额正在明显上升。比如计算机市场，由于大多数的主机板由我国台湾地区的公司生产，已有十几家台湾地区电源管理IC公司上市。中国大陆也必将在继制造业后出现芯片设计的世界级企业，对于注重应用和市场服务的电源管理IC更是如此，只是由于人才上的滞后，这种趋势比台湾地区发生的晚一些罢了。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙预言：&ldquo;未来几年中国IC设计产业会继续快速发展。圣邦则会继续专注高性能模拟集成电路的开发，专注于电信号和电源管理IC等细分领域，继续在DC/DC转换、LED驱动、电池充电、LDO、复位芯片、模拟开关、运算放大器、视频驱动和音频功放等领域推出升级的产品。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">圣邦的远景目标就是做世界级的模拟芯片公司</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　持续发展来源于不断创新</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;在圣邦成立之初，我们就立志要成长为世界一流的模拟IC公司，ADI、LTC、美信和TI等公司一直是我们学习的榜样。在学习榜样的同时，圣邦也不断创新，加大研发的投入，做出自己的特色，在某些细分的领域已能做出世界级的产品。例如我们的高精度运算放大器SGM8551，它的失调电压只有几个微伏，100摄氏度的温飘只有2微伏，此产品的性能已经达到了世界领先水平，可用于工业和医疗上的精密测量;还有微功耗的运算放大器SGM8141，它的静态功耗只有300nA，这已经成为世界上所有运算放大器中功耗最低的一款，可用于电池供电要求节能的设备;又比如圣邦的LDO SGM2031 外形尺寸只有1 mm x 1 mm, 是世界上最小的LDO，非常适合精巧超薄的便携式产品&rdquo;。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　又比如圣邦推出的7通道DC/DC转换器SGM2100。该产品是专门针对数码相机、GPS和智能手机开发的一款电源管理单元(PMU)，它集成了升压DC/DC、降压DC/DC、负压DC/DC、背光驱动和LCD偏置电压电路。可以为系统厂商提供完整的电源管理方案，可以有效帮助系统厂商缩短产品开发周期。&ldquo;之前我们的很多产品都与我们学习的榜样Pin to Pin(兼容、 相容)，但是这款产品是我们自己创新的，目前世界上尚无与之Pin to Pin(兼容、 相容)的产品。该产品推出后已引起相当的客户关注。&rdquo; 张世龙说。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在创立以来几年中，圣邦微电子专注模拟IC的研发，在质量管理上丝毫不敢懈怠，已累计为客户提供了超过十几亿颗芯片，为全球电子产业的发展做出了一份贡献。最近，圣邦微电子入选2011十大中国IC设计公司品牌，圣邦已经连续4年获此殊荣。这也表明了圣邦的实力和持之以恒。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　圣邦在芯片及电子行业以低调务实而闻名。虽不张扬，但是圣邦每年都有创新，每年都能推出几款升级的产品，性能上乘，质量过硬，且性价比好。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　经过几年的发展，圣邦微正在一步一个脚印地走向成功。张世龙表示：&ldquo;做模拟IC公司很难像做数字IC公司一样，几款成功的产品便可形成巨大的销售额，甚至可以去做一个IPO。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　圣邦主要关注的市场有通讯、消费类、工控、照明、医疗和汽车电子等。张世龙告诉记者，圣邦也会继续为这些市场推出高性能模拟集成电路产品。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　做模拟芯片是个慢慢积累的过程</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　在游泳中学习游泳</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　模拟领域产品很多，客户也非常分散</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　因此必须要能踏下心来，一步一个脚印地去做</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　对于一家渴望通过创新获得市场地位的公司，技术的积淀无疑是必不可少的。创新并不会凭空而来，创新必然是长年累月厚积薄发的过程。张世龙说：&ldquo;圣邦在实践中实现创新，在游泳中学习游泳。创新不能空谈，一定要做事，才有创新的机会，潜质才会被激发。圣邦的文化是不怕犯错，但要做事，要有担当，我们有对失败的承受能力。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;企业经营需要技巧，企业的长期发展要靠综合实力，综合实力体现在哪里?过硬的产品，专业的市场和销售，及时的供货，公司稳定有效的架构，好的企业文化等等。需要脚踏实地，对经营链条长期的投入，这是Running Game，是马拉松，绝不是单靠投机取巧的方式就能获得的&rdquo;。张世龙说，&ldquo;很多人认为模拟IC公司的进入门槛低，其实不然，它必须要积累，产品要不断扩展，才能生存下去。做模拟芯片是个慢慢积累的过程。模拟领域产品很多，客户也非常分散，因此必须要踏下心来，一步一个脚印地去做。&rdquo; 正是这种积累的力量，在研发上不断投入和创新，圣邦在一些细分市场上已处于世界领先地位。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;质量是企业的生命，圣邦特别重视质量和可靠性，在质量和可靠性相关的测试方面进行了大量的投入。圣邦从上至下对质量的理念都是一样的：性能与质量不能比国际一流公司差。&rdquo;张世龙说，&ldquo;一个公司发展起来不容易，但如果放松了质量控制，企业崩塌下来只是一夜之间的事。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;产品可靠性是可以设计出来的，然后用试验来进行验证。我们狠抓产品测试流程中的每个环节，严格按照行业规范进行各项可靠性实验，确保将圣邦的每一片产品，无论从性能上还是质量上，都做到世界一流。质量可靠、性价比好已经成为绝大数圣邦用户对我们产品的评价。&rdquo;张世龙告诉记者。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;耗电更少，速度更快，精度更高&rdquo;，志当存高远，圣邦正在用现实主义的脚步走向未来。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　脚踏实地是圣邦的圣经</span></strong></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　通过市场定义产品</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　什么叫Business?</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　Make something and can sell it</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙经常和员工强调&ldquo;脚踏实地&rdquo;，这已经成为圣邦的灵魂。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙告诉记者，从经营链条上，&ldquo;脚踏实地&rdquo;表现为能够对市场进行宏观把握，进行战略的选择，&ldquo;由市场决定定义什么产品&rdquo;。产品不但能够定义出来，还要能够做出来，做出来后市场还能接受。也就是说，一个好产品，能不能卖出去，卖得怎么样是一个终极标准。&ldquo;什么叫Business? Business就是You make something and you can sell it.&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在产品上，&ldquo;脚踏实地&rdquo;表现为定义、设计、版图、测试、质量保证、量产等环节的环环相扣和一丝不苟。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在公司治理上，&ldquo;脚踏实地&rdquo;表现为打造制度化的理性架构，流程明细，运行稳健，将激情有机地放在这个&ldquo;有形的管理架构&rdquo;里，推动公司健康成长。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在企业文化上，&ldquo;脚踏实地&rdquo;表现为员工们的工作作风，乐观、诚实、具有凝聚力，并形成一个充满活力和执行力的团队。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在公司发展上，&ldquo;脚踏实地&rdquo;表现为有理性、节制地发展。张世龙说：&ldquo;企业成长起来很艰苦，倒下去在一夜之间。所以一定要脚踏实地，要有危机感，成长慢一点没有关系，但成长的要有质量。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在公司发展着眼点上，&ldquo;脚踏实地&rdquo;表现为，一是着重人才的培养;二是狠抓产品的质量;三是做有责任感的企业。尽量减少恶性竞争，要通过自己产品优秀的性能，可靠的品质，一流的服务去赢得客户，而不是单单依靠低价格。这样既对自己负责任，也对整个行业负责任，对社会也负责任。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　财富是副产品</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　微笑的工作表情</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　阳光、健康的文化</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙认为，财富是副产品，把事情做好，财富自然会来。对于企业而言，把事情做好，就需要打造好的团队和企业文化。圣邦提倡的是&ldquo;阳光、健康的文化&rdquo;。确实，记者看到每个员工都带着微笑，圣邦的工作氛围很温暖。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;我经常和员工强调，把内心的真诚和善良焕发出来，正面影响别人，走进办公室，给大家带来快乐。&rdquo;张世龙说，&ldquo;正是这种文化的作用，整个公司的气氛十分轻松，大家都很快乐。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;如果有成绩多用&lsquo;我们&rsquo;，成绩是大家努力的结果;有了过失，多用&lsquo;我&rsquo;，多在自己身上找原因。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　正是这种文化的作用，圣邦的团队很有凝聚力，能够同舟共济，共度时艰，能够为企业着想，放眼未来。在2008年金融危机时期，公司的资金吃紧，骨干员工们主动要求降薪，而且工作更加努力，结果圣邦逆势成长，不断推出新产品，销售更是上了一个台阶。在业内，同行们都知道圣邦是一家节俭的公司，这些都是员工们的一种主动为企业着想所逐渐形成的。这样的企业形象也表明圣邦是脚踏实地的，是真正干事业的。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　正因为圣邦的企业文化、企业业绩和企业形象三者共同作用所形成的企业发展态势，使圣邦产生着巨大吸引力，许多英才纷纷加盟，圣邦的事业脚步越来越快。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创业艰难，但是创业也是幸福快乐的过程。不信?请看圣邦那里的灿烂阳光&hellip;&hellip;</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　做&ldquo;好的&rdquo;竞争对手,不做&ldquo;烂的&rdquo;竞争对手</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　Good Competitor and Bad Competitor</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙提出一个新的概念：&ldquo;要做&lsquo;好的&rsquo;竞争对手，不要做&lsquo;烂的&rsquo;竞争对手。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙坦言，&ldquo;模拟IC行业的竞争同几乎所有行业一样也是异常激烈的。圣邦不但不惧怕竞争，相反非常欢迎有质量的竞争。因为只有竞争才会使强者更强。圣邦欢迎&lsquo;好的&rsquo;竞争对手的出现。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙还做了一个比喻，&ldquo;我们为什么要保护狼，保护鲨鱼?因为这样可以使生态环境更健康，更有生命力。在没有竞争的环境下长大，很可能只是个大草包!&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;圣邦要当&lsquo;好的&rsquo;竞争对手。好的竞争对手应当有能力做出客户需要的、性能上乘、质量过硬、性价比好的产品，能给客户带来直接价值和附加价值;&lsquo;好的&rsquo;竞争对手能帮助客户提升产品性能，改进设计，稳定供货，帮助客户长期可持续的发展;&lsquo;好的&rsquo;竞争对手看的比较长远，不会计较一城一地的得失。相反，&lsquo;烂的&rsquo;竞争对手则只有杀价格一招。偶尔引诱客户用上他的产品，却发现后面再也没有降价空间，且质量和供货也经常出问题。这类竞争对手不但使自己得不到应有的积累，对整个IC行业乃至整个电子行业也是具有破坏性的。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;希望中国涌现出更多的&lsquo;好的&rsquo;竞争者，这样中国经济在增长的同时，其质量也能得到同步的提高。&rdquo;张世龙语重心长的说。</span></span></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　做一个正直的人</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　做一个好人</span></span></strong></p>
+<p><strong><span style="font-family: 宋体"><span style="font-size: 14px">　　爱国，也爱自己的家</span></span></strong></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙是河北张家口人，但是看上去，有江南人的清秀。他所学的专业和模拟IC几乎没有关系，但是他最终走向了模拟IC事业，并在中国具有领跑者的地位。这是怎么发生的呢?必然的东西是偶然的，偶然的东西是必然的，黑格尔早就洞悉了这个世界的秘密&mdash;&mdash;张世龙一直喜欢把所学的专业和电子相结合，这种情结不自觉地将他带入IC的世界。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　张世龙在北京交通大学读的是铁道机械系机车柴油机专业，并在交大读了研究生，导师研究机器人，这和电子学有了一些关系。毕业后，他在铁道部一家设计院工作了三年半，他踏实肯干，充满阳光、活力和责任心，为出国复习托福和GRE没有占用一天的工作时间，临出国那年还得了设计院5项奖：先进生产者、优秀论文奖、优秀设计奖和优秀软件奖等，可见单位同事对他的认可。在美国亚利桑那大学，他获得航空航天和机械工程系博士学位。在校期间，他用计算机控制过金属板材成型、车床等加工过程，曾用运算放大器搭过伺服放大器，这使他离微电子更近了。在攻读博士学位期间，他一口气在电子工程系学习了十几门控制理论、建模、仿真、模拟IC设计、电源管理IC方面的课程。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;天下还是好人多，做人要做正直的人&rdquo;。这种做人的方式，深受他父母的影响，父母从小教育他&ldquo;做事先做人;做一个诚实、善良的人，一个对社会有用的人&rdquo;。尤其是他父亲的言传身教，张世龙铭记于心。他的父亲生前做财务工作，人很正直，工作认真敬业，几十年没错过一分钱。张世龙对自己的父亲十分尊敬。事实上，张世龙对员工很少批评，以鼓励为主，都深受父亲的影响。遗憾的是，父亲在张世龙创业最紧张的时候得了重病，在父亲弥留之际，对他说：&ldquo;你回国做得对!&rdquo;面对记者，张世龙很痛苦，他自问：&ldquo;为什么生命中最重要的东西忽然间就没有了?&rdquo;他觉得应当陪父亲更多的日子，如果他能看到圣邦的今天，那该多好啊!</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创业是艰难的，没有太太的支持，是不可能坚持下来的。刚开始创业时，张世龙的太太一个人在美国带两个女儿，大女儿八岁，小女儿只有一岁。太太很要强，受了很多苦，但愣是坚持下来了。公司资金链紧张时，员工发不出工资，张世龙卖了他们在美国的养老金给员工发工资，太太二话没说，全力支持，而她却连自己在美国的医疗保险都停了。公司资金链又紧张时，张世龙用他个人的全部股份作抵押，给公司借了1000万度过难关，太太还是全力支持。由于两地分居，张世龙很少能见到孩子，没有在孩子的成长期内在孩子身边，这是张世龙永远的遗憾。为此，张世龙最近将孩子们都接到中国，让孩子多了解中国文化。他感到欣慰的是，大女儿读了许多中国的历史，中文有了很大进步，从&ldquo;刻舟求剑&rdquo;，&ldquo;郑人买履&rdquo;，&hellip;&hellip;现在知道&ldquo;先天下之忧而忧，后天下之乐而乐&rdquo;了。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　产品的品质如人品，企业的形象如人品，做事如做人。古人讲&ldquo;内圣外王&rdquo;，相信张世龙这种人格的阳光会成就一个辉煌的世界!2010年3月，张世龙被认定为2009年&ldquo;中关村高端领军人才&rdquo;;2010年8月，被认定为&ldquo;北京市海外高层次人才&rdquo;;2010年12月，入选中央&ldquo;千人计划&rdquo;&hellip;&hellip;这些证明了张世龙领导的团队已获得各界广泛的认可&hellip;&hellip;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;圣邦创立以来，一直按着规划发展，向着自己的理想和目标，一直在努力。&rdquo;张世龙说，&ldquo;我们的目标是&lsquo;圣邦无处不在&rsquo;，只要有声音，有图像，能发光的地方，就有圣邦的产品!&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在不远的将来，希望，中国能成长起一批世界级的IC设计企业;希望，张世龙带领圣邦走向世界&hellip;&hellip;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　创业感悟：</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　脚踏实地，持之以恒。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　撰稿：秦皇李</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

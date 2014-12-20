@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="author" content="chinaqw" />
+<meta name="copyright" content="www.chinaqw.com,版权所有" />
+<meta name="keywords" content="罗柯,美国,侨报,不利于,写作" />
+<meta name="description" content="美国《侨报》： 在美国生活华人的孩子一般在学校说英文，回到家如果不是家长特别要求，也是说英文，那罗柯建英在家里说英文多还是中文多。" />
+<title>中国侨网-美华裔母亲教混血儿子学中文 分享经历和故事(图)</title>
+<base target="_blank"/>
+<link href="http://www.chinaqw.com/css/index.css" rel="stylesheet" type="text/css" />
+<!--[894,5,30160] published at 2014-12-16 15:28:04 from #10 by 王海波,designer:liuxin  maker:liweiwei zhaoqian -->  
+<script src="http://www.chinanews.com/js/jquery1.4.js"></script>
+<script language="JavaScript"> 
+<!--
+    document.domain = "chinaqw.com"; 
+
+-->
+</script>
+<SCRIPT type="text/javascript" SRC="http://www.chinanews.com/javascript/swfobject.js"></SCRIPT>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body >
+  <!--表情字段开始-->
+  <input id="newsid" type="hidden"  name="newsid"  value="894_5_30160"/>
+  <input id="newsurl" type="hidden" name="newsurl" value="http://www.chinaqw.com/hwjy/2014/12-16/30160.shtml"/>
+  <input id="newsdate" type="hidden" name="newsdate" value="2014-12-16"/>
+  <input id="newstime" name="newstime" type="hidden" value="15:11:25"/>
+  <input id="newstitle" name="newstitle" type="hidden" value='美华裔母亲教混血儿子学中文 分享经历和故事(图)'/>
+  <input id="newstype" name="newstype" type="hidden" value='hwjy'/>
+  <input id="moodtotal" name="moodtotal" type="hidden" value='0'/>
+  <input id="bbstotal" name="bbstotal" type="hidden" value='0'/>
+  <input id="creator" name="creator" type="hidden" value='limingyang' />
+  <input id="editorname" name ="editorname" type="hidden" value='李明阳' />
+  <!--表情字段结束-->
+<!--返回顶部-->
+<style type="text/css">
+body{background:#e9f1f6;}
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.index_layer {
+	position: fixed;
+	_position: absolute;
+	width: 60px;
+	right: 350px;
+	bottom: 167px;
+	_bottom: 167px;
+	_height: 150px;
+	z-index: 100;
+}
+
+.index_layer .back a {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.index_layer .back a:Hover {
+	background: url(http://i3.chinaqw.com/qiaowu/images/back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.menuTop1{ top: 555px;}
+.menuBtm1{top:0px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin-top:0px;}
+
+</style>
+
+<div  class="index_layer ie6fixedBR" id="full" >
+
+<div class="back" style="width:60px;height:60px;margin-top:8px;" id="newsbacktop"><a href='#qw_top' class='fhtop_a' target='_self'></a></div>
+
+</div>
+
+ <p>
+   <Script>
+(function() {
+	var backToTopTxt1 = $(".index_layer").html(),
+	 backToTopEle1 = backToTopTxt1, backToTopFun1 = function() {
+        var stback = $(document).scrollTop(), winh1 = $(window).height();
+         $(".index_layer").show();
+		  (stback>0)? $("#newsbacktop").css('display','block'): $("#newsbacktop").css('display','none');  
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $(".index_layer").css("top", stback + winh1 - 550);    
+        }
+    };
+	$(window).bind("scroll", backToTopFun1);
+    backToTopFun1(); 
+
+})();	
+
+$(document).ready(function(){
+	 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+	$(window).resize(function() {
+
+		 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =167+"px";
+			}
+
+});
+
+});
+
+ </Script>
+<!--返回顶部结束-->
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_list_top" id="qw_top">
+<div class="w1000 m_center">
+	<div class="qw_list_top_left"><strong><a href="/">侨网首页</a></strong>
+     <span>
+        <a href="/hqhr/">华侨华人</a>
+        <a href="/zhwh/">中华文化</a>
+        <a href="/hwjy/">华文教育</a>
+        <a href="/jjkj/">经济科技</a>
+        <a href="/gqqj/">归侨侨眷</a>
+        <a href="/sqfg/">涉侨法规</a>
+        <a href="/sqjg/">涉侨机构</a>
+        <a href="/hdfw/">互动与服务</a>
+
+    </span>
+    </div>
+    <div class="qw_logoright qw_logoright_list" >
+    	<div class="qw_logoright_ul">
+          <ul>
+          	<script type="text/javascript">
+          //设为首页
+function SetHome(url){
+
+        if (document.all) {
+
+            document.body.style.behavior = 'url(#default#homepage)'; 
+            document.body.setHomePage(url)
+
+        }else{
+
+            alert("抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!");
+
+        }
+
+    }
+          </script>
+<li class="swsy"><a onClick="SetHome('http://www.chinaqw.com/')">设为首页</a></li>
+<li class="jrzm"><a href="http://www.chinaqw.com/news/desktop_shortcut.htm">加入桌面</a></li>
+<!--<li class="khd"><a>客户端</a></li>-->
+<li class="khd"><a href="http://big5.chinaqw.com:89/">繁体版</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_listbanner">
+	<div class="qw_listlogo"><a href="/"><img src="http://i3.chinaqw.com/qiaowu/images/list_logo.jpg"/></a></div>
+    <div class="qw_listmbx"><a href="/">首页</a>   → <a href="/hwjy/">华文教育</a></div>
+    <div class="qw_listsearch">
+    <!--搜索qw_listsearch s-->
+    <!--[894,3,7] published at 2014-04-16 15:51:51 from #10 by 赵谦-->
+
+<input type="text" value="请输入关键字" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="input1" onkeydown="checksubmit()">
+
+<input name="" type="button" class="input2" onclick="submitFun()" />
+<script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+window.open("http://sou.chinaqw.com/search.jsp?q="+encodeURIComponent(hotword));
+ }
+
+}
+
+</script>  
+
+   
+    <!--搜索qw_listsearch e-->
+     </div>
+</div>
+<div class="qw_main">
+	<div class="qw_main_box">
+        <div class="qw_list_left">
+        	
+
+              <!---->
+              <div class="content">
+                      <h1 style="display:block; position:relative; text-align:center; width:624px;">
+                      美华裔母亲教混血儿子学中文 分享经历和故事(图)
+                      </h1>
+                   <div class="left-time">
+                        <div class="left-t" style="padding-left:6px;"> 2014年12月16日 15:11　来源：<a href='http://www.chinaqw.com/' style='color:#666;font-weight:normal;'>中国侨网</a>　<img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+
+                   <div id="zihao">
+                    <div>字号：</div>
+                    <a id="txt_x" javascript:void(0);="">小</a> <a class="on" id="txt_z" javascript:void(0);="">中</a> <a id="txt_d" javascript:void(0);="">大</a> 
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  <!--图片搜索-->
+      <div id="tupian_div" align="center" style="width:98%;margin:0 auto;font-size:14px;"><!--Yc94EUEtAn4YSUKCaSOM --></div>
+      <!--图片搜索-->
+      <!--图片start-->
+      <!--图片--><div class=left_ph><img src="U606P894T5D30160F42DT20141216151125.jpg" alt=罗柯建英与自己饲养的蝴蝶。(美国《侨报》) /></div><!--图片--><!--图片说明-->
+<div class=left_pt><div style="text-align:center;">罗柯建英与自己饲养的蝴蝶。(美国《侨报》)</div></div>
+<!--图片说明-->
+
+      <!--图片end-->
+
+                  <div class="left_zw" style="position:relative">  
+
+<p>　　中国侨网12月16日电 据美国《侨报》报道，美国《侨报》日前举办了儿童中文写作大赛，并采访了儿童组参赛选手、11岁罗柯建英(Christopher Clark)的妈妈罗传纺女士(下称“罗”)来分享有关罗柯建英学习中文的经历和故事。<table border=0 cellspacing=0 cellpadding=0 align=left style="padding-right:10px;"><tr><td></td></tr></table></p>
+
+<p>　　美国《侨报》：罗柯建英是从什么时候开始学习中文的，当时的中文水平怎么样？</p>
+
+<p>　　罗：罗柯建英出生在北卡的罗利，但是从5岁起我就开始送他到当地的中文学校学习中文。起初，他在中文学校里非常少言寡语，并不是因为他性格害羞，而是因为跟其他孩子相比，中文流畅程度差了一大截。他的爸爸是北卡本地人，不会说中文。我本人也是在美国出生的，平时在家也很少说中文。他刚进中文学校的时候，基本上全班其他同学们都有说中文的父母，因此罗柯建英当初学习中文是很困难的。</p>
+
+<p>　　美国《侨报》：学习一段时间后比刚开始学习中文时变化大不大？如果进步不大，您是怎样引导孩子保持兴趣，继续学习呢？如果进步大，您觉得是什么原因促成的呢？</p>
+
+<p>　　罗：罗柯建英的进步还是很大的，特别是最近的4年。他7岁的时候，我们带他回过一次中国，去了北京，当时那是他第一次见到那么多人讲中文。那次旅行也让他感觉到中文是一门对他很有用的语言，他发现自己之前学的汉语可以帮他在北京买东西，让他度过了特别好的一个假期。有意思的是，那次回来，他说汉语的时候会有意无意带上北京话里常见的“儿化音”。碰巧那次回来后，我们通过语言交换项目认识了一个女士，她人很好，每个星期都来家里跟罗柯建英练习1个小时，互相学习对方的语言，这无疑为罗柯建英增加了在家说汉语的机会，也帮助他保持了学习中文的动力。</p>
+
+<p>　　美国《侨报》： 在美国生活华人的孩子一般在学校说英文，回到家如果不是家长特别要求，也是说英文，那罗柯建英在家里说英文多还是中文多。如果说中文多，您是怎么引导孩子多说中文的？</p>
+
+<p>　　罗：由于我们家是不说中文的，所以他在家里练习中文的机会非常少。罗柯建英还有个弟弟，他们两个都是上home school的，也就是在家里接受教育，由我亲自教。所以他们练习中文完全要取决于我。通常情况下，我会在教学过程中时不时穿插使用中文，因此保证他们每天都有中文练习的时间。他和弟弟现在会用中文交流，甚至开玩笑，还特别喜欢中文歌。他们学唱了很多中文歌，比如《送别》，甚至有《恰似你的温柔》这样的爱情流行歌曲，小孩子明明不懂歌曲的含义但是还唱得起劲儿，作为大人看着觉得实在是很有趣。</p>
+
+<p>　　美国《侨报》：学习中文过程中有没有从不愿意(或是被安排着)学，变成自己有兴趣学，主动说或者学习的故事。</p>
+
+<p>　　罗：罗柯建英学习中文一直都是很感兴趣的，而且我觉得中文学校对于激发孩子中文学习非常重要。罗柯建英所在的中文学校就做的很好，老师组织课堂合理而有趣，对此我非常感谢学校的聂瑞老师。不仅如此，学校还专门记录下学生的出勤率和课堂表现，然后把考核评分表发给家长。不仅我拿到了回馈，出人意料的是，这种评分制度也给了罗柯建英学习的动力，为了获得更高的评分，他会自己很主动地去争取好的表现。</p>
+
+<p>　　美国《侨报》： 很多孩子都是周末去上中文学校，但是一周一次的课对孩子学习好中文来说是远远不够的，您平时有什么其它的方式方法来教孩子学习中文呢？</p>
+
+<p>　　罗：我个人非常坚信兴趣的重要性，个人兴趣决定了持久的学习动力，而且学中文不能只靠语言教学。因此我非常欣赏他的中文学校的做法：保持小班授课，同时提供一些兴趣课，比如艺术和音乐等。罗柯建英就报了吉他班，结果意外认识到本地非常优秀的演奏家邹留莎老师，她是个非常好的老师，罗柯建英很喜欢她，跟着她学了很多中文歌；我还把罗柯建英送到北卡本地的武术中心去学功夫，教功夫的老师也是用中文跟他交流，除此之外也经常送他参与本地孔院、大学国际中心举办的各种文化活动。就这样，在他学习音乐、武术和参与活动的过程中，中文有了促进，更重要的是保持了他对中文和中国文化的兴趣。让他认识到：中文不仅是留在他身上的一个印记，也可以为他打开一个非常有趣的世界。此外，我也会允许他看中文的动画片和电视节目作为娱乐和休息。</p>
+
+<p>　　美国《侨报》：罗柯建英在学习中文过程中您觉得遇到的最难的地方是什么？</p>
+
+<p>　　罗：时间不够是最大的问题。就像刚才提到的，为了学习中文，我们花费了很多的精力，虽然他很享受学习的乐趣，但是仍然需要在其他学习内容和生活中找到平衡。另外一个困难是发音，由于我原籍是湖北，因此我一直都很担心教他的中文带着湖北口音或者至少是会有发音不准的问题，所以我一直都很注意他们是否能够按照拼音准确发音。</p>
+
+<p>　　美国《侨报》：罗柯建英喜欢用中文写作吗？和他们的英文写作相比，用中文对他们来说有什么难的地方？</p>
+
+<p>　　罗：根据中文学校老师的说法，中文写作是帮助孩子巩固中文的“魔鬼训练”，当然对英文写作也是同样道理。我比较赞同中文写作过程中，老师要求孩子在保证语法和逻辑正确的前提下发挥想象力。由于我一直也在研究如何教育孩子，我发现在常规学校里，英语课教写作的老师一味地追求激发想象力，像是为了讨好孩子而舍弃语法等基本要求，任由他们天马行空去想去写，这样长期来看其实不利于孩子的写作。除此之外，我特别推崇让孩子亲手拿笔去写，而不是总是用计算机去敲字，不管是中文还是英文，过多依赖打字也不利于孩子对语言的掌握。</p>
+
+<p>　　美国《侨报》：在您看来，家长/老师应该怎么激发孩子们对中文写作/学习的积极性？有没有什么绝招或者法宝？</p>
+
+<p>　　罗：我没有发现什么绝招。但是我觉得中文的语法其实比英语简单一些，只是写汉字比较花时间，所以我建议先让孩子把思路表达出来，用拼音写或者用计算机敲，写完之后再手抄下来。</p>
+
+<p>　　美国《侨报》：您对孩子们学中文还有什么其它感想或者感受及建议？</p>
+
+<p>　　罗：我出生在美国，40多年来，我遇到很多跟我一样美国出生的华裔，大多数人在小时候也都会去中文学校去学习中文，但是随着长大，进入大学，成家立业之后，中文就完全淡忘了，别说写，就连说也退步了。这是很难免的事，我们从小到大在英语的环境里，任何一门语言没有了语境都很难延续下去，而且那不仅仅是淡忘语言那么简单，而是不再习惯使用这个语言了，实在也是一件很可惜的事。这就好比人的口味，小时候跟父母学过的家乡菜，长大之后不会去做了，一方面是忘记了菜谱，另一方面是因为口味已经被替代和改变了。然而，我却真的很希望我的孩子们能学好中文，并且能一直使用和愿意使用这个语言。由于我自己教育我的孩子，因此可以尽我全力去帮助他们。之所以选择通过home school教育孩子，就是希望他们可以学习我认为有价值和很珍贵的知识和技能。(逸云)<div id="function_code_page"></div>
+
+      </div>
+
+              <div class="left_name" style="width:600px; margin:0 auto">
+            	 <div  class="biaoqian"><p></p></div>
+<!--编辑姓名-->
+      <div class="left_name"> 【编辑:李明阳】 </div>
+
+<!--编辑姓名-->
+</div>
+             </div>
+
+              <div style="width:600px; margin:0 auto" class="div624">
+                <div class="divshare">
+                  <div class="hds"> <img src="http://i3.chinanews.com/2011/news/images/1.png" /><a href="#cyhd" target="_self">参与互动</a></div>
+                  <!--分享的html代码s-->
+                  <div class="bdsharebuttonbox">
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a>
+<a href="#" class="bds_more" data-cmd="more"></a>
+<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+                  <!--分享的html代码e-->
+
+<!--分享的js代码s-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--分享的js代码e-->
+                </div>
+
+                <div class="clear"></div>
+          </div>    
+
+<!--相关新闻--> <div class="div624 border-top-darshd margin-top20">
+        <h4 class="padding-left20">>相关新闻：</h4>
+        <ul class="padding-left20">
+           <li>
+          ·<a href=http://www.chinaqw.com/hwmt/2014/11-28/27865.shtml target=_blank>美国华媒举办儿童中文写作大赛 选手分享学习心得</a><br>·<a href=http://www.chinaqw.com/hwjy/2014/09-17/18244.shtml target=_blank>海外华人家长分享华教心得:中文是孩子的必修课</a>
+         </li>
+        </ul>
+      </div><!--相关新闻-->
+
+              <!--预选频道精选s-->
+              <!--[894,7,7] published at 2014-12-17 10:08:25 from #10 by 刘郁菁--> 
+<div class="div624 border-top-darshd margin-top20">
+                <h4 class="padding-left20">&gt;华文教育频道精选：</h4>
+                <ul class="padding-left20">
+                   <li>
+
+    <li><a href="/hwjy/2014/12-17/30198.shtml">俄罗斯学霸长沙学汉语 遭遇“塑普”好抓狂(图)</a></li>
+
+    <li><a href="/hwjy/2014/12-16/30032.shtml">哈萨克斯坦“学霸”：梦想在家门口读中文研究生</a></li>
+
+    <li><a href="/hwjy/2014/12-13/29773.shtml">媒体盘点2014年网络潮语：有钱就是任性等上榜</a></li>
+
+    <li><a href="/hwjy/2014/12-13/29771.shtml">魏家祥：大马微型华小待发展 应搬至人口密集区</a></li>
+
+    <li><a href="/hwjy/2014/12-13/29763.shtml">老外如何取一个合适的中文名？ 七大要点需留意</a></li>
+
+    <li><a href="/hwjy/2014/12-12/29647.shtml">孔子学院可持续发展研讨会举行 探寻多元文化理解</a></li>
+
+    <li><a href="/hwjy/2014/12-10/29272.shtml">2005年诺奖得主马歇尔：能签中文名字是很酷的事</a></li>
+
+    <li><a href="/hwjy/2014/12-08/28859.shtml">新加坡调整小学华文教学法 更全面学听说读写(图)</a></li>
+
+                 </li>
+                </ul>
+              </div>
+              <!--预选频道精选e-->
+
+          <div class="div624 margin-top20">
+                      <div class="con_title ">
+                            <div class="life_title_rztx_text"><a name="cyhd">参与互动</a></div>
+
+                   </div>
+                    <div> <iframe id='moodiframe' width="98%" scrolling="no" height="110" marginheight="0" marginwidth="0"  src="/iframe/mood/2012.shtml" frameborder="0"></iframe>
+ </div>
+                    <div> <iframe src="http://comment.chinaqw.com/ci/index.php?d=comment&c=comment&m=article_post_box_2012&newsid=qw30160&title=dsafa&style=qw_2014&reference=http://www.chinaqw.com/hwjy/2014/12-16/30160.shtml"   id="iframepost" name="iframepost" align="middle" marginWidth="0" marginHeight="0"  frameBorder="0" scrolling="no" width="624" height="200"></iframe>
+<div id="wypl1"></div> </div>
+
+          </div>
+        </div>
+              <!---->
+
+        <div class="qw_list_right">
+         
+        <!--要闻推荐s-->
+       <!--[894,7,1] published at 2014-12-17 09:58:43 from #10 by 谢萍--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">要闻推荐</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30211.shtml">少数中国人旅游陋习遭批 “丢人丢到海外”何时休</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30207.shtml">美五大城市留学生实习机会多 毕业后可逗留29个月</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30190.shtml">海内外华人书画家创作百余作品 献力华侨公益事业</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30181.shtml">中国出境游规模庞大 各国争相变招招揽中国游客</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30176.shtml">SAT亚洲考区12月又爆作弊丑闻 SAT成绩或延迟发放</a></li>
+
+    <li><a href="/gqqj/2014/12-16/30099.shtml">华侨祖屋财产频被盗 亟需保护华侨华人的“根” </a></li>
+
+    <li><a href="/hqhr/2014/12-16/30076.shtml">澳洲华人留学生对悉尼劫持事件高度关注 网上热议</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30074.shtml">加拿大“快速移民”催热留学 专家：绕开这些误区</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30059.shtml">日元贬值改变在日华人生活 回国添忧虑义务代购忙</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--要闻推荐e-->
+
+        <!--频道精选s-->
+        <!--[894,7,2] published at 2014-12-17 10:08:23 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">频道精选</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hqhr/2014/12-17/30221.shtml">澳洲华裔盘下餐厅 因“前身”劣迹多致新店生意差</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30214.shtml">中国取代英国成温哥华最大海外观光客来源地(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30205.shtml">菲律宾华人区4商店因出售玩具枪像真枪被警方没收</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30204.shtml">西班牙华人母亲带小孩公园玩耍 无辜遭两妇女殴打</a></li>
+
+    <li><a href="/gqqj/2014/12-17/30201.shtml">女华侨火车如厕丢八千美元 民警徒步铁路找两天</a></li>
+
+    <li><a href="/jjkj/2014/12-17/30199.shtml">海归硕士回国卖包子 遭质疑得卖多少赚回学费？</a></li>
+
+    <li><a href="/hwjy/2014/12-17/30198.shtml">俄罗斯学霸长沙学汉语 遭遇“塑普”好抓狂(图)</a></li>
+
+    <li><a href="/hqhr/2014/12-17/30184.shtml">探访巴西华人“农业庄园”：打造休闲观光的乐园</a></li>
+
+    <li><a href="/hqhr/2014/12-16/30126.shtml">南非新老唐人街兼收并蓄 摩擦变动中谋求发展(图)</a></li>
+
+</ul>
+                </div>
+              </div>
+        <!--频道精选e-->
+
+        <!--热点图片s-->
+        <!--[894,9,1] published at 2014-12-17 10:26:24 from #202 by 55-->
+<style>
+.jiusj_listul li{_margin-left:3px;_margin-right:4px;}
+.jiusj_listul li .title_text {overflow: visible;height:36px;}
+</style>
+
+  <div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">热点图片</div>
+                </div>
+               <ul class="jiusj_listul mt10">
+<li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30228.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U595P4T8D6884425F107DT20141217100346.bmp"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30228.shtml">澳洲纽省高考华裔生亮眼</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30209.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U618P4T8D6883559F107DT20141217084151.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30209.shtml">中国小伙独行三大洲</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-17/30203.shtml"><img src="http://www.chinanews.com/hr/2014/12-17/U357P4T8D6883735F107DT20141217090124.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-17/30203.shtml">美奇诺冈市严查月子中心</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30124.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6881627F107DT20141216135146.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30124.shtml">纽约华裔意裔年末联谊</a></div>
+</li><li>
+<div class="conlist_img"><a href="/zhwh/2014/12-16/30119.shtml"><img src="/zhwh/2014/12-16/U606P894T5D30119F42DT20141216140336.jpg"></a></div>
+<div class="title_text"><a href="/zhwh/2014/12-16/30119.shtml">美小伙重庆“安居乐业”</a></div>
+</li><li>
+<div class="conlist_img"><a href="/hqhr/2014/12-16/30055.shtml"><img src="http://www.chinanews.com/hr/2014/12-16/U357P4T8D6880005F107DT20141216094511.jpg"></a></div>
+<div class="title_text"><a href="/hqhr/2014/12-16/30055.shtml">美华商年末派对增加</a></div>
+</li>
+ <div class="clear"></div>
+               </ul>
+              </div>
+        <!--热点图片e-->
+
+        <!--侨务咨询s-->
+        <!--[894,7,3] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">侨务咨询</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+
+    <li><a href="/hdfw/2014/12-16/30178.shtml">华侨学生就读国内普通高校的收费标准是什么</a></li>
+
+    <li><a href="/hdfw/2014/12-16/30105.shtml">出国定居的退休、退职人员死亡后有什么规定</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29963.shtml">地方政府对哪些归侨、侨眷应予救济</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29948.shtml">归侨侨眷在职职工申请出境定居有何待遇？</a></li>
+
+    <li><a href="/hdfw/2014/12-15/29936.shtml">侨企员工工作表现不佳，可扣除员工工资吗</a></li>
+
+    <li><a href="/hdfw/2014/12-12/29733.shtml">华侨、华人持境外机动驾驶证能否在境内驾驶机动车</a></li>
+
+                  </ul>
+                </div>
+              </div>
+        <!--侨务咨询e-->
+
+        <!--公共社区s-->
+        <!--[894,7,4] published at 2014-12-17 10:27:00 from #10 by 刘郁菁--> 
+<div class="mt10 ">
+               <div class="qw_list_title ">
+                  <div class="life_title_zhichang_text">公共社区</div>
+                </div>
+                <div class="mt10">
+                   <ul class="module_list_ul">
+                  <li><a href="http://bbs.chinanews.com/forum.php?mod=viewthread&tid=5079350">近千万中国富人为什么要移民？</a></li>
+<li><a href="http://bbs.chinanews.com/picview-137-5079760-1.shtml">6岁女孩的100张游历全国抗战纪念地照</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5079264-1.shtml">美国到处都是“中国制造”唯独这些不是</a></li>
+<li><a href="http://bbs.chinanews.com/picview-185-5075673-1.shtml">各国富二代网晒奢华暑假 网友：投胎是门技术！</a></li>
+<li><a href="http://bbs.chinanews.com/thread-176-5075516-1-1.html">离不开中国制造的非洲人：上帝一定住在中国</a></li>                  </ul>
+                </div>
+              </div>
+        <!--公共社区e-->
+
+      </div>
+
+          <div class="clear"></div>
+    </div>
+      <div class="clear"></div>
+</div>
+
+<div class="qw_foot ">  
+  <!--qw_foot s-->
+     		<strong><a href="http://www.chinaqw.com/kong/2014/06-06/5680.shtml" target="_blank">网站介绍</a> | <a href="http://www.chinaqw.com/kong/2014/06-10/6015.shtml" target="_blank">联系我们</a> | <a href="mailto:qiaojie@chinanews.com.cn">供稿信箱</a></strong>
+        <p>
+中国侨网版权所有，未经授权禁止复制和建立镜像 <a href="http://www.miibeian.gov.cn/" target="_blank">[京ICP备05067153号]</a> [京公网安备:110102003042-2] <a href="http://net.china.com.cn/chinese/index.htm" target="_blank">[不良和违法信息举报]</a></p>
+<a href="http://www.chinaqw.com/"><img width="120 "src="http://i3.chinaqw.com/qiaowu/images/logo.png"/></a>
+
+
+  <!--qw_foot e-->
+</div>
+<script>
+
+$(document).ready(function(){
+ $.getScript('http://comment.chinaqw.com/ci/index.php/comment/comment/get_article_list_2012/qw30160',function(){
+																														var ts=comment_lists.cns_list;
+if(ts.records.length=='0'){
+$('#wypl').append("<div class='font13'>提示信息： 暂无评论内容，欢迎您发表高见！</div>");
+}																																
+																														var tss;
+var tiaoshu;
+if (ts.records.length !=''){	
+
+if(ts.records.length<10){
+tiaoshu=ts.records.length;
+}
+else{
+tiaoshu=10;
+}																													for(var i=0;i<tiaoshu;i++){
+																															tss=ts.records[i];
+																															var wyname=tss.author;
+																															if (wyname ==''){
+																																wyname="中新网友";
+																																}
+
+																														 mylist=("<div class='wypl_list'> <div class='wypl_list_wy'>"+wyname+"<div class='wypl_list_biao' style='background:no-repeart'></div></div> <div class='wypl_list_t'> &nbsp;&nbsp;" +tss.dateline+"&nbsp;&nbsp; 来自："+tss.area+" &nbsp;&nbsp;</div><div class='clear'></div><div class='wypl_list_n'>" +tss.message+ "</div> </div>");																													
+																													$('#wypl1').append(mylist);
+																														}
+																														$('#tstotal').html("("+ts.total+")");
+																														if(ts.records.length>'0'){
+																														$('#wypl1').append("<div style=text-align:center;><a href=http://comment.chinaqw.com/ci/index.php/comment/news/more/qw30160><img src=http://i6.chinanews.com/2012/news/images/pl.gif></a></div>");
+																														}
+
+}																																		  });
+
+						   });
+</script>
+<div id="BaiduSpider" style="display:none">
+<span id="pubtime_baidu">2014年12月16日 15:11</span>
+<span id="source_baidu">来源：<a href="http://www.chinaqw.com/hwjy/2014/12-16/30160.shtml" target="_blank">中国侨网</a></span>
+<span id="author_baidu">作者：</span>
+<span id="editor_baidu">责任编辑：李明阳</span>
+</div>
+</body>
+</html>
+<script>
+
+$('#txt_x').click(function(){
+
+						$('.left_zw').css('font-size','12px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_x').addClass("on");
+
+						  });
+$('#txt_z').click(function(){
+						$('.left_zw').css('font-size','15px');  
+						$('#txt_x').removeClass("on");
+						$('#txt_d').removeClass("on");
+						$('#txt_z').addClass("on");
+
+						  });
+$('#txt_d').click(function(){
+						$('.left_zw').css('font-size','18px');  
+						$('#txt_z').removeClass("on");
+						$('#txt_x').removeClass("on");
+						$('#txt_d').addClass("on");
+
+  });
+</script>

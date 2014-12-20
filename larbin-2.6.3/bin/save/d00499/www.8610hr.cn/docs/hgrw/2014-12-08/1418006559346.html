@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>海外人才推荐引进纽带 海归北京创业就业平台-北京海外学人网</title>
+<link href="../../../style/css_default.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/css_show.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery-1.4.min.js" ></script>
+</head>
+<!--通过body的class控制导航菜单当前页状态，首页为columns01，以此类推 -->
+<body class="columns04" onload="loading()">
+<!--头部内容 -->
+<script type="text/javascript" src="../../../js/baseCode.js" ></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+function runStart(){
+		
+	var userId = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var strRand = document.getElementById("strRand_head").value;
+	  $.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/loginByajax.action",
+	   data: 'userId='+userId+'&password='+password+'&strRand_head='+strRand,
+	   dataType:'jsonp',
+	   success: function(msg){
+		 var userId = msg.userId;	
+		 if(userId!="false"){
+			 var certificate = msg.certificate;
+			 var cName = msg.cName;	
+			 var isType = msg.isType;
+			 var isType2 = msg.isType2;
+			 creatCookic(userId,certificate,cName,isType,isType2);
+		 }else{
+			alert(msg.outputMsg);
+			window.location.reload(true);
+		 }
+		 isDisplay(userId,cName,isType,isType2);
+	   }
+	});
+}
+function creatCookic(userId,certificate,cName,isType,isType2){	
+	var str1 = "mrgUserId="+userId;
+	var str2 = "mrgCertificate="+certificate;
+	var str3 = "mrgCname="+cName;
+	var str4 = "mrgIsType="+isType;
+	var str5 = "mrgIsType2="+isType2;
+	var strPath = "/";
+	document.cookie = str1+"; path="+strPath;
+	document.cookie = str2+"; path="+strPath;
+	document.cookie = str3+"; path="+strPath;
+	document.cookie = str4+"; path="+strPath;
+	document.cookie = str5+"; path="+strPath;
+}
+
+function isDisplay(userId,cName,isType,isType2){
+
+	if(userId!="false"){//登陆了		
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cName);
+var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}else{
+			document.getElementById("isDisplay").style.display= "none";
+		}
+		var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";			
+			document.getElementById("isDisplay3").style.display= "";
+		}else{
+			document.getElementById("isDisplay2").style.display= "none";
+			document.getElementById("isDisplay3").style.display= "none";
+		}
+	}else{		
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";			
+	}
+}
+function loading(){
+		$.ajax({
+	   type: "GET",
+	   url: "https://www.8610hr.cn/wbs/login/getLoginTimes.action",
+	   data: '',
+	   dataType:'jsonp',
+	   success: function(o){
+	   if(o.result >=3 )
+	     document.getElementById("strRand_lable").style.display="";		 
+		 }
+	  });
+	  if(getCookie("mrgUserId")!=null){
+		document.getElementById("login_box").style.display= "none";
+		document.getElementById("logged_box").style.display= "";
+		var cname = getCookie("mrgCname");
+		var base64 = new BaseCode();
+		document.getElementById("cname").innerHTML = base64.decode64(cname);
+		var mrgIsType = getCookie("mrgIsType");
+		if(mrgIsType=="yes"){	
+			document.getElementById("isDisplay").style.display= "";			
+		}		
+	    var mrgIsType2 = getCookie("mrgIsType2");
+		if(mrgIsType2=="yes"){		
+			document.getElementById("isDisplay2").style.display= "";	
+			document.getElementById("isDisplay3").style.display= "";
+		}
+	}else{
+		document.getElementById("login_box").style.display= "";
+		document.getElementById("logged_box").style.display= "none";
+	}	
+}
+
+
+function getCookie(objName){
+			var arrStr = document.cookie.split("; ");
+            for(var i = 0;i < arrStr.length;i ++){
+                var temp = arrStr[i].split("=");
+                if(temp[0] == objName){		
+                return (unescape(temp[1]));
+                }
+            } 
+}
+function delCookie(){
+	var mrgUserId = "mrgUserId";
+	var mrgCertificate = "mrgCertificate";
+	var mrgCname = "mrgCname";
+	var mrgIsType = "mrgIsType";
+	var mrgIsType2 = "mrgIsType2";
+var strPath = "/";
+			var date = new Date();
+            date.setTime(date.getTime() - 10000);
+            document.cookie = mrgUserId + "=a; expires=" + date.toGMTString() +"; path="+strPath;
+			document.cookie = mrgCertificate + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgCname + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			document.cookie = mrgIsType2 + "=a; expires=" + date.toGMTString()+"; path="+strPath;
+			
+    loading();
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+	document.getElementById("strRand_head").value="";
+	RefreshImage();
+}
+
+
+
+<!--留创企业开办资助服务-->
+function gotoLogin(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=ImburseApply.viewApplyList';
+	if(getCookie("mrgUserId")!=null  ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin.html",191,422);
+	}
+}  
+
+
+<!--留学人员身份认定服务-->
+function gotoLogin2(){
+	var url = 'http://www.8610hr.cn/wbs/doRunT.action?handler=RosApply.viewApplyInfos';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin2.html",191,422);
+	}
+}  
+<!--高层次人才申报-->
+function gotoLogin3(){
+	var url = 'http://www.8610hr.cn/wbs/login/loginAfter.action';
+	if(getCookie("mrgUserId")!=null ){	
+	  if(getCookie("mrgIsType2")=="yes"){
+		var userId = getCookie("mrgUserId");
+		window.location.href = url;	
+		}else{
+			alert("该用户没有此权限！");
+		}
+	}else{	
+	modalLogin("/service/serveroflogin3.html",191,422);
+	}
+}  
+
+function goServiceSys(){
+		var url='/kos/login/loginByTicket.action?';
+		if(getCookie("mrgIsType")!=null){
+				var mrgCertificate = getCookie("mrgCertificate");
+		         window.location.href = url + "certificate="+mrgCertificate;		
+			}else{
+				windoe.location.href ="#";
+			}
+	}
+
+function gotoZixun(){
+	var url = '/wbs/nldoRunT.action?handler=WebConsultation.addQuestion';
+	if(getCookie("mrgUserId")!=null){	
+		var userId = getCookie("mrgUserId");
+		window.location.href = url + "&userId="+userId;			
+	}else{	
+		window.location.href = url + "&userId=false";
+	}
+}     
+
+
+
+
+function gotoSelf(){
+
+	var url="/wbs/login/loginAfter.action?group=self";
+	if(getCookie("mrgUserId")!=null && getCookie("mrgIsType2")=="yes"){
+		var userId=getCookie("mrgUserId");
+		window.location.href=url;
+	}else{
+		alert("用户是内部用户或未登录");
+	}
+}
+
+function RefreshImage()
+{
+    var el =document.getElementById("img");
+    el.src=el.src+'?';//这个特别重要
+}
+
+</SCRIPT>
+
+
+
+<div class="head">
+<a href="/" class="a_logo"><span>北京海外学人网</span></a>
+
+<div class="top_login" id="login_box" style="">
+  <form id="form1" name="form1" method="post" action="#" onkeydown="if(event.keyCode==13) runStart();" onsubmit="loading()">
+    <label>用户名<input type="text" name="username" id="username" /></label><label>密码<input type="password" name="password" id="password" /></label>
+   <label style="position:relative; display:none" id ="strRand_lable" > 验证码<input type="text" name="strRand_head" id="strRand_head" style="width:45px; height:20px">
+	         <a href="#"><img width="50" height="20" align="absmiddle" onclick="javascript:RefreshImage()" id="img" src="/wbs/login/verify2.action" style="position:absolute; left:40px; top:20px;"></a></label>
+  <a href="#" class="b_topLogin" onclick="runStart();"><span>登录</span></a>
+	
+	
+	&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=StWebUserAction.notes">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wbs/nldoRunT.action?handler=FindStWebUserAction.toFindPass" onclick="getCookie()">找回密码</a>
+  </form>
+</div>
+
+<div class="top_login" id="logged_box" style="display:none;">
+<div class="top_logged">您好！<b><span id="cname"></span></b>&nbsp;&nbsp;欢迎登录北京海外学人网 &nbsp;&nbsp;&nbsp;
+
+
+<em id="isDisplay" style="display:none;"><a href="#" onclick="goServiceSys()">进入业务系统</a> |</em>
+
+<em id="isDisplay2" style="display:none;"><a href="/wbs/login/loginAfter.action">进入系统</a> | </em>
+
+<em id="isDisplay3" style="display:none;"><a href="/wbs/doRunT.action?handler=EditStWebUserAction.viewUser" >修改资料</a> |</em>
+
+<a href="#" onclick="delCookie()">退出</a> 
+</div>
+</div>
+
+
+</div>
+
+
+
+<!--导航栏 -->
+<div class="top_menu">
+<ul class="menu">
+<li class="m01"><a href="/index.html"><em>首页</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="/news/news_index.html"><em>资讯广场</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/service/service_index.html"><em>服务大厅</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="/show/show_index.html"><em>在线展馆</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a onclick="gotoZixun()" href="#"><em>咨询吧</em></a></li>
+<li class="m_line"></li>
+<li class="m06"><a href="/about/"><em>关于我们</em></a></li>
+</ul>
+<ul class="menu_pindao">
+<li class="m01"><a href=" http://www.8610hr.cn/wbs/nldoRunT.action?handler=JobInfo.viewJobInfo
+"><em>荐才求贤</em></a></li>
+<li class="m_line"></li>
+<li class="m02"><a href="http://www.8610hr.cn/wbs/website/project/nldoRunT.action?handler=ProjectWeb.viewProjectInfo
+"><em>项目交流</em></a></li>
+<li class="m_line"></li>
+<li class="m05"><a href="/xiehui" target="_blank"><em>学人协会</em></a></li>
+<li class="m_line"></li>
+<li class="m03"><a href="/training_2014/index.html" target="_blank"><em>交流培训</em></a></li>
+<li class="m_line"></li>
+<li class="m04"><a href="http://www.8610hr.cn/wbs/nldoRunT.action?handler=Microblog.ToMicroBlog"><em>我的微博</em></a></li>
+</ul>
+</div>
+
+
+<div class="wrap_out">
+	<div class="wrap_top">
+		<div class="wrap_bottom clearfix">
+			<div class="wrap_main">
+            	<div class="show_content_box">
+
+                	<h1 class="tit">曹堪宇：演绎芯片领域的“阿凡达”传奇</h1>
+                	<div class="show_content_info">2014/12/08   信息来源：北京海外学人中心<br></div>
+                    <div class="show_content">
+                      <!--body--><p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇，男，1971年生于天津。现任北京凡达讯科技有限公司总经理。1989年-1994年，本科就读于清华大学物理系，获学士学位;1994年-1997年，硕士就读于俄亥俄州立大学，获物理学电子硕士学位;1997年-2003年，博士就读于加州伯克利大学，获电子工程博士学位。同时也是伯克利大学Haas商学院技术管理证书获得者。2003年，加盟飞利浦半导体，做射频电路设计、WiFi和无限局域网。2004年，与一个同事一起创办必胜网。2005年，联合创立美国昆天科(Quintic Corporation)公司，任总经理和代理CEO，获得风险投资。2006年-2010年，任北京昆天科微电子技术有限公司总经理。2010年，创立北京凡达讯科技有限公司，任总经理。凡达讯作为电子纸应用协会的常任理事，参与制定电子纸应用的法规和标准，目前已在电子纸应用领域成功申请多项专利,包括17项实用新型和16项专利。公司第一款集成电子纸驱动核心技术的芯片产品AVT6201在国内市场拥有50%以上的占有率，奠定公司在电子纸应用领域的领先地位。同年9月，入选中央&ldquo;千人计划&rdquo;，被聘为国家特聘专家;2012年3月，曹堪宇入选北京&ldquo;海聚工程&rdquo;，被聘为北京市特聘专家。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　阿凡达是《阿凡达》这部电影英文名Avatar的音译，阿凡达的意思是化身，在印度哲学中，被认为和众神在地面上的肉体表现形式有关。在梵文中，化身一词具有透过深思熟虑，并且由于特殊目的而从较高境界&ldquo;下降&rdquo;、&ldquo;转世&rdquo;的涵义。通俗的说，就是天神降临。北京凡达讯科技有限公司的名字在某种程度上借用了阿凡达，因为它的企业愿景也是成为某些芯片领域的&ldquo;阿凡达&rdquo;。目前，凡达讯的芯片产品主要是电纸书阅读器和无线价格标签，这个市场正在发展中，但是前景广阔。最近，记者采访了凡达讯总经理曹堪宇。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　从电纸书谈起</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电纸书是一种类纸阅读器，一般认为，电纸书特指使用E-ink显示技术，提供类似纸张阅读感受的电子阅读产品。基于电子墨水最新显示技术，就像阅读纸书一样阅读电子书，舒适环保、不伤眼睛。同时还拥有大容量和便携性的特性。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电纸书可以阅读网上绝大部分格式的电子书比如PDF、TXT、EPUB等。与传统的手机、MID、UMPC等设备相比，采用电子纸技术的电纸书阅读器有辐射小、耗电低、不伤眼睛的优点，而且它的显示效果逼真，能够取得和实体书接近的阅读效果。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电子纸技术与现有的液晶技术不一样。电子纸显示器没有目前显示设备无法避免的强烈反光，画面分辨率高，显示效果与视觉感观与一般书写纸几乎完全相同。特别是电子纸技术具有画面记忆特性，一旦画面显示后即不再耗电，这对于便携式电子阅读器来说也是非常重要的优势。在材料工艺上，电子纸甚至可以做成与纸一般可折叠弯曲。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电纸书取代了纸张的印刷，也取代了库存，取代了运输。具有革命性的意义，一是引发阅读的革命，即回归深阅读。因为现代都市人的时间都呈破碎化分布，不读书现象已经逐渐蔓延，我们迫切需要能承载破碎化阅读的新型设备，电纸书当之无愧，这是由电纸书的最接近纸张阅读体验品质所决定的。二是引发出版发行业的革命。这个意思是说电纸书将是继影视、纸质、互联网、手机四大出版发行之后的第五种出版发行新通路，电纸书将是继甲骨文、竹简、帛、纸等之后的又一新兴文化、知识传承载体。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　电纸书是目前最专业有效的便携式移动阅读设备，环保、健康、无辐射，而且可承载的内容庞大，这些优势让其逐渐趋向于现代人阅读的主流载体和媒介。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇的凡达讯就是为电纸书阅读器做芯片，是电纸书厂家的上游，类似英特尔在电脑行业的位置。他们的技术是国际领先的，但是还没有产生英特尔那种垄断性和领袖型的效果。因为电纸书芯片领域的竞争很激烈，鱼龙混杂，另外整个电纸书市场，尤其是国内电纸书市场并不稳定，没有预期的火爆，大家恶性竞争，反而把电纸书产业给害了。因为在恶性竞争面前，即使著名的厂商也不能维持质优价高的发展路线。不过，机会仍旧是有的，因为市场在那里，人们的消费观念也在不断变化。还有，国外的市场很稳定。这些，都是凡达讯的机会所在。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　</span><strong><span style="font-size: 14px">　凡达讯具有深厚的研发力量</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇介绍说，电纸书的载体是电子纸，长期以来，纸张一直用作信息交换的主要媒介，但图文内容一旦印在纸张上后就不能改变，成为油墨/纸张复制工艺的最大缺点，不能满足现代社会信息快速更新对复制工艺的要求。因此，开发能动态改变的高分辨率显示技术成为人们追逐的目标，要求显示材料很薄，可弯曲，表面结构与纸张类似，从而有条件成为新一代纸张。这就是电子纸。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在电子纸的研制领域，成立于1997年的美国e-ink公司的地位首屈一指，这家隶属于麻省理工学院的公司的电子超薄显示器技术代表着目前业内的最高水准。e-ink公司所研发的电子纸张，表面看起来与普通纸张十分相似，可以像报纸一样被折叠卷起，但实际上却有天壤之别。它上面涂有一种由无数微小的透明颗粒组成的电子墨水，颗粒直径只有人的头发丝的一半大小这种微小颗粒内包含着黑色的染料和一些更为微小的白色粒子，染料使包裹着它的透明颗粒呈黑色，那些更为微小的白色粒子能够感应电荷而朝不同的方向运动，当它们集中向某一个方向运动时，就能使原本看起来呈黑色的颗粒的某一面变成白色。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　虽然当前有许多厂商进行电子纸相关技术研发，发展方向也相当分歧，但可以从中归结出，现在电子纸的产品特性一是轻薄;二是大多数具有资料保存性，只有画面异动时(例如由黑转到白)才耗电，电源关闭后信息仍可留存在监视器上，因此更为省电;三是更接近报纸水平，有些厂商的产品甚至可达影印用纸水平(因此肉眼对其所显示的文字内容更易辨识);四是对比度优于一般报纸;五是初期以黑白方式显示文字内容为主，较缺乏全彩或动画功能，应答速度普遍较慢。六是部分电子纸监视器具可挠性或是可以卷曲。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇介绍说：&ldquo;凡达讯作为电子纸应用协会的常任理事，参与制定电子纸应用的法规和标准，目前已在电子纸应用领域成功申请多项专利,包括17项实用新型和16项专利。公司第一款集成电子纸驱动核心技术的芯片产品AVT6201在国内市场拥有50%以上的占有率，奠定公司在电子纸应用领域的领先地位。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　目前，凡达讯另一个市场方向是商场里的电子价格标签，好处是省人工，不出错，后台控制，并能显示促销等信息。这个市场十分大，全世界有2000多万个标签。其技术基础是OLED。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　OLED就是有机发光二极管，英文为Organic Light Emitting Diode，OLED显示技术具有自发光的特性，采用非常薄的有机材料涂层和玻璃基板，当有电流通过时，这些有机材料就会发光，而且OLED显示屏幕可视角度大，并且能够显著节省电能，从2003年开始这种显示设备在MP3播放器上得到了广泛应用，OLED屏幕却具备了许多LCD不可比拟的优势，因此它也一直被业内人士所看好。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　可以预期，随着新材料电子纸和OLED本身的不断革新和降低成本，其应用将越来越广泛，从而为凡达讯的发展提供了不可限量的巨大商机。因此，凡达讯会取得行业&ldquo;神&rdquo;一般的地位，成就一段&ldquo;阿凡达&rdquo;传奇。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　</span><strong><span style="font-size: 14px">阿凡达在行动</span></strong></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　记者采访曹堪宇是一个冬日的下午，小会议室里的黑板上写满了矩阵，会议桌上放着一个电纸书&hellip;&hellip;显然，他们刚刚进行完一次讨论。这个团队，并不多，20来个人，但是工作得十分投入而有条不紊。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　&ldquo;公司技术总监在国内一流IC设计公司担任研发骨干和负责人多年，在芯片设计技术和管理上拥有成熟的流程和丰富的经验;公司的核心研发经理团队平均年龄35岁，来自国内著名的两家IC设计公司，分别在芯片架构、芯片设计、软件设计和系统集成等领域掌握核心技术，并在市场研究、产品定义、生产运营和客户支持等诸方面拥有宝贵经验。&rdquo;曹堪宇告诉记者。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　在记者对面，曹堪宇微笑着，像个30来岁的大男孩，阳光帅气，记者没有想到他已经40多岁。他面孔沉静，说话富于哲理，显然有着经营的压力，因为凡达讯目前还没有经营持平，但是曹堪宇仍有信心，因为他有技术的实力，所需要的是机会的光临。所以，他告诫自己，耐住寂寞。所以，面对曹堪宇，记者也平静下来，仿佛这个世界变得纯净而美丽。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇出生在天津，1971年出生的他是南开子弟，从小就很聪明。他偏科，喜欢物理，一直是天津赛区奥赛物理的冠军，没想到高三时他奥赛考得不好，只考了第6名。结果不能保送上清华。于是，他重新拿起课本，几个月内找到感觉，高考时考了天津的第一名，如愿上了清华大学。这使他觉得，不管情况多糟糕，只要自己认真做事，就不会那么可怕。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　上了清华，对曹堪宇的&ldquo;打击&rdquo;也很大，因为大家都是精英中的精英，在一起上课，就要排出一二三四的先后顺序。这时，曹堪宇逐渐调整自己，他的心态从那时起就很成熟稳定了。也许，他的年轻的面孔，就来自于彼时修炼出来的淡定。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　1994年清华毕业后，曹堪宇去美国留学，大俄亥俄州立大学学习，1997年，获物理学电子硕士学位;1997年-2003年，他博士就读于加州伯克利大学，获电子工程博士学位。他同时也是伯克利大学Haas商学院技术管理证书获得者。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　也就是说，从1997年开始，他就进入硅谷地区，感受着那里的IT浪潮。2003年，曹堪宇加盟飞利浦半导体，做射频电路设计、WiFi和无限局域网。在那里，曹堪宇将学校里所学的扎实知识和实际的芯片设计结合起来，成为一名行业的精英。2004年，曹堪宇开始创业，与一个同事一起创办必胜网。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　2005年，曹堪宇和几位行业精英联合创立了美国昆天科(Quintic Corporation)公司，任总经理和代理CEO，获得风险投资。2006年-2010年，任北京昆天科微电子技术有限公司总经理。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　昆天科微电子是一家业界领先的芯片设计公司，专注于给众多消费类客户提供低能耗、高性价比的无线接入解决方案，技术专长包括WLAN、蓝牙、WiMax、移动电视和Ultra Wideband等通信标准。几年来，昆天科已经开发出了应用于便携式/手持式的最完整的调频/调幅产品组合，包括调频发射芯片，调频接收芯片，调频收发芯片，调频/调幅接收芯片，用于调频的嵌入式天线等等。此外，昆天科的飞迪欧TM专利技术也已经进入了基于调频的无线音箱和无线耳机市场。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　这时，清华大学的校友、兆易创新的总裁朱一明找到曹堪宇，因为兆易创新除了做存储器，还投入力量研发电子纸，已经有了很好的成果。但是，兆易创新在存储器上已经成功，不想分散精力，于是想拿出电子纸这块和曹堪宇合作创立一家新企业。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　当时电纸书十分火爆，汉王等品牌也发展很快。于是，通过引入风险投资，2010年，创立了北京凡达讯科技有限公司，曹堪宇任总经理，负责整个公司的运营。短短的两年时间里，凡达讯就成为业界的第一品牌，取得了很好的市场效果。但是，因为是做芯片，不做最终的产品，所以，其发展受整个电子纸产业的影响。</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　目前中国电纸书的市场并不是很大，而在国外，2001年大概有2700万台的销量，并且已经呈放量增长的态势。而电纸书只是电子纸应用中很小的一部分。曹堪宇介绍说：&ldquo;目前电子纸可以广泛替代黑白液晶显示屏，比如计算器、POS机终端等;再进一步可以替代胸牌、请柬;长远目标是替代传统的纸质成为可反复打印的电子纸。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　但是，目前，电子纸还是一个新兴的行业，来自各方面的压力也非常大。曹堪宇认为：&ldquo;和液晶屏的竞争是关键所在。苹果产品的出现把液晶显示屏技术推到了一个新的高峰，而电子纸在色彩等方面的表现还不尽如人意。但电子纸拥有很多液晶屏无法突破的特性，在技术成熟后其发展的前景更是不可限量。&rdquo;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　采访完毕，曹堪宇走向正在工作的同事，一起讨论某个设计方案。整个公司十分恬和安静，但是又有着内在的节奏&hellip;&hellip;这里的气场让人温暖，肯定在孵化着&ldquo;阿凡达&rdquo;的传奇，在未来的某个时刻，让凡达讯具有神一般的力量&hellip;&hellip;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　记者手记：</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　　曹堪宇有一种安静的气质，但是十分有力量。他的眼神和神情告诉你，他十分真挚。真的，和曹堪宇交流，让人感到哲学的意味和宗教的虔诚。尽管目前他从事的芯片业务还在等待市场的突破，但是他依旧从容。做事，把事情做好，然后才会有机遇。也许，芯片产业确实不像前几年那么火热，资本关注也不再那么密集，但是芯片产业依旧是IT的基础行业，只要有一个市场引爆点，相应的芯片市场就会异军突起。&ldquo;你出发的时候，没有人看得到。&rdquo;曹堪宇的话充满哲理，所以，现在他除了市场开拓，就是和团队搞研发，苦练内功，&ldquo;不好的时候，要走出路来。&rdquo;曹堪宇是个做事业的人，妻子和女儿们都在美国，他忍受着思念之苦，不断地&ldquo;书写&rdquo;着凡达讯的故事。耐住寂寞，寂寞花开&hellip;&hellip;</span></span></p>
+<p><span style="font-family: 宋体"><span style="font-size: 14px">　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;本文选自北京海外学人中心(《俊采星驰》)</span></span></p><p><span style="color: #c0c0c0">声明：本文系北京海外学人中心独家稿件，版权为北京海外学人中心所有。未经本网授权不得转载、摘编本文全部或部分内容。</span></p><!--body-->
+				<!-- ShareTo Button BEGIN -->
+				<div style="padding:0 0 0 420px;"><div class="shareto_toolbox">
+					<a class="shareto_button_compact st_button stico stico_shareto" href="http://shareto.com.cn/share.html" style="">分享到&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+					<a class="shareto_button_tsina" href="javascript:void(0);" title="分享到新浪微博"><span class="stico st_button stico_tsina"></span></a>
+					<a class="shareto_button_kaixin001" href="javascript:void(0);" title="分享到开心网"><span class="stico st_button stico_kaixin001"></span></a>
+					<a class="shareto_button_renren" href="javascript:void(0);" title="分享到人人网"><span class="stico st_button stico_renren"></span></a>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+				<!-- ShareTo Button END -->
+                    </div>
+					<div class="page" align="center"></div>
+                </div>
+            </div>
+			<div class="wrap_side">
+		
+				<!-- 图片专题-->
+					<div class="sideCon">
+  <div class="sideCon_in sc_topic">
+    <h3><em>专题</em></h3>
+    <ul class="clearfix">
+		<!--index_ybzt-->
+<li><a href="http://plan.tocbd.gov.cn" class="txt"><img src="/docs/zt/2014-07-15/img/1410400956669.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwczx/index.html" class="txt"><img src="/docs/zt/2014-06-10/img/1402475625511.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ 
+<li><a href="http://www.8610hr.cn/topics/2014hwrcyj/" class="txt"><img src="/docs/zt/2014-06-04/img/1401862370271.jpg" width="220" height="50"  target="_blank"></a></li>
+
+ <!--index_ybzt-->
+
+     <!-- <li><a href="/topics/2011cxcyhdz/index.html" target="_blank"><img src="/images/topics02.jpg" width="220" height="50" alt="2011北京海外学人创新创业活动周"/></a></li>
+      <li><a href="/topics/2011hwrcyj/index.html" target="_blank"><img src="/images/topics01.jpg" width="220" height="50" alt="北京市2011年海外人才引进计划" /></a></li>
+      <li><a href="/topics/2011hwyc/index.html" target="_blank"><img src="/images/topics04.jpg" width="220" height="50" alt="2011北京赴海外引才活动"/></a></li>
+    </ul>-->
+    </ul>
+	<a href=/docs/more/zt_index_ybzt/index_morenews1.html class="more">&gt;&gt;more</a>
+    <!--<a href="#" target="_blank" class="more"></a>--></div>
+</div>
+
+﻿<!--生活小贴士 -->
+<div class="lifeTips_c">
+<dl>
+<dt><a href="/docs/lifetips/2011-11-24/1322119741841.html" target="_blank"><em>生活小贴士</em></a></dt>
+  <dd><a href="/life/life_food.html#food_1" target="_blank">十大必吃餐馆</a> <a href="/life/life_house.html#house_1">租房信息</a> <a href="http://ditu.beijing.cn/" target="_blank">北京市电子地图</a> <a href="http://jtcx.beijing.cn/bjyktczd/" target="_blank">一卡通充值网点</a> <a href="/life/life_travel.html#travel_1" target="_blank">免费郊野公园</a></dd>
+  <a href="/docs/lifetips/2011-11-24/1322119741841.html" class="lifeTips_c_more" target="_blank">&gt;&gt;more</a>
+</dl>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部 -->
+<!--底部 -->
+<script type="text/javascript" src="/js/mxl.tab.js" ></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+	mxl_app_tab.init();
+	
+	});
+</script>
+<!--第一排主要友情链接 -->
+<ul class="linksImportant clearfix">
+<li><a href="http://botc.bda.gov.cn" target="_blank">开发区分中心</a></li>
+<li><a href="http://tocbd.gov.cn/" target="_blank">CBD分中心</a></li>
+<li><a href="http://www.bfscc.com/hwxr/html" target="_blank">金融街分中心</a></li>
+<li><a href="http://www.zgc.gov.cn" target="_blank">中关村示范区</a></li>
+<li><a href="http://www.cscse.edu.cn/" target="_blank">中国留学服务中心</a></li>
+<li><a href="http://www.csc.edu.cn/" target="_blank">国家留学基金委</a></li>
+<li><a href="http://www.bjld.gov.cn/" target="_blank">北京市人力社保局</a></li>
+
+<!--第二排-->
+
+<li><a href="http://www.shuanggao.net" target="_blank">北京双高人才发展中心</a></li>
+<li><a href="http://www.chinaohr.com" target="_blank">中华海外人才网</a></li>
+<li><a href="http://cn.chinajob.com" target="_blank">中国国际人才网</a></li>
+<li><a href="http://www.liuxuejob.com" target="_blank">留学人才网</a></li>
+<li><a href="http://www.bflassociates.com/C_welcome.html" target="_blank">BFL国际咨询公司</a></li>
+<li><a href="http://www.chinesehighway.com/" target="_blank">纽约中国留学服务中心</a></li>
+<li><a href="http://www.bjgongzhao.com" target="_blank">北京公招网</a></li>
+</ul>
+
+<!--友情链接 -->
+<div class="linksF clearfix">
+<div class="linksF_tab">
+<span class="mxl_tab_bt mxl_tab_actived" tag="mxl_tab_box_2"><a href="#" class="linksF_tab02"><em>留创园</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_3"><a href="#" class="linksF_tab03"><em>海外社团</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_5"><a href="#" class="linksF_tab08"><em>驻外教育处</em></a></span>
+<span class="mxl_tab_bt" tag="mxl_tab_box_4"><a href="#" class="linksF_tab04"><em>媒体</em></a></span>
+<span class="mxl_tab_bt" tag="linksF_1"><a href="#" class="linksF_tab01"><em>联席会成员单位</em></a></span>
+</div>
+
+<p id="linksF_1" style="display:none;">
+<a href="http://www.bjdj.gov.cn/viewpubarticle.do?id=123393" target="_blank">市委组织部</a>
+<a href="http://www.bjld.gov.cn/" target="_blank">北京市人力资源和社会保障局</a> 
+
+<a href="http://www.bjtzb.org.cn/bdcms/ViewPubArticle.do?id=5133" target="_blank">北京市委统战部</a> 
+<a href="http://www.bjshjs.gov.cn/" target="_blank">市委社会工委</a> 
+<a href="http://www.bjpc.gov.cn/" target="_blank">市发展改革委</a> 
+<a href="http://www.bjedu.gov.cn/" target="_blank">市教委</a> 
+<a href="http://www.bjkw.gov.cn" target="_blank">市科委</a> 
+
+<a href="http://www.bjgaj.gov.cn/web/" target="_blank">北京市公安局</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全局</a>  
+<a href="http://www.bjcz.gov.cn/" target="_blank">北京市财政局</a> 
+<a href="http://www.bjjs.gov.cn/" target="_blank">北京市住房和城乡建设委员会</a> 
+<a href="http://www.bjmbc.gov.cn/" target="_blank">北京市商务委员会</a> 
+<a href="http://www.bjhb.gov.cn/" target="_blank">北京市卫生局</a> 
+<a href="http://www.bjfc.gov.cn/" target="_blank">北京市人口计生委</a> 
+<a href="http://www.bjfao.gov.cn/" target="_blank">北京市政府外办</a> 
+<a href="http://www.bjgzw.gov.cn/" target="_blank">北京市国资委</a> 
+<a href="http://www.tax861.gov.cn/" target="_blank">北京市地税局</a> 
+<a href="http://www.hd315.gov.cn/" target="_blank">北京市工商局</a> 
+<a href="http://www.bjtsb.gov.cn/" target="_blank">北京市质量技术监督局</a> 
+<a href="http://www.bjipo.gov.cn/" target="_blank">北京市知识产权局</a> 
+<a href="http://www.bjqb.gov.cn/" target="_blank">北京市政府侨办</a> 
+<a href="http://www.zgc.gov.cn/" target="_blank">中关村科技园区管委会</a> 
+<a href="http://www.bda.gov.cn/" target="_blank">北京经济技术开发区管委会</a> 
+<a href="http://www.bjjrj.gov.cn/" target="_blank">北京市金融工作局</a>
+<a href="http://www.beijingit.gov.cn/" target="_blank">市经信委</a>
+北京市委宣传部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.8610hr.cn/about/" target="_blank">北京海外学人中心</a>
+<a href="http://www.bjql.org.cn/" target="_blank">北京市归国华侨联合会</a>
+<a href="http://www.bjkw.gov.cn/n8785584/index.html" target="_blank">北京市科学技术委员会</a>
+<a href="http://www.bjsafety.gov.cn/" target="_blank">北京市安全生产监督管理局</a>
+
+ 
+
+</p>
+
+
+<p id="mxl_tab_box_2" >
+
+<a href="http://www.ospp.com/" target="_blank">中国北京（海淀）留学人员创业园 </a>
+
+<a href="http://www.wangjing.gov.cn/" target="_blank">中国北京（望京）留学人员创业园</a>
+北京市留学人员大兴创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+北京市留学人员空港创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubase.net/" target="_blank">中关村国际孵化器有限公司</a>
+北大留学人员创业园&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.incubator.com.cn" target="_blank">清华留学人员创业园</a>
+<a href="http://www.bbi.com.cn/" target="_blank">北航留学人员创业园</a>
+<a href="http://www.ustb.edu.cn" target="_blank">北京科大留学人员创业园</a>
+<a href="http://www.bit.edu.cn/" target="_blank">北京理工留学人员创业园</a>
+<a href="http://www.buptincubator.com/" target="_blank">北邮留学人员创业园</a>
+<a href="http://www.zgcspi.com/" target="_blank">中关村软件园留学人员创业园</a>
+<a href="http://www.bjibi.org.cn/" target="_blank">中关村科技园区丰台园留学人员创业园</a>
+<a href="http://www.zgcbmi.com.cn/" target="_blank">中关村生命科学园留学人员创业园</a>
+<a href="http://www.caspark.com.cn/" target="_blank">中科院中自留学人员创业园</a>
+<a href="http://www.huilongsen.com/" target="_blank">北京经济技术开发区留学人员（汇龙森）创业园</a>
+<a href="http://www.cau.edu.cn/" target="_blank">中国农业大学留学人员现代农业创业基地</a>
+<a href="http://www.cspruc.com/" target="_blank">中国人民大学留学人员创业园</a>
+<a href="http://bjut.edu.cn" target="_blank">北工大留学人员创业园</a>
+<a href="http://park.bnu.edu.cn" target="_blank">北师大留学人员创业园</a>
+<a href="http://www.bjicpark.com/content/contentIndex.do" target="_blank">中关村集成电路留学人员创业园</a>
+<a href="http://www.cufesp.org/" target="_blank">中央财经大学留学人员创业园</a>
+</p>
+
+
+<p id="mxl_tab_box_3" style="display:none;">
+
+<a href="http://www.tsinghua.org.cn/alumni/index.do" target="_blank">清华校友会</a> 
+<a href="http://www.pku.org.cn/" target="_blank">北大校友会</a> 
+<a href="http://www.coesa.cn/" target="_blank">欧美同学会</a>
+<a href="http://www.cast-la.org/" target="_blank">旅美科技协会</a>
+<a href="http://www.scea.org/" target="_blank">硅谷中国工程师协会</a> 
+<a href="http://www.tokyochinese.com/" target="_blank">东京大学中国留学人员友好联谊会</a> 
+<a href="http://www.liurixueren.org/" target="_blank">全日本中国留学人员友好联谊会</a>
+<a href="http://www.casd-ev.org/" target="_blank">中国留德学者学生团体联合会</a> 
+<a href="http://www.casej.jp/" target="_blank">全日本中国人博士协会</a>
+<a href="http://www.cpca.org.au/" target="_blank">澳洲华人专业人士俱乐部</a>
+<a href="http://melcnphd.org/portal.php" target="_blank">墨尔本博士沙龙</a>
+</p>
+
+
+<p id="mxl_tab_box_4" style="display:none;">
+
+
+<a href="http://www.sohu.com/" target="_blank">搜狐网</a> 
+<a href="http://www.chisa.edu.cn/" target="_blank">神州学人</a> 
+<a href="http://www.evalley.com.cn/index.htm" target="_blank">中关村杂志社</a> 
+<a href="http://www.chinaqw.com/" target="_blank">中国侨网</a> 
+<a href="http://bjrb.bjd.com.cn/html/2014-05/05/node_2.htm" target="_blank">北京日报</a> 
+<a href="http://paper.people.com.cn/rmrbhwb/" target="_blank">人民日报海外版</a>
+
+</p>
+
+
+<p id="mxl_tab_box_5" style="display:none;">
+<a href="http://www.sino-education.org/" target="_blank">驻美国使馆教育处</a>
+<a href="http://www.nyconsulate.prchina.org/chn/jysw/default.htm" target="_blank">驻纽约领馆教育组</a> 
+
+<a href="http://www.chinaconsulatesf.org/chn/" target="_blank">驻旧金山领馆教育组</a> 
+<a href="http://losangeles.china-consulate.org/chn/" target="_blank">驻洛杉矶领馆教育组</a> 
+<a href="http://houston.china-consulate.org/chn/" target="_blank">驻休斯敦领馆教育组</a> 
+<a href="http://www.chinaconsulatechicago.org/chn/xw/default.htm" target="_blank">驻芝加哥领馆教育组</a> 
+<a href="http://www.chineseeducation.ca/" target="_blank">驻加拿大使馆教育处</a> 
+
+<a href="#" target="_blank">驻多伦多领馆教育组</a> 
+
+<a href="http://vancouver.china-consulate.org/chn/edu/t29751.htm" target="_blank">驻温哥华领馆教育组</a> 
+<a href="http://www.china-embassy.or.jp/chn/" target="_blank">驻日本使馆教育处</a> 
+<a href="http://osaka.china-consulate.org/chn/" target="_blank">驻大阪领馆教育组</a> 
+<a href="#" target="_blank">驻札幌领馆教育组</a> 
+<a href="http://www.eoe.or.kr/publish/portal24/tab1065/" target="_blank">驻韩国使馆教育处</a> 
+<a href="http://www.chinaembassy.org.sg/chn/" target="_blank">驻新加坡使馆教育处</a> 
+<a href="http://www.sino-education.org.au/chn/" target="_blank">驻澳大利亚使馆教育处</a> 
+<a href="http://sydney.china-consulate.org/chn/" target="_blank">驻悉尼领馆教育组</a> 
+<a href="http://www.edumel.org/" target="_blank">驻墨尔本领馆教育组</a> 
+<a href="http://www.chinaeducation.org.nz/" target="_blank">驻新西兰使馆教育组</a> 
+<a href="http://auckland.chineseconsulate.org/chn/jy/default.htm" target="_blank">驻奥克兰领馆教育组</a> 
+<a href="http://www.eduru.org/publish/portal23/tab1028/" target="_blank">驻俄罗斯使馆教育处</a> 
+<a href="http://www.de-moe.edu.cn" target="_blank">驻德国使馆教育处</a> 
+<a href="http://munich.china-consulate.org/chn/" target="_blank">驻慕尼黑领馆教育组</a> 
+<a href="http://www.edu-china-embassy.ch/index.php" target="_blank">驻瑞士使馆教育处</a> 
+<a href="http://www.chinaedu.be/" target="_blank">驻比利时使馆教育处</a> 
+<a href="http://at.china-embassy.org/chn/" target="_blank">驻奥地利使馆教育处</a> 
+<a href="http://www.chinaembassy.nl/chn/" target="_blank">驻荷兰使馆教育处</a> 
+<a href="http://it.chineseembassy.org/chn/" target="_blank">驻意大利使馆教育处</a> 
+<a href="http://www.cnedu.nu/" target="_blank">驻瑞典使馆教育处</a> 
+<a href="http://www.chinaembassy.dk/" target="_blank">驻丹麦使馆教育组</a> 
+<a href="http://www.chinese-embassy.no/chn/" target="_blank">驻挪威使馆教育组</a> 
+<a href="http://www.educn-fi.org/" target="_blank">驻芬兰使馆教育组</a> 
+<a href="http://www.edu-ambchine.org/" target="_blank">驻法国使馆教育处</a> 
+<a href="http://www.educationtoronto.org/" target="_blank">中华人民共和国驻多伦多领馆教育组</a> 
+<a href="http://sapporo.china-consulate.org/chn/" target="_blank">中华人民共和国驻札幌领馆教育组</a> 
+<a href="http://www.chinaemb.or.kr/chn/" target="_blank">中华人民共和国驻韩国使馆教育处</a> 
+<a href="http://www.chinanz-education.org/" target="_blank">中华人民共和国驻新西兰使馆教育组</a> 
+<a href="http://nl.china-embassy.org/chn/" target="_blank">中华人民共和国驻荷兰使馆教育处</a> 
+
+</p>
+</div>
+
+<!--版权 -->
+<div class="copyright">
+<p>©Copyright By 2008-2011 北京海外学人中心　京ICP备14057082号<br />
+<a href="/about" target="_blank">关于我们</a> | <a href="/about/advice.html"  target="_blank">意见反馈</a> | 访问统计&nbsp&nbsp<script src="http://s22.cnzz.com/stat.php?id=3145975&web_id=3145975&show=pic" language="JavaScript"></script>
+</p>
+</div>
+
+
+
+
+
+</body>
+</html>

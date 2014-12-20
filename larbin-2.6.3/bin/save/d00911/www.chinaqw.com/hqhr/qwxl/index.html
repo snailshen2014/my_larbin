@@ -1,0 +1,1700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>中国侨网-华侨华人-侨网相连</title>
+<!--[894,53,1] published at 2014-12-16 15:52:37 from #10 by 郑丽华,designer:liuxin  maker:liweiwei zhaoqian -->  
+
+<link href="http://www.chinaqw.com/css/hrhq.css" rel="stylesheet" type="text/css" />
+<link href="http://www.chinaqw.com/css/hqhr_sj.css" rel="stylesheet" type="text/css" />
+<script src="http://www.chinanews.com/js/jquery1.4.js"></script>
+<base target="_blank"/>
+<script>
+//tab
+function nTabs_dt(thisObj,Num){
+	if(thisObj.className == "active")return;
+		var tabObj = thisObj.parentNode.id;
+		var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+		for(i=0; i <tabList.length; i++)
+		{
+		  if (i == Num)
+		  {
+		  thisObj.className = "active"; 
+		   // thisObj.addClass("active");
+			  document.getElementById(tabObj+"_Content"+i).style.display = "block";
+
+		  }else{
+		   tabList[i].className = "normal"; 
+		   // tabList[i].removeClass("active");
+			// tabList[i].addClass("normal");
+		   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+
+		  }
+	} 
+}
+//tab
+function nTabs(thisObj,Num){
+if(thisObj.className == "active")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "active"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+	 //  $(".new_right_title").addClass("ywtitle"+i);
+  }else{
+   tabList[i].className = "normal"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  // $(".new_right_title").removeClass("ywtitle"+i);
+  }
+} 
+}
+</script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<body >
+<!--返回顶部-->
+<style type="text/css">
+
+.index_layer {
+	position: fixed;
+	_position: absolute;
+	width: 60px;
+	right: 350px;
+	bottom: 117px;
+	_bottom: 117px;
+	_height: 150px;
+	z-index: 100;
+}
+
+.index_layer .back a {
+	background: url(http://i4.chinaqw.com/qiaowu/images/hqhr_back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.index_layer .back a:Hover {
+	background: url(http://i4.chinaqw.com/qiaowu/images/hqhr_back.jpg) no-repeat;
+	width:56px;height:45px;
+	display: block;
+}
+
+.menuTop1{ top: 555px;}
+.menuBtm1{top:0px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin-top:0px;}
+/*侨网相连*/
+.qw_hqhrbannersj_qwxl{position:absolute;left:1px;top:0px;width:274px;height:51px;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_banner.jpg) no-repeat;}
+
+.qw_hqhr_titlesj_qwxl{width:980px;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_title1.jpg) no-repeat;height:43px; }
+.qw_hqhr_titlesj_qwxl1{width:980px;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_title2.jpg) no-repeat;height:43px; }
+
+.qw_qwxlyjbox{margin-top:10px;}
+.qw_qwxlyjbox .topdiv{width:980px;height:12px;overflow:HIdden;}
+.qw_qwxlyjbox .topl{width:12px;height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon1.jpg) no-repeat;}
+.qw_qwxlyjbox .topc{height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon5.jpg) repeat-x;width:956px;}
+.qw_qwxlyjbox .topr{width:12px;height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon2.jpg) no-repeat;}
+
+.qw_qwxlyjbox .conbox{line-height:16px;width:978px;border-left:#f8eacc 1px solid;border-right:#f8eacc 1px solid;}
+.qw_qwxlyjbox .conboxtext{padding:0 12px;}
+.qw_qwxlyjbox .bottoml{width:12px;height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon3.jpg) no-repeat;}
+.qw_qwxlyjbox .bottomc{height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon6.jpg) repeat-x;width:956px;}
+.qw_qwxlyjbox .bottomr{width:12px;height:12px;float:left;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_icon4.jpg) no-repeat;}
+.gnqw_ditu_jgzz_qwxl{width:587px;height:302px;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_ditu.jpg) no-repeat;}
+
+.qw_qwxl_left{float:left;width:587px;}
+.qw_qwxl_right{float:right;width:355px;}
+
+.hqhr_title_qwxl{height:42px;}
+.hqhr_title_qwxl  .life_title_rztx_text{background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_fy.jpg) no-repeat left center;width:101px;height:42px; text-align:center;float:left;color:#333333;font-size:18px;line-height:42px;font-family:microsoft yahei;}
+.hqhr_title_qwxl  .life_title_rztx_text a{}
+.hqhr_title_qwxl  .life_title_rztx_text a:Hover{text-decoration:none;}
+.hqhr_title_qwxl  .life_title_rztx_more{float:right;padding:11px 13px 0 0 ;font-size:14px;}
+.hqhr_title_qwxl  .life_title_rztx_more a{color:#fe0000;}
+.hqhr_title_qwxl  .life_title_rztx_more a:hover{color:#fe0000;}
+
+.hjpdqwxl_title1{height:18px;background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_title3.jpg) no-repeat;}
+.hjpdqwxl_title1 .life_title_text{float:left;color:#3ace6d;font-size:14px;line-height:18px;padding-left:14px;font-weight:bold;}
+.hjpdqwxl_title1 .life_title_text a{color:#3ace6d;}
+.hjpdqwxl_title1 .life_title_text a:hover{text-decoration:none;}
+.hjpdqwxl_title1 .life_title_more{line-height:18px;float:right;padding-right:5px;}
+.hjpdqwxl_title1 .life_title_more a{color:#888;}
+.hjpdqwxl_title1 .life_title_more a:hover{color:#888;}
+
+.qw_hqhr_qwxlbox{border-bottom:#b3eec7 1px solid;height:39px; position:relative;}
+.qw_hqhr_qwxlul {
+	font-size:20px;
+	line-height:39px;
+	height:39px;
+	padding-left:20px;
+
+}
+.qw_hqhr_qwxlul li {
+	cursor:pointer;
+	margin-right:1px;
+	text-align:center;
+	float:left;
+	font-family:microsoft yahei;
+
+}
+.qw_hqhr_qwxlul li.normal {
+	text-align:center;
+	font-size:18px;
+	background:url(http://i4.chinaqw.com/qiaowu/images/qwxl_titlebg.jpg) repeat-x;
+}/*sy xingai*/
+.qw_hqhr_qwxlul li.active {
+	background:#73df98;
+
+}/*sy xingai*/
+.qw_hqhr_qwxlul li.normal a{color:#919191;}
+.qw_hqhr_qwxlul li.active a{color:#fff;}
+.qw_hqhr_qwxlul li a{padding:0 27px;text-decoration:none;}
+#qwxl_Content1,#qwxl_Content2,#qwxl_Content3,#qwxl_Content4,#qwxl_Content5{display:none;}
+
+.hqhrqwxl_title{height:21px; position:relative;line-height:21px;padding-bottom:12px;border-bottom:#e2e2e2 1px dotted;}
+.hqhrqwxl_title .life_title_text{float:left;color:#333;font-size:18px;line-height:21px;padding-left:21px;font-family:microsoft yahei;}
+.hqhrqwxl_title .life_title_text a{color:#333;}
+.hqhrqwxl_title .life_title_text a:hover{text-decoration:none;}
+
+.hqhrqwxl_title .life_title_more{line-height:21px;float:right;padding-right:5px;}
+.hqhrqwxl_title .life_title_more a{color:#888;}
+.hqhrqwxl_title .life_title_more a:hover{color:#888;}
+
+.hqhr_qwxl{float:left;width:432px;padding-left:10px;}
+.hqhr_qwxl1{float:right;width:432px;}
+
+.module_con_ulpd_qwxl{
+
+}
+.module_con_ulpd_qwxl a {
+	font-size:14px;
+}
+.module_con_ulpd_qwxl a:Hover {
+	color:#b21112;
+	text-decoration:underline;
+}
+.module_con_ulpd_qwxl li {
+    font-size:14px;
+	padding:0 5px 0 18px;
+	margin:0 0 0 10px;
+	line-height:29px;
+	height:29px;
+	overflow:hidden;
+	width:45%;
+	float:left;
+	background:url(http://i4.chinaqw.com/qiaowu/images/huidot.jpg) no-repeat 5px center;
+}
+
+.module_con_ulpd_qwxl li  span{
+	color:#ff8976
+}
+
+.module_con_ulpd_qwxl li  strong.hrxw_text a{
+	color:#349f10
+}
+</style>
+
+<div  class="index_layer ie6fixedBR" id="full" >
+
+<div class="back" style="width:60px;height:60px;margin-top:8px;" id="newsbacktop"><a href='#qw_top' class='fhtop_a' target='_self'></a></div>
+
+</div>
+
+ <p>
+   <Script>
+(function() {
+	var backToTopTxt1 = $(".index_layer").html(),
+	 backToTopEle1 = backToTopTxt1, backToTopFun1 = function() {
+        var stback = $(document).scrollTop(), winh1 = $(window).height();
+         $(".index_layer").show();
+		  (stback>0)? $("#newsbacktop").css('display','block'): $("#newsbacktop").css('display','none');  
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $(".index_layer").css("top", stback + winh1 - 550);    
+        }
+    };
+	$(window).bind("scroll", backToTopFun1);
+    backToTopFun1(); 
+
+})();	
+
+$(document).ready(function(){
+	 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+		  qw_banner_right=$("div.qw_hqhrbannersj_right");
+		width1=(screenwidth-1000)/2;
+        qw_banner_right.css('width',width1+'px');
+		 qw_banner_right.css('right','-'+width1+'px');
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =117+"px";
+			}
+	$(window).resize(function() {
+
+		 var pw_heigth=$(window).height();
+		// alert(pw_heigth);
+		var screenwidth=$(window).width(); //浏览器当前窗口可视区域宽度 
+		//$("#layer").css("right",((screenwidth -1004) /2)-100);
+		 Box=document.getElementById("full");
+
+		 Box.style.right = ((screenwidth -1004) /2)-80 + "px";
+		  qw_banner_right=$("div.qw_hqhrbannersj_right");
+		width1=(screenwidth-1000)/2;
+        qw_banner_right.css('width',width1+'px');
+		 qw_banner_right.css('right','-'+width1+'px');
+
+		if(screenwidth <= 1024){
+			Box.style.right =0+"px";
+
+		} 
+		if(pw_heigth <= 780){
+			Box.style.bottom =0+"px";
+
+		} else{
+			Box.style.bottom =117+"px";
+			}
+
+});
+
+});
+
+ </Script>
+  <style>
+ .iphoneb .qw_hqhrbannersj .qw_hqhrbannersj_right{display:none;}
+ </style>
+
+ <script>
+ function browserRedirect() {  
+	var sUserAgent = navigator.userAgent.toLowerCase();  
+	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+	var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+	var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+	var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+	var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+	var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+	//if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){  
+		//window.location.href="http://m.chinanews.com/apps/pc.html";
+	//} 
+}  
+  browserRedirect();  
+var mynum=window.location.search;
+var mylocation=window.location.href;
+
+  	var sUserAgent = navigator.userAgent;
+
+	  if (/(iPhone|iPod|iOS|iPad)/i.test(navigator.userAgent)) {  
+			//alert(navigator.userAgent);  
+		 // window.location.href="http://m.chinanews.com/apps/iphone.html";
+
+	   var body = document.getElementsByTagName('body')[0];
+		 body.className="iphoneb";
+
+		}else if(/(Android)/i.test(navigator.userAgent)){
+			//alert(navigator.userAgent);   
+			//window.location.href="http://m.chinanews.com/apps/android.html";
+		  var body = document.getElementsByTagName('body')[0];
+		 body.className="iphoneb";
+
+	}
+	else{
+	}
+
+</script>
+
+<!--返回顶部结束-->
+<!--div class="qw_list_top" id="qw_top"-->
+<div class="qw_list_top" id="qw_top">
+<div class="w1000 m_center">
+	<div class="qw_list_top_left"><strong><a href="/">侨网首页</a></strong>
+     <span>
+        <a href="/hqhr/">华侨华人</a>
+        <a href="/zhwh/">中华文化</a>
+        <a href="/hwjy/">华文教育</a>
+        <a href="/jjkj/">经济科技</a>
+        <a href="/gqqj/">归侨侨眷</a>
+        <a href="/sqfg/">涉侨法规</a>
+        <a href="/sqjg/">涉侨机构</a>
+        <a href="/hdfw/">互动与服务</a>
+
+    </span>
+    </div>
+    <div class="qw_logoright qw_logoright_list" >
+    	<div class="qw_logoright_ul">
+          <ul>
+          	<script type="text/javascript">
+          //设为首页
+function SetHome(url){
+
+        if (document.all) {
+
+            document.body.style.behavior = 'url(#default#homepage)'; 
+            document.body.setHomePage(url)
+
+        }else{
+
+            alert("抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!");
+
+        }
+
+    }
+          </script>
+<li class="swsy"><a onClick="SetHome('http://www.chinaqw.com/')">设为首页</a></li>
+<li class="jrzm"><a href="http://www.chinaqw.com/news/desktop_shortcut.htm">加入桌面</a></li>
+<!--<li class="khd"><a>客户端</a></li>-->
+<li class="khd"><a href="http://big5.chinaqw.com:89/">繁体版</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+<!--div class="qw_list_top" id="qw_top"-->
+ <div class="qw_hqhrbanner">
+	<div class="qw_hqhrlogo"><a></a></div>
+    <div class="qw_hqhrgg"><img src="http://i3.chinaqw.com/qiaowu/images/banner2_03.jpg" width="740" height="80"/></div>
+     <div class="clear"></div>
+</div>
+
+<div class="qw_hqhrbannersj">
+    	<div class="qw_hqhrbannersj_left"></div>
+        <div class="qw_hqhrbannersj_qwxl"></div>
+        <div class="qw_hqhrbannersj_right"></div>
+        <div class="qw_hqhrbanner1_box">
+
+            <div class="qw_hqhrbanner1_box2">
+            	<div class="leftgd">
+
+                </div>
+                <div class="searchright">
+                	 <div class="">
+                    <!--搜索qw_listsearch s-->
+    <!--[894,3,7] published at 2014-04-16 15:51:51 from #10 by 赵谦-->
+
+<input type="text" value="请输入关键字" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="input1" onkeydown="checksubmit()">
+
+<input name="" type="button" class="input2" onclick="submitFun()" />
+<script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+window.open("http://sou.chinaqw.com/search.jsp?q="+encodeURIComponent(hotword));
+ }
+
+}
+
+</script>  
+
+   
+    <!--搜索qw_listsearch e-->
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!--海外侨团-->
+  <div class="qw_main" id="">
+  <div class="qw_main_box" id="">
+  <div class="qw_hqhr_titlesj_qwxl mt15"></div>
+
+           <div class="qw_qwxlyjbox">
+                   <div class="topdiv">
+                    <div class="topl"></div>
+                    <div class="topc"></div>
+                    <div class="topr"></div>
+                 </div>
+                 <div class="conbox">
+                     <div class="conboxtext">
+                     	<!----><!--华侨华人-海外侨团-侨团地图s-->
+       <!--[894,47,1] published at 2014-07-02 16:50:54 from #202 by 59-->
+<style>
+/**/		
+.gnqw_ditu_jgzz{width:587px;height:302px;background:url(http://i3.chinaqw.com/qiaowu/images/zditu2.jpg) no-repeat;}
+
+.ditu_ul_hqhr{width:587px;height:302px;position:relative;}
+.ditu_ul_hqhr li{ width:33x;height:18px;text-align:center;cursor:pointer;color:#005d91;font-size:15px;font-family:microsoft yahei; line-height:18px;position:absolute;}
+.ditu_ul_hqhr li a{color:#005d91; text-decoration:none;display:block;width:33x;height:18px;}
+.ditu_ul_hqhr li a:hover{color:#005d91; text-decoration:none;display:block;width:33x;height:18px;}
+.ditu_ul_hqhr .normal{}
+.ditu_ul_hqhr .active div{}
+.ditu_ul_hqhr .normal a{display:none;}
+.ditu_ul_hqhr .active a{display:none;}
+
+.ditu_ul_hqhr .beimeizhou{position:absolute;left:90px;top:102px;width:23px;height:33px;}
+.ditu_ul_hqhr .nanmeizhou{position:absolute;left:165px;top:206px;width:23px;height:33px;}
+
+.ditu_ul_hqhr .ouzhou{position:absolute;left:283px;top:65px;width:23px;height:33px;}
+.ditu_ul_hqhr .feizhou{position:absolute;left:257px;top:133px;width:23px;height:33px;}
+
+.ditu_ul_hqhr .yazhou{position:absolute;left:391px;top:95px;width:23px;height:33px;}
+.hqhr_ditubox_arrow_yz{position:absolute;right:-18px;top:38px;width:19px;height:22px;background:url(http://i3.chinaqw.com/qiaowu/images/hqhr_arrowr.png) no-repeat;}
+.ditu_ul_hqhr .dayangzhou{position:absolute;left:516px;top:213px;width:23px;height:33px;}
+.hqhr_ditubox_arrow_dyz{position:absolute;right:-18px;top:38px;width:19px;height:22px;background:url(http://i3.chinaqw.com/qiaowu/images/hqhr_arrowr.png) no-repeat;}
+
+.qw_gnqwmain_left{position:relative;}
+.hqhr_ditubox{background:url(http://i3.chinaqw.com/qiaowu/images/hqhr_t.png) no-repeat top left;width:227px;position:relative;padding-top:10px;}
+.hqhr_ditubox_arrow{position:absolute;left:-18px;top:38px;width:19px;height:22px;background:url(http://i3.chinaqw.com/qiaowu/images/hqhr_arrow.png) no-repeat;}
+.hqhr_ditubox_con{background:url(http://i3.chinaqw.com/qiaowu/images/hqhr_b.png) no-repeat bottom left;width:227px;}
+.hqhr_ditubox_div{width:227px;}
+.hqhr_ditubox_div .textbox{padding:0 10px;line-height:26px;}
+.hqhr_ditubox_div .textbox strong a{color:#ff2300;}
+
+.hqhr_ditutext .beimeizhounr{position:absolute;left:193px;top:65px;width:227px;}
+.hqhr_ditutext .nanmeizhounr{position:absolute;left:215px;top:165px;width:227px;}
+.hqhr_ditutext .ouzhounr{position:absolute;left:373px;top:25px;width:227px;}
+.hqhr_ditutext .feizhounr{position:absolute;left:345px;top:97px;width:227px;}
+.hqhr_ditutext .yazhounr{position:absolute;left:130px;top:75px;width:227px;}
+.hqhr_ditutext .dayangzhounr{position:absolute;left:210px;top:185px;width:227px;}
+#myTabhd_hqhrditu_Content0,#myTabhd_hqhrditu_Content1,#myTabhd_hqhrditu_Content2,#myTabhd_hqhrditu_Content3,#myTabhd_hqhrditu_Content4,#myTabhd_hqhrditu_Content5{display:none;}
+
+* html .hqhr_ditubox_arrow_yz{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i3.chinaqw.com/qiaowu/images/hqhr_arrowr.png');} 
+* html .hqhr_ditubox_arrow_dyz{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i3.chinaqw.com/qiaowu/images/hqhr_arrowr.png');} 
+* html .hqhr_ditubox_arrow{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i3.chinaqw.com/qiaowu/images/hqhr_arrow.png');} 
+
+</style>
+
+<div class="qw_gnqwmain_left">
+      		<div class="gnqw_ditu_jgzz">
+             <ul id="myTabhd_hqhrditu" class="ditu_ul_hqhr">   
+                <li class="active " onmouseover="nTabs_dt(this,0);"> <div class="beimeizhou" ><a href="/hqhr/hqhr-hwqt-qtml/bmz/" title="北美洲" style="display:block;"></a></div></li>
+               <li class="normal " onmouseover="nTabs_dt(this,1);"> <div class="nanmeizhou" ><a href="/hqhr/hqhr-hwqt-qtml/nmz/" title="中南美洲" style="display:block;"></a></div></li>
+
+               <li class="normal " onmouseover="nTabs_dt(this,2);"> <div class="ouzhou" ><a href="/hqhr/hqhr-hwqt-qtml/oz/" title="欧洲" style="display:block;"></a></div></li>
+               <li class="normal " onmouseover="nTabs_dt(this,3);"> <div class="feizhou" ><a href="/hqhr/hqhr-hwqt-qtml/fz/" title="非洲" style="display:block;"></a></div></li>
+
+               <li class="normal " onmouseover="nTabs_dt(this,4);"> <div class="yazhou" ><a href="/hqhr/hqhr-hwqt-qtml/yz/" title="亚洲" style="display:block;"></a></div></li>
+               <li class="normal " onmouseover="nTabs_dt(this,5);"> <div class="dayangzhou" ><a href="/hqhr/hqhr-hwqt-qtml/dyz/" title="大洋洲" style="display:block;"></a></div></li>
+
+             </ul>
+
+        </div>
+
+        <div class="hqhr_ditutext">
+      		 <!--北美洲-->
+            <div id="myTabhd_hqhrditu_Content0" class="beimeizhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/bmz/bmz-CAN/>加拿大</a></strong><p>
+			<a href="/hqhr/2014/05-22/4397.shtml">加拿大渥太华华人科技协会</a>
+
+			<a href="/hqhr/2014/05-21/4310.shtml">加拿大华人教授协会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/bmz/bmz-USA/>美国</a></strong><p>
+			<a href="/hqhr/2014/05-22/4417.shtml">美南中国专家协会联合会</a>
+
+			<a href="/hqhr/2014/05-22/4414.shtml">大华府中国大专院校校友联合会</a>
+
+			</p>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--北美洲-->
+            <!--南美洲-->
+            <div id="myTabhd_hqhrditu_Content1" class="nanmeizhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/nmz/nmz-ARG/>阿根廷</a></strong><p>
+			<a href="/hqhr/2014/04-22/1293.shtml">阿根廷华侨华人联合总会、阿根廷中华工商企业联合总会</a>
+
+			<a href="/hqhr/2014/04-22/1292.shtml">阿根廷广东同乡会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/nmz/nmz-BRA/>巴西</a></strong><p>
+			<a href="/hqhr/2014/04-22/1279.shtml">巴西中国经济贸易促进会</a>
+
+			<a href="/hqhr/2014/04-22/1278.shtml">巴西中华总商会</a>
+
+			</p>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--南美洲-->
+
+            <!--欧洲-->
+            <div id="myTabhd_hqhrditu_Content2" class="ouzhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/oz/oz-BEL/>比利时</a></strong><p>
+			<a href="/hqhr/2014/05-07/3148.shtml">旅比华人专业人士协会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/oz/oz-DNK/>丹麦</a></strong><p>
+			<a href="/hqhr/2014/05-07/3132.shtml">旅丹华人专业人士协会</a>
+
+			</p>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--欧洲-->
+            <!--非洲-->
+            <div id="myTabhd_hqhrditu_Content3" class="feizhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/fz/fz-NAM/>纳米比亚</a></strong><p>
+			<a href="/hqhr/2014/04-23/1537.shtml">纳米比亚中华工商联合总会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/fz/fz-MUS/>毛里求斯</a></strong><p>
+			<a href="/hqhr/2014/04-23/1536.shtml">毛里求斯华商总会</a>
+
+			</p>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--非洲-->
+
+            <!--亚洲-->
+            <div id="myTabhd_hqhrditu_Content4" class="yazhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow_yz"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/yz/yz-MYA/>缅甸</a></strong><p>
+			<a href="/hqhr/2014/04-23/1524.shtml">缅甸国际贸易促进会 </a>
+
+			<a href="/hqhr/2014/04-23/1523.shtml">缅甸华商商会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/yz/yz-THA/>泰国</a></strong><p>
+			<a href="/hqhr/2014/04-23/1522.shtml">泰国华人青年商会</a>
+
+			<a href="/hqhr/2014/04-23/1521.shtml">泰国华商联谊会</a>
+
+			</p>
+
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!--亚洲-->
+            <!--大洋洲-->
+            <div id="myTabhd_hqhrditu_Content5" class="dayangzhounr">
+            	<div class="hqhr_ditubox">
+                	<div class="hqhr_ditubox_arrow_dyz"></div>
+                	<div class="hqhr_ditubox_con">
+                    	<div class="hqhr_ditubox_div">
+                        	<div class="textbox">
+                        	<strong><a href=/hqhr/hqhr-hwqt-qtml/dyz/dyz-AUS/>澳大利亚</a></strong><p>
+			<a href="/hqhr/2014/05-22/4400.shtml">澳华学人协会</a>
+
+			<a href="/hqhr/2014/05-21/4294.shtml">澳大利亚华人金融专家协会</a>
+
+			</p>
+					     <strong><a href=/hqhr/hqhr-hwqt-qtml/dyz/dyz-FJI/>斐济群岛</a></strong><p>
+			<a href="/hqhr/2014/04-23/1525.shtml">斐济开平同乡会</a>
+
+			</p>
+
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!--大洋洲-->
+
+      </div>
+      </div>
+       <!--华侨华人-海外侨团-侨团地图e-->
+
+                   	   <!---->
+                    <style>
+                    .gnqw_ditu_jgzz{width:587px;height:302px;background:url(http://i3.chinaqw.com/qiaowu/images/qwxl_ditu.jpg) no-repeat;}
+                    </style>
+                   <div class="qw_qwxl_right">
+                   	 <iframe width="355" scrolling="no" align="middle" height="174" frameborder="0" marginheight="0" marginwidth="0" name="iframepost" id="iframepost" src="http://bbs.chinanews.com/iframe/qwxl_denglu.html"></iframe>
+
+                       <div class="mt10">
+                       		<div class="hjpdqwxl_title1 ">
+
+                                 <div class="life_title_text">留言展示</div>
+
+                            </div>
+                            <div class="mt10">
+                                <ul class="module_hwsh_ul">
+                                <li><a href="http://bbs.chinanews.com/forum.php?gid=49">中国侨网网友：如何加入华人社团？侨团主要职能是什么？</a></li>
+<li><a href="http://bbs.chinanews.com/forum.php?gid=49">中国侨网网友：祝第七届世界华侨华人社团联谊大会成功举办</a></li>
+<li><a href="http://bbs.chinanews.com/forum.php?gid=49">中国侨网网友：全世界的华人社团原来有这么多，真长见识！</a></li>
+<li><a href="http://bbs.chinanews.com/forum.php?gid=49">中国侨网网友：祖国永远是海外华侨华人的坚强后盾</a></li>
+<li><a href="http://bbs.chinanews.com/forum.php?gid=49">中国侨网网友：希望海外华人侨领、华商多回中国投资创业</a></li>
+
+                              </ul>
+       		      </div> 
+
+                       </div>  
+
+                   </div>  
+                   <div class="clear"> </div>  
+                   <div class="mt10">
+           		<div class="qw_hqhr_qwxlbox">
+                    <ul class="qw_hqhr_qwxlul " id="qwxl">
+                        <li onmouseover="nTabs(this,0);" class="active"><a>北美洲</a></li>
+                        <li onmouseover="nTabs(this,1);" class="normal" ><a>欧洲</a></li>
+                        <li onmouseover="nTabs(this,2);" class="normal"><a>亚洲</a></li>
+                        <li onmouseover="nTabs(this,3);" class="normal" ><a>中南美洲</a></li>
+                        <li onmouseover="nTabs(this,4);" class="normal"><a>非洲</a></li>
+                        <li onmouseover="nTabs(this,5);" class="normal" ><a>大洋洲</a></li>
+
+                      </ul>
+                 </div>
+                 <div class="new_con_border_b ">
+                     <div id="qwxl_Content0">
+                         <div class="hqhrqwxl_title ">
+<div class="life_title_text">加拿大</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.qzcanada.com/index.asp">加拿大泉州同乡会</a></li>
+<li><a href="http://www.yunnan-canada.com/">加拿大云南同乡会</a></li>
+<li><a href="http://www.guizhoucanada.com/">加拿大贵州同乡会</a></li>
+<li><a href="http://www.henancanada.ca/wp/">加拿大河南同乡联谊会</a></li>
+<li><a href="http://www.zhejiangaoc.org/election-government-joomla-template-2-5-political">加拿大浙江同乡会</a></li>
+<li><a href="http://www.vancba.org/">温哥华中华商会</a></li>
+<li><a href="http://www.cescca.com/">加拿大中华总商会</a></li>
+<li><a href="http://www.ctcco.ca/">多伦多华人团体总会</a></li>
+<li><a href="http://www.tcccto.com/">多伦多社区文化中心</a></li>
+<li><a href="http://www.quanzhoutoronto.ca/">加拿大多伦多泉州同乡联合总会</a></li>
+<li><a href="http://www.jualumni.ca/">江苏大学加拿大校友会</a></li>
+<li><a href="http://chinesetraveller.ca/">多伦多华人旅游者协会</a></li>
+<li><a href="http://montrealhainan.org/">加拿大满地可海南同乡会</a></li>
+<li><a href="http://www.tianjincanada.com/">加拿大天津同乡会</a></li>
+<li><a href="http://www.chinesebusiness.org/index_gb.phtml">加拿大中华商会</a></li>
+<li><a href="http://www.ccwriters.ca/">加拿大华裔作家协会</a></li>
+<li><a href="http://www.heilongjiangca.com/">加拿大黑龙江协会</a></li>
+<li><a href="http://www.cccgt.org/index.php/zh-TW/">大多伦多中华文化中心</a></li>
+<li><a href="http://van.zsssaa.com/">温哥华中中校友会</a></li>
+<li><a href="http://www.vancouverzhuhai.com/">温哥华珠海联谊会</a></li>
+<li><a href="http://www.fjcac.org/">加拿大福建华联总会</a></li>
+<li><a href="http://pxtoronto.com/">加拿大莆仙同乡会</a></li>
+<li><a href="http://www.tcsv1987.org/">加拿大温哥华潮州同乡会</a></li>
+<li><a href="http://www.calgarydongbeiren.org/">卡尔加里东北同乡会</a></li>
+<li><a href="http://www.qzcanada.com/index.asp">加拿大泉州同乡会</a></li>
+<li><a href="http://na-canada.com/en/">北美华商联合总会</a></li>
+<li><a href="http://maoming.ca/">加拿大茂名同乡会</a></li>
+<li><a href="http://www.gxfa.ca/aggregator">加拿大广西同乡会</a></li>
+<li><a href="http://www.canadahainan.org/">加拿大安省海南同乡会</a></li>
+<li><a href="http://www.zhejiang.ca/">加拿大浙江商会</a></li>
+<li><a href="http://www.cfccanada.org/">加拿大华商会</a></li>
+<li><a href="http://www.wenzhouren.ca/">加拿大温州同乡会</a></li>
+<li><a href="http://www.huadutoronto.com/hd/">多伦多花都同乡会</a></li>
+<li><a href="http://ccbpa.com/">加中生物医药科技发展协会网站</a></li>
+<li><a href="http://vancouver-chinatown.com">温哥华华埠商业促进会网站</a></li>
+<li><a href="http://ccbis.org/">中加建筑业协会网站</a></li>
+<li><a href="http://chineseprofessionals.ca">加拿大中国专业人士协会网站</a></li>
+<li><a href="http://cacit.ca">加拿大华人信息技术协会网站</a></li>
+<li><a href="http://ccba.bc.ca/">加拿大中国商会科技协会网站</a></li>
+<li><a href="http://ccsst.org">加拿大中国科学技术协会网站</a></li>
+<li><a href="http://ccbpa.com/">加中生物医药科技发展协会网站</a></li>
+<li><a href="http://cshba.ca">加拿大上海商会网站</a></li>
+<li><a href="http://comefromchina.com/">加拿大渥太华华人科技协会网站</a></li>
+<li><a href="http://tccsa.on.ca/zh/">加拿大多华会网站</a></li>
+<li><a href="http://fujiancanada.org/">加拿大福建同乡联谊会网站</a></li>
+<li><a href="http://ccsst.info/">加拿大中国科学技术协会网站</a></li>
+<li><a href="http://jndyskccztxh.cr.hqcr.com/">加拿大亚省卡城潮州同乡会网站</a></li><li><a href="http://www.ccaacanada.org/eng/">加拿大社区发展促进会网站</a></li>
+</li><li><a href="http://cccica.com/w3/">加拿大中国工商联合会网站</a></li></li>
+</li><li><a href="http://www.ccgc.com/cn/">加拿大中国总商会网站</a></li></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">美国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.fujiansouthusa.org/">美南福建同乡会</a></li>
+<li><a href="http://americanassociation.jimdo.com/">美国中华总商会</a></li>
+<li><a href="http://www.bostonbeijing.org/">波士顿北京同乡会</a></li>
+<li><a href="http://www.hnuaaa.org/">河南大学美国校友会</a></li>
+<li><a href="http://www.cprc-sf.org/">美国旧金山湾区中国统一促进会</a></li>
+<li><a href="http://uscac.org/">美国美中工商联合会</a></li>
+<li><a href="http://chineseceo.org/">美国美中工商协会</a></li>
+<li><a href="http://www.usccda.org/">美国华人工商业联合会</a></li>
+<li><a href="http://www.csspena.com/">北美华人科技工商联合会</a></li>
+<li><a href="http://www.umcpcssa.org/">马里兰大学中国学生学者联合会</a></li>
+<li><a href="http://www.uschinabca.org/">美中商业文化协会</a></li>
+<li><a href="http://www.uzcca.com/">美国浙江经贸文化联合会</a></li>
+<li><a href="http://www.casbi.org/">美国国际华人科技工商协会</a></li>
+<li><a href="http://www.wzusa.org/">美国加州温州同乡会</a></li>
+<li><a href="http://www.sole.org/">美国国际物流协会</a></li>
+<li><a href="http://www.zccaonline.com/">美国浙江总商会</a></li>
+<li><a href="http://www.myhunan.us/">旅美湖南同乡会</a></li>
+<li><a href="http://nacsae.org/cn/index.aspx">北美华人汽车工程师协会</a></li>
+<li><a href="http://www.naacee.org/index2.html">北美华人发动机工程师协会</a></li>
+<li><a href="http://www.acadetroit.org/">密歇根美华协会</a></li>
+<li><a href="http://www.fukieneseusa.com/">美国南加州福建同乡会</a></li>
+<li><a href="http://pku.org/index.php">北京大学南加州校友会</a></li>
+<li><a href="http://nc-cba.org/">美国北卡州华人企业协会</a></li>
+<li><a href="http://www.caacpa.org/">科州中美专业人士联合会</a></li>
+<li><a href="http://yjlhrttlhh.cr.hqcr.com/">越柬寮华人团体联合会</a></li>
+<li><a href="http://www.acp-atlanta.org/">亚特兰大中华专业人士协会</a></li>
+<li><a href="http://www.naca-atlanta.org/">全美华人协会</a></li>
+<li><a href="http://www.cbaaweb.org/index.html">亚特兰大中国商会</a></li>
+<li><a href="http://uswxcc.org/">美国无锡商会</a></li>
+<li><a href="http://uswccc.org/">美国华盛顿国际商会（美国江苏国际商会）</a></li>
+<li><a href="http://www.gwjna.org/drupal7/">美国大华府江苏暨南京同乡会</a></li>
+<li><a href="http://www.nsms-caa.org/">美国华裔医学科学家协会</a></li>
+<li><a href="http://onmuaa.com/wordpress/">南京医科大学海外校友会</a></li>
+<li><a href="http://mjql.org/">美加齐鲁同乡会</a></li>
+<li><a href="http://sapa-gp.org/sapagp/">美中医药开发协会大费城分会</a></li>
+<li><a href="http://www.aasapa.org/">美国宾州美亚老人会</a></li>
+<li><a href="http://www.usasina.net/huashanghui/index.html">大费城华人工商联合总会</a></li>
+<li><a href="http://cssap.org/home/">宾大中国学生学者联谊会</a></li>
+<li><a href="http://www.xminusa.com/">美国厦门联合会</a></li>
+<li><a href="http://www.jiangxi-sc.org/default.htm">美国南加州江西同乡会</a></li>
+<li><a href="http://www.usgxa.com/index.htm">美国广西同乡联谊会</a></li>
+<li><a href="http://luggage-usa.com/JiangSu/index.html">美国江苏经贸文化联合会</a></li>
+<li><a href="http://www.aacyf.org/">全美中华青年联合会</a></li>
+<li><a href="http://www.henanusa.org/">美国北加州河南同乡会</a></li>
+<li><a href="http://www.myncca.org/">美国华人全国委员会</a></li>
+<li><a href="http://www.cpu-nc.org/">美国北加州中国和平统一促进会</a></li>
+<li><a href="http://chutianren.org/">美国北加州湖北同乡会</a></li>
+<li><a href="http://www.cashfa.org/">美中上海友好协会</a></li>
+<li><a href="http://www.dc-wuxi.org/">美国大华府地区无锡同乡会</a></li>
+<li><a href="http://ny-shandong.org/">美国纽约山东同乡会</a></li>
+<li><a href="http://www.henanamerican.com/">美东河南同乡会</a></li>
+<li><a href="http://www.bjaany.org/">美国纽约北京同乡会</a></li>
+<li><a href="http://www.caps-usa.org/">美国华人医药科学家协会</a></li>
+<li><a href="http://www.uscca.org/">美国华人宣道会联会</a></li>
+<li><a href="http://www.caagc.us/">大芝加哥地区华侨华人联合会</a></li>
+<li><a href="http://www.zjren.org/">大华府浙江同乡会</a></li>
+<li><a href="http://www.zhejiangga.org/">乔治亚州浙江同乡会</a></li>
+<li><a href="http://www.zccaonline.com/">美国浙江总商会</a></li>
+<li><a href="http://www.cfglusa.org/">美国洪门致公总堂</a></li>
+<li><a href="http://na-canada.com/en/news/">北美华商联合总会</a></li>
+<li><a href="http://www.uswza.com/">温州旅美同乡会</a></li>
+<li><a href="http://csasc.org/home.php">美国华裔教授学者协会网站</a></li>
+<li><a href="http://www.svcaca.com/">硅谷美华科技商会网站</a></li>
+<li><a href="http://tcfaglobal.org/">全美华人金融协会网站</a></li>
+<li><a href="http://nac-gea.org/">北美华人岩土工程师协会网站</a></li>
+<li><a href="http://detroitengineer.org/">底特律中国工程师协会网站</a></li>
+<li><a href="http://DBAOnline.org">美国数据管理协会网站</a></li>
+<li><a href="http://mncita.org/index.html">明州华人信息技术协会网站</a></li>
+<li><a href="http://necina.net/">纽英伦中华资讯网络协会网站</a></li>
+<li><a href="http://encss.org/">中国学生学者环境与公共健康合作会网站</a></li>
+<li><a href="http://capst.org/">中国旅美专家协会网站</a></li>
+<li><a href="http://casbi.org">国际华人科技工商协会网站</a></li>
+<li><a href="http://ictpa.org/">国际华人交通运输协会总会网站</a></li>
+<li><a href="http://cie-usa.org/index.html">美洲中国工程师协会网站</a></li>
+<li><a href="http://nacsae.org/">北美华人汽车工程师协会网站</a></li>
+<li><a href="http://svsta.org">硅谷科技协会网站</a></li>
+<li><a href="http://caiss.org/">华美信息存储协会网站</a></li>
+<li><a href="http://cespn.net">华人环境学者工程师协会网站</a></li>
+<li><a href="http://sino-eco.org/">中华海外生态学者协会网站</a></li>
+<li><a href="http://castct.org/index.php">中国旅美科技协会康州分会网站</a></li>
+<li><a href="http://nacpe-usa.org/nacpe/index.asp">北美华人创业协会网站</a></li>
+<li><a href="http://sinoprofessionals.org/">休斯敦华夏学人协会网站</a></li>
+<li><a href="http://socaps.org/">美国华人教授科学家学社网站</a></li>
+<li><a href="http://ucapo.org/">美国华盛顿华人专业团体联合会网站</a></li>
+<li><a href="http://caagw.org/">大华府中国大专院校校友联合会网站</a></li>
+<li><a href="http://facpsu.org/">美南中国专家协会联合会网站</a></li>
+<li><a href="http://www.caagc.us/">美国芝加哥华人华侨联合会网站</a></li>
+<li><a href="http://chinese-usa.org/">美国华人联合总会网站</a></li>
+<li><a href="http://www.nycba.us/ch/">纽约华人总商会网站</a></li>
+<div class="clear"></div>
+<li><a href="http://www.fcbainc.org/">法拉盛华人促进会网站</a></li>
+<li><a href="http://www.aciea.org/">美国华侨进出口商会网站</a></li>
+<li><a href="http://www.usccda.org/index.php">美国华人工商业联合会网站</a></li>
+<li><a href="http://cms.cba-usa.org/">美国华人生物医药科技协会网站</a></li>
+<li><a href="http://isd.arizona.edu/castusa/">中国旅美科技协会总会网站</a></li>
+<li><a href="http://www.caps-usa.org/">美国华人医药科学家协会网站</a></li>
+<li><a href="http://www.castdc.org/cast_web_2006/cast_dc.htm">中国旅美科技协会华盛顿分会网站</a></li>
+<li><a href="http://www.cabaweb.org//">美中生物医药协会网站</a></li>
+<li><a href="http://www.tristatecacs.org/Y_awards.php">三州华美化学协会网站</a></li>
+<li><a href="http://www.acma.org/">北美中华医学会网站</a></li>
+<li><a href="http://www.acma.org/">北美中华医学会网站</a></li><li><a href="http://www.sapaweb.org/new/index.htm">华美水利协会网站</a></li><li><a href="http://www.casbi.org/cn/">国际华人科技工商协会网站</a></li><li><a href="http://www.elitepioneer.org/">欧美精英创业家协会网站</a></li><li><a href="http://www.tsinghua-chicago.org/">大芝加哥地区清华校友会网站</a></li><li><a href="http://www.returnchina.org/web/">中国留学人员创业协会（美国硅谷）网站</a></li><li>
+<a href="http://ucgef.org/">美中绿色能源促进会网站</a></li><li><a href="http://www.ocaht.org/">海外华人高新技术协会网站</a></li>
+<li><a href="http://www.ucahp.org/">美中高层次人才交流协会网站</a></li><li><a href="http://www.capst.org/">中国旅美专家协会（休斯敦）网站</a></li>
+<li><a href="http://www.cnloving.com/default95.htm">美国南加州华人联合总会网站</a></li><li><a href="http://www.acpdfw.org/">美国德州达福美中专业人士协会网站</a></li><li><a href="http://www.chineseroundtable.org/">美国华人社团联合总会网站</a></li><li><a href="http://www.fukienusa.com/">美国福建同乡联合会网站</a></li><li><a href="http://www.fairfellow.com/chicagohth/Home.htm">大芝加哥地区中国和平统一促进会网站</a></li>
+<li><a href="http://www.usccc.net/">美国华商总会网站</a></li><li><a href="http://www.chineseciviccenter.org/index.asp">美国休斯顿中国人活动中心网站</a></li><li><a href="http://www.microsoftchime.org/">美国微软华人协会网站</a></li><li><a href="http://www.acse.org/">美国旅美中国科学家工程师专业人士协会网站</a></li><li><a href="http://www.cccaa.org/ch">美国华盛顿地区同乡联合会网站</a></li><li><a href="http://www.gaccc.org/">美国奥斯汀华商会网站</a></li><li><a href="http://caagc.purplehill.net/">美国大芝加哥地区华人华侨联合会网站</a></li><li><a href="http://cagd-us.org/about/">美国底特律中国人协会网站</a></li><li><a href="http://www.cpraus.org/">全美中国和平统一促进会网站</a></li>
+<li><a href="http://www.cafanc.org/default.aspx">美国北卡华人联谊会网站</a></li><li><a href="http://www.ucapo.org/home">美国华人专业团体联合会网站</a></li>
+<li><a href="http://www.nacpu.org/">美国华盛顿中国和平统一促进会网站</a></li>
+<li><a href="http://hawaiichineseassociation.org/hcanewsletter.htm">夏威夷华人联谊会网站</a></li>
+<li><a href="http://www.b2bchinadirect.com/hcrc.htm">夏威夷华人联合总会网站</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">墨西哥</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.aezm.org/">墨西哥中华企业家协会</a></li>
+<li><a href="http://www.empresarioschinos.com/wordpress/">墨西哥西北地区华商总会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+                     </div>
+                     <div id="qwxl_Content1"> <div class="hqhrqwxl_title ">
+<div class="life_title_text">比利时</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.fcjv.be/site/">比利时华人青联联合会</a></li>
+<li><a href="http://www.chineseprofessional.be/">旅比华人专业人士协会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">丹麦</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.hetong.dk/">丹麦中国和平统一促进会 </a></li>
+<li><a href="http://www.aced.dk/">旅丹华人专业人士协会网站 </a></li>
+<li><a href="http://www.huaren.dk/">丹麦华人总会 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">瑞士</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.calss.ch/">瑞士中国学人生命科学协会网站 </a></li>
+<li><a href="http://www.acssz.org/">苏黎世学生学者联合会网站 </a></li>
+<li><a href="http://www.sinotech.ch/">瑞士中国学人科技协会网站 </a></li>
+<li><a href="http://www.chineseic.com/">瑞典华人工商联合会网站 </a></li><li><a href="http://www.kineser.se/">瑞典华人总会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">瑞典</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://kfsv.se/index.php">瑞京华人协会 </a></li>
+<li><a href="http://qingtian.se/">瑞典青田同乡会 </a></li>
+<li><a href="http://www.cbas.se/">瑞典华人生物医药协会网站 </a></li>
+<li><a href="http://www.khfgs.se/">哥德堡华人商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">奥地利</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.oecgiw.com/indexmain0.html">奥地利奥中国际经济贸易促进会 </a></li>
+<li><a href="http://www.fwt-eu.org/chn/chn/index.php">奥中科技交流促进协会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">西班牙</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.accce.com">西班牙华人企业联合会网站 </a></li>
+<li><a href="http://www.soccc.net">西班牙华商协会网站 </a></li>
+<li><a href="http://www.asochino.es/">西班牙华侨华人协会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">俄罗斯</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.rc-youth.org/">俄罗斯华侨华人青年联合会</a>
+<li><a href="http://caihong007.com.cn/">俄罗斯圣彼得堡华人华侨协会</a>
+<li><a href="http://www.moshuaren.com">俄罗斯莫斯科中国北方华人商会网站 </a>
+<li><a href="http://www.007812.cn/">俄罗斯圣彼得堡华人华侨联合会网站 </a></li>
+<li><a href="http://rctongcuhui.org/">俄罗斯中国和平统一促进会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">英国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.ukfujian.org/home.asp">英国福建同乡总会 </a></li>
+<li><a href="http://www.fcam.org.uk/">曼城华人社团联合会 </a></li>
+<li><a href="http://www.ccbuk.org.uk/">英国中华工商联合会 </a></li>
+<li><a href="http://www.cidauk.org/">全英中国创业发展协会网站 </a></li>
+<li><a href="http://www.cssauk.org.uk">全英中国学生学者联谊会网站 </a></li>
+<li><a href="http://www.ceauk.org">全英中国经济学会网站 </a></li>
+<li><a href="http://www.chineseactuary.org/">英国华人精算协会网站 </a></li>
+<li><a href="http://www.oxcssa.org.uk/">牛津中国学联网站 </a></li>
+<li><a href="http://cssa-gre.org.uk/">格林尼治中国学生学者联谊会网站 </a></li>
+<li><a href="http://www.clss.org.uk/">全英华人生命科学学会网站  </a></li>
+<li><a href="http://www.cbtta.org.uk/">中英科技贸易协会网站 </a></li>
+<li><a href="http://www.ecap.org.uk/">爱丁堡专业华人协会网站 </a></li>
+<li><a href="http://www.cafeuk.org.uk/">英国华人金融家协会网站 </a></li>
+<li><a href="http://cacsuk.org/CACSUK%20GG/Index.htm">旅英中国华人自动化与计算协会网站 </a></li>
+<li><a href="http://www.umsu.manchester.ac.uk/cssa_man/index.html">曼彻斯特中国学生学者联谊会网站 </a></li>
+<li><a href="http://cscst.org/">旅英中国华人化学科技与技术协会网站 </a></li>
+<li><a href="http:// www.chinatownchinese.co.uk">伦敦华埠商会网站  </a></li>
+<li><a href="http://www.ycp-scotland.com/">苏格兰青年华人精英会网站 </a></li>
+<li><a href="http://www.cocauk.org.uk/">全英华人社团联合总会、曼彻斯特华人社团联会网站 </a></li>
+<li><a href="http://www.ace-uk.org.uk/">旅英中国工程师协会网站 </a></li>
+<li><a href="http://www.tcce.org.uk/">英格兰台湾商会青年商会网站 </a></li><li><a href="http://www.ukapce.org.uk/">英国中文教育促进会网站 </a></li><li><a href="http://www.fgd.org.uk/cn/index.asp">英国广东华侨华人联合总会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">德国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.crecre.de/">欧洲华人华侨退休者协会</a></li>
+<li><a href="http://casd-ev.org/casd/index.php">中国留德学者学生团体联合会</a></li>
+<li><a href="http://www.kolonnade.org/">德中文化教育促进会</a></li>
+<li><a href="http://www.dcgs2006.de/">德中体育文化交流协会</a></li>
+<li><a href="http://www.defjsh.com/">德国福建商会 </a></li>
+<li><a href="http://www.frankfurt-china.de/">法兰克福中国学生学者联合会 </a></li>
+<li><a href="http://www.fwt-eu.org/chn/chn/index.php">全德华人社团联合会网站 </a></li>
+<li><a href="http://www.cumd.de/">德国中部华商会网站 </a></li>
+<li><a href="http://www.gci-online.de/">中国留德学者计算机学会网站 </a></li><li><a href="http://cgme.qiche.info/">全德华人机电工程学会网站 </a></li><li><a href="http://www.gci-online.de/">留德华人计算机协会网站 </a></li>
+<li><a href="http://www.aixinxiehui.de/">旅德华侨华人爱心协会</a></li>
+<li><a href="http://www.ein-china.de/">德国中国和平统一促进会</a></li>
+<li><a href="http://www.dcku-verein.com/about.html">德中艺术文化交流协会</a></li>
+<li><a href="http://www.tsinghua-alumni.de/">德国清华校友会,全德学生学者团体联合会网站 </a></li>
+<li><a href="http://www.ein-china.de/">德国华人华侨中国和平统一促进会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">意大利</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.associnami.com/">意大利米兰华侨华人工商会网站 </a></li>
+<li><a href="http://www.romamyzh.com/">意大利华侨华人贸易总会网站 </a></li>
+<li><a href="http://milanphd.org/">米兰博士沙龙网站 </a></li>
+<li><a href="http://www.assozj.com/">意大利米兰浙江华侨华人联谊会网站 </a></li><li><a href="http://www.mlrah.com/">意大利北部瑞安同乡会网站 </a></li><li><a href="http://www.italiapratohuashanghui.com/">意大利普拉托华商总会网站 </a></li><li><a href="http://www.mwtxh.com/">意大利米兰文成同乡会网站 </a></li>
+<li><a href="http://www.acfvg.com/index.asp">意大利东北四省华侨华人联合会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">乌克兰</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.odessacn.com/">乌克兰中国文化中心网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">荷兰</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.chineesonderwijs.nl/">荷兰中文教育协会</a></li>
+<li><a href="http://www.ccgn.nl/index.html">荷兰华人基督教会</a></li>
+<li><a href="http://www.caln.nl/drupal/">荷兰华人生命科学协会</a></li>
+<li><a href="http://www.fcpae-online.com/">全欧华人专业协会联合会</a></li>
+<li><a href="http://www.chineseclubcuracao.com/index.php?id=1">库拉索华侨公所</a></li>
+<li><a href="http://www.lfcon.nl/">全荷华人社团联合会</a></li>
+<li><a href="http://www.theefco.com/index.php">欧洲华侨华人社团联合会 </a></li>
+<li><a href="http://www.ecqiaoai.com/">欧洲侨爱基金会网站 </a></li>
+<li><a href="http://www.dccc.nl/?lang=zh">荷兰中国商会网站 </a></li>
+<li><a href="http://www.dctepa.com/cn/">荷兰中国贸易促进会网站 </a></li>
+<li><a href="http://www.ccpn.nl/">荷兰华人经济技术发展中心网站 </a></li><li><a href="http://milanphd.org/">荷兰华人学者与工程师协会网站 </a></li>
+<li><a href="http://www.acvnl.com/">旅荷华侨总会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">捷克</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.scmc.cz/">捷克华人青年联合会 </a></li>
+<li><a href="http://www.ccoa.cz/home.php">捷克华商会网站 </a></li>
+<li><a href="http://www.wenzhou.cz/Ch/">捷克温州商会网站 </a></li>
+<li><a href="http://www.qingtian.cz/">捷克青田同乡会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">法国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://fghyhzh.cr.hqcr.com/">法国华裔互助会</a></li>
+<li><a href="http://www.sjtu-france.org/">上海交通大学法国校友会 </a></li>
+<li><a href="http://www.chinamcec.com/">法国中法文化交流协会 </a></li>
+<li><a href="http://www.acwfparis.fr/">法国温州商会网站 </a></li>
+<li><a href="http://www.euro-china.net/index.aspx">欧洲中国企业家联合会 </a></li>
+<li><a href="http://cn.aicf.eu/">中国旅法工程师协会网站 </a></li>
+<li><a href="http://www.aalocf.com/">法国外籍兵团退伍华人协会网站 </a></li>
+<li><a href="http://www.franceqw.com/portal.php?
+mod=topic&topicid=13">法国法华工商联合会网站 </a></li>
+<li><a href="http://www.afocrf.com/">法国妇女联合会网站 </a></li>
+<li><a href="http://www.fcpae.com/">全欧华人专业协会联合会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">希腊</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.gcocw.com/">希腊华侨华人总商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">冰岛</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.chinese.is/">冰岛华人华侨协会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">匈牙利</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.ccppr.org/index.html">匈牙利中国和平统一促进会网站 </a>
+<li><a href="http://www.qingtian.eu/index.html">匈牙利青田同乡会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">爱尔兰</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.icyea.org/">爱尔兰青年华人企业家联合会网站 </a></li>
+<li><a href="http://www.iefujian.com/index.asp">爱尔兰福建商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">保加利亚</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.cn.bccci.net/">保加利亚中国工业商会 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">芬兰</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.huaren.fi/">芬兰华人联谊会</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div></div>
+                     <div id="qwxl_Content2"> <div class="hqhrqwxl_title ">
+<div class="life_title_text">泰国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.jzhthai.com/">泰国江浙沪总商会</a></li>
+<li><a href="http://www.tycc.org">泰国华人青年商会网站</a></li>
+<li><a href="http://www.thaicc.org">泰国中华总商会网站 </a></li>
+<li><a href="http://www.tcea.or.th">泰华进出口商会网站</a></li>
+<li><a href="http://www.hepingshijie.com/">泰国中国和平统一促进会网站</a></li>
+<li><a href="http://www.cocea.org.cn/">泰籍华人、中国侨商投资企业协会网站</a></li>
+<li><a href="http://tgczhg.cr.hqcr.com/">泰国潮州会馆网站</a></li>
+<li><a href="http://www.hakkathailand.com/">泰国客家总会网站</a></li><li><a href="http://www.chonghua.or.th/">泰国中华会馆网站</a></li><li><a href="http://thaigc.com/">泰国广西总会网站</a></li><li><a href="http://www.thaicsa.org/">泰国华文名校协会网站</a></li><li><a href="http://www.ctathai.com/">泰国华文教师公会网站</a></li><li><a href="http://www.kwongsiewthai.com/">泰国广肇会馆网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">菲律宾</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://flbfhcslyh.cr.hqcr.com/">菲律宾菲华潮汕联谊会 </a></li>
+<li><a href="http://www.pccciinc.com/">菲律宾中国商会 </a></li>
+<li><a href="http://cbhp.org.vn/?cat=3">菲律宾中国商会海防分会 </a></li>
+<li><a href="http://www.ffcap.com.ph">菲华各界联合会网站  </a></li>
+<li><a href="http://www.ffcccii.com.ph">菲华商联总会网站  </a></li>
+<li><a href="http://www.cfbc.com.ph">菲华工商总会网站 </a></li>
+<li><a href="http://www.grandfamilyassociation.com/">菲律宾各宗亲会联合会网站 </a></li>
+<li><a href="http://archive.anvil.org.ph/">菲华青年企业家商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">马来西亚</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://sttaa.com.my/主页/">沙巴崇正校友会</a></li>
+<li><a href="http://www.sarawakhakka.com.my/index/">马来西亚砂拉越客属公会</a></li>
+<li><a href="http://www.hepo.org/">马来西亚河婆同乡会联合总会</a></li>
+<li><a href="http://www.huiningmalaysia.org/">马来西亚会宁总会</a></li>
+<li><a href="http://www.longxitang.org/slylx/index.html">砂拉越陇西公会</a></li>
+<li><a href="http://www.abshost.com/huazong/index.php">马来西亚砂拉越晋汉省华人社团总会</a></li>
+<li><a href="http://www.hangtuan.org/index.php">马来西亚华人行业社团联合会</a></li>
+<li><a href="http://chi.acccis.org.my/">砂拉越中华工商联合会</a></li>
+<li><a href="http://www.acccim.org.my/">马来西亚中华总商会</a></li>
+<li><a href="http://www.mccc.my/index.php?option=com_content&view=frontpage&Itemid=1">马来西亚中国经济贸易总商会网站 </a></li>
+<li><a href="http://www.ppmc.com.my">马中友好协会网站</a></li>
+<li><a href="http://www.huazong.my/">马来西亚中华大会堂总会网站</a></li>
+<li><a href="http://web.jiaozong.org.my/index.php?option=com_frontpage&Itemid=1">马来西亚华校教师会总会网站</a></li>
+<li><a href="http://www.dongzong.my/">马来西亚华校董事联合会总会网站</a></li>
+<li><a href="http://www.acccim.org.my/">马来西亚中华总商会网站</a></li>
+<li><a href="http://www.liuhua.org.my/web/en/index.aspx">马来西亚留华同学会网站</a></li><li><a href="http://www.chms1.edu.my/cms/">马来西亚砂拉越古晋中华第一三四中学网站</a></li><li><a href="http://sahuazong.org/">马来西亚砂拉越华人社团联合总会网站</a></li>
+<li><a href="http://www.penangteochew.org.my/main.php">马来西亚槟榔屿潮州会馆网站</a></li><li><a href="http://news.teochew-skl.org/">马来西亚雪隆潮州会馆网站</a></li><li><a href="http://kwangtung.org.my/">马来西亚雪隆广东会馆网站</a></li><li><a href="http://www.teochew.org.my/teochewKP.html">马来西亚吉玻潮州会馆会网站</a></li><li><a href="http://www.teochewbp.org/">马来西亚峇株巴辖潮州会馆网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">新加坡</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.lamann.org/index.html">新加坡南安会馆</a></li>
+<li><a href="http://www.sgcssa.org/">新加坡中国学者学生联合会 </a></li>
+<li><a href="http://www.tsinghua.org.sg/ss/">新加坡清华校友会网站 </a></li>
+<li><a href="http://www.s-cba.org.sg">新加坡中国商会网站  </a></li>
+<li><a href="http://www.pkuaas.org">北京大学新加坡校友会网站 </a></li>
+<li><a href="http://www.sccci.org.sg">新加坡中华总商会网站 </a></li><li><a href="http://www.scaast.org.sg/">新加坡-中国科学技术交流促进协会网站 </a></li><li><a href="http://www.robotics.sg/society/">新加坡机器人专业协会网站 </a></li><li><a href="http://www.ieasg.org/en/">新加坡创新创业协会网站 </a></li>
+<li><a href="http://www.sfcca.sg/">新加坡宗乡总会网站 </a></li><li><a href="http://www.tianfu.org.sg/">新加坡天府会网站 </a></li><li><a href="http://teochew.sg/">新加坡潮州八邑会馆网站 </a></li><li><a href="http://www.hainan.org.sg/">新加坡海南会馆网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">日本</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.cccwj.org/index.html">西日本中华总商会</a></li>
+<li><a href="http://www.wenzhou-jp.org/">日本温州同乡会</a></li>
+<li><a href="http://www.ocajapan.org">西日本新华侨华人联合会网站</a></li>
+<li><a href="http://www.cbakj.com/">日本关西在职中国人交流协会网站 </a></li>
+<li><a href="http://www.jcic.co.jp">中国留日同学总会网站 </a></li>
+<li><a href="http://aclj.kainou.org/">在日中国律师联合会网站 </a></li>
+<li><a href="http://www.come.or.jp/acsej/index.html">在日中国科学技术者联盟网站 </a></li>
+<li><a href="http://jpcals.googlepages.com">留日中国人生命科学协会网站 </a></li>
+<li><a href="http://www.nocaj.org/">日本新华侨华人会网站 </a></li>
+<li><a href="http://www.acajapan.org">中国留日同学会网站 </a></li>
+<li><a href="http://www.hocu.net/">北海道华侨华人联合会网站 </a></li>
+<li><a href="http://www.jcsae.org">在日华人汽车工程师协会网站  </a></li>
+<li><a href="http://www.liurixueren.org/index.php">全日本中国留学生学友会网站 </a></li>
+<li><a href="http://www.cccj.jp">日本中华总商会网站 </a></li>
+<li><a href="http://jcst.chinajob.com/">日中科学技术文化中心网站 </a></li><li><a href="http://www.huayilian.com/">日本华侨华人文学艺术界联合会网站 </a></li><li><a href="http://www.9capa.net/">日本九州中国人学者技术人员联合会网站 </a></li>
+<li><a href="http://scpj.jp/">日本华人教授会网站 </a></li>
+<li><a href="http://www.shikoku-kajin.jp/">日本四国华侨华人联合会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">越南</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.vietchina.org/index.aspx">越南中国商会</a></li>
+<li><a href="http://cbah.org.vn/">中国商会胡志明市商会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">印度尼西亚</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.perpit.or.id/man/">印度尼西亚中华总商会</a></li>
+<li><a href="http://ynczxqgh.cr.hqcr.com/">印尼潮州乡亲公会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">韩国</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.ckiin.com/">中国在韩侨民协会总会</a></li>
+<li><a href="http://kcca.chinajob.com/">韩中文化协会</a></li>
+<li><a href="http://kboca.kbchs.org/">韩国釜山华侨协会网站</a></li>
+<li><a href="http://www.craskhc.com/index3.php">韩国汉城华侨协会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">柬埔寨</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.fujianms.org/">柬埔寨福建会馆</a></li>
+<li><a href="http://www.jpzzs.com/">柬埔寨浙江商会</a></li>
+<li><a href="http://www.chkmeba.com.kh/">柬埔寨中国港澳侨商总会网站</a></li>
+<li><a href="http://www.cambo-china.com/">柬埔寨中国商会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">香港</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://ct.chaoren.com/">国际潮团总会网</a></li>
+<li><a href="http://www.qiao-you.com/">侨友网站</a></li>
+<li><a href="http://www.worldfuzhou.org/">世界福州十邑同乡总会网站</a></li>
+<li><a href="http://www.iafqc.com/home.php/">世界福清社团联谊会网站</a></li>
+<li><a href="http://cgcc.org.hk/b5/index.aspx">香港中华总商会网站</a></li>
+<li><a href="http://www.fhka.com.hk/">香港友好协进会网站</a></li><li><a href="http://www.hqu.org.hk/">华侨大学香港校友会网站</a></li><li><a href="http://occchk.com/?cat=1">香港华侨华人总商会网站</a></li><li><a href="http://www.happrc.hk/tc/">中国和平统一促进会香港总会网站</a></li><li><a href="http://www.jnuhkaa.org/index.do">暨南大学香港校友会网站</a></li>
+<li><a href="http://www.ocpan.org/">全球华侨华人专业协会协作网网站</a></li>
+<li><a href="http://www.wea.com.cn/">世界华人企业家协会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">澳门</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://mmoca.massn.com/home/36">澳门缅华互助会</a></li>
+<li><a href="http://www.overseachinese.org.mo/">澳门归侨总会网站</a></li>
+<li><a href="http://www.macaoppnr.com/new/main01.asp">澳门地区中国和平统一促进会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">阿联酋</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.uae-chinese.org/">阿联酋华侨华人联合会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">吉尔吉斯斯坦</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://jrjsqb.com/">吉尔吉斯斯坦共和国中国和平统一促进会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">印度</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://ccei.org.in/">印度中国企业商会</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div></div>
+                     <div id="qwxl_Content3"> <div class="hqhrqwxl_title ">
+<div class="life_title_text">巴西</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1434.html">巴西广东同乡会</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/text-1979.html">巴西天津同乡联谊会</a></li>
+<li><a href="http://www.bxqw.com/index.php/blank/hbpd/1/cn/2313/1431.html">巴西中国退伍军人联谊会</a></li>
+<li><a href="http://cccbrazil.com">巴西中华总商会网站</a></li>
+<li><a href="http://fembrach.org.br">巴中企业家联合总会网站</a></li>
+<li><a href="http://cbcde.org.br">巴西中国经济贸易促进会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-2735.html">巴西中国和平统一促进会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1435.html">巴西里约华人联谊会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1955.html">巴西华人华侨青年联合会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1914.html">巴西华人文化交流协会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1970.html">巴西福建同乡会网站</a></li>
+<li><a href="http://www.bxqw.com/?user=huaren">巴西华人协会网站</a></li>
+<li><a href="http://www.bxqw.com/userlist/hbpd/blank-1432.html">巴西中国浙江商会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">巴拿马</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://unicrese.com">巴拿马中国产品进出口协会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">智利</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.chilehs.net/zz/index.php">智利华商联合总会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">阿根廷</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.acfujian.com/">阿根廷福建同乡会</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div></div>
+                     <div id="qwxl_Content4"><div class="hqhrqwxl_title ">
+<div class="life_title_text">毛里求斯</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://cccmauritius.org">毛里求斯华商总会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">南非</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://sachinesecpf.com/">南非华人警民合作中心网站 </a></li>
+<li><a href="http://www.afcpprc.org.za/">全非洲中国和平统一促进会会网站 </a>
+<li><a href="http://www.cabc.org.cn/">中非民间商会网站 </a></li>
+<li><a href="http://www.cgcca.org/">非洲中华总商会网站 </a></li>
+<li><a href="http://www.safujian.co.za/">南部非洲中华福建同乡会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">安哥拉</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.assochina.com/">安哥拉中国商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">加纳</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.ghanachineseonline.com/">加纳中华工商总会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">喀麦隆</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.ccppr-cameroon.com/">喀麦隆中国和平统一促进会
+网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">马达加斯加</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.madhszh.com/Index.asp">马达加斯加华商总会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">塞舌尔</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.sc248.com/">塞舌尔中国和平统一促进会</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+                     <div id="qwxl_Content5"><div class="hqhrqwxl_title ">
+<div class="life_title_text">澳大利亚</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://awxcc.org.au/">澳大利亚无锡商会</a></li>
+<li><a href="http://aushainan.com/index.php">澳大利亚海南同乡网</a></li>
+<li><a href="http://www.aziba.org.au/main.html">澳大利亚浙江国际商会</a></li>
+<li><a href="http://www.chinachamber.org.au/">澳大利亚中国总商会</a></li>
+<li><a href="http://www.wenzhoumel.com/">澳大利亚墨尔本浙江温州同乡会</a></li>
+<li><a href="http://azcztxh.cr.hqcr.com/">澳洲潮州同乡会</a></li>
+<li><a href="http://www.cpca.org.au/">澳华学人协会网站 </a></li>
+<li><a href="http://www.ausinan.org/">澳华科学技术协会网站 </a></li>
+<li><a href="http://www.acii.com.au">澳华交流中心网站 </a></li>
+<li><a href="http://www.waccc.com.au">西澳中华总商会网站</a></li>
+<li><a href="http://www.acfo.org.au">澳大利亚华人金融专家协会网站  </a></li>
+<li><a href="http://www.abima.com.au">澳大利亚商业投资移民协会网站 </a></li>
+<li><a href="http://www.aacci.com.au">澳亚工商总会网站 </a></li>
+<li><a href="http://www.chinesecentre.com.au/">澳大利亚华人援助中心网站 </a></li>
+<li><a href="http://www.australiantcm.com.au/">澳大利亚中医学会网站</a></li>
+<li><a href="http://http://www.caemedia.com/">中澳企业家联合会网站</a></li>
+<li><a href="http://http://www.acabs.org.au/">澳洲华人生物医学协会网站</a></li>
+<li><a href="http://www.fcavic.org/main/index.php">澳大利亚维省华联会网站</a></li>
+<li><a href="http://www.acetca.org.au/Chinese/index.htm">澳大利亚中华经贸文化交流促进会网站</a></li>
+<li><a href="http://www.acpprc.org.au/schinese/huizhang.asp">澳洲中国和平统一促进会网站</a></li>
+<li><a href="http://www.queenslandchinese.org.au/site2010/2010_index.php">澳大利亚昆士兰中国人协会网站</a></li>
+<li><a href="http://www.afbc.com.au/Default.aspx">澳大利亚闽商会网站</a></li>
+<li><a href="http://www.wacpprc.org/">西澳中国和平统一促进会网站 </a></li>
+<li><a href="http://www.acfo.org.au/index.php">澳大利亚华人金融专家协会网站 </a>
+<li><a href="http://www.icca.org.au/">澳洲纽省越棉寮华人联谊会网站 </a><li><a href="http://www.qldfujian.com/">澳大利亚昆士兰福建同乡会网站 </a><li><a href="http://www.hakkawa.com/">西澳客家公会网站 </a></li>
+<li><a href="http://www.qcase.org.au/">澳洲昆士兰华人科学家与工程师协会网站</a></li><li><a href="http://www.aclsa.org.au/">澳大利亚中文学校联合会网站</a></li><li><a href="http://www.ozcba.com/">澳洲华人建筑协会网站</a></li><li><a href="http://www.sasa2011.org.au/">澳洲华人中老年人协会网站</a></li><li><a href="http://www.ausoccerfans.com/">澳洲华人球迷协会网站</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">新西兰</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.fujian.org.nz/">新西兰福建同乡会</a></li>
+<li><a href="http://henanesenz.org/">新西兰河南同乡联谊会 </a></li>
+<li><a href="http://www.nzcyf.org/portal.php">新西兰中华青年联合会网站 </a></li>
+<li><a href="http://www.nzcsa.com/index.html">新西兰中国学生联谊会网站 </a></li>
+<li><a href="http://www.canzbc.co.nz/chn/index.html">新西兰新中商会网站 </a>
+<li><a href="http://www.hccnz.com/">新西兰河南商会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="hqhrqwxl_title ">
+<div class="life_title_text">汤加</div>
+</div>
+<div class="new_con_border_b">
+<ul class="module_con_ulpd_qwxl">
+<li><a href="http://www.tonga-chinese.org/">汤加华人联合会网站 </a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</div></div>
+                        <div class="clear"></div>
+                 </div>
+                  <div class="clear"></div>
+
+           </div>
+                      <div class="clear"></div>   
+                     </div>
+
+                  <div class="clear"></div>   
+                 </div>
+                 <div class="topdiv">
+                    <div class="bottoml"></div>
+                    <div class="bottomc"></div>
+                    <div class="bottomr"></div>
+                 </div>
+           </div>
+
+               <div class="clear"></div>
+
+     <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+
+<!--海外侨团-->
+
+  <!--中国国内涉侨网站-->
+  <div class="qw_main" id="">
+  <div class="qw_main_box" id="">
+  <div class="qw_hqhr_titlesj_qwxl1 mt10"></div>
+
+           <div class="qw_qwxlyjbox">
+                   <div class="topdiv">
+                    <div class="topl"></div>
+                    <div class="topc"></div>
+                    <div class="topr"></div>
+                 </div>
+                 <div class="conbox">
+                     <div class="conboxtext">
+                     	<!---->
+                        <div class=" ">
+
+                              <div class="new_con_border_b">
+                                <ul class="module_con_ulpd_qwxl">
+                                       <li><a href="http://hnxthsh.com.cn">湘潭市华商企业联合会</a></li>
+<li><a href="http://xaocea.com/">西安市侨商会</a></li>
+<li><a href="http://socia.org">深圳市侨商国际联合会</a></li>
+<li><a href="http://nbcocb.com">宁波市侨商会</a></li>
+<li><a href="http://hboccc.com">湖北省侨商协会</a></li>
+<li><a href="http://hzocc.net">杭州市侨商会</a></li>
+<li><a href="http://gocef.cn">桂林侨资企业联合会</a></li>
+<li><a href="http://gzqw.gov.cn">广州市侨商投资企业协会</a></li>
+<li><a href="http://doccc.org">大连市海外华商联合会</a></li>
+
+                                       <div class="clear"></div>
+                                     </ul>
+                             <div class="clear"></div>
+                              </div>
+                        <div class="clear"></div>
+                        </div>
+
+         `				 <!---->
+
+                     <div class="clear"></div>   
+                     </div>
+
+                  <div class="clear"></div>   
+                 </div>
+                 <div class="topdiv">
+                    <div class="bottoml"></div>
+                    <div class="bottomc"></div>
+                    <div class="bottomr"></div>
+                 </div>
+           </div>
+
+               <div class="clear"></div>
+
+     <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+
+<!--华人社会-->
+
+   <div class="qw_foot_hqhr ">
+   			<!--qw_foot s-->
+     		<strong><a href="http://www.chinaqw.com/kong/2014/06-06/5680.shtml" target="_blank">网站介绍</a> | <a href="http://www.chinaqw.com/kong/2014/06-10/6015.shtml" target="_blank">联系我们</a> | <a href="mailto:qiaojie@chinanews.com.cn">供稿信箱</a></strong>
+        <p>
+中国侨网版权所有，未经授权禁止复制和建立镜像 <a href="http://www.miibeian.gov.cn/" target="_blank">[京ICP备05067153号]</a> [京公网安备:110102003042-2] <a href="http://net.china.com.cn/chinese/index.htm" target="_blank">[不良和违法信息举报]</a></p>
+<a href="http://www.chinaqw.com/"><img width="120 "src="http://i3.chinaqw.com/qiaowu/images/logo.png"/></a>
+
+  <!--qw_foot e-->
+   </div>
+</body>
+</html>
